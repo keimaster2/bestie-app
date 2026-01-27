@@ -8,8 +8,10 @@ export default function Home() {
         <h1 className="text-4xl font-bold tracking-tight sm:text-6xl mb-4">
           LifeBest3
         </h1>
-        <p className="text-xl text-gray-500 dark:text-gray-400">
-          迷わない。探さない。人生のベスト3だけをここに。
+        <p className="text-xl text-gray-500 dark:text-gray-400 leading-relaxed">
+          「どれがいい？」と聞かれたら、<br className="sm:hidden" />
+          責任を持ってこの3つだけを推す。<br />
+          自腹で試し続けたガジェットオタクの結論。
         </p>
       </header>
 
