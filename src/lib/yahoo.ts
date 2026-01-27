@@ -24,17 +24,20 @@ export async function fetchYahooRanking(categoryId: string = "1"): Promise<Yahoo
   // 安全策として、検索APIを使って「売上順」で取得する
   // V3 itemSearch はパラメータがシビアなので、最小構成にする
   
-  // "1" (総合) の場合、category_id=1 はエラーになることがあるため、
-  // カテゴリ指定なしで、広範なクエリ（例: " "）を送るか、
-  // もしくは queryパラメータなしで genre_category_id を送らない（動くか不明）
-  // 試しに query=売れ筋 を設定する
+  // カテゴリごとの除外キーワード設定（ノイズ除去）
+  const negativeKeywords: Record<string, string> = {
+    "2502": "-インク -ケーブル -電池 -フィルム -ケース -保護", // 家電・PC周辺機器
+    "13457": "-靴下 -ソックス -下着 -インナー", // ファッション
+  };
+
+  const excludeQuery = negativeKeywords[categoryId] ? ` ${negativeKeywords[categoryId]}` : "";
+
   const categoryParam = categoryId === "1" 
     ? "&query=%E9%80%81%E6%96%99%E7%84%A1%E6%96%99" // "送料無料"
-    : `&genre_category_id=${categoryId}`;
+    : `&genre_category_id=${categoryId}&query=${encodeURIComponent(excludeQuery)}`; // カテゴリID + 除外KW
   
-  // sort=-sold が効かない場合もあるので、sortパラメータなし（標準）も検討するが
-  // まずはタイムアウトを防ぐため、fetchのタイムアウトを設定する
-  const url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${YAHOO_APP_ID}${categoryParam}&sort=-sold&results=30`;
+  // sort=-sold だと小物ばかりになるため、標準ソート(スコア順)に戻してメイン家電も出るようにする
+  const url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${YAHOO_APP_ID}${categoryParam}&results=30`;
 
   try {
     if (YAHOO_APP_ID === "DUMMY_ID") {

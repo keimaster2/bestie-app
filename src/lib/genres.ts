@@ -6,11 +6,9 @@ export type Genre = {
 };
 
 export const GENRES: Genre[] = [
-  { id: "all", name: "総合", rakutenId: "", yahooId: "1" }, // Yahooの1は「すべてのカテゴリ」
-  { id: "fashion", name: "ファッション", rakutenId: "100371", yahooId: "13457" },
-  { id: "food", name: "食品", rakutenId: "100227", yahooId: "2498" },
-  { id: "electronics", name: "家電", rakutenId: "562637", yahooId: "2502" },
-  { id: "daily", name: "日用品", rakutenId: "211742", yahooId: "2500" }, // ダイエット・健康含む
-  { id: "cosmetics", name: "コスメ", rakutenId: "100939", yahooId: "2501" },
-  { id: "books", name: "本・雑誌", rakutenId: "200162", yahooId: "10002" },
+  { id: "all", name: "総合", rakutenId: "", yahooId: "1" },
+  { id: "electronics", name: "家電・PC", rakutenId: "562637", yahooId: "2502" },
+  { id: "daily", name: "日用品", rakutenId: "211742", yahooId: "2500" },
+  { id: "cosmetics", name: "コスメ", rakutenId: "100939", yahooId: "2501" }, // 美容
+  { id: "hobby", name: "ホビー", rakutenId: "101164", yahooId: "2511" }, // 趣味・ゲーム・おもちゃ
 ];

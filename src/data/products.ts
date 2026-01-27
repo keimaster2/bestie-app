@@ -1,53 +1,119 @@
-export interface Product {
-  rank: 1 | 2 | 3;
-  name: string;
-  price: string;
-  description: string;
-  imageUrl: string; // Placeholder for now
-  affiliateLink: string; // Placeholder
-  features: string[];
-}
+import { Product } from "@/app/page"; 
 
-export interface Category {
+export type ProductData = {
   id: string;
+  rank?: number;
   title: string;
-  description: string;
-  products: Product[];
-}
+  price: number;
+  rating: number;
+  reviewCount: number;
+  // image: string; // 廃止
+  asin?: string;   // Amazon用
+  image?: string;  // 他モール用（互換性のため残す）
+  mall: "Amazon" | "Rakuten" | "Yahoo";
+  shopName: string;
+  url: string;
+};
 
-export const categories: Category[] = [
+// Amazonの手動おすすめ商品リスト
+export const amazonProducts: ProductData[] = [
+  // --- ガジェット・家電 ---
   {
-    id: "noise-cancelling-headphones",
-    title: "最強のノイズキャンセリングヘッドホン TOP3",
-    description: "「カフェでも電車でも、瞬時に『自分だけの書斎』を作り出す魔法のツール」。それが今のところの結論です。",
-    products: [
-      {
-        rank: 1,
-        name: "Sony WH-1000XM5",
-        price: "¥49,800",
-        description: "正直、デザインが変わった時は「え？」と思った。でも着けて納得。前作XM4で「静寂」だと思っていた空間が、実はまだうるさかったことに気づかされるレベル。特に人の話し声が消えるのが凄い。値段は可愛くないけど、毎日の通勤ストレスが消えるなら実質タダみたいなもん。",
-        imageUrl: "https://placehold.co/600x400/111/FFF?text=Sony+XM5", 
-        affiliateLink: "#",
-        features: ["静寂すぎて怖くなるレベル", "メガネかけてても痛くならない", "通話品質がWEB会議で褒められた"]
-      },
-      {
-        rank: 2,
-        name: "Bose QuietComfort Ultra",
-        price: "¥54,000",
-        description: "「低音のBose」は健在だけど、今回の目玉はイマーシブオーディオ。音楽が頭の中で鳴るんじゃなくて、目の前のステージから聞こえてくる感覚。ライブ音源をよく聴くなら絶対にこっち。ただ、アプリの接続がたまに不安定なのが玉にキズ（アプデで直ることを祈る）。",
-        imageUrl: "https://placehold.co/600x400/222/FFF?text=Bose+Ultra",
-        affiliateLink: "#",
-        features: ["ライブ会場にいるような没入感", "伝統の強力なノイキャン", "折りたためて持ち運び最高"]
-      },
-      {
-        rank: 3,
-        name: "Apple AirPods Max",
-        price: "¥84,800",
-        description: "高い。重い。ケースが変。…なのに、iPhoneユーザーなら結局これが最適解になってしまう悔しさ。Apple製品間の切り替えのスムーズさは魔法だし、アルミの質感は所有欲をこれでもかと満たしてくれる。「機能」というより「ラグジュアリーな体験」を買う感覚に近い。",
-        imageUrl: "https://placehold.co/600x400/EEE/333?text=AirPods+Max",
-        affiliateLink: "#",
-        features: ["iPhone/Macとの連携が神", "所有欲を満たす圧倒的質感", "外音取り込みが自然すぎてビビる"]
-      }
-    ]
+    id: "amazon-xm5",
+    rank: 1,
+    title: "ソニー ワイヤレスノイズキャンセリングステレオヘッドセット WH-1000XM5",
+    price: 48500,
+    rating: 4.6,
+    reviewCount: 3820,
+    asin: "B09Y2H2B5V", // ASINを追加
+    mall: "Amazon",
+    shopName: "Amazon.co.jp",
+    url: "https://www.amazon.co.jp/dp/B09Y2H2B5V/",
+  },
+  {
+    id: "amazon-anker",
+    rank: 2,
+    title: "Anker Soundcore Liberty 4（Bluetooth 5.3）",
+    price: 14990,
+    rating: 4.4,
+    reviewCount: 12500,
+    asin: "B0B9M5D45C",
+    mall: "Amazon",
+    shopName: "Anker Direct",
+    url: "https://www.amazon.co.jp/dp/B0B9M5D45C/",
+  },
+  {
+    id: "amazon-kindle",
+    rank: 3,
+    title: "Kindle Paperwhite (16GB) 6.8インチディスプレイ",
+    price: 19980,
+    rating: 4.5,
+    reviewCount: 8900,
+    asin: "B09TMN5M3V",
+    mall: "Amazon",
+    shopName: "Amazon Devices",
+    url: "https://www.amazon.co.jp/dp/B09TMN5M3V/",
+  },
+  {
+    id: "amazon-firestick",
+    rank: 4,
+    title: "Fire TV Stick 4K Max(マックス)第2世代",
+    price: 9980,
+    rating: 4.3,
+    reviewCount: 1500,
+    asin: "B0BP9SNVFS",
+    mall: "Amazon",
+    shopName: "Amazon Devices",
+    url: "https://www.amazon.co.jp/dp/B0BP9SNVFS/",
+  },
+  // --- 日用品・食品 ---
+  {
+    id: "amazon-water",
+    rank: 5,
+    title: "[Amazonブランド] Happy Belly 天然水ラベルレス 2L×9本",
+    price: 1069,
+    rating: 4.4,
+    reviewCount: 22000,
+    asin: "B08C4W7F2M",
+    mall: "Amazon",
+    shopName: "Amazon",
+    url: "https://www.amazon.co.jp/dp/B08C4W7F2M/",
+  },
+  {
+    id: "amazon-nuts",
+    rank: 6,
+    title: "ミックスナッツ 3種入り 850g 無塩",
+    price: 1580,
+    rating: 4.2,
+    reviewCount: 8500,
+    asin: "B07R55P7QW",
+    mall: "Amazon",
+    shopName: "NUTS TO YOU",
+    url: "https://www.amazon.co.jp/dp/B07R55P7QW/",
+  },
+  // --- その他 ---
+  {
+    id: "amazon-towel",
+    rank: 7,
+    title: "タオル研究所 [ボリュームリッチ] #003 フェイスタオル 5枚セット",
+    price: 1890,
+    rating: 4.6,
+    reviewCount: 45000,
+    asin: "B07T4858XJ",
+    mall: "Amazon",
+    shopName: "タオル研究所",
+    url: "https://www.amazon.co.jp/dp/B07T4858XJ/",
+  },
+  {
+    id: "amazon-anker-cable",
+    rank: 8,
+    title: "Anker PowerLine III Flow USB-C & USB-C ケーブル 1.8m",
+    price: 1890,
+    rating: 4.7,
+    reviewCount: 18000,
+    asin: "B08F28956F",
+    mall: "Amazon",
+    shopName: "Anker Direct",
+    url: "https://www.amazon.co.jp/dp/B08F28956F/",
   }
 ];

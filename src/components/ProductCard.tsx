@@ -11,7 +11,8 @@ type Product = {
   price: number;
   rating: number;
   reviewCount: number;
-  image: string;
+  image?: string; // imageは任意に
+  asin?: string;  // asinを追加
   mall: "Amazon" | "Rakuten" | "Yahoo";
   shopName: string;
   url: string;
@@ -23,6 +24,7 @@ export default function ProductCard({ product }: { product: Product }) {
   if (product.title) params.set("title", product.title);
   if (product.price != null) params.set("price", product.price.toString());
   if (product.image) params.set("image", product.image);
+  if (product.asin) params.set("asin", product.asin); // 追加
   if (product.mall) params.set("mall", product.mall);
   if (product.url) params.set("url", product.url);
   if (product.shopName) params.set("shop", product.shopName);
@@ -30,6 +32,26 @@ export default function ProductCard({ product }: { product: Product }) {
   if (product.reviewCount != null) params.set("review", product.reviewCount.toString());
 
   const detailUrl = `/product/${product.id}?${params.toString()}`;
+
+  // アフィリエイトリンクの生成（Amazon用）
+  const getAffiliateUrl = (url: string, mall: string) => {
+    if (mall === "Amazon" && url.includes("amazon.co.jp")) {
+      // 末尾のスラッシュを削除
+      const cleanUrl = url.replace(/\/$/, "");
+      const separator = cleanUrl.includes("?") ? "&" : "?";
+      return `${cleanUrl}${separator}tag=yourtag-22`; 
+    }
+    return url;
+  };
+
+  const finalUrl = getAffiliateUrl(product.url, product.mall);
+
+  // 画像URLの解決
+  // Amazonの場合はASINから動的生成、それ以外はimageプロパティを使用
+  // ws-fe.amazon-adsystem.com はアフィリエイトウィジェット用なので表示されやすい
+  const imageUrl = (product.mall === "Amazon" && product.asin)
+    ? `https://images-na.ssl-images-amazon.com/images/P/${product.asin}.09.LZZZZZZZ.jpg`
+    : (product.image || "/placeholder.svg");
 
   const saveToHistory = () => {
     // クリックした商品の詳細データを一時保存（詳細ページでの表示用）
@@ -44,10 +66,10 @@ export default function ProductCard({ product }: { product: Product }) {
     <div className="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-all duration-200 flex relative h-48 group">
       {/* 順位バッジ */}
       {product.rank && (
-        <div className={`absolute top-0 left-0 w-10 h-10 flex items-center justify-center rounded-br-xl rounded-tl-xl z-10 font-bold text-lg text-white shadow-sm
+        <div className={`absolute -top-2 -left-2 w-9 h-9 flex items-center justify-center rounded-full z-10 font-bold text-base text-white shadow-md border-2 border-white
           ${product.rank === 1 ? "bg-yellow-400" : 
             product.rank === 2 ? "bg-gray-400" : 
-            product.rank === 3 ? "bg-orange-400" : "bg-gray-800 text-sm w-8 h-8"}`
+            product.rank === 3 ? "bg-orange-400" : "bg-gray-800 text-xs w-7 h-7"}`
         }>
           {product.rank}
         </div>
@@ -65,8 +87,9 @@ export default function ProductCard({ product }: { product: Product }) {
       <div className="w-1/3 bg-white flex-shrink-0 flex items-center justify-center relative p-2 border-r border-gray-100 rounded-l-xl">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img 
-          src={product.image} 
+          src={imageUrl} 
           alt={product.title}
+          referrerPolicy="no-referrer"
           className="max-w-full max-h-full object-contain"
           onError={(e) => {
             (e.target as HTMLImageElement).src = "/placeholder.svg";
@@ -94,13 +117,19 @@ export default function ProductCard({ product }: { product: Product }) {
           <span className="text-lg font-bold text-red-600 font-mono">
             ¥{product.price.toLocaleString()}
           </span>
-          <Link
-            href={detailUrl}
+          <a
+            href={finalUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={saveToHistory}
-            className="bg-red-50 text-red-600 border border-red-200 text-xs font-bold px-3 py-1.5 rounded hover:bg-red-100 transition-colors"
+            className={`text-xs font-bold px-3 py-1.5 rounded transition-colors border
+              ${product.mall === 'Amazon' 
+                ? 'bg-orange-50 text-orange-700 border-orange-200 hover:bg-orange-100' 
+                : 'bg-red-50 text-red-600 border-red-200 hover:bg-red-100'
+              }`}
           >
-            見る
-          </Link>
+            {product.mall === 'Amazon' ? 'Amazonで見る' : '見る'}
+          </a>
         </div>
       </div>
     </div>

@@ -11,7 +11,8 @@ type ProductDetail = {
   id: string;
   title: string;
   price: number;
-  image: string;
+  image?: string;
+  asin?: string;
   mall: "Amazon" | "Rakuten" | "Yahoo";
   shopName: string;
   url: string;
@@ -43,6 +44,7 @@ export default function ProductDetailPage({
         title: fromParams.title,
         price: parseInt(fromParams.price || "0"),
         image: fromParams.image,
+        asin: fromParams.asin, // 追加
         mall: fromParams.mall,
         shopName: fromParams.shop,
         url: fromParams.url,
@@ -84,6 +86,11 @@ export default function ProductDetailPage({
     );
   }
 
+  // 画像URLの解決
+  let imageUrl = (product.mall === "Amazon" && product.asin)
+    ? `https://images-na.ssl-images-amazon.com/images/P/${product.asin}.09.LZZZZZZZ.jpg`
+    : (product.image || "/placeholder.svg");
+
   return (
     <div className="min-h-screen bg-white pb-20 font-sans">
       {/* ナビゲーション */}
@@ -102,18 +109,21 @@ export default function ProductDetailPage({
 
       <main className="max-w-2xl mx-auto p-4">
         {/* 商品画像 */}
-        <div className="bg-white flex items-center justify-center mb-6 relative overflow-hidden -mx-4">
-          <div className="relative w-full aspect-square max-h-[400px]">
+        <div className="bg-white flex items-center justify-center mb-8 py-12">
+          <div className="relative w-64 h-64 sm:w-80 sm:h-80">
              {/* eslint-disable-next-line @next/next/no-img-element */}
             <img 
-              src={product.image} 
+              src={imageUrl} 
               alt={product.title}
-              className="absolute inset-0 w-full h-full object-contain"
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-contain"
             />
           </div>
            <span className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold bg-white/90 backdrop-blur border shadow-sm
-             ${product.mall === "Yahoo" ? "text-blue-600 border-blue-200" : "text-red-600 border-red-200"}`}>
-             {product.mall === "Yahoo" ? "Yahoo!" : "Rakuten"}
+             ${product.mall === "Yahoo" ? "text-blue-600 border-blue-200" : 
+               product.mall === "Amazon" ? "text-orange-600 border-orange-200" :
+               "text-red-600 border-red-200"}`}>
+             {product.mall === "Yahoo" ? "Yahoo!" : product.mall === "Amazon" ? "Amazon" : "Rakuten"}
            </span>
         </div>
 
@@ -149,9 +159,12 @@ export default function ProductDetailPage({
               target="_blank" 
               rel="noopener noreferrer"
               className={`block w-full py-4 rounded-xl text-center font-bold text-lg text-white shadow-lg transition-transform hover:scale-[1.02]
-                ${product.mall === "Yahoo" ? "bg-blue-600 hover:bg-blue-700" : "bg-red-600 hover:bg-red-700"}`}
+                ${product.mall === "Yahoo" ? "bg-blue-600 hover:bg-blue-700" : 
+                  product.mall === "Amazon" ? "bg-orange-500 hover:bg-orange-600" :
+                  "bg-red-600 hover:bg-red-700"}`}
             >
-              {product.mall === "Yahoo" ? "Yahoo!ショッピングで見る" : "楽天市場で見る"}
+              {product.mall === "Yahoo" ? "Yahoo!ショッピングで見る" : 
+               product.mall === "Amazon" ? "Amazonで見る" : "楽天市場で見る"}
             </a>
         </div>
 
@@ -163,9 +176,12 @@ export default function ProductDetailPage({
               target="_blank" 
               rel="noopener noreferrer"
               className={`block w-full py-4 rounded-xl text-center font-bold text-lg text-white shadow-lg transition-transform active:scale-95
-                ${product.mall === "Yahoo" ? "bg-blue-600 hover:bg-blue-700" : "bg-red-600 hover:bg-red-700"}`}
+                ${product.mall === "Yahoo" ? "bg-blue-600 hover:bg-blue-700" : 
+                  product.mall === "Amazon" ? "bg-orange-500 hover:bg-orange-600" :
+                  "bg-red-600 hover:bg-red-700"}`}
             >
-              {product.mall === "Yahoo" ? "Yahoo!ショッピングで見る" : "楽天市場で見る"}
+              {product.mall === "Yahoo" ? "Yahoo!ショッピングで見る" : 
+               product.mall === "Amazon" ? "Amazonで見る" : "楽天市場で見る"}
             </a>
           </div>
         </div>

@@ -1,9 +1,12 @@
 export const runtime = 'edge';
+export const dynamic = 'force-dynamic'; // 追加：動的レンダリングを強制
 
 import Image from "next/image";
+import Link from "next/link"; // 追加
 import { fetchRakutenRanking, searchRakutenItems, RakutenItem } from "@/lib/rakuten";
 import { fetchYahooRanking, searchYahooItems, YahooItem } from "@/lib/yahoo";
 import { GENRES } from "@/lib/genres";
+import { amazonProducts } from "@/data/products"; // 追加
 import SearchBar from "@/components/SearchBar";
 import RankingList from "@/components/RankingList";
 
@@ -25,8 +28,22 @@ export type Product = {
 
 // 楽天データを統一フォーマットに変換
 function convertRakutenToProduct(items: RakutenItem[], isRanking: boolean): Product[] {
-  return items.map((item, index) => {
-    const i = item.Item;
+  return items
+    .filter(item => {
+      // 品質フィルター: レビュー0件の商品は除外（広告や予約品の可能性が高いため）
+      // ただし、ランキングモード以外（検索時）は許容するか？ いや、検索でも0件は怪しいので除外
+      return item.Item.reviewCount > 0;
+    })
+    .map((item, index) => {
+      const i = item.Item;
+    // 画像URLの高画質化：末尾のサイズ指定(?_ex=...)を削除してオリジナルサイズを取得
+    // または ?_ex=600x600 のように明示的に大きくする
+    // (ドメイン置換はリンク切れリスクがあるため避ける)
+    let imageUrl = i.mediumImageUrls.length > 0 ? i.mediumImageUrls[0].imageUrl : "/placeholder.svg";
+    if (imageUrl.includes("?_ex=")) {
+      imageUrl = imageUrl.replace(/\?_ex=.*$/, "?_ex=600x600");
+    }
+
     return {
       // 楽天の商品IDをURL用のIDとして使う
       id: `rakuten-${i.itemCode}`,
@@ -45,8 +62,13 @@ function convertRakutenToProduct(items: RakutenItem[], isRanking: boolean): Prod
 
 // Yahooデータを統一フォーマットに変換
 function convertYahooToProduct(items: YahooItem[], isRanking: boolean): Product[] {
-  return items.map((item, index) => {
-    // Yahooの画像はいくつかサイズがあるがmediumを使う
+  return items
+    .filter(item => {
+      // 品質フィルター: レビュー0件の商品は除外
+      return (item.review?.count || 0) > 0;
+    })
+    .map((item, index) => {
+      // Yahooの画像はいくつかサイズがあるがmediumを使う
     return {
       id: `yahoo-${item.code}`,
       rank: isRanking ? index + 1 : undefined, // Yahooは配列順が順位
@@ -82,6 +104,11 @@ export default async function Home({
     if (mall === "yahoo") {
       const rawData = await searchYahooItems(query);
       products = convertYahooToProduct(rawData, false);
+    // } else if (mall === "amazon") {
+    //    // Amazon検索（準備中）
+    //    products = amazonProducts.filter(p => 
+    //      p.title.toLowerCase().includes(query.toLowerCase())
+    //    ) as Product[];
     } else {
       const rawData = await searchRakutenItems(query);
       products = convertRakutenToProduct(rawData, false);
@@ -92,6 +119,9 @@ export default async function Home({
     if (mall === "yahoo") {
       const rawData = await fetchYahooRanking(currentGenre.yahooId);
       products = convertYahooToProduct(rawData, true);
+    // } else if (mall === "amazon") {
+    //   // Amazonランキング（準備中）
+    //   products = amazonProducts as Product[];
     } else {
       // デフォルトは楽天
       const rawData = await fetchRakutenRanking(currentGenre.rakutenId);
@@ -108,20 +138,20 @@ export default async function Home({
     <div className="min-h-screen bg-gray-50 text-gray-800 pb-20 font-sans">
       {/* ヘッダー */}
       <header className="bg-white shadow-sm sticky top-0 z-30 border-b border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 py-3 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="max-w-4xl mx-auto px-4 py-2 flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex flex-col w-full sm:w-auto">
             <div className="flex items-center gap-4 justify-between">
-              <a href="/" className="flex items-center gap-2 hover:opacity-80 transition group">
-                <span className="text-2xl group-hover:scale-110 transition-transform">🎁</span>
+              <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition group">
+                <span className="text-xl sm:text-2xl group-hover:scale-110 transition-transform">🎁</span>
                 <div>
-                  <h1 className="text-2xl font-black tracking-tight text-gray-900 leading-none">
+                  <h1 className="text-xl sm:text-2xl font-black tracking-tight text-gray-900 leading-none">
                     Bestie
                   </h1>
-                  <p className="text-[10px] font-bold text-gray-400 tracking-wider">
+                  <p className="text-[9px] sm:text-[10px] font-bold text-gray-400 tracking-wider">
                     BEST ITEM SELECTION
                   </p>
                 </div>
-              </a>
+              </Link>
               
               {/* モバイル用お気に入りリンク */}
               <a href="/favorites" className="sm:hidden text-gray-400 hover:text-red-500 transition-colors">
@@ -147,8 +177,8 @@ export default async function Home({
         </div>
         
         <div className="border-t border-gray-100 bg-white">
-          {/* コンセプトメッセージ（PCではヘッダー内、スマホでは少し小さく） */}
-          <div className="max-w-4xl mx-auto px-4 py-2 text-center sm:text-left border-b border-gray-50">
+          {/* コンセプトメッセージ（スマホでは非表示） */}
+          <div className="hidden sm:block max-w-4xl mx-auto px-4 py-2 text-center sm:text-left border-b border-gray-50">
              <p className="text-xs text-gray-500 font-medium">
                選び疲れをゼロに。今売れている<span className="text-gray-900 font-bold">「間違いのない商品」</span>を厳選しました。
              </p>
@@ -156,25 +186,25 @@ export default async function Home({
 
           <div className="max-w-4xl mx-auto px-4">
             {/* モール切り替えタブ */}
-            <div className="flex justify-center py-4 border-b border-gray-100 mb-2">
-              <div className="inline-flex bg-gray-100 rounded-full p-1">
-                <a 
+            <div className="flex justify-center py-2 sm:py-4 border-b border-gray-100 mb-1">
+              <div className="inline-flex bg-gray-100 rounded-full p-0.5 sm:p-1">
+                <Link 
                   href={`/?mall=rakuten${query ? `&q=${encodeURIComponent(query)}` : `&genre=${genreId}`}`}
-                  className={`px-6 py-2 rounded-full text-sm font-bold transition-all ${
-                    mall !== "yahoo" ? "bg-white shadow-sm text-red-600" : "text-gray-500 hover:text-gray-700"
+                  className={`px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all ${
+                    mall === "rakuten" || (!mall || (mall !== "yahoo" && mall !== "amazon")) ? "bg-white shadow-sm text-red-600" : "text-gray-500 hover:text-gray-700"
                   }`}
                 >
                   Rakuten
-                </a>
-                <a 
+                </Link>
+                <Link 
                   href={`/?mall=yahoo${query ? `&q=${encodeURIComponent(query)}` : `&genre=${genreId}`}`}
-                  className={`px-6 py-2 rounded-full text-sm font-bold transition-all ${
+                  className={`px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all ${
                     mall === "yahoo" ? "bg-white shadow-sm text-blue-600" : "text-gray-500 hover:text-gray-700"
                   }`}
                 >
                   Yahoo!
-                </a>
-                <span className="px-6 py-2 rounded-full text-sm font-bold text-gray-300 cursor-not-allowed" title="準備中">
+                </Link>
+                <span className="px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold text-gray-300 cursor-not-allowed" title="準備中">
                   Amazon
                 </span>
               </div>
@@ -184,7 +214,7 @@ export default async function Home({
             {!isSearchMode && (
               <div className="flex overflow-x-auto no-scrollbar gap-1 py-2 -mx-4 px-4 sm:mx-0 sm:px-0">
                 {GENRES.map((g) => (
-                  <a
+                  <Link
                     key={g.id}
                     href={`/?mall=${mall}&genre=${g.id}`}
                     className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-bold transition-colors whitespace-nowrap
@@ -195,7 +225,7 @@ export default async function Home({
                       }`}
                   >
                     {g.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             )}
@@ -212,8 +242,10 @@ export default async function Home({
                   「{query}」の検索結果
                 </h2>
                 <span className={`text-xs font-bold px-2 py-0.5 rounded border 
-                  ${mall === "yahoo" ? "bg-white text-blue-600 border-blue-600" : "bg-white text-red-600 border-red-600"}`}>
-                  {mall === "yahoo" ? "Yahoo!" : "Rakuten"}
+                  ${mall === "yahoo" ? "bg-white text-blue-600 border-blue-600" : 
+                    mall === "amazon" ? "bg-white text-orange-500 border-orange-500" :
+                    "bg-white text-red-600 border-red-600"}`}>
+                  {mall === "yahoo" ? "Yahoo!" : mall === "amazon" ? "Amazon" : "Rakuten"}
                 </span>
               </div>
               <p className="text-sm text-gray-500">
@@ -227,12 +259,14 @@ export default async function Home({
                   {currentGenre.name}ランキング
                 </h2>
                 <span className={`text-xs font-bold px-2 py-0.5 rounded border 
-                  ${mall === "yahoo" ? "bg-white text-blue-600 border-blue-600" : "bg-white text-red-600 border-red-600"}`}>
-                  {mall === "yahoo" ? "Yahoo!" : "Rakuten"}
+                  ${mall === "yahoo" ? "bg-white text-blue-600 border-blue-600" : 
+                    mall === "amazon" ? "bg-white text-orange-500 border-orange-500" :
+                    "bg-white text-red-600 border-red-600"}`}>
+                  {mall === "yahoo" ? "Yahoo!" : mall === "amazon" ? "Amazon" : "Rakuten"}
                 </span>
               </div>
               <p className="text-sm text-gray-500">
-                {mall === "yahoo" ? "Yahoo!ショッピング" : "楽天市場"}のリアルタイム人気商品
+                {mall === "yahoo" ? "Yahoo!ショッピング" : mall === "amazon" ? "Amazon" : "楽天市場"}のリアルタイム人気商品
               </p>
             </div>
           )}
