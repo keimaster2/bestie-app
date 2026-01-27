@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Life Best X - 3大モールの最強ランキング",
-  description: "Amazon、楽天、Yahoo!ショッピングの売れ筋ランキングをまとめてチェック",
+  title: "Bestie | 選び疲れをゼロにするTOP3紹介メディア",
+  description: "Bestie（ベスティ）は、生活の質を上げるアイテムを「TOP3」に絞って紹介するWebメディア。選び疲れを解消し、あなたのベストな選択をサポートします。",
 };
 
 export default function RootLayout({

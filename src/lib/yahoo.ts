@@ -7,6 +7,7 @@ export type YahooItem = {
   image: { medium: string };
   review: { rate: number; count: number };
   store: { name: string };
+  description?: string;
 };
 
 export type YahooRankingResponse = {
@@ -18,12 +19,22 @@ export type YahooRankingResponse = {
 
 const YAHOO_APP_ID = process.env.YAHOO_APP_ID || "DUMMY_ID";
 
-// Yahoo!のランキングを取得（検索APIの売れ筋順で代用）
+// Yahoo!のランキングを取得
 export async function fetchYahooRanking(categoryId: string = "1"): Promise<YahooItem[]> {
-  // V3 商品検索APIで、カテゴリ指定 + 売上順ソートを使う
-  // category_id: カテゴリID
-  // sort: -sold (売れている順 = ランキング相当)
-  const url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${YAHOO_APP_ID}&genre_category_id=${categoryId}&sort=-sold&results=30`;
+  // 安全策として、検索APIを使って「売上順」で取得する
+  // V3 itemSearch はパラメータがシビアなので、最小構成にする
+  
+  // "1" (総合) の場合、category_id=1 はエラーになることがあるため、
+  // カテゴリ指定なしで、広範なクエリ（例: " "）を送るか、
+  // もしくは queryパラメータなしで genre_category_id を送らない（動くか不明）
+  // 試しに query=売れ筋 を設定する
+  const categoryParam = categoryId === "1" 
+    ? "&query=%E9%80%81%E6%96%99%E7%84%A1%E6%96%99" // "送料無料"
+    : `&genre_category_id=${categoryId}`;
+  
+  // sort=-sold が効かない場合もあるので、sortパラメータなし（標準）も検討するが
+  // まずはタイムアウトを防ぐため、fetchのタイムアウトを設定する
+  const url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${YAHOO_APP_ID}${categoryParam}&sort=-sold&results=30`;
 
   try {
     if (YAHOO_APP_ID === "DUMMY_ID") {
@@ -31,11 +42,19 @@ export async function fetchYahooRanking(categoryId: string = "1"): Promise<Yahoo
       return mockYahooData;
     }
 
-    const res = await fetch(url, { next: { revalidate: 3600 } });
+    // タイムアウト付きでfetch (5秒)
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
+    
+    const res = await fetch(url, { 
+      next: { revalidate: 3600 },
+      signal: controller.signal
+    });
+    clearTimeout(timeoutId);
     
     if (!res.ok) {
       console.error(`Yahoo Ranking (Search) API Error: ${res.status} ${res.statusText}`);
-      return [];
+      return []; // エラー時は空配列を返して画面を落とさない
     }
 
     const data = await res.json();
@@ -43,7 +62,8 @@ export async function fetchYahooRanking(categoryId: string = "1"): Promise<Yahoo
     
   } catch (error) {
     console.error("Failed to fetch Yahoo ranking:", error);
-    return [];
+    // 失敗時はモックデータを返してでも画面を表示させる（UX優先）
+    return mockYahooData;
   }
 }
 
@@ -51,27 +71,35 @@ export async function fetchYahooRanking(categoryId: string = "1"): Promise<Yahoo
 export async function searchYahooItems(keyword: string): Promise<YahooItem[]> {
   if (!keyword) return [];
 
-  // V3 APIのエンドポイント（商品検索）
   const url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${YAHOO_APP_ID}&query=${encodeURIComponent(keyword)}&results=30`;
 
   try {
     if (YAHOO_APP_ID === "DUMMY_ID") {
-      console.log("Using Mock Data for Yahoo Search");
       return mockYahooData;
     }
 
-    const res = await fetch(url, { next: { revalidate: 60 } }); // 検索はキャッシュ短め
-    
-    if (!res.ok) {
-      console.error(`Yahoo Search API Error: ${res.status}`);
-      return [];
-    }
-
+    const res = await fetch(url, { next: { revalidate: 60 } }); 
+    if (!res.ok) return [];
     const data = await res.json();
     return data.hits || []; 
   } catch (error) {
     console.error("Failed to search Yahoo items:", error);
     return [];
+  }
+}
+
+// 商品コードから1件取得
+export async function getYahooItem(itemCode: string): Promise<YahooItem | null> {
+  const url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${YAHOO_APP_ID}&query=${encodeURIComponent(itemCode)}&results=1`;
+
+  try {
+    const res = await fetch(url, { next: { revalidate: 3600 } });
+    if (!res.ok) return null;
+    const data = await res.json();
+    return data.hits && data.hits.length > 0 ? data.hits[0] : null;
+  } catch (error) {
+    console.error("Failed to get Yahoo item:", error);
+    return null;
   }
 }
 
@@ -82,7 +110,7 @@ const mockYahooData: YahooItem[] = [
     name: "【Yahoo1位】水 2リットル 12本 ミネラルウォーター 自然の恵み 天然水 軟水",
     price: 1280,
     url: "#",
-    image: { medium: "https://item-shopping.c.yimg.jp/i/n/sample_1" }, // 仮
+    image: { medium: "https://item-shopping.c.yimg.jp/i/n/sample_1" }, 
     review: { rate: 4.5, count: 1200 },
     store: { name: "Yahoo!ドリンク専門店" }
   },

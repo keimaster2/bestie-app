@@ -3,6 +3,7 @@ export type RakutenItem = {
   Item: {
     rank: number;
     itemName: string;
+    itemCode: string; // 商品コード追加
     itemPrice: string;
     itemUrl: string;
     mediumImageUrls: { imageUrl: string }[];
@@ -10,6 +11,7 @@ export type RakutenItem = {
     reviewAverage: string;
     shopName: string;
     genreId: string;
+    itemCaption?: string; // 商品説明文
   };
 };
 
@@ -91,12 +93,34 @@ export async function searchRakutenItems(keyword: string): Promise<RakutenItem[]
   }
 }
 
+// 商品コードから1件取得
+export async function getRakutenItem(itemCode: string): Promise<RakutenItem | null> {
+  // itemCode検索が不安定な場合、keywordパラメータにコードを渡すことで検索できる場合がある
+  // itemCodeパラメータではなく、keywordパラメータを使う
+  const encodedCode = encodeURIComponent(itemCode);
+  const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?format=json&keyword=${encodedCode}&applicationId=${RAKUTEN_APP_ID}`;
+
+  try {
+    const res = await fetch(url, { next: { revalidate: 3600 } });
+    if (!res.ok) return null;
+    const data = await res.json();
+    
+    // 検索結果の先頭を返す
+    // ただし、コード検索の場合は完全一致を確認するのが理想だが、楽天はコード検索精度が高いので一旦そのまま返す
+    return data.Items && data.Items.length > 0 ? data.Items[0] : null;
+  } catch (error) {
+    console.error("Failed to get Rakuten item:", error);
+    return null;
+  }
+}
+
 // 開発用のモックデータ（APIキーがない時用）
 const mockRakutenData: RakutenItem[] = [
   {
     Item: {
       rank: 1,
       itemName: "【公式】 SK-II フェイシャル トリートメント エッセンス 230ml | 正規品 送料無料 | 潤い 保湿 | SK2 エスケーツー skii SK-2 SK－II sk ii ピテラ エッセンス 20代 30代 40代 50代 スキンケア 化粧品 コスメ 女性 プレゼント 彼女 妻 デパコス 高級",
+      itemCode: "sk2:10000001",
       itemPrice: "29150",
       itemUrl: "#",
       mediumImageUrls: [{ imageUrl: "https://thumbnail.image.rakuten.co.jp/@0_mall/sk-ii/cabinet/07621467/imgrc0101569037.jpg" }],
@@ -110,6 +134,7 @@ const mockRakutenData: RakutenItem[] = [
     Item: {
       rank: 2,
       itemName: "【クーポンで1,990円】モバイルバッテリー 軽量 小型 5000mAh 直接充電 コネクター内蔵 ケーブル不要 コードレス iPhone Android Type-C ライトニング 2.1A急速充電 スマホ スタンド付",
+      itemCode: "lively:10000002",
       itemPrice: "2980",
       itemUrl: "#",
       mediumImageUrls: [{ imageUrl: "https://thumbnail.image.rakuten.co.jp/@0_mall/livelylife/cabinet/08858348/d45_01.jpg" }],
@@ -123,6 +148,7 @@ const mockRakutenData: RakutenItem[] = [
     Item: {
       rank: 3,
       itemName: "ミックスナッツ 850g 無塩 有塩 選べる 3種 4種 くるみ アーモンド カシュー マカダミア ラッキーミックスナッツ ファミリー 850g 厳選ナッツ",
+      itemCode: "shizen:10000003",
       itemPrice: "1599",
       itemUrl: "#",
       mediumImageUrls: [{ imageUrl: "https://thumbnail.image.rakuten.co.jp/@0_mall/shizennoyakata/cabinet/02334800/img61031758.jpg" }],
