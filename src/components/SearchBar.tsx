@@ -10,11 +10,18 @@ export default function SearchBar() {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (keyword.trim()) {
-      router.push(`/?q=${encodeURIComponent(keyword)}`);
-    } else {
-      router.push("/");
-    }
+    
+    // 現在のモール情報を維持する
+    const currentMall = searchParams.get("mall") || "rakuten";
+    const currentGenre = searchParams.get("genre") || ""; // ジャンルも一応維持（検索APIには渡さないがUI維持のため）
+
+    const params = new URLSearchParams();
+    if (keyword.trim()) params.set("q", keyword);
+    if (currentMall) params.set("mall", currentMall);
+    // 検索時はジャンル絞り込みを解除するか、維持するか。今回はシンプルにキーワード優先でジャンルは外すことが多いが、
+    // UIの一貫性のためにパラメータとしては持っておく（バックエンドで無視すればよい）
+    
+    router.push(`/?${params.toString()}`);
   };
 
   return (
