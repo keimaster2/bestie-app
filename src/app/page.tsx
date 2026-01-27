@@ -1,3 +1,5 @@
+export const runtime = 'edge';
+
 import Image from "next/image";
 import { fetchRakutenRanking, searchRakutenItems, RakutenItem } from "@/lib/rakuten";
 import { fetchYahooRanking, searchYahooItems, YahooItem } from "@/lib/yahoo";
