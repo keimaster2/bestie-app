@@ -20,6 +20,7 @@ type ProductDetail = {
   description?: string;
 };
 
+
 export default function ProductDetailPage({
   params: paramsPromise,
 }: {
