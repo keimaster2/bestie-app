@@ -2,21 +2,7 @@
 
 import { useState } from "react";
 import ProductCard from "./ProductCard";
-
-// 商品データの型 (page.tsxと共通定義が必要だが、一旦ここに書くかimportする)
-// 本来は types/index.ts などに定義すべき
-type Product = {
-  id: string;
-  rank?: number;
-  title: string;
-  price: number;
-  rating: number;
-  reviewCount: number;
-  image: string;
-  mall: "Amazon" | "Rakuten" | "Yahoo";
-  shopName: string;
-  url: string;
-};
+import { Product } from "@/lib/types";
 
 export default function RankingList({ products }: { products: Product[] }) {
   const [showAll, setShowAll] = useState(false);

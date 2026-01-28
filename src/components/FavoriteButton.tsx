@@ -1,6 +1,7 @@
 "use client";
 
-import { useFavorites, FavoriteItem } from "@/context/FavoritesContext";
+import { useFavorites } from "@/context/FavoritesContext";
+import { FavoriteItem } from "@/lib/types";
 import { useEffect, useState } from "react";
 
 export default function FavoriteButton({ product }: { product: Omit<FavoriteItem, "addedAt"> }) {

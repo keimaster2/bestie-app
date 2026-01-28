@@ -1,18 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useEffect, useState } from "react";
-
-// お気に入り商品の型定義
-export type FavoriteItem = {
-  id: string; // 商品コードなどをIDにするのが理想だが、今回は簡易的にURL等をキーにする
-  title: string;
-  price: number;
-  image: string;
-  url: string;
-  mall: "Amazon" | "Rakuten" | "Yahoo";
-  shopName: string;
-  addedAt: number;
-};
+import { FavoriteItem } from "@/lib/types";
 
 type FavoritesContextType = {
   favorites: FavoriteItem[];

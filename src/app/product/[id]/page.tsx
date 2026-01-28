@@ -2,37 +2,23 @@
 
 export const runtime = 'edge';
 
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import FavoriteButton from "@/components/FavoriteButton";
-
-type ProductDetail = {
-  id: string;
-  title: string;
-  price: number;
-  image?: string;
-  asin?: string;
-  mall: "Amazon" | "Rakuten" | "Yahoo";
-  shopName: string;
-  url: string;
-  rating: number;
-  reviewCount: number;
-  description?: string;
-};
-
+import { Product } from "@/lib/types";
 
 export default function ProductDetailPage({
   params: paramsPromise,
 }: {
   params: Promise<{ id: string }>;
 }) {
+  const router = useRouter();
   const searchParams = useSearchParams();
-  const [product, setProduct] = useState<ProductDetail | null>(null);
+  const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // 1. URLパラメータから復元（最速）
     const fromParams: any = {};
     searchParams.forEach((value, key) => {
       fromParams[key] = value;
@@ -40,11 +26,10 @@ export default function ProductDetailPage({
 
     if (fromParams.title) {
       setProduct({
-        id: "", // paramsから取得するので後でセット
+        id: "", 
         title: fromParams.title,
         price: parseInt(fromParams.price || "0"),
         image: fromParams.image,
-        asin: fromParams.asin, // 追加
         mall: fromParams.mall,
         shopName: fromParams.shop,
         url: fromParams.url,
@@ -54,20 +39,15 @@ export default function ProductDetailPage({
       setLoading(false);
     }
 
-    // 2. IDを取得して、必要ならAPIを叩く（今回はURLパラメータ渡しを基本とするが、拡張性のため）
     paramsPromise.then((p) => {
-      // sessionStorageからリッチな情報を取得（descriptionなどがあれば）
       const cached = sessionStorage.getItem(`product-detail-${p.id}`);
       if (cached) {
         const data = JSON.parse(cached);
         setProduct((prev) => ({ ...prev, ...data, id: p.id }));
         setLoading(false);
       } else if (!fromParams.title) {
-        // パラメータもなくキャッシュもない場合（直リンクなど）
-        // ここでAPI fetchなどを実装するが、今はエラー表示
         setLoading(false);
       } else {
-        // IDだけセット
         setProduct((prev) => (prev ? { ...prev, id: p.id } : null));
       }
     });
@@ -86,21 +66,18 @@ export default function ProductDetailPage({
     );
   }
 
-  // 画像URLの解決
-  let imageUrl = (product.mall === "Amazon" && product.asin)
-    ? `https://images-na.ssl-images-amazon.com/images/P/${product.asin}.09.LZZZZZZZ.jpg`
-    : (product.image || "/placeholder.svg");
-
   return (
     <div className="min-h-screen bg-white pb-20 font-sans">
-      {/* ナビゲーション */}
       <nav className="sticky top-0 bg-white/80 backdrop-blur-md border-b border-gray-100 z-10 px-4 py-3 flex items-center justify-between">
-        <Link href="/" className="text-gray-500 hover:text-gray-900 flex items-center gap-1">
+        <button 
+          onClick={() => router.back()} 
+          className="text-gray-500 hover:text-gray-900 flex items-center gap-1"
+        >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
           </svg>
           戻る
-        </Link>
+        </button>
         <h1 className="font-bold text-sm truncate max-w-[200px]">{product.title}</h1>
         <div className="w-16 flex justify-end">
           <FavoriteButton product={product} />
@@ -108,26 +85,18 @@ export default function ProductDetailPage({
       </nav>
 
       <main className="max-w-2xl mx-auto p-4">
-        {/* 商品画像 */}
+        {/* 商品画像 (余白ありデザインを採用) */}
         <div className="bg-white flex items-center justify-center mb-8 py-12">
           <div className="relative w-64 h-64 sm:w-80 sm:h-80">
              {/* eslint-disable-next-line @next/next/no-img-element */}
             <img 
-              src={imageUrl} 
+              src={product.image} 
               alt={product.title}
-              referrerPolicy="no-referrer"
               className="w-full h-full object-contain"
             />
           </div>
-           <span className={`absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold bg-white/90 backdrop-blur border shadow-sm
-             ${product.mall === "Yahoo" ? "text-blue-600 border-blue-200" : 
-               product.mall === "Amazon" ? "text-orange-600 border-orange-200" :
-               "text-red-600 border-red-200"}`}>
-             {product.mall === "Yahoo" ? "Yahoo!" : product.mall === "Amazon" ? "Amazon" : "Rakuten"}
-           </span>
         </div>
 
-        {/* 商品情報 */}
         <div className="space-y-4 mb-8">
           <div className="flex items-center gap-2 text-sm text-gray-500">
             <span>{product.shopName}</span>
@@ -152,19 +121,16 @@ export default function ProductDetailPage({
           </div>
         </div>
 
-        {/* PC用アクションボタン（コンテンツ内に配置） */}
+        {/* PC用アクションボタン */}
         <div className="hidden sm:block mb-12">
             <a 
               href={product.url} 
               target="_blank" 
               rel="noopener noreferrer"
               className={`block w-full py-4 rounded-xl text-center font-bold text-lg text-white shadow-lg transition-transform hover:scale-[1.02]
-                ${product.mall === "Yahoo" ? "bg-blue-600 hover:bg-blue-700" : 
-                  product.mall === "Amazon" ? "bg-orange-500 hover:bg-orange-600" :
-                  "bg-red-600 hover:bg-red-700"}`}
+                ${product.mall === "Yahoo" ? "bg-blue-600 hover:bg-blue-700" : "bg-red-600 hover:bg-red-700"}`}
             >
-              {product.mall === "Yahoo" ? "Yahoo!ショッピングで見る" : 
-               product.mall === "Amazon" ? "Amazonで見る" : "楽天市場で見る"}
+              {product.mall === "Yahoo" ? "Yahoo!ショッピングで見る" : "楽天市場で見る"}
             </a>
         </div>
 
@@ -176,17 +142,13 @@ export default function ProductDetailPage({
               target="_blank" 
               rel="noopener noreferrer"
               className={`block w-full py-4 rounded-xl text-center font-bold text-lg text-white shadow-lg transition-transform active:scale-95
-                ${product.mall === "Yahoo" ? "bg-blue-600 hover:bg-blue-700" : 
-                  product.mall === "Amazon" ? "bg-orange-500 hover:bg-orange-600" :
-                  "bg-red-600 hover:bg-red-700"}`}
+                ${product.mall === "Yahoo" ? "bg-blue-600 hover:bg-blue-700" : "bg-red-600 hover:bg-red-700"}`}
             >
-              {product.mall === "Yahoo" ? "Yahoo!ショッピングで見る" : 
-               product.mall === "Amazon" ? "Amazonで見る" : "楽天市場で見る"}
+              {product.mall === "Yahoo" ? "Yahoo!ショッピングで見る" : "楽天市場で見る"}
             </a>
           </div>
         </div>
 
-        {/* スペックや詳細（あれば） */}
         <div className="prose prose-sm text-gray-600 mt-8 pb-20">
           <h3 className="text-lg font-bold text-gray-900 mb-2">商品詳細</h3>
           <p className="whitespace-pre-wrap">

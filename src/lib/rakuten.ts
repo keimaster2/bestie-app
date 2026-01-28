@@ -1,3 +1,5 @@
+import { Product } from "./types";
+
 // 楽天APIの型定義（必要な部分だけ抜粋）
 export type RakutenItem = {
   Item: {
@@ -38,8 +40,15 @@ export const RAKUTEN_GENRES = [
 const RAKUTEN_APP_ID = process.env.RAKUTEN_APP_ID || "DUMMY_ID"; 
 
 export async function fetchRakutenRanking(genreId: string = ""): Promise<RakutenItem[]> {
+  // カテゴリごとの除外キーワード（ホビーカテゴリ 101164 でお酒等を弾く）
+  const negativeKeywords: Record<string, string> = {
+    "101164": "-酒 -ふるさと納税 -ビール -焼酎 -ワイン -定期便",
+    "100227": "-定期便 -ふるさと納税", // グルメから定期便等を除外
+  };
+  const exclude = negativeKeywords[genreId] ? `&keyword=${encodeURIComponent(negativeKeywords[genreId])}` : "";
+
   // 本番APIのエンドポイント
-  const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Ranking/20170628?format=json&applicationId=${RAKUTEN_APP_ID}${genreId ? `&genreId=${genreId}` : ""}`;
+  const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Ranking/20170628?format=json&applicationId=${RAKUTEN_APP_ID}${genreId ? `&genreId=${genreId}` : ""}${exclude}`;
 
   try {
     // IDが設定されていない場合はダミーデータを返す（開発用）
@@ -159,3 +168,29 @@ const mockRakutenData: RakutenItem[] = [
     }
   }
 ];
+
+// 楽天データを統一フォーマットに変換
+export function convertRakutenToProduct(items: RakutenItem[], isRanking: boolean): Product[] {
+  return items.map((item) => {
+    const i = item.Item;
+    // 画像URLの高画質化：末尾のサイズ指定(?_ex=...)を削除してオリジナルサイズを取得
+    // または ?_ex=600x600 のように明示的に大きくする
+    let imageUrl = i.mediumImageUrls.length > 0 ? i.mediumImageUrls[0].imageUrl : "/placeholder.svg";
+    if (imageUrl.includes("?_ex=")) {
+      imageUrl = imageUrl.replace(/\?_ex=.*$/, "?_ex=600x600");
+    }
+
+    return {
+      id: `rakuten-${i.itemCode}`,
+      rank: isRanking ? i.rank : undefined,
+      title: i.itemName,
+      price: parseInt(i.itemPrice),
+      rating: parseFloat(i.reviewAverage),
+      reviewCount: i.reviewCount,
+      image: imageUrl,
+      mall: "Rakuten",
+      shopName: i.shopName,
+      url: i.itemUrl,
+    };
+  });
+}

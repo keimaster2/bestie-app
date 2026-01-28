@@ -3,21 +3,7 @@
 import { useEffect, useState } from "react";
 import FavoriteButton from "@/components/FavoriteButton";
 import ProductImage from "@/components/ProductImage";
-
-// 型定義（簡易版）
-type ProductDetail = {
-  id: string;
-  title: string;
-  price: number;
-  rating: number;
-  reviewCount: number;
-  image: string; // ProductCardからはstringで来る
-  images?: string[]; // API詳細からは配列で来る
-  description?: string;
-  mall: "Amazon" | "Rakuten" | "Yahoo";
-  shopName: string;
-  url: string;
-};
+import { Product } from "@/lib/types";
 
 export default function ProductDetailClient({ 
   id, 
@@ -26,7 +12,7 @@ export default function ProductDetailClient({
   id: string; 
   initialData: any 
 }) {
-  const [product, setProduct] = useState<ProductDetail>(initialData);
+  const [product, setProduct] = useState<Product>(initialData);
 
   useEffect(() => {
     // sessionStorageから直前のクリックデータを復元を試みる
@@ -38,7 +24,6 @@ export default function ProductDetailClient({
           ...prev,
           ...parsed,
           image: parsed.image || prev.image,
-          images: parsed.images || [parsed.image]
         }));
       }
     } catch (e) {
@@ -46,28 +31,15 @@ export default function ProductDetailClient({
     }
   }, [id]);
 
-  // 画像リストの整備
-  const displayImages = product.images && product.images.length > 0 
-    ? product.images 
-    : [product.image || "/placeholder.svg"];
-
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8">
         {/* 画像エリア */}
         <div className="bg-gray-50 p-8 flex items-center justify-center border-b md:border-b-0 md:border-r border-gray-100 relative">
-          <ProductImage src={displayImages[0]} alt={product.title} />
+          <ProductImage src={product.image} alt={product.title} />
           <div className="absolute top-4 right-4">
               <FavoriteButton 
-                product={{
-                  id: product.id, 
-                  title: product.title,
-                  price: product.price,
-                  image: displayImages[0],
-                  url: product.url,
-                  mall: product.mall,
-                  shopName: product.shopName,
-                }} 
+                product={product} 
               />
           </div>
         </div>

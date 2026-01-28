@@ -1,3 +1,5 @@
+import { Product } from "./types";
+
 // Yahoo!ショッピングAPIの型定義（必要な部分だけ）
 export type YahooItem = {
   code: string;
@@ -20,24 +22,28 @@ export type YahooRankingResponse = {
 const YAHOO_APP_ID = process.env.YAHOO_APP_ID || "DUMMY_ID";
 
 // Yahoo!のランキングを取得
-export async function fetchYahooRanking(categoryId: string = "1"): Promise<YahooItem[]> {
+export async function fetchYahooRanking(categoryId: string = "1", minPrice?: number): Promise<YahooItem[]> {
   // 安全策として、検索APIを使って「売上順」で取得する
   // V3 itemSearch はパラメータがシビアなので、最小構成にする
   
   // カテゴリごとの除外キーワード設定（ノイズ除去）
   const negativeKeywords: Record<string, string> = {
-    "2502": "-インク -ケーブル -電池 -フィルム -ケース -保護", // 家電・PC周辺機器
-    "13457": "-靴下 -ソックス -下着 -インナー", // ファッション
+    "2502": "-ケース -カバー -フィルム -修理 -部品 -互換 -パーツ", // デバイス本体を優先
+    "2498": "-ふるさと納税 -定期便", // グルメ
+    "2511": "-返品種別 -中古 -ジャンク -プリペイド -ポイント -ギフト券", // おもちゃ・ホビー
   };
 
-  const excludeQuery = negativeKeywords[categoryId] ? ` ${negativeKeywords[categoryId]}` : "";
+  const excludeQuery = negativeKeywords[categoryId] || "";
 
+  // 総合(1)の場合はキーワードのみ、カテゴリ指定の場合はカテゴリ+ベースキーワード
+  const query = categoryId === "1" ? "人気" : "人気"; // "ゲーム 人気"など特定のワードを外してランキング本来の動きに任せる
   const categoryParam = categoryId === "1" 
-    ? "&query=%E9%80%81%E6%96%99%E7%84%A1%E6%96%99" // "送料無料"
-    : `&genre_category_id=${categoryId}&query=${encodeURIComponent(excludeQuery)}`; // カテゴリID + 除外KW
+    ? `&query=${encodeURIComponent(query)}`
+    : `&genre_category_id=${categoryId}&query=${encodeURIComponent(query + " " + excludeQuery)}`;
   
-  // sort=-sold だと小物ばかりになるため、標準ソート(スコア順)に戻してメイン家電も出るようにする
-  const url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${YAHOO_APP_ID}${categoryParam}&results=30`;
+  const priceParam = minPrice ? `&price_from=${minPrice}` : "";
+  const url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${YAHOO_APP_ID}${categoryParam}${priceParam}&sort=-sold&results=30`;
+  console.log(`Yahoo API URL: ${url}`);
 
   try {
     if (YAHOO_APP_ID === "DUMMY_ID") {
@@ -45,15 +51,9 @@ export async function fetchYahooRanking(categoryId: string = "1"): Promise<Yahoo
       return mockYahooData;
     }
 
-    // タイムアウト付きでfetch (5秒)
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 5000);
-    
     const res = await fetch(url, { 
-      next: { revalidate: 3600 },
-      signal: controller.signal
+      next: { revalidate: 3600 }
     });
-    clearTimeout(timeoutId);
     
     if (!res.ok) {
       console.error(`Yahoo Ranking (Search) API Error: ${res.status} ${res.statusText}`);
@@ -127,3 +127,28 @@ const mockYahooData: YahooItem[] = [
     store: { name: "蒲屋忠兵衛商店" }
   },
 ];
+
+// Yahooデータを統一フォーマットに変換
+export function convertYahooToProduct(items: YahooItem[], isRanking: boolean): Product[] {
+  return items.map((item, index) => {
+    // 商品名クリーニング: 【返品種別B】などのノイズを除去
+    let title = item.name;
+    title = title.replace(/【.*?】/g, "").replace(/\[.*?\]/g, ""); // 【】や[]で囲まれた部分を削除
+    title = title.replace(/返品種別[A-Z]?/g, ""); // "返品種別B" などを削除
+    title = title.trim();
+
+    // Yahooの画像はいくつかサイズがあるがmediumを使う
+    return {
+      id: `yahoo-${item.code}`,
+      rank: isRanking ? index + 1 : undefined, // Yahooは配列順が順位
+      title: title,
+      price: item.price,
+      rating: item.review?.rate || 0,
+      reviewCount: item.review?.count || 0,
+      image: item.image?.medium || "/placeholder.svg",
+      mall: "Yahoo",
+      shopName: item.store?.name || "Yahoo!ショッピング",
+      url: item.url,
+    };
+  });
+}

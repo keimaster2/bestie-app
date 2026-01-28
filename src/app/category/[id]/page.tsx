@@ -32,7 +32,7 @@ export default function CategoryPage({ params }: { params: { id: string } }) {
             {/* Rank Badge */}
             <div className={`
               absolute top-0 left-0 w-16 h-16 flex items-center justify-center rounded-br-2xl text-2xl font-bold text-white z-10
-              ${product.rank === 1 ? 'bg-yellow-500 shadow-lg' : product.rank === 2 ? 'bg-gray-400' : 'bg-orange-700'}
+              ${product.rank === 1 ? 'bg-yellow-500 shadow-lg' : product.rank === 2 ? 'bg-gray-400' : product.rank === 3 ? 'bg-orange-700' : 'bg-gray-800'}
             `}>
               #{product.rank}
             </div>

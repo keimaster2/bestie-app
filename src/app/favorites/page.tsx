@@ -3,6 +3,7 @@
 import { useFavorites } from "@/context/FavoritesContext";
 import ProductCard from "@/components/ProductCard";
 import Link from "next/link";
+import { Product } from "@/lib/types";
 
 export default function FavoritesPage() {
   const { favorites } = useFavorites();
@@ -14,9 +15,9 @@ export default function FavoritesPage() {
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition">
-              <span className="text-2xl">👑</span>
+              <span className="text-2xl">🎁</span>
               <h1 className="text-xl font-bold tracking-tight text-gray-900 whitespace-nowrap">
-                Life Best X
+                Bestie
               </h1>
             </Link>
           </div>
@@ -36,16 +37,9 @@ export default function FavoritesPage() {
         {favorites.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {favorites.map((item) => (
-              // ProductCardの型に合わせて変換（お気に入りにはrankがない）
               <ProductCard
                 key={item.url}
-                product={{
-                  ...item,
-                  id: item.url, // URLをID代わりに
-                  rating: 0, // 簡易版なのでレーティング情報は省略されることがある
-                  reviewCount: 0,
-                  rank: undefined
-                }}
+                product={item as Product}
               />
             ))}
           </div>

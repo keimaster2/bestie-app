@@ -2,29 +2,13 @@
 
 import FavoriteButton from "./FavoriteButton";
 import Link from "next/link";
-
-// 商品データの型
-type Product = {
-  id: string;
-  rank?: number;
-  title: string;
-  price: number;
-  rating: number;
-  reviewCount: number;
-  image?: string; // imageは任意に
-  asin?: string;  // asinを追加
-  mall: "Amazon" | "Rakuten" | "Yahoo";
-  shopName: string;
-  url: string;
-};
+import { Product } from "@/lib/types";
 
 export default function ProductCard({ product }: { product: Product }) {
-  // 詳細ページへ渡すパラメータを生成（安全に）
   const params = new URLSearchParams();
   if (product.title) params.set("title", product.title);
   if (product.price != null) params.set("price", product.price.toString());
   if (product.image) params.set("image", product.image);
-  if (product.asin) params.set("asin", product.asin); // 追加
   if (product.mall) params.set("mall", product.mall);
   if (product.url) params.set("url", product.url);
   if (product.shopName) params.set("shop", product.shopName);
@@ -33,28 +17,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
   const detailUrl = `/product/${product.id}?${params.toString()}`;
 
-  // アフィリエイトリンクの生成（Amazon用）
-  const getAffiliateUrl = (url: string, mall: string) => {
-    if (mall === "Amazon" && url.includes("amazon.co.jp")) {
-      // 末尾のスラッシュを削除
-      const cleanUrl = url.replace(/\/$/, "");
-      const separator = cleanUrl.includes("?") ? "&" : "?";
-      return `${cleanUrl}${separator}tag=yourtag-22`; 
-    }
-    return url;
-  };
-
-  const finalUrl = getAffiliateUrl(product.url, product.mall);
-
-  // 画像URLの解決
-  // Amazonの場合はASINから動的生成、それ以外はimageプロパティを使用
-  // ws-fe.amazon-adsystem.com はアフィリエイトウィジェット用なので表示されやすい
-  const imageUrl = (product.mall === "Amazon" && product.asin)
-    ? `https://images-na.ssl-images-amazon.com/images/P/${product.asin}.09.LZZZZZZZ.jpg`
-    : (product.image || "/placeholder.svg");
-
   const saveToHistory = () => {
-    // クリックした商品の詳細データを一時保存（詳細ページでの表示用）
     try {
       sessionStorage.setItem(`product-detail-${product.id}`, JSON.stringify(product));
     } catch (e) {
@@ -75,21 +38,17 @@ export default function ProductCard({ product }: { product: Product }) {
         </div>
       )}
 
-      {/* お気に入りボタン（絶対配置・はみ出し） */ }
+      {/* お気に入りボタン */}
       <div className="absolute -top-3 -right-3 z-20 scale-90">
-        <FavoriteButton product={{
-          ...product,
-          id: product.id 
-        }} />
+        <FavoriteButton product={{ ...product, id: product.id }} />
       </div>
 
-      {/* 商品画像エリア */}
+      {/* 商品画像 */}
       <div className="w-1/3 bg-white flex-shrink-0 flex items-center justify-center relative p-2 border-r border-gray-100 rounded-l-xl">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img 
-          src={imageUrl} 
+          src={product.image || "/placeholder.svg"} 
           alt={product.title}
-          referrerPolicy="no-referrer"
           className="max-w-full max-h-full object-contain"
           onError={(e) => {
             (e.target as HTMLImageElement).src = "/placeholder.svg";
@@ -100,7 +59,14 @@ export default function ProductCard({ product }: { product: Product }) {
       {/* 詳細情報 */}
       <div className="p-3 w-2/3 flex flex-col justify-between">
         <div>
-          <div className="text-[10px] text-gray-400 mb-1 truncate">{product.shopName}</div>
+          <div className="flex items-center justify-between mb-1">
+            <div className="text-[10px] text-gray-400 truncate flex-1">{product.shopName}</div>
+            {product.isWRank && (
+              <span className="text-[8px] font-black px-1 rounded-sm bg-amber-100 text-amber-700 border border-amber-200 whitespace-nowrap ml-1">
+                🏆 W RANK
+              </span>
+            )}
+          </div>
           <h3 className="font-bold text-sm leading-snug mb-2 line-clamp-3">
             <Link href={detailUrl} onClick={saveToHistory} className="hover:text-indigo-800 transition">
               {product.title}
@@ -108,27 +74,27 @@ export default function ProductCard({ product }: { product: Product }) {
           </h3>
           
           <div className="flex items-center gap-1 mb-1 text-xs">
-            <span className="text-yellow-400 font-bold">★{product.rating}</span>
-            <span className="text-gray-400">({product.reviewCount.toLocaleString()})</span>
+            <span className="text-yellow-400 font-bold">★{product.rating || 0}</span>
+            <span className="text-gray-400">({(product.reviewCount || 0).toLocaleString()})</span>
           </div>
         </div>
 
         <div className="flex items-center justify-between mt-auto">
           <span className="text-lg font-bold text-red-600 font-mono">
-            ¥{product.price.toLocaleString()}
+            ¥{(product.price || 0).toLocaleString()}
           </span>
           <a
-            href={finalUrl}
+            href={product.url} // 直接リンクに戻す（詳細ページ経由しない場合）
             target="_blank"
             rel="noopener noreferrer"
             onClick={saveToHistory}
             className={`text-xs font-bold px-3 py-1.5 rounded transition-colors border
-              ${product.mall === 'Amazon' 
-                ? 'bg-orange-50 text-orange-700 border-orange-200 hover:bg-orange-100' 
+              ${product.mall === 'Yahoo' 
+                ? 'bg-blue-50 text-blue-600 border-blue-200 hover:bg-blue-100' 
                 : 'bg-red-50 text-red-600 border-red-200 hover:bg-red-100'
               }`}
           >
-            {product.mall === 'Amazon' ? 'Amazonで見る' : '見る'}
+            見る
           </a>
         </div>
       </div>
