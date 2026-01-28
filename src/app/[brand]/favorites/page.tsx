@@ -10,6 +10,8 @@ import { getSiteConfig } from "@/lib/config";
 import { getBrandPath } from "@/lib/utils";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
+export const runtime = 'edge';
+
 export default function FavoritesPage({
   params: paramsPromise,
 }: {

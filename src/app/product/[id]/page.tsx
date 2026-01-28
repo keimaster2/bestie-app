@@ -2,6 +2,8 @@
 
 import ProductDetailPage from "../../[brand]/product/[id]/page";
 
+export const runtime = 'edge';
+
 // 本家用詳細ページ (/)
 export default function DefaultProductDetail(props: any) {
   // brand パラメータを "bestie" として固定で渡す
