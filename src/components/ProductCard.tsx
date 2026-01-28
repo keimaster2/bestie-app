@@ -67,7 +67,7 @@ export default function ProductCard({ product }: { product: Product }) {
             )}
           </div>
           <h3 className="font-bold text-sm leading-snug mb-2 line-clamp-3">
-            <Link href={detailUrl} onClick={saveToHistory} className="hover:text-indigo-800 transition">
+            <Link href={detailUrl} onClick={saveToHistory} className="hover:text-indigo-800 transition" prefetch={false}>
               {product.title}
             </Link>
           </h3>
