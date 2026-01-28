@@ -4,12 +4,6 @@ import { categories } from '@/data/products';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-export function generateStaticParams() {
-  return categories.map((category) => ({
-    id: category.id,
-  }));
-}
-
 export default function CategoryPage({ params }: { params: { id: string } }) {
   const category = categories.find((c) => c.id === params.id);
 
