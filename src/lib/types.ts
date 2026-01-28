@@ -11,6 +11,9 @@ export type Product = {
   url: string;
   description?: string;
   isWRank?: boolean;
+  rakutenUrl?: string;
+  yahooUrl?: string;
+  amazonUrl?: string;
 };
 
 export type FavoriteItem = Product & {
