@@ -70,11 +70,18 @@ export default async function Home({
   
   products = products.map(p => {
     const pClean = cleanTitle(p.title);
-    const isMatched = otherProducts.some(op => {
+    const matchedOther = otherProducts.find(op => {
       const opClean = cleanTitle(op.title);
-      return opClean === pClean && pClean.length > 3; // 短すぎると誤判定するので4文字以上
+      return opClean === pClean && pClean.length > 3;
     });
-    return { ...p, isWRank: isMatched };
+
+    // 自分のモールURLと、見つかった場合は相手のモールURLもセット
+    return { 
+      ...p, 
+      isWRank: !!matchedOther,
+      rakutenUrl: mall === "rakuten" ? p.url : matchedOther?.url,
+      yahooUrl: mall === "yahoo" ? p.url : matchedOther?.url,
+    };
   });
 
   // ランキングモードの場合、強制的に順位順にソート
@@ -124,6 +131,20 @@ export default async function Home({
           </div>
         )}
       </main>
+
+      {/* フッター */}
+      <footer className="bg-white border-t border-gray-100 pt-12 pb-24">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <span className="text-2xl">🎁</span>
+            <span className="text-xl font-black tracking-tight text-gray-900">Bestie</span>
+          </div>
+          <p className="text-[10px] text-gray-400 leading-relaxed">
+            このサイトはアフィリエイト広告（Amazonアソシエイト含む）を掲載しています。<br />
+            &copy; {new Date().getFullYear()} Bestie - BEST ITEM SELECTION.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
