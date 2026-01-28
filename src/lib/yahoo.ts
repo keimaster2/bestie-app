@@ -21,7 +21,15 @@ export type YahooRankingResponse = {
 };
 
 const getYahooAppId = () => {
-  return (getRequestContext().env as any)?.YAHOO_APP_ID || process.env.YAHOO_APP_ID || "DUMMY_ID";
+  try {
+    const ctx = getRequestContext();
+    if (ctx && ctx.env) {
+      return (ctx.env as any).YAHOO_APP_ID || process.env.YAHOO_APP_ID || "DUMMY_ID";
+    }
+  } catch (e) {
+    // getRequestContext が未定義（ローカル環境など）の場合はここに来る
+  }
+  return process.env.YAHOO_APP_ID || "DUMMY_ID";
 };
 
 // Yahoo!のランキングを取得

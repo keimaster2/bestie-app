@@ -39,7 +39,15 @@ export const RAKUTEN_GENRES = [
 
 // 楽天ブックスなどのジャンルID（今回は総合ランキングのテスト）
 const getRakutenAppId = () => {
-  return (getRequestContext().env as any)?.RAKUTEN_APP_ID || process.env.RAKUTEN_APP_ID || "DUMMY_ID";
+  try {
+    const ctx = getRequestContext();
+    if (ctx && ctx.env) {
+      return (ctx.env as any).RAKUTEN_APP_ID || process.env.RAKUTEN_APP_ID || "DUMMY_ID";
+    }
+  } catch (e) {
+    // getRequestContext が未定義（ローカル環境など）の場合はここに来る
+  }
+  return process.env.RAKUTEN_APP_ID || "DUMMY_ID";
 };
 
 export async function fetchRakutenRanking(genreId: string = ""): Promise<RakutenItem[]> {
