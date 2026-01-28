@@ -8,6 +8,26 @@ const nextConfig: NextConfig = {
     ],
     unoptimized: true,
   },
+  async rewrites() {
+    return [
+      {
+        source: "/",
+        destination: "/bestie",
+      },
+      {
+        source: "/about",
+        destination: "/bestie/about",
+      },
+      {
+        source: "/favorites",
+        destination: "/bestie/favorites",
+      },
+      {
+        source: "/product/:id",
+        destination: "/bestie/product/:id",
+      },
+    ];
+  },
 };
 
 export default nextConfig;
