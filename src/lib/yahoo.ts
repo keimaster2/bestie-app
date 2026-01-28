@@ -40,9 +40,10 @@ export async function fetchYahooRanking(categoryId: string = "1", minPrice?: num
   
   // カテゴリごとの除外キーワード設定（ノイズ除去）
   const negativeKeywords: Record<string, string> = {
-    "2502": "-ケース -カバー -フィルム -修理 -部品 -互換 -パーツ", // デバイス本体を優先
+    "2502": "-ケース -カバー -フィルム -修理 -部品 -互換 -パーツ -アクセサリー -ベルト -替え -交換", // デバイス本体を優先
     "2498": "-ふるさと納税 -定期便", // グルメ
-    "2511": "-返品種別 -中古 -ジャンク -プリペイド -ポイント -ギフト券", // おもちゃ・ホビー
+    "2511": "-返品種別 -中古 -ジャンク -プリペイド -ポイント -ギフト券 -アイコス -IQOS -電子タバコ", // おもちゃ・ホビー
+    "2500": "-カラコン -コンタクト -度あり -度なし", // ダイエット・健康
   };
 
   const excludeQuery = negativeKeywords[categoryId] || "";
@@ -83,11 +84,11 @@ export async function fetchYahooRanking(categoryId: string = "1", minPrice?: num
 }
 
 // Yahoo!の商品検索
-export async function searchYahooItems(keyword: string): Promise<YahooItem[]> {
+export async function searchYahooItems(keyword: string, categoryId: string = "1"): Promise<YahooItem[]> {
   if (!keyword) return [];
 
   const appId = getYahooAppId();
-  const url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${appId}&query=${encodeURIComponent(keyword)}&results=30`;
+  const url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${appId}&query=${encodeURIComponent(keyword)}&results=30${categoryId !== "1" ? `&genre_category_id=${categoryId}` : ""}`;
 
   try {
     if (appId === "DUMMY_ID") {

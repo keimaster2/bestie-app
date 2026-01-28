@@ -52,10 +52,11 @@ const getRakutenAppId = () => {
 
 export async function fetchRakutenRanking(genreId: string = ""): Promise<RakutenItem[]> {
   const appId = getRakutenAppId();
-  // カテゴリごとの除外キーワード（ホビーカテゴリ 101164 でお酒等を弾く）
+  // カテゴリごとの除外キーワード
   const negativeKeywords: Record<string, string> = {
-    "101164": "-酒 -ふるさと納税 -ビール -焼酎 -ワイン -定期便",
-    "100227": "-定期便 -ふるさと納税", // グルメから定期便等を除外
+    "101164": "-酒 -ふるさと納税 -ビール -焼酎 -ワイン -定期便 -アイコス -IQOS -電子タバコ",
+    "100227": "-定期便 -ふるさと納税", // グルメ
+    "560061": "-ケース -カバー -フィルム -アクセサリー", // 家電
   };
   const exclude = negativeKeywords[genreId] ? `&keyword=${encodeURIComponent(negativeKeywords[genreId])}` : "";
 
@@ -84,14 +85,12 @@ export async function fetchRakutenRanking(genreId: string = ""): Promise<Rakuten
 }
 
 // キーワード検索用の関数
-export async function searchRakutenItems(keyword: string): Promise<RakutenItem[]> {
+export async function searchRakutenItems(keyword: string, genreId: string = ""): Promise<RakutenItem[]> {
   if (!keyword) return [];
   
   // 商品検索APIのエンドポイント
-  // hits=30: 30件取得
-  // sort=standard: 標準順（売れ筋などを考慮）
   const appId = getRakutenAppId();
-  const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?format=json&keyword=${encodeURIComponent(keyword)}&hits=30&sort=standard&applicationId=${appId}`;
+  const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?format=json&keyword=${encodeURIComponent(keyword)}&hits=30&sort=standard&applicationId=${appId}${genreId ? `&genreId=${genreId}` : ""}`;
 
   try {
     if (appId === "DUMMY_ID") {

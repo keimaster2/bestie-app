@@ -7,11 +7,13 @@ import { useEffect, useState, use } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import FavoriteButton from "@/components/FavoriteButton";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { Product } from "@/lib/types";
-import { getSiteConfig, SiteConfig } from "@/lib/config";
+import { getSiteConfig } from "@/lib/config";
 import { useFavorites } from "@/context/FavoritesContext";
 import { getBrandPath } from "@/lib/utils";
-import Breadcrumbs from "@/components/Breadcrumbs";
 
 export default function ProductDetailPage({
   params: paramsPromise,
@@ -20,19 +22,16 @@ export default function ProductDetailPage({
 }) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const params = use(paramsPromise); // ブランド情報を確実に取得
+  const params = use(paramsPromise);
   const { setBrand } = useFavorites();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [imgSrc, setImgSrc] = useState<string>("/placeholder.svg");
 
-  // ブランド設定を取得 (params が確定してから)
   const config = getSiteConfig(params.brand);
 
   useEffect(() => {
     if (!params.brand) return;
-
-    // コンテキストにブランドを通知
     setBrand(params.brand);
 
     const fromParams: any = {};
@@ -97,21 +96,7 @@ export default function ProductDetailPage({
         "--brand-accent": config.themeColor.accent,
       } as React.CSSProperties}
     >
-      <nav className="sticky top-0 bg-white/80 backdrop-blur-md border-b border-gray-100 z-10 px-4 py-3 flex items-center justify-between">
-        <button 
-          onClick={() => router.back()} 
-          className="text-gray-500 hover:text-gray-900 flex items-center gap-1"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-          </svg>
-          戻る
-        </button>
-        <h1 className="font-bold text-sm truncate max-w-[200px]">{product.title}</h1>
-        <div className="w-16 flex justify-end">
-          <FavoriteButton product={product} />
-        </div>
-      </nav>
+      <Header config={config} minimal={true} />
 
       <Breadcrumbs 
         brand={params.brand}
@@ -124,7 +109,7 @@ export default function ProductDetailPage({
 
       <main className="max-w-2xl mx-auto p-4">
         {/* 商品画像 */}
-        <div className="bg-white flex items-center justify-center mb-8 py-12 rounded-2xl shadow-sm relative aspect-square overflow-hidden">
+        <div className="bg-white flex items-center justify-center mb-8 py-12 rounded-2xl shadow-sm relative aspect-square overflow-hidden border border-gray-100">
           <Image 
             src={imgSrc} 
             alt={product.title}
@@ -171,32 +156,19 @@ export default function ProductDetailPage({
               className="block w-full py-4 rounded-xl text-center font-bold text-lg text-white shadow-lg transition-transform hover:scale-[1.02]"
               style={{ backgroundColor: product.mall === "Yahoo" ? "#2563eb" : "#dc2626" }}
             >
-              {product.mall === "Yahoo" ? "Yahoo!ショッピングで見る" : "楽天市場で見る"}
+              {product.mall === "Yahoo" ? "Yahoo!で見る" : "楽天市場で見る"}
             </a>
         </div>
 
         <div className="prose prose-sm text-gray-600 mt-8 pb-20">
           <h3 className="text-lg font-bold text-gray-900 mb-2">商品詳細</h3>
-          <p className="whitespace-pre-wrap">
+          <p className="whitespace-pre-wrap text-sm leading-relaxed">
             {product.description || "詳細情報は各ストアページでご確認ください。"}
           </p>
         </div>
       </main>
 
-      {/* フッターを追加 */}
-      <footer className="bg-white border-t border-gray-100 pt-12 pb-24">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <span className="text-2xl">🎁</span>
-            <span className="text-xl font-black tracking-tight text-gray-900" style={{ color: config.themeColor.primary }}>{config.brandName}</span>
-          </div>
-          <p className="text-[10px] text-gray-400 leading-relaxed">
-            <Link href={getBrandPath(params.brand, "/about")} className="hover:text-gray-600 underline underline-offset-2 decoration-gray-200 mr-4">当サイトについて（免責事項）</Link>
-            このサイトはアフィリエイト広告（Amazonアソシエイト含む）を掲載しています。<br />
-            &copy; {new Date().getFullYear()} {config.brandName} - BEST ITEM SELECTION.
-          </p>
-        </div>
-      </footer>
+      <Footer brand={params.brand} config={config} />
     </div>
   );
 }

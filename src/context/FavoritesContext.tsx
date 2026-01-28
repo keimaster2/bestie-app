@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState, useCallback } from "react";
 import { FavoriteItem } from "@/lib/types";
 
 type FavoritesContextType = {
@@ -8,17 +8,17 @@ type FavoritesContextType = {
   addFavorite: (item: Omit<FavoriteItem, "addedAt">) => void;
   removeFavorite: (url: string) => void;
   isFavorite: (url: string) => boolean;
-  setBrand: (brand: string) => void; // ブランドを設定する機能を追加
+  setBrand: (brand: string) => void;
 };
 
 const FavoritesContext = createContext<FavoritesContextType | undefined>(undefined);
 
 export function FavoritesProvider({ children }: { children: React.ReactNode }) {
   const [favorites, setFavorites] = useState<FavoriteItem[]>([]);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [currentBrand, setCurrentBrand] = useState("bestie");
+  const [currentBrand, setCurrentBrand] = useState<string>("bestie");
+  const [isInitialized, setIsInitialized] = useState(false);
 
-  // 初期ロード時
+  // ブランドが変更されたら、そのブランドのお気に入りをロードする
   useEffect(() => {
     const saved = localStorage.getItem(`${currentBrand}-favorites`);
     if (saved) {
@@ -26,37 +26,42 @@ export function FavoritesProvider({ children }: { children: React.ReactNode }) {
         setFavorites(JSON.parse(saved));
       } catch (e) {
         console.error("Failed to load favorites", e);
+        setFavorites([]);
       }
     } else {
       setFavorites([]);
     }
-    setIsLoaded(true);
+    setIsInitialized(true);
   }, [currentBrand]);
 
-  // 更新時に保存
+  // お気に入りが更新されたら保存する
   useEffect(() => {
-    if (isLoaded) {
+    if (isInitialized) {
       localStorage.setItem(`${currentBrand}-favorites`, JSON.stringify(favorites));
     }
-  }, [favorites, isLoaded, currentBrand]);
+  }, [favorites, currentBrand, isInitialized]);
 
-  const addFavorite = (item: Omit<FavoriteItem, "addedAt">) => {
+  const addFavorite = useCallback((item: Omit<FavoriteItem, "addedAt">) => {
     setFavorites((prev) => {
       if (prev.some((f) => f.url === item.url)) return prev;
       return [{ ...item, addedAt: Date.now() }, ...prev];
     });
-  };
+  }, []);
 
-  const removeFavorite = (url: string) => {
+  const removeFavorite = useCallback((url: string) => {
     setFavorites((prev) => prev.filter((f) => f.url !== url));
-  };
+  }, []);
 
-  const isFavorite = (url: string) => {
+  const isFavorite = useCallback((url: string) => {
     return favorites.some((f) => f.url === url);
-  };
+  }, [favorites]);
+
+  const setBrand = useCallback((brand: string) => {
+    setCurrentBrand(brand);
+  }, []);
 
   return (
-    <FavoritesContext.Provider value={{ favorites, addFavorite, removeFavorite, isFavorite, setBrand: setCurrentBrand }}>
+    <FavoritesContext.Provider value={{ favorites, addFavorite, removeFavorite, isFavorite, setBrand }}>
       {children}
     </FavoritesContext.Provider>
   );

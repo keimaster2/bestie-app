@@ -1,14 +1,15 @@
+import type { Metadata } from "next";
 import { fetchRakutenRanking, searchRakutenItems, convertRakutenToProduct } from "@/lib/rakuten";
 import { fetchYahooRanking, searchYahooItems, convertYahooToProduct } from "@/lib/yahoo";
 import { Product } from "@/lib/types";
 import { getSiteConfig, SiteConfig } from "@/lib/config";
+import { headers } from "next/headers";
 import RankingList from "@/components/RankingList";
 import Header from "@/components/Header";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { getBrandPath } from "@/lib/utils";
-import type { Metadata } from "next";
 
-// 1. メタデータ生成 (Server側で動作)
+// SEO用の動的メタデータ生成
 export async function generateMetadata(
   props: { 
     params: Promise<{ brand: string }>;
@@ -17,7 +18,6 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const params = await props.params;
   const sParams = await props.searchParams;
-  // ここでは headers() は使わず、params.brand から取得
   const config = getSiteConfig(params.brand);
 
   const genreId = (sParams.genre as string) || config.categories[0].id;
@@ -25,7 +25,7 @@ export async function generateMetadata(
   const mall = (sParams.mall as string) || "rakuten";
   
   const genre = config.categories.find(g => g.id === genreId) || config.categories[0];
-  const mallName = mall === "yahoo" ? "Yahoo!ショッピング" : "楽天市場";
+  const mallName = mall === "yahoo" ? "Yahoo!" : "楽天市場";
 
   if (query) {
     return {
@@ -43,8 +43,6 @@ export async function generateMetadata(
 export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
-// 2. Client用コンポーネントを分離せず、Server Component として実装し、必要な部分だけ Client Component を使う
-// もしくは全体を Server Component として構築し直す（現在の流れに合わせる）
 import ClientHome from "./ClientHome";
 
 export default async function Home(props: {
@@ -67,15 +65,18 @@ export default async function Home(props: {
 
   // データの取得
   if (isSearchMode) {
+    const rootRakutenId = config.categories[0].rakutenId;
+    const rootYahooId = config.categories[0].yahooId;
+
     if (mall === "yahoo") {
-      const rawData = await searchYahooItems(query);
+      const rawData = await searchYahooItems(query, rootYahooId);
       products = convertYahooToProduct(rawData, false);
-      const rawRakuten = await searchRakutenItems(query);
+      const rawRakuten = await searchRakutenItems(query, rootRakutenId);
       otherProducts = convertRakutenToProduct(rawRakuten, false);
     } else {
-      const rawData = await searchRakutenItems(query);
+      const rawData = await searchRakutenItems(query, rootRakutenId);
       products = convertRakutenToProduct(rawData, false);
-      const rawYahoo = await searchYahooItems(query);
+      const rawYahoo = await searchYahooItems(query, rootYahooId);
       otherProducts = convertYahooToProduct(rawYahoo, false);
     }
   } else {
@@ -117,6 +118,13 @@ export default async function Home(props: {
     products.sort((a, b) => (a.rank || 999) - (b.rank || 999));
   }
 
+  // パンくずアイテムの決定
+  const breadcrumbItems = (isSearchMode 
+    ? [{ label: `「${query}」の検索結果` }]
+    : (genreId !== config.categories[0].id 
+        ? [{ label: currentGenre.name }] 
+        : []));
+
   return (
     <ClientHome 
       params={params} 
@@ -127,6 +135,7 @@ export default async function Home(props: {
       genreId={genreId}
       isSearchMode={isSearchMode}
       currentGenre={currentGenre}
+      breadcrumbItems={breadcrumbItems}
     />
   );
 }

@@ -7,19 +7,25 @@ import { usePathname } from "next/navigation";
 import { getBrandPath } from "@/lib/utils";
 
 type HeaderProps = {
-  mall: string;
-  query: string;
-  genreId: string;
-  isSearchMode: boolean;
+  mall?: string;
+  query?: string;
+  genreId?: string;
+  isSearchMode?: boolean;
   config: SiteConfig;
+  minimal?: boolean; // 検索バーやタブを出さない最小構成モード（詳細画面、お気に入りなど）
 };
 
-export default function Header({ mall, query, genreId, isSearchMode, config }: HeaderProps) {
-  const pathname = usePathname();
+export default function Header({ mall, query, genreId, isSearchMode, config, minimal = false }: HeaderProps) {
+  const pathname = usePathname() || "";
   
-  // 現在のブランドIDを特定 (config.id を優先)
-  const currentBrandId = config.id;
-  const brandPrefix = getBrandPath(currentBrandId, "/");
+  // 現在のブランドIDを特定（URLの1段目を見る）
+  const pathSegments = pathname.split('/').filter(Boolean);
+  const brands = ["bestie", "beauty", "gadget"];
+  const brandFromPath = brands.find(b => pathSegments.includes(b)) || "bestie";
+
+  // トップページかどうかを判定
+  const isTopPage = pathSegments.length === 0 || 
+                   (pathSegments.length === 1 && brands.includes(pathSegments[0]));
 
   // モールボタンの共通スタイル
   const getMallTabClass = (targetMall: string) => {
@@ -38,94 +44,105 @@ export default function Header({ mall, query, genreId, isSearchMode, config }: H
       <div className="max-w-4xl mx-auto px-4 py-2 flex flex-col sm:flex-row items-center justify-between gap-2">
         <div className="flex flex-col w-full sm:w-auto">
           <div className="flex items-center gap-4 justify-between">
-            <Link href={brandPrefix} className="flex items-center gap-2 hover:opacity-80 transition group" prefetch={false}>
+            <Link href={getBrandPath(brandFromPath, "/")} className="flex items-center gap-2 hover:opacity-80 transition group" prefetch={false}>
               <span className="text-xl sm:text-2xl group-hover:scale-110 transition-transform">🎁</span>
               <div>
-                <h1 className="text-xl sm:text-2xl font-black tracking-tight text-gray-900 leading-none" style={{ color: 'var(--brand-primary)' }}>
+                <h1 className="text-xl sm:text-2xl font-black tracking-tight leading-none" style={{ color: config.themeColor.primary }}>
                   {config.brandName}
                 </h1>
-                <p className="text-[9px] sm:text-[10px] font-bold text-gray-400 tracking-wider uppercase">
-                  Best Item Selection
-                </p>
+                {isTopPage && (
+                  <p className="text-[9px] sm:text-[10px] font-bold text-gray-400 tracking-wider uppercase mt-1">
+                    Best Item Selection
+                  </p>
+                )}
               </div>
             </Link>
             
-            <Link href={getBrandPath(currentBrandId, "/favorites")} className="sm:hidden text-gray-400 hover:text-red-500 transition-colors" prefetch={false}>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-              </svg>
-            </Link>
+            {!minimal && (
+              <Link href={getBrandPath(brandFromPath, "/favorites")} className="sm:hidden text-gray-400 hover:text-red-500 transition-colors" prefetch={false}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                </svg>
+              </Link>
+            )}
+            {minimal && (
+               <div className="font-bold text-sm text-gray-400 sm:hidden">
+                 {pathname.includes("/favorites") ? "お気に入り" : pathname.includes("/about") ? "About" : ""}
+               </div>
+            )}
           </div>
         </div>
         
-        <div className="flex items-center gap-4 w-full sm:w-auto">
-          <div className="flex-1 sm:w-64">
-            <SearchBar />
+        {!minimal && (
+          <div className="flex items-center gap-4 w-full sm:w-auto">
+            <div className="flex-1 sm:w-64">
+              <SearchBar />
+            </div>
+            <Link href={getBrandPath(brandFromPath, "/favorites")} className="hidden sm:flex flex-col items-center text-gray-400 hover:text-red-500 transition text-xs font-bold" prefetch={false}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 mb-0.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+              </svg>
+              お気に入り
+            </Link>
           </div>
-          <Link href={getBrandPath(currentBrandId, "/favorites")} className="hidden sm:flex flex-col items-center text-gray-400 hover:text-red-500 transition text-xs font-bold" prefetch={false}>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 mb-0.5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-            </svg>
-            Favorites
-          </Link>
-        </div>
+        )}
       </div>
       
-      <div className="border-t border-gray-100 bg-white">
-        <div className="max-w-4xl mx-auto px-4 py-2 text-center sm:text-left border-b border-gray-50">
-           <p className="text-[10px] sm:text-xs text-gray-500 font-medium leading-tight">
-             <span className="hidden sm:inline">選び疲れをゼロに。</span>
-             {config.tagline}
-           </p>
-        </div>
-
-        <div className="max-w-4xl mx-auto px-4">
-          {/* モール切り替えタブ */}
-          <div className="flex justify-center py-2 sm:py-4 border-b border-gray-100 mb-1">
-            <div className="inline-flex bg-gray-100 rounded-full p-0.5 sm:p-1">
-              <Link 
-                href={`${getBrandPath(currentBrandId, "/")}?mall=rakuten${query ? `&q=${encodeURIComponent(query)}` : `&genre=${genreId}`}`}
-                className={getMallTabClass("rakuten")}
-                prefetch={false}
-              >
-                Rakuten
-              </Link>
-              <Link 
-                href={`${getBrandPath(currentBrandId, "/")}?mall=yahoo${query ? `&q=${encodeURIComponent(query)}` : `&genre=${genreId}`}`}
-                className={getMallTabClass("yahoo")}
-                prefetch={false}
-              >
-                Yahoo!
-              </Link>
-              <span className="px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold text-gray-300 cursor-not-allowed border-2 border-transparent" title="準備中">
-                Amazon
-              </span>
-            </div>
+      {!minimal && (
+        <div className="border-t border-gray-100 bg-white">
+          <div className="max-w-4xl mx-auto px-4 py-2 text-center sm:text-left border-b border-gray-50">
+             <p className="text-[10px] sm:text-xs text-gray-500 font-medium leading-tight">
+               <span className="hidden sm:inline">選び疲れをゼロに。</span>
+               {config.tagline}
+             </p>
           </div>
 
-          {/* ジャンルタブ（検索時以外表示） */}
-          {!isSearchMode && (
-            <div className="flex overflow-x-auto no-scrollbar gap-1 py-2 -mx-4 px-4 sm:mx-0 sm:px-0">
-              {config.categories.map((g) => (
-                <Link
-                  key={g.id}
-                  href={`${getBrandPath(currentBrandId, "/")}?mall=${mall}&genre=${g.id}`}
-                  className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-bold transition-colors whitespace-nowrap
-                    ${
-                      genreId === g.id
-                        ? "text-white"
-                        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                    }`}
-                  style={genreId === g.id ? { backgroundColor: 'var(--brand-primary)' } : {}}
+          <div className="max-w-4xl mx-auto px-4">
+            <div className="flex justify-center py-2 sm:py-4 border-b border-gray-100 mb-1">
+              <div className="inline-flex bg-gray-100 rounded-full p-0.5 sm:p-1">
+                <Link 
+                  href={`${getBrandPath(brandFromPath, "/")}?mall=rakuten${query ? `&q=${encodeURIComponent(query)}` : `&genre=${genreId}`}`}
+                  className={getMallTabClass("rakuten")}
                   prefetch={false}
                 >
-                  {g.name}
+                  楽天市場
                 </Link>
-              ))}
+                <Link 
+                  href={`${getBrandPath(brandFromPath, "/")}?mall=yahoo${query ? `&q=${encodeURIComponent(query)}` : `&genre=${genreId}`}`}
+                  className={getMallTabClass("yahoo")}
+                  prefetch={false}
+                >
+                  Yahoo!
+                </Link>
+                <span className="px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold text-gray-300 cursor-not-allowed border-transparent" title="準備中">
+                  Amazon
+                </span>
+              </div>
             </div>
-          )}
+
+            {!isSearchMode && (
+              <div className="flex overflow-x-auto no-scrollbar gap-1 py-2 -mx-4 px-4 sm:mx-0 sm:px-0">
+                {config.categories.map((g) => (
+                  <Link
+                    key={g.id}
+                    href={`${getBrandPath(brandFromPath, "/")}?mall=${mall}&genre=${g.id}`}
+                    className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-bold transition-colors whitespace-nowrap
+                      ${
+                        genreId === g.id
+                          ? "text-white"
+                          : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                      }`}
+                    style={genreId === g.id ? { backgroundColor: 'var(--brand-primary)' } : {}}
+                    prefetch={false}
+                  >
+                    {g.name}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </header>
   );
 }

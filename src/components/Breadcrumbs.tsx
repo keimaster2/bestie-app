@@ -14,10 +14,21 @@ type BreadcrumbsProps = {
 };
 
 export default function Breadcrumbs({ brand, config, items }: BreadcrumbsProps) {
+  // アイテムが空の場合は何も表示しない
+  if (!items || items.length === 0) {
+    return null;
+  }
+
   // ブランドのトップページを起点にする
   const allItems: BreadcrumbItem[] = [
     { label: config.brandName, href: getBrandPath(brand, "/") },
-    ...items,
+    ...items.map(item => {
+      // モール名が含まれる場合は正式名称に変換
+      let label = item.label;
+      if (label.toLowerCase() === "rakuten") label = "楽天市場";
+      if (label.toLowerCase() === "yahoo") label = "Yahoo!";
+      return { ...item, label };
+    }),
   ];
 
   // Google用構造化データ (JSON-LD)

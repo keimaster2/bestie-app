@@ -1,27 +1,33 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { getBrandPath } from "@/lib/utils";
 
 export default function SearchBar() {
   const router = useRouter();
   const searchParams = useSearchParams();
+  const pathname = usePathname() || "";
   const [keyword, setKeyword] = useState(searchParams.get("q") || "");
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // 現在のモール情報を維持する
+    // 現在のブランドパスを特定（URLの1段目を見る）
+    const pathSegments = pathname.split('/');
+    const brands = ["bestie", "beauty", "gadget"];
+    const brandFromPath = brands.find(b => pathSegments.includes(b)) || "bestie";
+
+    // 現在のモール情報を維持
     const currentMall = searchParams.get("mall") || "rakuten";
-    const currentGenre = searchParams.get("genre") || ""; // ジャンルも一応維持（検索APIには渡さないがUI維持のため）
 
     const params = new URLSearchParams();
     if (keyword.trim()) params.set("q", keyword);
     if (currentMall) params.set("mall", currentMall);
-    // 検索時はジャンル絞り込みを解除するか、維持するか。今回はシンプルにキーワード優先でジャンルは外すことが多いが、
-    // UIの一貫性のためにパラメータとしては持っておく（バックエンドで無視すればよい）
     
-    router.push(`/?${params.toString()}`);
+    // ブランドを維持したパスへ遷移
+    const targetPath = getBrandPath(brandFromPath, "/");
+    router.push(`${targetPath}?${params.toString()}`);
   };
 
   return (

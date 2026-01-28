@@ -11,9 +11,9 @@ import { usePathname } from "next/navigation";
 
 export default function ProductCard({ product, config }: { product: Product, config: SiteConfig }) {
   const [imgSrc, setImgSrc] = useState(product.image || "/placeholder.svg");
-  const pathname = usePathname() || ""; // 安全策
+  const pathname = usePathname() || "";
 
-  // 現在のブランドパスを特定（URLの1段目を見る）
+  // 現在のブランドパスを特定
   const pathSegments = pathname.split('/');
   const brands = ["bestie", "beauty", "gadget"];
   const brandFromPath = brands.find(b => pathSegments.includes(b)) || "bestie";
@@ -39,7 +39,6 @@ export default function ProductCard({ product, config }: { product: Product, con
   if (product.rakutenUrl) searchParams.set("rakutenUrl", product.rakutenUrl);
   if (product.yahooUrl) searchParams.set("yahooUrl", product.yahooUrl);
 
-  // 重要：本家(bestie)の場合は /product/... それ以外は /brand/product/...
   const detailUrl = `${getBrandPath(brandFromPath, `/product/${product.id}`)}?${searchParams.toString()}`;
 
   const saveToHistory = () => {
@@ -50,7 +49,6 @@ export default function ProductCard({ product, config }: { product: Product, con
     }
   };
 
-  // アフィリエイトリンクの生成
   const getMallUrl = (mall: "Rakuten" | "Yahoo" | "Amazon") => {
     if (mall === "Rakuten") {
       const rakutenAid = getMoshimoAid("Rakuten") || "5355389";
@@ -71,8 +69,8 @@ export default function ProductCard({ product, config }: { product: Product, con
 
   return (
     <div className={`bg-white shadow-sm border border-gray-200 hover:shadow-md transition-all duration-200 flex relative h-52 group ${config.theme.borderRadius} ${config.theme.cardShadow}`}>
-      {/* 左上のバッジ（順位がある場合は順位、ない場合はモール名） */}
-      <div className="absolute -top-2 -left-2 z-10">
+      {/* 左上のバッジ */}
+      <div className="absolute -top-2 -left-2 z-10 flex items-center gap-1">
         {(product.rank !== undefined && product.rank !== null) ? (
           <div className="w-9 h-9 flex items-center justify-center rounded-full font-bold text-base text-white shadow-md border-2 border-white"
             style={{ backgroundColor: product.rank <= 3 ? 'var(--brand-accent)' : 'var(--brand-primary)' }}
@@ -80,11 +78,18 @@ export default function ProductCard({ product, config }: { product: Product, con
             {product.rank}
           </div>
         ) : (
-          <div className={`px-2 py-1 rounded-md text-[10px] font-black text-white shadow-md border border-white uppercase tracking-wider`}
+          <div className={`px-2 py-1 rounded-md text-[10px] font-black text-white shadow-md border border-white tracking-wider`}
             style={{ backgroundColor: product.mall === "Yahoo" ? "#2563eb" : "#dc2626" }}
           >
-            {product.mall === "Yahoo" ? "Yahoo!" : product.mall}
+            {product.mall === "Yahoo" ? "Yahoo!" : "楽天市場"}
           </div>
+        )}
+        {product.isWRank && (
+          <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full shadow-sm border border-white text-white"
+            style={{ backgroundColor: 'var(--brand-accent)' }}
+          >
+            🏆 W RANK
+          </span>
         )}
       </div>
 
@@ -107,13 +112,6 @@ export default function ProductCard({ product, config }: { product: Product, con
         <div>
           <div className="flex items-center justify-between mb-1">
             <div className="text-[10px] text-gray-400 truncate flex-1">{product.shopName}</div>
-            {product.isWRank && (
-              <span className="text-[8px] font-black px-1 rounded-sm whitespace-nowrap ml-1 border"
-                style={{ backgroundColor: 'var(--brand-accent)', color: 'white', borderColor: 'var(--brand-accent)' }}
-              >
-                🏆 W RANK
-              </span>
-            )}
           </div>
           <h3 className="font-bold text-sm leading-snug mb-2 line-clamp-3">
             <Link href={detailUrl} onClick={saveToHistory} className="hover:opacity-70 transition" style={{ color: 'var(--brand-primary)' }} prefetch={false}>
@@ -142,7 +140,7 @@ export default function ProductCard({ product, config }: { product: Product, con
                 : 'bg-gray-50 text-gray-400 border-gray-100 hover:text-red-400 opacity-60'
               }`}
           >
-            楽天
+            楽天市場
           </a>
           <a
             href={getMallUrl("Yahoo")}
@@ -151,7 +149,7 @@ export default function ProductCard({ product, config }: { product: Product, con
             className={`text-[10px] font-black px-2 py-1.5 rounded flex-1 text-center transition-all border
               ${product.yahooUrl 
                 ? 'bg-blue-50 text-blue-600 border-blue-200 hover:bg-blue-100 shadow-sm' 
-                : 'bg-gray-50 text-gray-400 border-gray-100 hover:text-blue-400 opacity-60'
+                : 'bg-gray-50 text-gray-400 border-gray-100 hover:text-red-400 opacity-60'
               }`}
           >
             Yahoo!

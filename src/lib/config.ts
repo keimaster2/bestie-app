@@ -1,5 +1,5 @@
 import { bestieBrand } from "./brands/bestie";
-import { gadgetProBrand } from "./brands/gadget-pro";
+import { bestieGadgetBrand } from "./brands/bestie-gadget";
 import { beautyBrand } from "./brands/beauty";
 
 export type SiteConfig = {
@@ -39,7 +39,7 @@ export type SiteConfig = {
 // 全ブランドのサイトを統合したレジストリ
 export const SITE_REGISTRY: Record<string, SiteConfig> = {
   ...bestieBrand,
-  ...gadgetProBrand,
+  ...bestieGadgetBrand,
   ...beautyBrand,
 };
 

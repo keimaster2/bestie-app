@@ -1,6 +1,7 @@
 "use client";
 
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RankingList from "@/components/RankingList";
 import { SiteConfig } from "@/lib/config";
@@ -16,7 +17,8 @@ export default function ClientHome({
   query, 
   genreId, 
   isSearchMode, 
-  currentGenre 
+  currentGenre,
+  breadcrumbItems
 }: { 
   params: { brand: string },
   config: SiteConfig,
@@ -25,7 +27,8 @@ export default function ClientHome({
   query: string,
   genreId: string,
   isSearchMode: boolean,
-  currentGenre: any
+  currentGenre: any,
+  breadcrumbItems: any[]
 }) {
   const { setBrand } = useFavorites();
 
@@ -33,7 +36,7 @@ export default function ClientHome({
     setBrand(params.brand);
   }, [params.brand, setBrand]);
 
-  const mallName = mall === "yahoo" ? "Yahoo!" : "Rakuten";
+  const mallName = mall === "yahoo" ? "Yahoo!" : "楽天市場";
   const mallFullName = mall === "yahoo" ? "Yahoo!ショッピング" : "楽天市場";
 
   return (
@@ -56,13 +59,7 @@ export default function ClientHome({
       <Breadcrumbs 
         brand={params.brand}
         config={config}
-        items={[
-          ...(isSearchMode 
-            ? [{ label: `「${query}」の検索結果` }]
-            : (genreId !== config.categories[0].id 
-                ? [{ label: currentGenre.name }] 
-                : []))
-        ]}
+        items={breadcrumbItems}
       />
 
       <main className="max-w-4xl mx-auto px-4 py-4">
@@ -104,18 +101,7 @@ export default function ClientHome({
         )}
       </main>
 
-      <footer className="bg-white border-t border-gray-100 pt-12 pb-24">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <span className="text-2xl">🎁</span>
-            <span className="text-xl font-black tracking-tight text-gray-900" style={{ color: config.themeColor.primary }}>{config.brandName}</span>
-          </div>
-          <p className="text-[10px] text-gray-400 leading-relaxed">
-            このサイトはアフィリエイト広告（Amazonアソシエイト含む）を掲載しています。<br />
-            &copy; {new Date().getFullYear()} {config.brandName} - BEST ITEM SELECTION.
-          </p>
-        </div>
-      </footer>
+      <Footer brand={params.brand} config={config} />
     </div>
   );
 }
