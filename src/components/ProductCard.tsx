@@ -5,14 +5,24 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { Product } from "@/lib/types";
+import { SiteConfig } from "@/lib/config";
+import { getBrandPath } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
-export default function ProductCard({ product }: { product: Product }) {
+export default function ProductCard({ product, config }: { product: Product, config: SiteConfig }) {
   const [imgSrc, setImgSrc] = useState(product.image || "/placeholder.svg");
+  const pathname = usePathname() || ""; // 安全策
+
+  // 現在のブランドパスを特定（URLの1段目を見る）
+  const pathSegments = pathname.split('/');
+  const brands = ["bestie", "beauty", "gadget"];
+  const brandFromPath = brands.find(b => pathSegments.includes(b)) || "bestie";
 
   // もしもアフィリエイトIDを環境変数から取得
   const getMoshimoAid = (mall: "Rakuten" | "Yahoo") => {
+    if (mall === "Rakuten" && config.affiliate.rakutenAid) return config.affiliate.rakutenAid;
+    if (mall === "Yahoo" && config.affiliate.yahooAid) return config.affiliate.yahooAid;
     const key = mall === "Rakuten" ? "NEXT_PUBLIC_MOSHIMO_RAKUTEN_AID" : "NEXT_PUBLIC_MOSHIMO_YAHOO_AID";
-    // Client Component では process.env 経由で公開環境変数を参照
     return process.env[key] || "";
   };
 
@@ -29,7 +39,8 @@ export default function ProductCard({ product }: { product: Product }) {
   if (product.rakutenUrl) searchParams.set("rakutenUrl", product.rakutenUrl);
   if (product.yahooUrl) searchParams.set("yahooUrl", product.yahooUrl);
 
-  const detailUrl = `/product/${product.id}?${searchParams.toString()}`;
+  // 重要：本家(bestie)の場合は /product/... それ以外は /brand/product/...
+  const detailUrl = `${getBrandPath(brandFromPath, `/product/${product.id}`)}?${searchParams.toString()}`;
 
   const saveToHistory = () => {
     try {
@@ -39,10 +50,10 @@ export default function ProductCard({ product }: { product: Product }) {
     }
   };
 
-  // アフィリエイトリンクまたは検索リンクの生成
+  // アフィリエイトリンクの生成
   const getMallUrl = (mall: "Rakuten" | "Yahoo" | "Amazon") => {
     if (mall === "Rakuten") {
-      const rakutenAid = getMoshimoAid("Rakuten") || "5355389"; // フォールバックとして現在の値を保持
+      const rakutenAid = getMoshimoAid("Rakuten") || "5355389";
       const url = product.rakutenUrl || `https://search.rakuten.co.jp/search/mall/${encodeURIComponent(product.title)}/`;
       return `https://af.moshimo.com/af/c/click?a_id=${rakutenAid}&p_id=54&pc_id=54&pl_id=616&url=${encodeURIComponent(url)}`;
     }
@@ -52,31 +63,36 @@ export default function ProductCard({ product }: { product: Product }) {
       return `https://af.moshimo.com/af/c/click?a_id=${yahooAid}&p_id=1225&pc_id=1925&pl_id=18502&url=${encodeURIComponent(url)}`;
     }
     if (mall === "Amazon") {
-      return `https://www.amazon.co.jp/s?k=${encodeURIComponent(product.title)}&tag=keimaster-22`; 
+      const tag = config.affiliate.amazonTag || "bestie-select-22";
+      return `https://www.amazon.co.jp/s?k=${encodeURIComponent(product.title)}&tag=${tag}`; 
     }
     return "#";
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-all duration-200 flex relative h-52 group">
-      {/* 順位バッジ */}
-      {product.rank && (
-        <div className={`absolute -top-2 -left-2 w-9 h-9 flex items-center justify-center rounded-full z-10 font-bold text-base text-white shadow-md border-2 border-white
-          ${product.rank === 1 ? "bg-yellow-400" : 
-            product.rank === 2 ? "bg-gray-400" : 
-            product.rank === 3 ? "bg-orange-400" : "bg-gray-800 text-xs w-7 h-7"}`
-        }>
-          {product.rank}
-        </div>
-      )}
+    <div className={`bg-white shadow-sm border border-gray-200 hover:shadow-md transition-all duration-200 flex relative h-52 group ${config.theme.borderRadius} ${config.theme.cardShadow}`}>
+      {/* 左上のバッジ（順位がある場合は順位、ない場合はモール名） */}
+      <div className="absolute -top-2 -left-2 z-10">
+        {(product.rank !== undefined && product.rank !== null) ? (
+          <div className="w-9 h-9 flex items-center justify-center rounded-full font-bold text-base text-white shadow-md border-2 border-white"
+            style={{ backgroundColor: product.rank <= 3 ? 'var(--brand-accent)' : 'var(--brand-primary)' }}
+          >
+            {product.rank}
+          </div>
+        ) : (
+          <div className={`px-2 py-1 rounded-md text-[10px] font-black text-white shadow-md border border-white uppercase tracking-wider`}
+            style={{ backgroundColor: product.mall === "Yahoo" ? "#2563eb" : "#dc2626" }}
+          >
+            {product.mall === "Yahoo" ? "Yahoo!" : product.mall}
+          </div>
+        )}
+      </div>
 
-      {/* お気に入りボタン */}
       <div className="absolute -top-3 -right-3 z-20 scale-90">
         <FavoriteButton product={{ ...product, id: product.id }} />
       </div>
 
-      {/* 商品画像 */}
-      <div className="w-1/3 bg-white flex-shrink-0 flex items-center justify-center relative p-2 border-r border-gray-100 rounded-l-xl">
+      <div className={`w-1/3 bg-white flex-shrink-0 flex items-center justify-center relative p-2 border-r border-gray-100`}>
         <Image 
           src={imgSrc} 
           alt={product.title}
@@ -87,19 +103,20 @@ export default function ProductCard({ product }: { product: Product }) {
         />
       </div>
       
-      {/* 詳細情報 */}
       <div className="p-3 w-2/3 flex flex-col justify-between">
         <div>
           <div className="flex items-center justify-between mb-1">
             <div className="text-[10px] text-gray-400 truncate flex-1">{product.shopName}</div>
             {product.isWRank && (
-              <span className="text-[8px] font-black px-1 rounded-sm bg-amber-100 text-amber-700 border border-amber-200 whitespace-nowrap ml-1">
+              <span className="text-[8px] font-black px-1 rounded-sm whitespace-nowrap ml-1 border"
+                style={{ backgroundColor: 'var(--brand-accent)', color: 'white', borderColor: 'var(--brand-accent)' }}
+              >
                 🏆 W RANK
               </span>
             )}
           </div>
           <h3 className="font-bold text-sm leading-snug mb-2 line-clamp-3">
-            <Link href={detailUrl} onClick={saveToHistory} className="hover:text-indigo-800 transition" prefetch={false}>
+            <Link href={detailUrl} onClick={saveToHistory} className="hover:opacity-70 transition" style={{ color: 'var(--brand-primary)' }} prefetch={false}>
               {product.title}
             </Link>
           </h3>
@@ -137,7 +154,7 @@ export default function ProductCard({ product }: { product: Product }) {
                 : 'bg-gray-50 text-gray-400 border-gray-100 hover:text-blue-400 opacity-60'
               }`}
           >
-            Yahoo
+            Yahoo!
           </a>
           <a
             href={getMallUrl("Amazon")}
