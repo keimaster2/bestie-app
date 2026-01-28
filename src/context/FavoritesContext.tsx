@@ -8,6 +8,7 @@ type FavoritesContextType = {
   addFavorite: (item: Omit<FavoriteItem, "addedAt">) => void;
   removeFavorite: (url: string) => void;
   isFavorite: (url: string) => boolean;
+  setBrand: (brand: string) => void; // ブランドを設定する機能を追加
 };
 
 const FavoritesContext = createContext<FavoritesContextType | undefined>(undefined);
@@ -15,26 +16,29 @@ const FavoritesContext = createContext<FavoritesContextType | undefined>(undefin
 export function FavoritesProvider({ children }: { children: React.ReactNode }) {
   const [favorites, setFavorites] = useState<FavoriteItem[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [currentBrand, setCurrentBrand] = useState("bestie");
 
-  // 初期ロード時にローカルストレージから読み込み
+  // 初期ロード時
   useEffect(() => {
-    const saved = localStorage.getItem("life-best-x-favorites");
+    const saved = localStorage.getItem(`${currentBrand}-favorites`);
     if (saved) {
       try {
         setFavorites(JSON.parse(saved));
       } catch (e) {
         console.error("Failed to load favorites", e);
       }
+    } else {
+      setFavorites([]);
     }
     setIsLoaded(true);
-  }, []);
+  }, [currentBrand]);
 
-  // 更新時にローカルストレージへ保存
+  // 更新時に保存
   useEffect(() => {
     if (isLoaded) {
-      localStorage.setItem("life-best-x-favorites", JSON.stringify(favorites));
+      localStorage.setItem(`${currentBrand}-favorites`, JSON.stringify(favorites));
     }
-  }, [favorites, isLoaded]);
+  }, [favorites, isLoaded, currentBrand]);
 
   const addFavorite = (item: Omit<FavoriteItem, "addedAt">) => {
     setFavorites((prev) => {
@@ -52,7 +56,7 @@ export function FavoritesProvider({ children }: { children: React.ReactNode }) {
   };
 
   return (
-    <FavoritesContext.Provider value={{ favorites, addFavorite, removeFavorite, isFavorite }}>
+    <FavoritesContext.Provider value={{ favorites, addFavorite, removeFavorite, isFavorite, setBrand: setCurrentBrand }}>
       {children}
     </FavoritesContext.Provider>
   );

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
+import { headers } from "next/headers";
+import { getSiteConfig } from "@/lib/config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,7 +23,7 @@ export const metadata: Metadata = {
   description: "Bestie（ベスティ）は、大手モールの売上ランキングをリアルタイムに集計。今まさに売れている人気商品を厳選して紹介し、あなたのベストな選択をサポートします。",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

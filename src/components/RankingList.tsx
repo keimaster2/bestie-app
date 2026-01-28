@@ -3,8 +3,9 @@
 import { useState } from "react";
 import ProductCard from "./ProductCard";
 import { Product } from "@/lib/types";
+import { SiteConfig } from "@/lib/config";
 
-export default function RankingList({ products }: { products: Product[] }) {
+export default function RankingList({ products, config }: { products: Product[], config: SiteConfig }) {
   const [showAll, setShowAll] = useState(false);
   
   // 初期表示数（TOP10）
@@ -18,7 +19,7 @@ export default function RankingList({ products }: { products: Product[] }) {
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {visibleProducts.map((product, index) => (
-          <ProductCard key={`${product.id}-${index}`} product={product} />
+          <ProductCard key={`${product.id}-${index}`} product={product} config={config} />
         ))}
       </div>
 
