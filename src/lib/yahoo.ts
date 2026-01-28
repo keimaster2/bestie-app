@@ -19,7 +19,7 @@ export type YahooRankingResponse = {
   };
 };
 
-const YAHOO_APP_ID = process.env.YAHOO_APP_ID || "DUMMY_ID";
+const YAHOO_APP_ID = process.env.YAHOO_APP_ID || process.env.NEXT_PUBLIC_YAHOO_APP_ID || "DUMMY_ID";
 
 // Yahoo!のランキングを取得
 export async function fetchYahooRanking(categoryId: string = "1", minPrice?: number): Promise<YahooItem[]> {
@@ -113,7 +113,7 @@ const mockYahooData: YahooItem[] = [
     name: "【Yahoo1位】水 2リットル 12本 ミネラルウォーター 自然の恵み 天然水 軟水",
     price: 1280,
     url: "#",
-    image: { medium: "https://item-shopping.c.yimg.jp/i/n/sample_1" }, 
+    image: { medium: "https://item-shopping.c.yimg.jp/i/n/soukai_4902102119184" }, 
     review: { rate: 4.5, count: 1200 },
     store: { name: "Yahoo!ドリンク専門店" }
   },
@@ -122,7 +122,7 @@ const mockYahooData: YahooItem[] = [
     name: "【Yahoo2位】割れチョコ 訳あり 1kg 自由が丘 チュベ・ド・ショコラ クーベルチュール",
     price: 3480,
     url: "#",
-    image: { medium: "https://item-shopping.c.yimg.jp/i/n/sample_2" },
+    image: { medium: "https://item-shopping.c.yimg.jp/i/n/jiyugaokachoco_710" },
     review: { rate: 4.7, count: 890 },
     store: { name: "蒲屋忠兵衛商店" }
   },

@@ -37,7 +37,7 @@ export const RAKUTEN_GENRES = [
 ];
 
 // 楽天ブックスなどのジャンルID（今回は総合ランキングのテスト）
-const RAKUTEN_APP_ID = process.env.RAKUTEN_APP_ID || "DUMMY_ID"; 
+const RAKUTEN_APP_ID = process.env.RAKUTEN_APP_ID || process.env.NEXT_PUBLIC_RAKUTEN_APP_ID || "DUMMY_ID"; 
 
 export async function fetchRakutenRanking(genreId: string = ""): Promise<RakutenItem[]> {
   // カテゴリごとの除外キーワード（ホビーカテゴリ 101164 でお酒等を弾く）
