@@ -3,6 +3,8 @@ import Home from "./[brand]/page";
 import Link from "next/link";
 import { getBrandPath } from "@/lib/utils";
 
+export const runtime = 'edge';
+
 // トップページ (/) にアクセスした際は、デフォルトの Bestie ブランドを表示
 export default async function DefaultHome(props: any) {
   // brand パラメータを "bestie" として固定で渡す
