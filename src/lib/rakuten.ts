@@ -176,6 +176,11 @@ export function convertRakutenToProduct(items: RakutenItem[], isRanking: boolean
     // 画像URLの高画質化：末尾のサイズ指定(?_ex=...)を削除してオリジナルサイズを取得
     // または ?_ex=600x600 のように明示的に大きくする
     let imageUrl = i.mediumImageUrls.length > 0 ? i.mediumImageUrls[0].imageUrl : "/placeholder.svg";
+    
+    // 画像URLのHTTPS化と高画質化
+    if (imageUrl.startsWith("http://")) {
+      imageUrl = imageUrl.replace("http://", "https://");
+    }
     if (imageUrl.includes("?_ex=")) {
       imageUrl = imageUrl.replace(/\?_ex=.*$/, "?_ex=600x600");
     }

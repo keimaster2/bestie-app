@@ -2,6 +2,7 @@
 
 import FavoriteButton from "./FavoriteButton";
 import Link from "next/link";
+import Image from "next/image";
 import { Product } from "@/lib/types";
 
 export default function ProductCard({ product }: { product: Product }) {
@@ -45,14 +46,12 @@ export default function ProductCard({ product }: { product: Product }) {
 
       {/* 商品画像 */}
       <div className="w-1/3 bg-white flex-shrink-0 flex items-center justify-center relative p-2 border-r border-gray-100 rounded-l-xl">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img 
+        <Image 
           src={product.image || "/placeholder.svg"} 
           alt={product.title}
-          className="max-w-full max-h-full object-contain"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src = "/placeholder.svg";
-          }}
+          fill
+          sizes="(max-width: 768px) 33vw, 20vw"
+          className="object-contain p-2"
         />
       </div>
       
