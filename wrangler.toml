@@ -3,3 +3,7 @@ name = "life-best-x"
 compatibility_date = "2024-11-18"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = ".vercel/output/static"
+
+[vars]
+RAKUTEN_APP_ID = "1000733788126478369"
+YAHOO_APP_ID = "dmVyPTIwMjUwNyZpZD1UZngxeVIzbzNkJmhhc2g9WkdWaU9HUTJNR1l4T1RVNE5qRmhaZw"

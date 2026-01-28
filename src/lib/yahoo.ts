@@ -1,4 +1,5 @@
 import { Product } from "./types";
+import { getRequestContext } from '@cloudflare/next-on-pages';
 
 // Yahoo!ショッピングAPIの型定義（必要な部分だけ）
 export type YahooItem = {
@@ -19,10 +20,13 @@ export type YahooRankingResponse = {
   };
 };
 
-const YAHOO_APP_ID = process.env.YAHOO_APP_ID || process.env.NEXT_PUBLIC_YAHOO_APP_ID || "DUMMY_ID";
+const getYahooAppId = () => {
+  return (getRequestContext().env as any)?.YAHOO_APP_ID || process.env.YAHOO_APP_ID || "DUMMY_ID";
+};
 
 // Yahoo!のランキングを取得
 export async function fetchYahooRanking(categoryId: string = "1", minPrice?: number): Promise<YahooItem[]> {
+  const appId = getYahooAppId();
   // 安全策として、検索APIを使って「売上順」で取得する
   // V3 itemSearch はパラメータがシビアなので、最小構成にする
   
@@ -42,11 +46,11 @@ export async function fetchYahooRanking(categoryId: string = "1", minPrice?: num
     : `&genre_category_id=${categoryId}&query=${encodeURIComponent(query + " " + excludeQuery)}`;
   
   const priceParam = minPrice ? `&price_from=${minPrice}` : "";
-  const url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${YAHOO_APP_ID}${categoryParam}${priceParam}&sort=-sold&results=30`;
+  const url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${appId}${categoryParam}${priceParam}&sort=-sold&results=30`;
   console.log(`Yahoo API URL: ${url}`);
 
   try {
-    if (YAHOO_APP_ID === "DUMMY_ID") {
+    if (appId === "DUMMY_ID") {
       console.log("Using Mock Data for Yahoo API");
       return mockYahooData;
     }
@@ -74,10 +78,11 @@ export async function fetchYahooRanking(categoryId: string = "1", minPrice?: num
 export async function searchYahooItems(keyword: string): Promise<YahooItem[]> {
   if (!keyword) return [];
 
-  const url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${YAHOO_APP_ID}&query=${encodeURIComponent(keyword)}&results=30`;
+  const appId = getYahooAppId();
+  const url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${appId}&query=${encodeURIComponent(keyword)}&results=30`;
 
   try {
-    if (YAHOO_APP_ID === "DUMMY_ID") {
+    if (appId === "DUMMY_ID") {
       return mockYahooData;
     }
 
@@ -93,7 +98,8 @@ export async function searchYahooItems(keyword: string): Promise<YahooItem[]> {
 
 // 商品コードから1件取得
 export async function getYahooItem(itemCode: string): Promise<YahooItem | null> {
-  const url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${YAHOO_APP_ID}&query=${encodeURIComponent(itemCode)}&results=1`;
+  const appId = getYahooAppId();
+  const url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${appId}&query=${encodeURIComponent(itemCode)}&results=1`;
 
   try {
     const res = await fetch(url, { next: { revalidate: 3600 } });

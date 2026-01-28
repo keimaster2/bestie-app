@@ -1,4 +1,5 @@
 import { Product } from "./types";
+import { getRequestContext } from '@cloudflare/next-on-pages';
 
 // 楽天APIの型定義（必要な部分だけ抜粋）
 export type RakutenItem = {
@@ -37,9 +38,12 @@ export const RAKUTEN_GENRES = [
 ];
 
 // 楽天ブックスなどのジャンルID（今回は総合ランキングのテスト）
-const RAKUTEN_APP_ID = process.env.RAKUTEN_APP_ID || process.env.NEXT_PUBLIC_RAKUTEN_APP_ID || "DUMMY_ID"; 
+const getRakutenAppId = () => {
+  return (getRequestContext().env as any)?.RAKUTEN_APP_ID || process.env.RAKUTEN_APP_ID || "DUMMY_ID";
+};
 
 export async function fetchRakutenRanking(genreId: string = ""): Promise<RakutenItem[]> {
+  const appId = getRakutenAppId();
   // カテゴリごとの除外キーワード（ホビーカテゴリ 101164 でお酒等を弾く）
   const negativeKeywords: Record<string, string> = {
     "101164": "-酒 -ふるさと納税 -ビール -焼酎 -ワイン -定期便",
@@ -48,11 +52,11 @@ export async function fetchRakutenRanking(genreId: string = ""): Promise<Rakuten
   const exclude = negativeKeywords[genreId] ? `&keyword=${encodeURIComponent(negativeKeywords[genreId])}` : "";
 
   // 本番APIのエンドポイント
-  const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Ranking/20170628?format=json&applicationId=${RAKUTEN_APP_ID}${genreId ? `&genreId=${genreId}` : ""}${exclude}`;
+  const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Ranking/20170628?format=json&applicationId=${appId}${genreId ? `&genreId=${genreId}` : ""}${exclude}`;
 
   try {
     // IDが設定されていない場合はダミーデータを返す（開発用）
-    if (RAKUTEN_APP_ID === "DUMMY_ID") {
+    if (appId === "DUMMY_ID") {
       console.log("Using Mock Data for Rakuten API");
       return mockRakutenData;
     }
@@ -78,10 +82,11 @@ export async function searchRakutenItems(keyword: string): Promise<RakutenItem[]
   // 商品検索APIのエンドポイント
   // hits=30: 30件取得
   // sort=standard: 標準順（売れ筋などを考慮）
-  const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?format=json&keyword=${encodeURIComponent(keyword)}&hits=30&sort=standard&applicationId=${RAKUTEN_APP_ID}`;
+  const appId = getRakutenAppId();
+  const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?format=json&keyword=${encodeURIComponent(keyword)}&hits=30&sort=standard&applicationId=${appId}`;
 
   try {
-    if (RAKUTEN_APP_ID === "DUMMY_ID") {
+    if (appId === "DUMMY_ID") {
       console.log("Using Mock Data for Search (Simulated)");
       // ダミー環境でも少しそれっぽいデータを返す（モックデータを使い回す）
       return mockRakutenData;
@@ -106,8 +111,9 @@ export async function searchRakutenItems(keyword: string): Promise<RakutenItem[]
 export async function getRakutenItem(itemCode: string): Promise<RakutenItem | null> {
   // itemCode検索が不安定な場合、keywordパラメータにコードを渡すことで検索できる場合がある
   // itemCodeパラメータではなく、keywordパラメータを使う
+  const appId = getRakutenAppId();
   const encodedCode = encodeURIComponent(itemCode);
-  const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?format=json&keyword=${encodedCode}&applicationId=${RAKUTEN_APP_ID}`;
+  const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?format=json&keyword=${encodedCode}&applicationId=${appId}`;
 
   try {
     const res = await fetch(url, { next: { revalidate: 3600 } });
