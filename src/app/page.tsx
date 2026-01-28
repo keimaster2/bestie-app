@@ -1,12 +1,38 @@
-export const runtime = 'edge';
-export const dynamic = 'force-dynamic';
-
+import type { Metadata } from "next";
 import { fetchRakutenRanking, searchRakutenItems, convertRakutenToProduct } from "@/lib/rakuten";
 import { fetchYahooRanking, searchYahooItems, convertYahooToProduct } from "@/lib/yahoo";
 import { Product } from "@/lib/types";
 import { GENRES } from "@/lib/genres";
 import RankingList from "@/components/RankingList";
 import Header from "@/components/Header";
+
+// SEO用の動的メタデータ生成
+export async function generateMetadata(
+  props: { searchParams: Promise<{ [key: string]: string | string[] | undefined }> }
+): Promise<Metadata> {
+  const params = await props.searchParams;
+  const genreId = (params.genre as string) || "all";
+  const query = (params.q as string) || "";
+  const mall = (params.mall as string) || "rakuten";
+  
+  const genre = GENRES.find(g => g.id === genreId) || GENRES[0];
+  const mallName = mall === "yahoo" ? "Yahoo!ショッピング" : "楽天市場";
+
+  if (query) {
+    return {
+      title: `「${query}」の検索結果・売れ筋比較`,
+      description: `${mallName}での「${query}」の検索結果です。リアルタイムで今売れている人気商品を比較して、ベストな選択をサポートします。`,
+    };
+  }
+
+  return {
+    title: `${genre.name}人気ランキング - ${mallName}売れ筋比較`,
+    description: `${mallName}の${genre.name}カテゴリで「今まさに売れている」人気商品をリアルタイムでお届け。選び疲れをゼロにする最強の比較メディアです。`,
+  };
+}
+
+export const runtime = 'edge';
+export const dynamic = 'force-dynamic';
 
 export default async function Home({
   searchParams,
@@ -105,7 +131,7 @@ export default async function Home({
         <div className="mb-6">
           <div className="flex items-center gap-2 mb-1">
             <h2 className="text-2xl font-bold">
-              {isSearchMode ? `「${query}」の検索結果` : `${currentGenre.name}リアルタイム売筋`}
+              {isSearchMode ? `「${query}」の検索結果` : `${currentGenre.name}人気ランキング`}
             </h2>
             <span className={`text-xs font-bold px-2 py-0.5 rounded border 
               ${mall === "yahoo" ? "bg-white text-blue-600 border-blue-600" : 
@@ -143,6 +169,11 @@ export default async function Home({
             このサイトはアフィリエイト広告（Amazonアソシエイト含む）を掲載しています。<br />
             &copy; {new Date().getFullYear()} Bestie - BEST ITEM SELECTION.
           </p>
+          {process.env.NODE_ENV === 'development' && (
+            <div className="mt-4 p-2 bg-gray-50 rounded text-[8px] text-gray-400 font-mono inline-block">
+              [DEBUG] Last Update: {new Date().toLocaleString('ja-JP')}
+            </div>
+          )}
         </div>
       </footer>
     </div>

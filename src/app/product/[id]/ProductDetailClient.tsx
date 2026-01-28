@@ -14,6 +14,12 @@ export default function ProductDetailClient({
 }) {
   const [product, setProduct] = useState<Product>(initialData);
 
+  // もしもアフィリエイトIDを環境変数から取得
+  const getMoshimoAid = (mall: "Rakuten" | "Yahoo") => {
+    const key = mall === "Rakuten" ? "NEXT_PUBLIC_MOSHIMO_RAKUTEN_AID" : "NEXT_PUBLIC_MOSHIMO_YAHOO_AID";
+    return process.env[key] || "";
+  };
+
   useEffect(() => {
     // sessionStorageから直前のクリックデータを復元を試みる
     try {
@@ -68,7 +74,11 @@ export default function ProductDetailClient({
             </div>
 
             <a 
-              href={product.url}
+              href={
+                product.mall === "Rakuten"
+                  ? `https://af.moshimo.com/af/c/click?a_id=${getMoshimoAid("Rakuten") || "5355389"}&p_id=54&pc_id=54&pl_id=616&url=${encodeURIComponent(product.rakutenUrl || product.url)}`
+                  : `https://af.moshimo.com/af/c/click?a_id=${getMoshimoAid("Yahoo") || "5355394"}&p_id=1225&pc_id=1925&pl_id=18502&url=${encodeURIComponent(product.yahooUrl || product.url)}`
+              }
               target="_blank"
               rel="noopener noreferrer"
               className={`block w-full text-center py-4 rounded-xl font-bold text-white shadow-md transition-all hover:shadow-lg transform hover:-translate-y-0.5

@@ -69,7 +69,7 @@ export async function fetchRakutenRanking(genreId: string = ""): Promise<Rakuten
       return mockRakutenData;
     }
 
-    const res = await fetch(url, { next: { revalidate: 3600 } }); // 1時間キャッシュ
+    const res = await fetch(url, { next: { revalidate: 600 } }); // キャッシュを10分に短縮してライブ感を高める
     
     if (!res.ok) {
       throw new Error(`Rakuten API Error: ${res.status}`);
@@ -195,8 +195,10 @@ export function convertRakutenToProduct(items: RakutenItem[], isRanking: boolean
     if (imageUrl.startsWith("http://")) {
       imageUrl = imageUrl.replace("http://", "https://");
     }
+    // 高画質化（?_ex=600x600）は、一部の商品で404エラーになる可能性があるため慎重に行う
+    // 今回は一旦 400x400 に抑えるか、あるいは onError でカバーするため維持
     if (imageUrl.includes("?_ex=")) {
-      imageUrl = imageUrl.replace(/\?_ex=.*$/, "?_ex=600x600");
+      imageUrl = imageUrl.replace(/\?_ex=.*$/, "?_ex=400x400");
     }
 
     return {

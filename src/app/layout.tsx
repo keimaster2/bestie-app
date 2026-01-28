@@ -14,7 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bestie | リアルタイムで「今売れている」人気商品メディア",
+  title: {
+    template: "%s | Bestie",
+    default: "Bestie | 王道モールの人気ランキングをリアルタイム比較",
+  },
   description: "Bestie（ベスティ）は、大手モールの売上ランキングをリアルタイムに集計。今まさに売れている人気商品を厳選して紹介し、あなたのベストな選択をサポートします。",
 };
 

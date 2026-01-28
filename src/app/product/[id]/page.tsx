@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import FavoriteButton from "@/components/FavoriteButton";
 import { Product } from "@/lib/types";
+import type { Metadata } from "next";
 
 export default function ProductDetailPage({
   params: paramsPromise,
@@ -35,6 +36,8 @@ export default function ProductDetailPage({
         url: fromParams.url,
         rating: parseFloat(fromParams.rating || "0"),
         reviewCount: parseInt(fromParams.review || "0"),
+        rakutenUrl: fromParams.rakutenUrl,
+        yahooUrl: fromParams.yahooUrl,
       });
       setLoading(false);
     }
@@ -124,7 +127,11 @@ export default function ProductDetailPage({
         {/* PC用アクションボタン */}
         <div className="hidden sm:block mb-12">
             <a 
-              href={product.url} 
+              href={
+                product.mall === "Rakuten"
+                  ? `https://af.moshimo.com/af/c/click?a_id=5355389&p_id=54&pc_id=54&pl_id=616&url=${encodeURIComponent(product.rakutenUrl || product.url)}`
+                  : `https://af.moshimo.com/af/c/click?a_id=5355394&p_id=1225&pc_id=1925&pl_id=18502&url=${encodeURIComponent(product.yahooUrl || product.url)}`
+              }
               target="_blank" 
               rel="noopener noreferrer"
               className={`block w-full py-4 rounded-xl text-center font-bold text-lg text-white shadow-lg transition-transform hover:scale-[1.02]
@@ -138,7 +145,11 @@ export default function ProductDetailPage({
         <div className="sm:hidden fixed bottom-0 left-0 w-full bg-white border-t border-gray-100 p-4 pb-8 safe-area-bottom z-20">
           <div className="max-w-2xl mx-auto">
             <a 
-              href={product.url} 
+              href={
+                product.mall === "Rakuten"
+                  ? `https://af.moshimo.com/af/c/click?a_id=5355389&p_id=54&pc_id=54&pl_id=616&url=${encodeURIComponent(product.rakutenUrl || product.url)}`
+                  : `https://af.moshimo.com/af/c/click?a_id=5355394&p_id=1225&pc_id=1925&pl_id=18502&url=${encodeURIComponent(product.yahooUrl || product.url)}`
+              }
               target="_blank" 
               rel="noopener noreferrer"
               className={`block w-full py-4 rounded-xl text-center font-bold text-lg text-white shadow-lg transition-transform active:scale-95

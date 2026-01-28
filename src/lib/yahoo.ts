@@ -64,7 +64,7 @@ export async function fetchYahooRanking(categoryId: string = "1", minPrice?: num
     }
 
     const res = await fetch(url, { 
-      next: { revalidate: 3600 }
+      next: { revalidate: 600 } // キャッシュを10分に短縮
     });
     
     if (!res.ok) {

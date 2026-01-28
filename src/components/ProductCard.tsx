@@ -8,17 +8,28 @@ import { Product } from "@/lib/types";
 
 export default function ProductCard({ product }: { product: Product }) {
   const [imgSrc, setImgSrc] = useState(product.image || "/placeholder.svg");
-  const params = new URLSearchParams();
-  if (product.title) params.set("title", product.title);
-  if (product.price != null) params.set("price", product.price.toString());
-  if (product.image) params.set("image", product.image);
-  if (product.mall) params.set("mall", product.mall);
-  if (product.url) params.set("url", product.url);
-  if (product.shopName) params.set("shop", product.shopName);
-  if (product.rating != null) params.set("rating", product.rating.toString());
-  if (product.reviewCount != null) params.set("review", product.reviewCount.toString());
 
-  const detailUrl = `/product/${product.id}?${params.toString()}`;
+  // もしもアフィリエイトIDを環境変数から取得
+  const getMoshimoAid = (mall: "Rakuten" | "Yahoo") => {
+    const key = mall === "Rakuten" ? "NEXT_PUBLIC_MOSHIMO_RAKUTEN_AID" : "NEXT_PUBLIC_MOSHIMO_YAHOO_AID";
+    // Client Component では process.env 経由で公開環境変数を参照
+    return process.env[key] || "";
+  };
+
+  // 詳細ページへのパラメータを組み立て
+  const searchParams = new URLSearchParams();
+  if (product.title) searchParams.set("title", product.title);
+  if (product.price != null) searchParams.set("price", product.price.toString());
+  if (product.image) searchParams.set("image", product.image);
+  if (product.mall) searchParams.set("mall", product.mall);
+  if (product.url) searchParams.set("url", product.url);
+  if (product.shopName) searchParams.set("shop", product.shopName);
+  if (product.rating != null) searchParams.set("rating", product.rating.toString());
+  if (product.reviewCount != null) searchParams.set("review", product.reviewCount.toString());
+  if (product.rakutenUrl) searchParams.set("rakutenUrl", product.rakutenUrl);
+  if (product.yahooUrl) searchParams.set("yahooUrl", product.yahooUrl);
+
+  const detailUrl = `/product/${product.id}?${searchParams.toString()}`;
 
   const saveToHistory = () => {
     try {
@@ -30,20 +41,17 @@ export default function ProductCard({ product }: { product: Product }) {
 
   // アフィリエイトリンクまたは検索リンクの生成
   const getMallUrl = (mall: "Rakuten" | "Yahoo" | "Amazon") => {
-    // もしもアフィリエイトのID (本番環境では環境変数から取得)
-    const rakutenAid = "5355389";
-    const yahooAid = "5355394";
-
     if (mall === "Rakuten") {
+      const rakutenAid = getMoshimoAid("Rakuten") || "5355389"; // フォールバックとして現在の値を保持
       const url = product.rakutenUrl || `https://search.rakuten.co.jp/search/mall/${encodeURIComponent(product.title)}/`;
       return `https://af.moshimo.com/af/c/click?a_id=${rakutenAid}&p_id=54&pc_id=54&pl_id=616&url=${encodeURIComponent(url)}`;
     }
     if (mall === "Yahoo") {
+      const yahooAid = getMoshimoAid("Yahoo") || "5355394";
       const url = product.yahooUrl || `https://shopping.yahoo.co.jp/search?p=${encodeURIComponent(product.title)}`;
       return `https://af.moshimo.com/af/c/click?a_id=${yahooAid}&p_id=1225&pc_id=1925&pl_id=18502&url=${encodeURIComponent(url)}`;
     }
     if (mall === "Amazon") {
-      // AmazonはもしもIDがまだ不明なため検索リンクのみ
       return `https://www.amazon.co.jp/s?k=${encodeURIComponent(product.title)}&tag=keimaster-22`; 
     }
     return "#";

@@ -3,10 +3,12 @@
 import { useFavorites } from "@/context/FavoritesContext";
 import ProductCard from "@/components/ProductCard";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Product } from "@/lib/types";
 
 export default function FavoritesPage() {
   const { favorites } = useFavorites();
+  const router = useRouter();
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800 pb-20 font-sans">
@@ -14,12 +16,15 @@ export default function FavoritesPage() {
       <header className="bg-white shadow-sm sticky top-0 z-10 border-b border-gray-100">
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition">
-              <span className="text-2xl">🎁</span>
+            <button 
+              onClick={() => router.back()} 
+              className="flex items-center gap-2 hover:opacity-80 transition group"
+            >
+              <span className="text-2xl group-hover:scale-110 transition-transform">🎁</span>
               <h1 className="text-xl font-bold tracking-tight text-gray-900 whitespace-nowrap">
                 Bestie
               </h1>
-            </Link>
+            </button>
           </div>
           <div className="font-bold text-sm text-gray-500">お気に入り</div>
         </div>
@@ -46,12 +51,12 @@ export default function FavoritesPage() {
         ) : (
           <div className="text-center py-20 bg-white rounded-xl border border-dashed border-gray-300">
             <p className="text-gray-400 mb-4">お気に入りはまだありません</p>
-            <Link
-              href="/"
+            <button
+              onClick={() => router.back()}
               className="inline-block bg-gray-900 text-white font-bold py-2 px-6 rounded-full hover:bg-indigo-600 transition"
             >
               ランキングを見に行く
-            </Link>
+            </button>
           </div>
         )}
       </main>
