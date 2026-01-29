@@ -32,7 +32,7 @@ export function generateLionReview(p: Product, config: SiteConfig, mallName: str
     header = pick(Messages.marketInsights.others);
   }
 
-  // 市場分析（曜日ムードと汎用をミックス）
+  // 市場分析
   const dayMessages = Messages.weeklyThemes[now.getDay()];
   const allPool = [...dayMessages, ...Messages.genericInsights];
   const marketInsight = pick(allPool);
@@ -73,7 +73,6 @@ export function generateSmartDetailedReview(p: Product, config: SiteConfig, mall
   const value = pickModule(Messages.detailModules.value);
   const closing = pickModule(Messages.detailModules.closing);
   
-  // ライオンくんの本音・つぶやき（25%の確率で出現させ、より人間味を出す）
   const showWhisper = seed % 4 === 0;
   const whisper = showWhisper ? `\n\n${pickModule(Messages.detailModules.whispers)}` : "";
 
@@ -84,7 +83,51 @@ export function generateSmartDetailedReview(p: Product, config: SiteConfig, mall
 }
 
 /**
- * 3. ライオンくんの「今日の叫び」を生成
+ * 3. 称号システム：トップ3を比較してキャッチーなラベルを付与する
+ */
+export function assignComparisonLabels(products: Product[]): Product[] {
+  if (products.length < 2) return products;
+
+  // 比較対象（上位10件程度）
+  const candidates = products.slice(0, 10);
+  
+  // 1. 最安値の特定
+  const prices = candidates.map(p => p.price).filter(p => p > 0);
+  const minPrice = Math.min(...prices);
+  
+  // 2. 最大レビュー数の特定
+  const reviewCounts = candidates.map(p => p.reviewCount);
+  const maxReviews = Math.max(...reviewCounts);
+  
+  // 3. 最高評価の特定
+  const ratings = candidates.map(p => p.rating);
+  const maxRating = Math.max(...ratings);
+
+  return products.map(p => {
+    let label = "";
+    
+    if (p.rank === 1 && p.reviewCount === maxReviews) {
+      label = "不動の支持率No.1";
+    } else if (p.price === minPrice && p.price > 0) {
+      label = "この圏内での最安値";
+    } else if (p.reviewCount === maxReviews && p.reviewCount > 0) {
+      label = "圧倒的な口コミ数";
+    } else if (p.rating === maxRating && p.rating >= 4.5) {
+      label = "ユーザー満足度最高峰";
+    } else if (p.rank === 1) {
+      label = "現在売上トップ";
+    } else if (p.isWRank) {
+      label = "モール横断の人気者";
+    } else if (p.price > minPrice * 2 && p.rating >= 4.5) {
+      label = "こだわりの高級志向";
+    }
+
+    return { ...p, comparisonLabel: label };
+  });
+}
+
+/**
+ * 4. ライオンくんの「今日の叫び」を生成
  */
 export function getDailyLionShout(): string {
   const now = new Date();

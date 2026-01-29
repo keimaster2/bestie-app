@@ -15,7 +15,7 @@ export default function ProductCard({ product, config }: { product: Product, con
 
   // 現在のブランドパスを特定
   const pathSegments = pathname.split('/');
-  const brands = ["bestie", "beauty", "gadget"];
+  const brands = ["bestie", "beauty", "gadget", "gourmet", "outdoor", "game"];
   const brandFromPath = brands.find(b => pathSegments.includes(b)) || "bestie";
 
   // もしもアフィリエイトIDを環境変数から取得
@@ -39,6 +39,7 @@ export default function ProductCard({ product, config }: { product: Product, con
   if (product.rakutenUrl) searchParams.set("rakutenUrl", product.rakutenUrl);
   if (product.yahooUrl) searchParams.set("yahooUrl", product.yahooUrl);
   if (product.catchphrase) searchParams.set("catchphrase", product.catchphrase);
+  if (product.rank) searchParams.set("rank", product.rank.toString());
 
   const detailUrl = `${getBrandPath(brandFromPath, `/product/${product.id}`)}?${searchParams.toString()}`;
 
@@ -68,84 +69,113 @@ export default function ProductCard({ product, config }: { product: Product, con
     return "#";
   };
 
+  // 称号ラベルの色を判定する
+  const getLabelStyle = (label: string) => {
+    if (label.includes("No.1") || label.includes("トップ")) return "bg-gradient-to-r from-amber-400 to-orange-500 text-white shadow-amber-200";
+    if (label.includes("最安値")) return "bg-gradient-to-r from-emerald-400 to-teal-500 text-white shadow-emerald-200";
+    if (label.includes("口コミ")) return "bg-gradient-to-r from-blue-400 to-indigo-500 text-white shadow-blue-200";
+    if (label.includes("満足度")) return "bg-gradient-to-r from-rose-400 to-pink-500 text-white shadow-rose-200";
+    return "bg-gray-800 text-white shadow-gray-200";
+  };
+
   return (
-    <div className={`bg-white shadow-sm border border-gray-200 hover:shadow-md transition-all duration-200 flex relative h-[260px] group ${config.theme.borderRadius} ${config.theme.cardShadow}`}>
-      {/* 左上のバッジ */}
-      <div className="absolute -top-2 -left-2 z-10 flex items-center gap-1">
-        {(product.rank !== undefined && product.rank !== null) ? (
-          <div className="w-9 h-9 flex items-center justify-center rounded-full font-bold text-base text-white shadow-md border-2 border-white"
-            style={{ backgroundColor: product.rank <= 3 ? 'var(--brand-accent)' : 'var(--brand-primary)' }}
-          >
-            {product.rank}
+    <div className={`bg-white shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 flex relative h-[260px] group ${config.theme.borderRadius} ${config.theme.cardShadow}`}>
+      {/* 左上のバッジ群 */}
+      <div className="absolute -top-2.5 -left-2.5 z-10 flex flex-col gap-1.5 items-start">
+        <div className="flex items-center gap-1.5">
+          {(product.rank !== undefined && product.rank !== null && product.rank > 0) ? (
+            <div className="w-10 h-10 flex items-center justify-center rounded-full font-black text-lg text-white shadow-lg border-2 border-white transform group-hover:scale-110 transition-transform duration-300"
+              style={{ backgroundColor: product.rank <= 3 ? 'var(--brand-accent)' : 'var(--brand-primary)' }}
+            >
+              {product.rank}
+            </div>
+          ) : (
+            <div className={`px-2.5 py-1 rounded-lg text-[10px] font-black text-white shadow-md border border-white tracking-widest uppercase`}
+              style={{ backgroundColor: product.mall === "Yahoo" ? "#ff0033" : "#bf0000" }}
+            >
+              {product.mall === "Yahoo" ? "Yahoo!" : "Rakuten"}
+            </div>
+          )}
+          {product.isWRank && (
+            <span className="text-[10px] font-black px-2 py-0.5 rounded-full shadow-md border border-white text-white bg-gradient-to-r from-indigo-600 to-purple-600 animate-pulse">
+              🏆 W RANK
+            </span>
+          )}
+        </div>
+        
+        {/* 🚀 デザインを磨いた特別な称号ラベル */}
+        {product.comparisonLabel && (
+          <div className={`${getLabelStyle(product.comparisonLabel)} text-[10px] font-black px-3 py-1 rounded-r-full rounded-tl-none shadow-lg border-l-4 border-white/30 flex items-center gap-1.5 animate-in slide-in-from-left-2 duration-500`}>
+             <span className="text-xs">✨</span>
+             <span className="tracking-tight">{product.comparisonLabel}</span>
           </div>
-        ) : (
-          <div className={`px-2 py-1 rounded-md text-[10px] font-black text-white shadow-md border border-white tracking-wider`}
-            style={{ backgroundColor: product.mall === "Yahoo" ? "#2563eb" : "#dc2626" }}
-          >
-            {product.mall === "Yahoo" ? "Yahoo!" : "楽天市場"}
-          </div>
-        )}
-        {product.isWRank && (
-          <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full shadow-sm border border-white text-white"
-            style={{ backgroundColor: 'var(--brand-accent)' }}
-          >
-            🏆 W RANK
-          </span>
         )}
       </div>
 
-      <div className="absolute -top-3 -right-3 z-20 scale-90">
+      <div className="absolute -top-3 -right-3 z-20 scale-90 group-hover:scale-105 transition-transform duration-300">
         <FavoriteButton product={{ ...product, id: product.id }} />
       </div>
 
-      <div className={`w-1/3 bg-white flex-shrink-0 flex items-center justify-center relative p-2 border-r border-gray-100`}>
+      {/* 商品画像 */}
+      <div className={`w-1/3 bg-white flex-shrink-0 flex items-center justify-center relative p-3 border-r border-gray-50`}>
         <Image 
           src={imgSrc} 
           alt={product.title}
           fill
           sizes="(max-width: 768px) 33vw, 20vw"
-          className="object-contain p-2"
+          className="object-contain p-2 transition-transform duration-500 group-hover:scale-105"
           onError={() => setImgSrc("/placeholder.svg")}
         />
       </div>
       
+      {/* 商品情報 */}
       <div className="p-4 w-2/3 flex flex-col justify-between overflow-hidden">
-        <div className="flex-grow overflow-hidden">
-          <div className="flex items-center justify-between mb-1">
-            <div className="text-[10px] text-gray-400 truncate flex-1">{product.shopName}</div>
+        <div className="flex-grow overflow-hidden text-left">
+          <div className="flex items-center justify-between mb-1.5">
+            <div className="text-[10px] font-bold text-gray-400 truncate flex-1 tracking-tighter">
+               {product.shopName}
+            </div>
           </div>
-          <h3 className="font-bold text-sm leading-snug mb-2 line-clamp-3">
+          <h3 className="font-bold text-sm leading-snug mb-2 line-clamp-3 group-hover:text-indigo-600 transition-colors">
             <Link href={detailUrl} onClick={saveToHistory} className="hover:opacity-70 transition" style={{ color: 'var(--brand-primary)' }} prefetch={false}>
               {product.title}
             </Link>
           </h3>
           
-          <div className="flex items-center gap-1 mb-2 text-xs">
-            <span className="text-yellow-400 font-bold">★ {product.rating || 0}</span>
-            <span className="text-gray-400">({(product.reviewCount || 0).toLocaleString()})</span>
+          <div className="flex items-center gap-2 mb-2">
+            <div className="flex items-center gap-0.5 text-yellow-400 font-black text-xs bg-yellow-50 px-1.5 py-0.5 rounded-md">
+              <span>★</span>
+              <span>{product.rating || 0}</span>
+            </div>
+            <span className="text-[10px] font-bold text-gray-400 border-l border-gray-200 pl-2">
+              {(product.reviewCount || 0).toLocaleString()} reviews
+            </span>
           </div>
 
-          <div className="text-lg font-bold text-red-600 font-mono leading-none">
-            ¥{(product.price || 0).toLocaleString()}
+          <div className="flex items-baseline gap-1.5 mb-2">
+            <span className="text-xl font-black text-red-600 font-mono tracking-tighter">
+              ¥{(product.price || 0).toLocaleString()}
+            </span>
+            <span className="text-[10px] font-black text-red-600 uppercase">tax incl.</span>
           </div>
 
           {product.catchphrase && (
-            <p className="mt-2 text-[10px] text-gray-500 line-clamp-2 italic leading-relaxed border-l-2 border-gray-100 pl-2">
+            <p className="mt-2 text-[10px] text-gray-500 line-clamp-2 italic leading-relaxed border-l-2 border-gray-200 pl-2 group-hover:border-indigo-400 transition-colors">
               {product.catchphrase}
             </p>
           )}
         </div>
 
-        <div className="flex flex-wrap items-center gap-1.5 pt-3 mt-auto">
-          {/* Vivid Solid Colors */}
+        {/* アフィリエイトボタン */}
+        <div className="flex flex-wrap items-center gap-1.5 pt-3 mt-auto border-t border-gray-50">
           <a
             href={getMallUrl("Rakuten")}
             target="_blank"
             rel="noopener noreferrer"
-            className={`text-[10px] font-black px-2 py-2 rounded flex-1 text-center transition-all shadow-sm active:scale-95
+            className={`text-[9px] font-black px-1.5 py-2 rounded flex-1 text-center transition-all shadow-sm active:scale-95
               ${product.rakutenUrl 
                 ? 'bg-[#bf0000] text-white hover:bg-[#a00000]' 
-                : 'bg-red-100 text-red-800 opacity-60 italic'
+                : 'bg-red-50 text-red-700 border border-red-100 opacity-80 italic'
               }`}
           >
             楽天市場
@@ -154,10 +184,10 @@ export default function ProductCard({ product, config }: { product: Product, con
             href={getMallUrl("Yahoo")}
             target="_blank"
             rel="noopener noreferrer"
-            className={`text-[10px] font-black px-2 py-2 rounded flex-1 text-center transition-all shadow-sm active:scale-95
+            className={`text-[9px] font-black px-1.5 py-2 rounded flex-1 text-center transition-all shadow-sm active:scale-95
               ${product.yahooUrl 
                 ? 'bg-[#ff0033] text-white hover:bg-[#e6002e]' 
-                : 'bg-blue-100 text-blue-800 opacity-60 italic'
+                : 'bg-rose-50 text-rose-700 border border-rose-100 opacity-80 italic'
               }`}
           >
             Yahoo!
@@ -166,7 +196,7 @@ export default function ProductCard({ product, config }: { product: Product, con
             href={getMallUrl("Amazon")}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[10px] font-black px-2 py-2 rounded flex-1 text-center transition-all shadow-sm active:scale-95 bg-[#ff9900] text-white hover:bg-[#e68a00]"
+            className="text-[9px] font-black px-1.5 py-2 rounded flex-1 text-center transition-all shadow-sm active:scale-95 bg-[#232f3e] text-white hover:bg-[#131921]"
           >
             Amazon
           </a>

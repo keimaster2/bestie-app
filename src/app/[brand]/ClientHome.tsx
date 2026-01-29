@@ -10,6 +10,7 @@ import { Product } from "@/lib/types";
 import { useFavorites } from "@/context/FavoritesContext";
 import { useEffect, useState } from "react";
 import { getDailyLionShout } from "@/lib/lion-logic";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function ClientHome({ 
   params, 
@@ -35,12 +36,12 @@ export default function ClientHome({
   const { setBrand } = useFavorites();
   const [shout, setShout] = useState("");
   const [isVisible, setIsVisible] = useState(false);
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     setBrand(params.brand);
     
-    // 最初のカテゴリー（総合）の場合のみ、かつ検索中でない場合にShoutを表示
-    // モールごとにカテゴリーリストが違うため、安全に判定
     const categories = (mall === "yahoo" ? config.yahooCategories : config.rakutenCategories) || [];
     const isRootGenre = categories.length > 0 && genreId === categories[0].id;
 
@@ -58,6 +59,14 @@ export default function ClientHome({
     setIsVisible(false);
     const today = new Date().toLocaleDateString('ja-JP');
     localStorage.setItem(`lion-shout-dismissed-${params.brand}-${today}`, "true");
+  };
+
+  const handleSortChange = (newSort: string) => {
+    const current = new URLSearchParams(Array.from(searchParams.entries()));
+    current.set("sort", newSort);
+    const search = current.toString();
+    const queryStr = search ? `?${search}` : "";
+    router.push(`${window.location.pathname}${queryStr}`);
   };
 
   const mallName = mall === "yahoo" ? "Yahoo!" : "楽天市場";
@@ -97,10 +106,11 @@ export default function ClientHome({
         </div>
       </div>
 
-      {/* 
-        ★パンくずリストは詳細ページでのみ表示し、一覧ページではスッキリさせる方針。
-        (構造化データはStructuredDataコンポーネントまたは各ページで管理)
-      */}
+      <Breadcrumbs 
+        brand={params.brand}
+        config={config}
+        items={breadcrumbItems}
+      />
 
       {isVisible && shout && (
         <div className="max-w-4xl mx-auto px-4 mt-4 mb-2">
@@ -132,25 +142,49 @@ export default function ClientHome({
       )}
 
       <main className="max-w-4xl mx-auto px-4 py-4">
-        <div className="mb-8">
-          <div className="flex items-center gap-2 mb-1">
-            <h2 className="text-2xl font-black tracking-tight text-gray-900">
-              {isSearchMode ? `「${query}」の検索結果` : `${currentGenre?.name || ''}・人気売れ筋`}
-            </h2>
-            <span className={`text-[10px] font-black px-2 py-0.5 rounded border 
-              ${mall === "yahoo" ? "bg-white text-blue-600 border-blue-600" : "bg-white text-red-600 border-red-600"}`}>
-              {mallName}
-            </span>
+        <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <h2 className="text-2xl font-black tracking-tight text-gray-900">
+                {isSearchMode ? `「${query}」の解析結果` : `${currentGenre?.name || ''}・人気売れ筋`}
+              </h2>
+              {!isSearchMode && (
+                <span className={`text-[10px] font-black px-2 py-0.5 rounded border 
+                  ${mall === "yahoo" ? "bg-white text-blue-600 border-blue-600" : "bg-white text-red-600 border-red-600"}`}>
+                  {mallName}
+                </span>
+              )}
+              {isSearchMode && (
+                <span className="text-[10px] font-black px-2 py-0.5 rounded border bg-indigo-600 text-white border-indigo-600">
+                  モール横断検索
+                </span>
+              )}
+            </div>
+            <p className="text-[11px] text-gray-400 font-bold uppercase tracking-widest">
+              {isSearchMode 
+                ? `${products.length} Items Identified Across Platforms` 
+                : `Curated best-sellers based on cumulative market data`}
+            </p>
           </div>
-          <p className="text-[11px] text-gray-400 font-bold uppercase tracking-widest">
-            {isSearchMode 
-              ? `${products.length} Items Identified` 
-              : `Curated best-sellers based on cumulative market data`}
-          </p>
+
+          {isSearchMode && (
+            <div className="flex items-center gap-2">
+              <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Sort by</span>
+              <select 
+                onChange={(e) => handleSortChange(e.target.value)}
+                defaultValue={searchParams.get("sort") || "default"}
+                className="bg-white border border-gray-200 rounded-lg px-3 py-1.5 text-xs font-bold text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              >
+                <option value="default">関連度順</option>
+                <option value="price_asc">価格の安い順</option>
+                <option value="price_desc">価格の高い順</option>
+              </select>
+            </div>
+          )}
         </div>
 
         {products.length > 0 ? (
-          <RankingList products={products} config={config} />
+          <RankingList products={products} config={config} isSearchMode={isSearchMode} />
         ) : (
           <div className="text-center py-20 text-gray-400 font-bold">
             データを取得できませんでした。時間をおいて再度お試しください。

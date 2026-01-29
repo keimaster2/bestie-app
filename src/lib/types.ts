@@ -15,6 +15,7 @@ export type Product = {
     header: string;
     comment: string;
   };
+  comparisonLabel?: string; // 比較に基づいた特別な称号（例：コスパ最強）
   isWRank?: boolean;
   rakutenUrl?: string;
   yahooUrl?: string;
