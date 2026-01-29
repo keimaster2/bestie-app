@@ -4,10 +4,10 @@ export const beautyBrand: Record<string, SiteConfig> = {
   "beauty": {
     id: "beauty",
     domain: "beauty.local",
-    brandName: "Bestie Beauty",
-    siteTitle: "Bestie Beauty | 今、選ばれている美容・健康アイテム比較",
+    brandName: "Bestie ビューティー",
+    siteTitle: "Bestie ビューティー | 今、選ばれている美容・健康アイテム比較",
     tagline: "理想の自分へ。実績ある最新コスメから健康習慣までを徹底比較",
-    description: "Bestie Beautyは、大手モールの美容・健康カテゴリーを徹底比較。多くの支持を集める人気商品を厳選して紹介します。",
+    description: "Bestie ビューティーは、大手モールの美容・健康カテゴリーを徹底比較。多くの支持を集める人気商品を厳選して紹介します。",
     themeColor: {
       primary: "#be185d", // pink-700
       accent: "#f472b6",  // pink-400
@@ -19,7 +19,7 @@ export const beautyBrand: Record<string, SiteConfig> = {
     },
     eeat: {
       expertComment: "口コミだけでなく、実際の売れ行きを最重視してセレクトしました。",
-      brandStory: "Bestie Beautyは、トレンドの移り変わりが激しい美容業界において、確かな実績でユーザーの美への挑戦をサポートします。",
+      brandStory: "Bestie ビューティーは、トレンドの移り変わりが激しい美容業界において、確かな実績でユーザーの美への挑戦をサポートします。",
     },
     theme: {
       borderRadius: "rounded-3xl",

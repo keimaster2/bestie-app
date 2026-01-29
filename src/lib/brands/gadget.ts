@@ -1,13 +1,13 @@
 import { SiteConfig } from "../config";
 
-export const bestieGadgetBrand: Record<string, SiteConfig> = {
+export const gadgetBrand: Record<string, SiteConfig> = {
   "gadget": {
     id: "gadget",
     domain: "gadget.local", 
-    brandName: "Bestie Gadget",
-    siteTitle: "Bestie Gadget | 究極のガジェット比較・ランキング",
+    brandName: "Bestie ガジェット",
+    siteTitle: "Bestie ガジェット | 究極のガジェット比較・ランキング",
     tagline: "プロの視点で選ぶ、失敗しないデバイス選び",
-    description: "Bestie Gadgetは、最新ガジェットの売上データを徹底分析。あなたのデスク周りを最強にするアイテムを厳選します。",
+    description: "Bestie ガジェットは、最新ガジェットの売上データを徹底分析。あなたのデスク周りを最強にするアイテムを厳選します。",
     themeColor: {
       primary: "#1e3a8a", // blue-900
       accent: "#3b82f6",  // blue-500
@@ -19,7 +19,7 @@ export const bestieGadgetBrand: Record<string, SiteConfig> = {
     },
     eeat: {
       expertComment: "スペックの数値に騙されちゃいけないよ。俺が重視するのは『日々の使い勝手』だ。",
-      brandStory: "Bestie Gadgetは、最新の市場データにプロの視点を加えたガジェット専門メディアです。",
+      brandStory: "Bestie ガジェットは、最新の市場データにプロの視点を加えたガジェット専門メディアです。",
     },
     theme: {
       borderRadius: "rounded-lg",

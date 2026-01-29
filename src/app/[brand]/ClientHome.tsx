@@ -97,13 +97,11 @@ export default function ClientHome({
         </div>
       </div>
 
-      <Breadcrumbs 
-        brand={params.brand}
-        config={config}
-        items={breadcrumbItems}
-      />
+      {/* 
+        ★パンくずリストは詳細ページでのみ表示し、一覧ページではスッキリさせる方針。
+        (構造化データはStructuredDataコンポーネントまたは各ページで管理)
+      */}
 
-      {/* スマートで閉じられるDAILY SHOUT */}
       {isVisible && shout && (
         <div className="max-w-4xl mx-auto px-4 mt-4 mb-2">
           <div className="bg-gradient-to-r from-indigo-600 to-indigo-800 text-white p-3.5 rounded-2xl shadow-xl flex items-center gap-4 relative overflow-hidden animate-in fade-in slide-in-from-top-4 duration-700">

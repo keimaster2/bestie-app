@@ -18,7 +18,7 @@ type HeaderProps = {
 export default function Header({ mall, query, genreId, isSearchMode, config, minimal = false }: HeaderProps) {
   const pathname = usePathname() || "";
   const pathSegments = pathname.split('/').filter(Boolean);
-  const brands = ["bestie", "beauty", "gadget"];
+  const brands = ["bestie", "beauty", "gadget", "gourmet", "outdoor", "game"];
   const brandFromPath = brands.find(b => pathSegments.includes(b)) || "bestie";
   const isTopPage = pathSegments.length === 0 || (pathSegments.length === 1 && brands.includes(pathSegments[0]));
 
@@ -34,7 +34,6 @@ export default function Header({ mall, query, genreId, isSearchMode, config, min
     return `${baseClass} border-transparent text-gray-500 hover:text-gray-700`;
   };
 
-  // 選択中のモールに応じたカテゴリーリストを安全に取得
   const categories: CategoryConfig[] = (currentMall === "yahoo" ? config.yahooCategories : config.rakutenCategories) || [];
 
   return (
