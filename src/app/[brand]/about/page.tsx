@@ -4,16 +4,18 @@ import { use } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { headers } from "next/headers";
 
 export const runtime = 'edge';
 
-export default function AboutPage({
+export default async function AboutPage({
   params: paramsPromise,
 }: {
   params: Promise<{ brand: string }>;
 }) {
-  const params = use(paramsPromise);
-  const config = getSiteConfig(params.brand);
+  const params = await paramsPromise;
+  const host = (await headers()).get("host") || "";
+  const config = getSiteConfig(params.brand || host);
 
   return (
     <div className="min-h-screen pb-20 font-sans transition-colors duration-500 text-gray-800"

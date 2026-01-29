@@ -67,25 +67,27 @@ const DEFAULT_CONFIG = SITE_REGISTRY["bestie"];
 export function getSiteConfig(brandOrHost?: string): SiteConfig {
   if (!brandOrHost) return DEFAULT_CONFIG;
   
-  // 1. まずはID (beauty, gadgetなど) での直接検索
-  const configById = SITE_REGISTRY[brandOrHost.toLowerCase()];
-  if (configById) return configById;
-
   const cleanHost = brandOrHost.split(":")[0].toLowerCase();
   
-  // 2. ホスト名 (beauty.bestieplus.com など) で判定
-  // サブドメインが一致する場合を優先
-  const matchedConfig = Object.values(SITE_REGISTRY).find(c => {
-    const mainDomain = c.domain.toLowerCase();
-    const fbDomain = c.fallbackDomain?.toLowerCase();
-    
-    // ホスト名がドメイン設定を含む、またはその逆
-    return cleanHost === mainDomain || 
-           (fbDomain && cleanHost === fbDomain) ||
-           cleanHost.startsWith(mainDomain + ".") || // 安全策
-           cleanHost.endsWith("." + mainDomain) ||
-           (fbDomain && cleanHost.endsWith("." + fbDomain));
-  });
+  // 1. ID Match (ladies, mens, beauty, gadget など、パスの1段目)
+  // パラメータ経由で来た場合に最優先する
+  const configById = SITE_REGISTRY[cleanHost];
+  if (configById) return configById;
+
+  // 2. Exact Host Match (beauty.bestieplus.com など、ホスト名そのもの)
+  const exactHostMatch = Object.values(SITE_REGISTRY).find(c => 
+    cleanHost === c.domain.toLowerCase() || 
+    (c.fallbackDomain && cleanHost === c.fallbackDomain.toLowerCase())
+  );
+  if (exactHostMatch) return exactHostMatch;
+
+  // 3. Prefix Match (beauty. かどうか)
+  // ホスト名がサブドメイン形式の場合に、先頭の単語でマッチングを試みる
+  const hostParts = cleanHost.split('.');
+  if (hostParts.length > 1) {
+    const prefixConfig = SITE_REGISTRY[hostParts[0]];
+    if (prefixConfig) return prefixConfig;
+  }
   
-  return matchedConfig || DEFAULT_CONFIG;
+  return DEFAULT_CONFIG;
 }

@@ -4,6 +4,7 @@ import { getSiteConfig, SiteConfig } from "@/lib/config";
 import { generateLionReview, assignComparisonLabels } from "@/lib/lion-logic";
 import { MallClient, MallType } from "@/lib/malls/factory";
 import ClientHome from "./ClientHome";
+import { headers } from "next/headers";
 
 // Helper to safely get categories and current category
 function getActiveContext(config: SiteConfig, mall: string, genreIdFromParam?: string) {
@@ -24,7 +25,8 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const params = await props.params;
   const sParams = await props.searchParams;
-  const config = getSiteConfig(params.brand);
+  const host = (await headers()).get("host") || "";
+  const config = getSiteConfig(params.brand || host);
   const mall = (sParams.mall as string) || "rakuten";
   const { currentGenre } = getActiveContext(config, mall, sParams.genre as string);
 
@@ -65,7 +67,8 @@ export default async function Home(props: {
 }) {
   const params = await props.params;
   const sParams = await props.searchParams;
-  const config = getSiteConfig(params.brand);
+  const host = (await headers()).get("host") || "";
+  const config = getSiteConfig(params.brand || host);
 
   const mall = ((sParams.mall as string) || "rakuten") as MallType;
   const queryFromUrl = (sParams.q as string) || "";

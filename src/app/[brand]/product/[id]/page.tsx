@@ -30,7 +30,15 @@ export default function ProductDetailPage({
   const [imgSrc, setImgSrc] = useState<string>("/placeholder.svg");
   const [insight, setInsight] = useState<{ analysis: string, tip: string } | null>(null);
 
-  const config = getSiteConfig(params.brand);
+  // ホスト名から設定を取得（サブドメイン対応）
+  const [config, setConfig] = useState<SiteConfig>(getSiteConfig(params.brand));
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const host = window.location.hostname;
+      setConfig(getSiteConfig(params.brand || host));
+    }
+  }, [params.brand]);
 
   useEffect(() => {
     if (!params.brand) return;

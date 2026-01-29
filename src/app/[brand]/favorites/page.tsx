@@ -19,7 +19,8 @@ export default function FavoritesPage({
   const { favorites, setBrand } = useFavorites();
   const params = use(paramsPromise);
   
-  const config = getSiteConfig(params.brand);
+  // ホスト名から設定を取得（サブドメイン対応）
+  const config = getSiteConfig(params.brand || (typeof window !== "undefined" ? window.location.hostname : ""));
 
   // マウント時とブランド変更時にコンテキストを更新
   useEffect(() => {
