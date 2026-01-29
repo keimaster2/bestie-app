@@ -18,7 +18,7 @@ type HeaderProps = {
 export default function Header({ mall, query, genreId, isSearchMode, config, minimal = false }: HeaderProps) {
   const pathname = usePathname() || "";
   const pathSegments = pathname.split('/').filter(Boolean);
-  const brands = ["bestie", "beauty", "gadget", "gourmet", "outdoor", "game"];
+  const brands = ["bestie", "beauty", "gadget", "gourmet", "outdoor", "game", "fashion", "interior", "pet", "baby"];
   const brandFromPath = brands.find(b => pathSegments.includes(b)) || "bestie";
   const isTopPage = pathSegments.length === 0 || (pathSegments.length === 1 && brands.includes(pathSegments[0]));
 
@@ -95,7 +95,7 @@ export default function Header({ mall, query, genreId, isSearchMode, config, min
                   className={getMallTabClass("yahoo")}
                   prefetch={false}
                 >
-                  Yahoo!
+                  Yahoo!ショッピング
                 </Link>
                 <span className="px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold text-gray-300 cursor-not-allowed border-transparent" title="準備中">
                   Amazon

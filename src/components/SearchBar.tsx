@@ -15,7 +15,7 @@ export default function SearchBar() {
     
     // 現在のブランドパスを特定（URLの1段目を見る）
     const pathSegments = pathname.split('/');
-    const brands = ["bestie", "beauty", "gadget"];
+    const brands = ["bestie", "beauty", "gadget", "gourmet", "outdoor", "game", "fashion", "interior", "pet", "baby"];
     const brandFromPath = brands.find(b => pathSegments.includes(b)) || "bestie";
 
     // 現在のモール情報を維持

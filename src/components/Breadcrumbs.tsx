@@ -26,7 +26,7 @@ export default function Breadcrumbs({ brand, config, items }: BreadcrumbsProps) 
       // モール名が含まれる場合は正式名称に変換
       let label = item.label;
       if (label.toLowerCase() === "rakuten") label = "楽天市場";
-      if (label.toLowerCase() === "yahoo") label = "Yahoo!";
+      if (label.toLowerCase() === "yahoo") label = "Yahoo!ショッピング";
       return { ...item, label };
     }),
   ];

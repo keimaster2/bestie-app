@@ -69,7 +69,7 @@ export default function ClientHome({
     router.push(`${window.location.pathname}${queryStr}`);
   };
 
-  const mallName = mall === "yahoo" ? "Yahoo!" : "楽天市場";
+  const mallName = mall === "yahoo" ? "Yahoo!ショッピング" : "楽天市場";
 
   return (
     <div 
@@ -96,11 +96,11 @@ export default function ClientHome({
             <div key={i} className="flex items-center gap-8 min-w-full text-[9px] uppercase tracking-widest font-black">
               <span className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse"></span>
-                Market Insights
+                市場分析データ
               </span>
-              <span className="text-gray-500">Analysis: {new Date().getHours()}:00 JST</span>
-              <span className="text-indigo-400">⚡ Best-Sellers Updated</span>
-              <span className="text-gray-500">Source: Mall Sales Data</span>
+              <span className="text-gray-500">更新: {new Date().getHours()}:00 JST</span>
+              <span className="text-indigo-400">⚡ 売れ筋速報アップデート済</span>
+              <span className="text-gray-500">情報元: 各モール販売データ</span>
             </div>
           ))}
         </div>
@@ -146,12 +146,12 @@ export default function ClientHome({
           <div>
             <div className="flex items-center gap-2 mb-1">
               <h2 className="text-2xl font-black tracking-tight text-gray-900">
-                {isSearchMode ? `「${query}」の解析結果` : `${currentGenre?.name || ''}・人気売れ筋`}
+                {isSearchMode ? `「${query}」の検索結果` : `${currentGenre?.name || ''} おすすめ商品`}
               </h2>
               {!isSearchMode && (
                 <span className={`text-[10px] font-black px-2 py-0.5 rounded border 
                   ${mall === "yahoo" ? "bg-white text-blue-600 border-blue-600" : "bg-white text-red-600 border-red-600"}`}>
-                  {mallName}
+                  {mall === "yahoo" ? "Yahoo!ショッピング" : "楽天市場"}
                 </span>
               )}
               {isSearchMode && (
@@ -162,14 +162,14 @@ export default function ClientHome({
             </div>
             <p className="text-[11px] text-gray-400 font-bold uppercase tracking-widest">
               {isSearchMode 
-                ? `${products.length} Items Identified Across Platforms` 
-                : `Curated best-sellers based on cumulative market data`}
+                ? `${products.length} 点の商品を解析` 
+                : `累積データに基づく厳選ランキング`}
             </p>
           </div>
 
           {isSearchMode && (
             <div className="flex items-center gap-2">
-              <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Sort by</span>
+              <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">並び替え</span>
               <select 
                 onChange={(e) => handleSortChange(e.target.value)}
                 defaultValue={searchParams.get("sort") || "default"}

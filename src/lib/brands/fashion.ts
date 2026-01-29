@@ -17,8 +17,8 @@ export const fashionBrand: Record<string, SiteConfig> = {
     theme: { background: "#fff1f2", borderRadius: "rounded-2xl", cardShadow: "shadow-lg" },
     rakutenCategories: [
       { id: "ladies", name: "レディースファッション", mallId: "100371" },
-      { id: "mens", name: "メンズファッション", mallId: "100433" },
-      { id: "bags", name: "バッグ・小物・ブランド雑貨", mallId: "216129" },
+      { id: "mens", name: "メンズファッション", mallId: "551177" },
+      { id: "bags", name: "バッグ・小物・ブランド雑貨", mallId: "216131" },
     ],
     yahooCategories: [
       { id: "ladies", name: "レディースファッション", mallId: "2494" },

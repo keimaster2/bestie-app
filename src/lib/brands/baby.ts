@@ -16,14 +16,12 @@ export const babyBrand: Record<string, SiteConfig> = {
     },
     theme: { background: "#eff6ff", borderRadius: "rounded-2xl", cardShadow: "shadow-lg" },
     rakutenCategories: [
-      { id: "all", name: "キッズ・ベビー・マタニティ", mallId: "401151" },
-      { id: "maternity", name: "マタニティ・ママ", mallId: "209703" },
-      { id: "toys", name: "おもちゃ", mallId: "101164" },
+      { id: "baby", name: "キッズ・ベビー・マタニティ", mallId: "100533" },
+      { id: "toys", name: "おもちゃ", mallId: "566382" },
     ],
     yahooCategories: [
-      { id: "all", name: "ベビー、キッズ、マタニティ", mallId: "2497" },
-      { id: "maternity", name: "マタニティ、産後用品", mallId: "37805" },
-      { id: "toys", name: "おもちゃ", mallId: "1245" },
+      { id: "baby", name: "ベビー、キッズ、マタニティ", mallId: "2497" },
+      { id: "toys", name: "おもちゃ", mallId: "2119" },
     ],
   }
 };

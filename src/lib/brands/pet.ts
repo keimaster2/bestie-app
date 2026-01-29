@@ -16,16 +16,16 @@ export const petBrand: Record<string, SiteConfig> = {
     },
     theme: { background: "#fffbeb", borderRadius: "rounded-2xl", cardShadow: "shadow-lg" },
     rakutenCategories: [
-      { id: "small", name: "小動物用品", mallId: "215011" },
-      { id: "timothy", name: "うさぎ・フード (チモシー)", mallId: "215016" },
-      { id: "dog", name: "犬用品", mallId: "101213" },
-      { id: "cat", name: "猫用品", mallId: "215033" },
+      { id: "dog", name: "犬用品", mallId: "507513" },
+      { id: "cat", name: "猫用品", mallId: "507524" },
+      { id: "small", name: "小動物用品", mallId: "565699" },
+      { id: "timothy", name: "牧草", mallId: "565703" },
     ],
     yahooCategories: [
-      { id: "small", name: "小動物用品", mallId: "44101" },
-      { id: "timothy", name: "小動物用フード、おやつ", mallId: "44131" },
-      { id: "dog", name: "犬用品", mallId: "1167" },
-      { id: "cat", name: "猫用品", mallId: "1168" },
+      { id: "dog", name: "犬用品", mallId: "4772" },
+      { id: "cat", name: "猫用品", mallId: "4820" },
+      { id: "small", name: "小動物用品", mallId: "32958" },
+      { id: "timothy", name: "小動物用フード、おやつ", mallId: "48396" },
     ],
   }
 };

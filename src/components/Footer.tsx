@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { SiteConfig } from "@/lib/config";
 import { getBrandPath } from "@/lib/utils";
+import DebugMenu from "./DebugMenu";
 
 type FooterProps = {
   brand: string;
@@ -23,6 +24,9 @@ export default function Footer({ brand, config }: FooterProps) {
           &copy; {new Date().getFullYear()} Bestie - BEST ITEM SELECTION.
         </p>
       </div>
+
+      {/* 🛠️ デバッグメニュー（すべてのカテゴリへのリンク） */}
+      <DebugMenu />
     </footer>
   );
 }

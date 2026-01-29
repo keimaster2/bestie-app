@@ -93,32 +93,44 @@ export function assignComparisonLabels(products: Product[]): Product[] {
   
   // 1. 最安値の特定
   const prices = candidates.map(p => p.price).filter(p => p > 0);
-  const minPrice = Math.min(...prices);
+  const minPrice = prices.length > 0 ? Math.min(...prices) : 0;
   
   // 2. 最大レビュー数の特定
   const reviewCounts = candidates.map(p => p.reviewCount);
-  const maxReviews = Math.max(...reviewCounts);
+  const maxReviews = reviewCounts.length > 0 ? Math.max(...reviewCounts) : 0;
   
   // 3. 最高評価の特定
   const ratings = candidates.map(p => p.rating);
-  const maxRating = Math.max(...ratings);
+  const maxRating = ratings.length > 0 ? Math.max(...ratings) : 0;
 
   return products.map(p => {
     let label = "";
     
-    if (p.rank === 1 && p.reviewCount === maxReviews) {
+    // レビュー数が一定数（例：10件）未満の場合は、口コミ関連のラベルを付けない（信頼性の担保）
+    // また、その圏内（上位10件）で圧倒的に多い場合のみ「圧倒的」とする
+    const isSignificantReviews = p.reviewCount >= 10 && p.reviewCount === maxReviews;
+    // 満足度最高峰は「レビュー100件以上 ＋ 評価4.8以上」という極めて高いハードルを設定
+    const isEliteRating = p.rating >= 4.8 && p.rating === maxRating && p.reviewCount >= 100;
+
+    // 不動の支持率No.1は「売上1位 ＋ 圏内最大レビュー ＋ レビュー100件以上」という最強の証
+    const isImmortalNo1 = p.rank === 1 && p.reviewCount === maxReviews && p.reviewCount >= 100;
+    
+    // 圧倒的な口コミ数は「圏内最大 ＋ 100件以上」
+    const isImmortalReviews = p.reviewCount === maxReviews && p.reviewCount >= 100;
+    
+    if (isImmortalNo1) {
       label = "不動の支持率No.1";
-    } else if (p.price === minPrice && p.price > 0) {
+    } else if (p.price === minPrice && p.price > 0 && candidates.length > 1) {
       label = "この圏内での最安値";
-    } else if (p.reviewCount === maxReviews && p.reviewCount > 0) {
+    } else if (isImmortalReviews) {
       label = "圧倒的な口コミ数";
-    } else if (p.rating === maxRating && p.rating >= 4.5) {
+    } else if (isEliteRating) {
       label = "ユーザー満足度最高峰";
     } else if (p.rank === 1) {
       label = "現在売上トップ";
     } else if (p.isWRank) {
       label = "モール横断の人気者";
-    } else if (p.price > minPrice * 2 && p.rating >= 4.5) {
+    } else if (p.price > minPrice * 2 && isEliteRating) {
       label = "こだわりの高級志向";
     }
 

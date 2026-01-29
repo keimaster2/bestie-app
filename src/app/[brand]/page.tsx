@@ -68,10 +68,9 @@ export default async function Home(props: {
   const config = getSiteConfig(params.brand);
 
   const mall = ((sParams.mall as string) || "rakuten") as MallType;
-  const query = (sParams.q as string) || "";
+  const queryFromUrl = (sParams.q as string) || "";
   const sort = (sParams.sort as string) || "default";
   const mallName = mall === "yahoo" ? "Yahoo!" : "楽天市場";
-  const isSearchMode = !!query;
 
   const { categories, currentGenre } = getActiveContext(config, mall, sParams.genre as string);
 
@@ -79,43 +78,69 @@ export default async function Home(props: {
     return <div className="p-20 text-center font-bold text-gray-400">Configuration Error.</div>;
   }
 
+  // 🛍️ 両方のモールのカテゴリIDを特定する
+  const rakutenCategories = config.rakutenCategories || [];
+  const yahooCategories = config.yahooCategories || [];
+  
+  // 現在選択されているカテゴリのID（共通ID: ladies, mensなど）
+  const activeId = currentGenre.id;
+  
+  const rakutenGenreId = rakutenCategories.find(c => c.id === activeId)?.mallId || rakutenCategories[0]?.mallId || "";
+  const yahooGenreId = yahooCategories.find(c => c.id === activeId)?.mallId || yahooCategories[0]?.mallId || "";
+
+  // カテゴリ固有のキーワードがある場合、それを検索クエリとして使用する
+  const effectiveQuery = queryFromUrl || currentGenre.keyword || "";
+  
+  // URLに明示的な検索クエリがある場合のみ「純粋な検索モード」とする
+  const isSearchMode = !!queryFromUrl;
+  // カテゴリ選択によってキーワード検索を行うモード
+  // このモードでは、商品に「順位」を付けたい（ランキングとして見せたい）
+  const isKeywordCategory = !queryFromUrl && !!currentGenre.keyword;
+
   let finalProducts: Product[] = [];
 
-  if (isSearchMode) {
-    // 🔍 【検索モード】モール横断検索を実施
+  if (isSearchMode || isKeywordCategory) {
+    // 🔍 【検索モードまたはキーワード付きカテゴリ】モール横断検索を実施
+    // それぞれのモールに正しいカテゴリIDを渡して検索する
     const [rakutenRes, yahooRes] = await Promise.all([
-      MallClient.getProducts("rakuten", config.rakutenCategories[0].mallId, query, true),
-      MallClient.getProducts("yahoo", config.yahooCategories[0].mallId, query, true)
+      MallClient.getProducts("rakuten", rakutenGenreId, effectiveQuery, true),
+      MallClient.getProducts("yahoo", yahooGenreId, effectiveQuery, true)
     ]);
 
     // マージ
-    finalProducts = [...rakutenRes, ...yahooRes];
+    const merged: Product[] = [];
+    const maxLen = Math.max(rakutenRes.length, yahooRes.length);
+    for (let i = 0; i < maxLen; i++) {
+      if (rakutenRes[i]) merged.push(rakutenRes[i]);
+      if (yahooRes[i]) merged.push(yahooRes[i]);
+    }
+
+    // キーワード付きカテゴリ（＝ランキング代わり）の場合は、マージ後の順序に沿って順位を振る
+    if (isKeywordCategory) {
+      finalProducts = merged.map((p, index) => ({
+        ...p,
+        rank: index + 1
+      }));
+    } else {
+      finalProducts = merged;
+    }
 
     // ソート処理
     if (sort === "price_asc") {
       finalProducts.sort((a, b) => a.price - b.price);
     } else if (sort === "price_desc") {
       finalProducts.sort((a, b) => b.price - a.price);
-    } else {
-      // デフォルトは関連度（各モールの順序を維持しつつ混ぜる）
-      const merged: Product[] = [];
-      const maxLen = Math.max(rakutenRes.length, yahooRes.length);
-      for (let i = 0; i < maxLen; i++) {
-        if (rakutenRes[i]) merged.push(rakutenRes[i]);
-        if (yahooRes[i]) merged.push(yahooRes[i]);
-      }
-      finalProducts = merged;
     }
   } else {
-    // 🏆 【ランキングモード】従来通り
+    // 🏆 【ランキングモード】従来通り（メインモールのデータを取得）
     const otherMall: MallType = mall === "rakuten" ? "yahoo" : "rakuten";
     const otherCategories = (otherMall === "yahoo" ? config.yahooCategories : config.rakutenCategories) || [];
     const mainMallId = currentGenre.mallId;
     const otherMallId = otherCategories.find(c => c.id === currentGenre.id)?.mallId || otherCategories[0]?.mallId || "";
 
     const [mainProducts, otherProducts] = await Promise.all([
-      MallClient.getProducts(mall, mainMallId, query, isSearchMode),
-      MallClient.getProducts(otherMall, otherMallId, query, isSearchMode)
+      MallClient.getProducts(mall, mainMallId, "", false),
+      MallClient.getProducts(otherMall, otherMallId, "", false)
     ]);
 
     const cleanTitle = (t: string) => t.replace(/[【】\[\]\(\)\s]/g, "").replace(/送料無料|ポイント\d+倍|公式|国内正規品|あす楽/g, "").substring(0, 10);
@@ -151,9 +176,9 @@ export default async function Home(props: {
       config={config} 
       products={finalProducts}
       mall={mall}
-      query={query}
+      query={queryFromUrl}
       genreId={currentGenre.id}
-      isSearchMode={isSearchMode}
+      isSearchMode={isSearchMode} // URLからの検索時のみtrue
       currentGenre={currentGenre}
       breadcrumbItems={[]}
     />

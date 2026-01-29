@@ -30,7 +30,9 @@ const getYahooAppId = (): string => {
  */
 export async function fetchYahooRanking(categoryId: string = "1", _minPrice?: number): Promise<Record<string, unknown>[]> {
   const appId = getYahooAppId();
+  // categoryIdが1（総合）の場合は「人気」で検索
   const query = categoryId === "1" ? "人気" : ""; 
+  
   const url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${appId}&query=${encodeURIComponent(query)}&sort=-sold&results=30${categoryId !== "1" ? `&genre_category_id=${categoryId}` : ""}`;
   
   try {
@@ -38,8 +40,8 @@ export async function fetchYahooRanking(categoryId: string = "1", _minPrice?: nu
 
     const res = await fetch(url, { next: { revalidate: 3600 } });
     if (!res.ok) {
-        console.error(`Yahoo Search API Error: ${res.status}`);
-        return [];
+      console.error(`Yahoo Search API Error: ${res.status}`);
+      return [];
     }
     const data = await res.json();
     return (data.hits || []) as Record<string, unknown>[];
@@ -51,9 +53,12 @@ export async function fetchYahooRanking(categoryId: string = "1", _minPrice?: nu
 
 export async function searchYahooItems(keyword: string, categoryId: string = "1"): Promise<Record<string, unknown>[]> {
   const appId = getYahooAppId();
+  
   const url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${appId}&query=${encodeURIComponent(keyword)}&results=30${categoryId !== "1" ? `&genre_category_id=${categoryId}` : ""}`;
+  
   try {
     const res = await fetch(url);
+    if (!res.ok) return [];
     const data = await res.json();
     return (data.hits || []) as Record<string, unknown>[]; 
   } catch { return []; }

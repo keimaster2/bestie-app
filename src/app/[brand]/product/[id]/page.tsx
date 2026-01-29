@@ -114,7 +114,7 @@ export default function ProductDetailPage({
         brand={params.brand}
         config={config}
         items={[
-          { label: product.mall === "Rakuten" ? "楽天市場" : "Yahoo!", href: `${getBrandPath(params.brand, "/")}?mall=${product.mall.toLowerCase()}` },
+          { label: product.mall === "Rakuten" ? "楽天市場" : "Yahoo!ショッピング", href: `${getBrandPath(params.brand, "/")}?mall=${product.mall.toLowerCase()}` },
           { label: "詳細分析" }
         ]}
       />
@@ -169,7 +169,7 @@ export default function ProductDetailPage({
                      <span className="text-lg">★</span>
                      <span>{product.rating}</span>
                    </div>
-                   <span className="text-[10px] font-bold text-gray-400">{(product.reviewCount || 0).toLocaleString()} Reviews</span>
+                   <span className="text-[10px] font-bold text-gray-400">{(product.reviewCount || 0).toLocaleString()} 件のレビュー</span>
                 </div>
               )}
             </div>
@@ -192,7 +192,7 @@ export default function ProductDetailPage({
                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </a>
-              <p className="text-[9px] text-center text-gray-400 font-bold uppercase tracking-widest">Secure checkout via official marketplace</p>
+              <p className="text-[9px] text-center text-gray-400 font-bold uppercase tracking-widest">各モールの公式サイトで安全に決済できます</p>
             </div>
           </div>
         </div>
@@ -219,7 +219,7 @@ export default function ProductDetailPage({
                   </div>
                   
                   <div className="p-4 bg-indigo-50/50 rounded-2xl border border-indigo-100/50">
-                    <h4 className="text-xs font-black text-indigo-900 uppercase tracking-wider mb-2">ライオンくんの耳打ち（Quick Tip）</h4>
+                    <h4 className="text-xs font-black text-indigo-900 uppercase tracking-wider mb-2">ライオンくんの耳打ち</h4>
                     <p className="text-xs text-indigo-800 leading-relaxed font-medium italic whitespace-pre-wrap">
                       「{insight.tip}」
                     </p>

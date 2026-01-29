@@ -12,18 +12,17 @@ export const interiorBrand: Record<string, SiteConfig> = {
     affiliate: { rakutenAid: "5355389", yahooAid: "5355394", amazonTag: "bestie-select-22" },
     eeat: {
       expertComment: "家は人生の基盤。長く愛せるもの、そして今多くの人に選ばれている『正解』をデータから導き出します。",
-      brandStory: "「理想の部屋を、手の届く価格で。」をコンセプトに、コスパと品質のバランスを追求します。"
+      brandStory: "「理想の部屋を、手の届く価格で。」をコンセプトに, コスパと品質のバランスを追求します。"
     },
     theme: { background: "#f0fdf4", borderRadius: "rounded-2xl", cardShadow: "shadow-lg" },
     rakutenCategories: [
-      { id: "furniture", name: "家具・収納", mallId: "100804" },
-      { id: "bedding", name: "寝具", mallId: "100805" },
-      { id: "kitchen", name: "キッチン用品・食器", mallId: "558929" },
+      { id: "furniture", name: "インテリア・寝具・収納", mallId: "100804" },
+      { id: "bedding", name: "寝具", mallId: "215566" },
+      { id: "kitchen", name: "キッチン用品・食器・調理器具", mallId: "558944" },
     ],
     yahooCategories: [
-      { id: "furniture", name: "家具、インテリア", mallId: "1197" },
-      { id: "bedding", name: "布団、寝具", mallId: "1413" },
-      { id: "kitchen", name: "キッチン、日用品、文具", mallId: "1219" },
+      { id: "furniture", name: "家具、インテリア用品", mallId: "2506" },
+      { id: "kitchen", name: "キッチン、日用品、文具", mallId: "2508" },
     ],
   }
 };

@@ -13,6 +13,7 @@ export type CategoryConfig = {
   id: string;
   name: string;
   mallId: string;
+  keyword?: string; // 特定のキーワードで絞り込む場合に使用
   minPrice?: number;
   description?: string;
   lionComment?: string;
