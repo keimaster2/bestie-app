@@ -18,8 +18,8 @@ export const outdoorBrand: Record<string, SiteConfig> = {
       amazonTag: "bestie-select-22",
     },
     eeat: {
-      expertComment: "過酷な環境で頼りになるのは、スペック以上に『実績』だ。俺が現場で光る本物のギアを仕分けておいたよ。",
-      brandStory: "Bestie アウトドアは、自然を愛するすべての人のために、膨大な市場データから本当に信頼できるアウトドアギアだけをキュレーションするメディアです。",
+      expertComment: "過酷な環境で頼りになるのは、スペック以上に『実績』だ。俺が現場で光る本物のギアをデータから特定したよ。",
+      brandStory: "Bestie アウトドアは、自然を愛するすべての人のために、膨大な市場データから信頼できるギアを可視化するメディアです。",
     },
     theme: {
       borderRadius: "rounded-lg",

@@ -18,8 +18,8 @@ export const beautyBrand: Record<string, SiteConfig> = {
       amazonTag: "bestie-select-22",
     },
     eeat: {
-      expertComment: "口コミだけでなく、実際の売れ行きを最重視してセレクトしました。",
-      brandStory: "Bestie ビューティーは、トレンドの移り変わりが激しい美容業界において、確かな実績でユーザーの美への挑戦をサポートします。",
+      expertComment: "口コミだけでなく、実際の売れ行きを最重視して客観的なデータに基づき抽出しました。",
+      brandStory: "Bestie ビューティーは、トレンドの移り変わりが激しい美容業界において、確かな実績を可視化し、ユーザーの美への挑戦をサポートします。",
     },
     theme: {
       borderRadius: "rounded-3xl",

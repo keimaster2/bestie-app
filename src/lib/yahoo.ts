@@ -30,9 +30,6 @@ const getYahooAppId = (): string => {
  */
 export async function fetchYahooRanking(categoryId: string = "1", _minPrice?: number): Promise<Record<string, unknown>[]> {
   const appId = getYahooAppId();
-  
-  // 総合(1)の場合は全体の売上順。特定のワードを入れない。
-  // カテゴリ指定がある場合は、クエリを空にすることでそのカテゴリの純粋なランキングを取得
   const query = categoryId === "1" ? "人気" : ""; 
   const url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${appId}&query=${encodeURIComponent(query)}&sort=-sold&results=30${categoryId !== "1" ? `&genre_category_id=${categoryId}` : ""}`;
   
@@ -71,8 +68,16 @@ export function convertYahooToProduct(items: Record<string, unknown>[], isRankin
     const title = (item.name as string) || "";
     const cleanTitle = title.replace(/【.*?】/g, "").replace(/\[.*?\]/g, "").replace(/返品種別[A-Z]?/g, "").trim();
     const price = (item.price as number) || 0;
+    
+    // 🚀 超・高画質化ハック: プレースホルダ(/i/g/)ではなくオリジナル画像(/i/n/)を取得
     const imageObj = item.image as Record<string, string> | undefined;
-    const image = imageObj?.medium || "/placeholder.svg";
+    let image = imageObj?.medium || "/placeholder.svg";
+    if (image.includes("/i/g/")) {
+      image = image.replace("/i/g/", "/i/n/");
+    } else if (image.includes("/i/l/")) {
+      image = image.replace("/i/l/", "/i/n/");
+    }
+
     const reviewObj = item.review as Record<string, number> | undefined;
     const rating = reviewObj?.rate || 0;
     const reviewCount = reviewObj?.count || 0;

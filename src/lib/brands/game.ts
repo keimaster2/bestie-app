@@ -18,8 +18,8 @@ export const gameBrand: Record<string, SiteConfig> = {
       amazonTag: "bestie-select-22",
     },
     eeat: {
-      expertComment: "ゲームは『体験』だ。単なるグラフィックの良さだけじゃない、今の熱狂がどこにあるのかを俺が見抜いておいたよ。",
-      brandStory: "Bestie ゲームは、世界中のゲーマーたちの支持をリアルタイムで解析。本当に没頭できる一品を探し出すための、冒険の地図のようなメディアです。",
+      expertComment: "ゲームは『体験』だ。単なるグラフィックの良さだけじゃない、今の熱狂がどこにあるのかをデータが教えてくれるよ。",
+      brandStory: "Bestie ゲームは、世界中のゲーマーたちの支持をデータで解析。没頭できる一品を探し出すための、冒険の地図のようなメディアです。",
     },
     theme: {
       borderRadius: "rounded-xl",

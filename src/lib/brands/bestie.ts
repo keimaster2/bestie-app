@@ -18,8 +18,8 @@ export const bestieBrand: Record<string, SiteConfig> = {
       amazonTag: "bestie-select-22",
     },
     eeat: {
-      expertComment: "情報が多すぎて疲れてないかい？ 安心してくれ、俺が市場のゴミを全部弾いておいた。",
-      brandStory: "Bestieは、膨大な選択肢に迷う現代人のために、市場の真の実力を見極めるメディアです。",
+      expertComment: "情報が多すぎて疲れてないかい？ 安心してくれ、膨大なデータから市場のノイズを丁寧に取り除いておいたよ。",
+      brandStory: "Bestieは、膨大な選択肢に迷う現代人のために、購買データに基づいた客観的な人気を提示するメディアです。",
     },
     theme: {
       borderRadius: "rounded-xl",

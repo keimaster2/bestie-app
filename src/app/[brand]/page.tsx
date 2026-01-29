@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Product } from "@/lib/types";
-import { getSiteConfig, SiteConfig } from "@/lib/config";
+import { getSiteConfig, SiteConfig, CategoryConfig } from "@/lib/config";
 import { generateLionReview } from "@/lib/lion-logic";
 import { MallClient, MallType } from "@/lib/malls/factory";
 import ClientHome from "./ClientHome";
@@ -26,8 +26,9 @@ export async function generateMetadata(
   const sParams = await props.searchParams;
   const config = getSiteConfig(params.brand);
   const mall = (sParams.mall as string) || "rakuten";
-  const { currentGenre } = getActiveContext(config, mall, sParams.genre as string);
+  const { categories, currentGenre } = getActiveContext(config, mall, sParams.genre as string);
 
+  // 検索モードの場合
   if (sParams.q) {
     return {
       title: `「${sParams.q}」の売れ筋比較 | ${config.brandName}`,
@@ -37,8 +38,21 @@ export async function generateMetadata(
 
   if (!currentGenre) return { title: config.siteTitle, description: config.description };
 
+  // サブブランドのトップページ（最初のカテゴリー）判定
+  const isSubBrand = params.brand !== "bestie";
+  const isFirstCategory = categories.length > 0 && currentGenre.id === categories[0].id;
+
+  if (isSubBrand && isFirstCategory) {
+    const brandLabel = config.brandName.replace("Bestie ", "");
+    return {
+      title: `${brandLabel}人気ランキング | ${config.brandName} | Bestie`,
+      description: config.description,
+    };
+  }
+
+  const suffix = isSubBrand ? ` | ${config.brandName} | Bestie` : ` | Bestie`;
   return {
-    title: `${currentGenre.name}人気ランキング | ${config.brandName}`,
+    title: `${currentGenre.name}人気ランキング${suffix}`,
     description: `${config.brandName}が分析する${currentGenre.name}の最新トレンド。`,
   };
 }
@@ -97,10 +111,6 @@ export default async function Home(props: {
     };
   });
 
-  const breadcrumbItems = isSearchMode 
-    ? [{ label: `「${query}」の解析結果` }]
-    : (currentGenre.id !== categories[0]?.id ? [{ label: currentGenre.name }] : []);
-
   return (
     <ClientHome 
       params={params} 
@@ -111,7 +121,7 @@ export default async function Home(props: {
       genreId={currentGenre.id}
       isSearchMode={isSearchMode}
       currentGenre={currentGenre}
-      breadcrumbItems={breadcrumbItems}
+      breadcrumbItems={[]}
     />
   );
 }

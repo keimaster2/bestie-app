@@ -18,8 +18,8 @@ export const gadgetBrand: Record<string, SiteConfig> = {
       amazonTag: "bestie-select-22",
     },
     eeat: {
-      expertComment: "スペックの数値に騙されちゃいけないよ。俺が重視するのは『日々の使い勝手』だ。",
-      brandStory: "Bestie ガジェットは、最新の市場データにプロの視点を加えたガジェット専門メディアです。",
+      expertComment: "スペックの数値に騙されちゃいけないよ。俺が重視するのは、データが示す『日々の使い勝手』だ。",
+      brandStory: "Bestie ガジェットは、最新の市場データに基づき、プロの視点を加味して構成されたガジェット専門メディアです。",
     },
     theme: {
       borderRadius: "rounded-lg",

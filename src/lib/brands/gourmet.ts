@@ -18,8 +18,8 @@ export const gourmetBrand: Record<string, SiteConfig> = {
       amazonTag: "bestie-select-22",
     },
     eeat: {
-      expertComment: "「本当に美味しいもの」は、数字が正直に語ってくれる。俺が食卓の質を底上げする一品を選び抜いたよ。",
-      brandStory: "Bestie グルメは、日本中の食通たちの購買データを解析し、一過性のブームに流されない「真の価値ある食」を届けるメディアです。",
+      expertComment: "「本当に美味しいもの」は、数字が正直に語ってくれる。食卓の質を底上げする一品をデータで特定したよ。",
+      brandStory: "Bestie グルメは、日本中の食通たちの購買データを解析し、一過性のブームに流されない価値ある食を提示するメディアです。",
     },
     theme: {
       borderRadius: "rounded-2xl",
@@ -36,7 +36,7 @@ export const gourmetBrand: Record<string, SiteConfig> = {
     yahooCategories: [
       { id: "meat", name: "肉、ハム、ソーセージ", mallId: "998" },
       { id: "seafood", name: "魚介類、海産物", mallId: "939" },
-      { id: "sweets", name: "スイーツ、洋菓子", mallId: "4744" },
+      { id: "sweets", name: "スイーツ、洋菓子", mallId: "1159" },
       { id: "rice", name: "米、雑穀、粉類", mallId: "1234" },
       { id: "drink", name: "ドリンク、水、お酒", mallId: "1314" },
     ]

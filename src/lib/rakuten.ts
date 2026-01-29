@@ -14,7 +14,7 @@ export type RakutenItem = {
     reviewAverage: string;
     shopName: string;
     genreId: string;
-    itemCaption?: string; // 商品説明文（キャッチコピーとして流用）
+    itemCaption?: string;
   };
 };
 
@@ -39,8 +39,6 @@ const getRakutenAppId = (): string => {
  */
 export async function fetchRakutenRanking(genreId: string = "0"): Promise<RakutenItem[]> {
   const appId = getRakutenAppId();
-  
-  // フィルターなしの純粋なランキングAPIを叩く
   const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Ranking/20170628?format=json&applicationId=${appId}&genreId=${genreId}`;
 
   try {
@@ -77,10 +75,15 @@ export function convertRakutenToProduct(items: RakutenItem[], isRanking: boolean
   return items.map((item) => {
     const i = item.Item;
     let imageUrl = i.mediumImageUrls.length > 0 ? i.mediumImageUrls[0].imageUrl : "/placeholder.svg";
+    
+    // 画像URLのHTTPS化
     if (imageUrl.startsWith("http://")) imageUrl = imageUrl.replace("http://", "https://");
-    if (imageUrl.includes("?_ex=")) imageUrl = imageUrl.replace(/\?_ex=.*$/, "?_ex=400x400");
+    
+    // 🚀 超・高画質化ハック: パラメータを削除してオリジナル画像(最大解像度)を取得
+    if (imageUrl.includes("?_ex=")) {
+      imageUrl = imageUrl.split("?")[0];
+    }
 
-    // itemCaptionから最初の1文を抽出（または適当な長さで切る）
     const catchphrase = i.itemCaption ? i.itemCaption.split(/[。！\n]/)[0].substring(0, 60) : "";
 
     return {

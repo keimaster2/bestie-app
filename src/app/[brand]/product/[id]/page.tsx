@@ -2,7 +2,7 @@
 
 export const runtime = 'edge';
 
-import { useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState, use } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -15,6 +15,7 @@ import { Product } from "@/lib/types";
 import { getSiteConfig } from "@/lib/config";
 import { useFavorites } from "@/context/FavoritesContext";
 import { getBrandPath } from "@/lib/utils";
+import { generateSmartDetailedReview } from "@/lib/lion-logic";
 
 export default function ProductDetailPage({
   params: paramsPromise,
@@ -27,6 +28,7 @@ export default function ProductDetailPage({
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [imgSrc, setImgSrc] = useState<string>("/placeholder.svg");
+  const [insight, setInsight] = useState<{ analysis: string, tip: string } | null>(null);
 
   const config = getSiteConfig(params.brand);
 
@@ -53,9 +55,11 @@ export default function ProductDetailPage({
         rakutenUrl: fromParams.rakutenUrl,
         yahooUrl: fromParams.yahooUrl,
         catchphrase: fromParams.catchphrase,
+        rank: parseInt(fromParams.rank || "0"),
       };
       setProduct(initialProduct as Product);
       setImgSrc(fromParams.image || "/placeholder.svg");
+      setInsight(generateSmartDetailedReview(initialProduct as Product, config, fromParams.mall === "Yahoo" ? "Yahoo!" : "楽天市場"));
       setLoading(false);
     }
 
@@ -65,6 +69,7 @@ export default function ProductDetailPage({
         const data = JSON.parse(cached);
         setProduct((prev) => ({ ...prev, ...data, id: params.id }));
         setImgSrc(data.image || "/placeholder.svg");
+        setInsight(generateSmartDetailedReview({ ...data, id: params.id } as Product, config, data.mall === "Yahoo" ? "Yahoo!" : "楽天市場"));
         setLoading(false);
       } catch (e) {
         console.error("Cache parse error", e);
@@ -72,7 +77,7 @@ export default function ProductDetailPage({
     } else if (!fromParams.title) {
       setLoading(false);
     }
-  }, [searchParams, params.brand, params.id, setBrand]);
+  }, [searchParams, params.brand, params.id, setBrand, config]);
 
   const bgColor = config.theme.background;
 
@@ -102,13 +107,14 @@ export default function ProductDetailPage({
       } as React.CSSProperties}
     >
       <Header config={config} minimal={true} />
+
       <StructuredData type="Product" data={product} />
 
       <Breadcrumbs 
         brand={params.brand}
         config={config}
         items={[
-          { label: product.mall, href: `${getBrandPath(params.brand, "/")}?mall=${product.mall.toLowerCase()}` },
+          { label: product.mall === "Rakuten" ? "楽天市場" : "Yahoo!", href: `${getBrandPath(params.brand, "/")}?mall=${product.mall.toLowerCase()}` },
           { label: "詳細分析" }
         ]}
       />
@@ -191,37 +197,37 @@ export default function ProductDetailPage({
           </div>
         </div>
 
-        {/* ライオンの目利き（人間味セクション） */}
-        <div className="mt-16 bg-white rounded-3xl border border-gray-100 p-8 shadow-sm relative overflow-hidden">
-           <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-50/50 rounded-full -mr-32 -mt-32"></div>
-           <div className="relative z-10">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-full bg-indigo-600 flex items-center justify-center text-2xl shadow-lg border-2 border-white">🦁</div>
-                <div>
-                  <h2 className="text-lg font-black text-gray-900 tracking-tighter">LION'S PERSPECTIVE</h2>
-                  <p className="text-[10px] font-bold text-indigo-500 uppercase tracking-widest">Expert Analysis & Market Insight</p>
-                </div>
-              </div>
-              
-              <div className="space-y-6">
-                <div className="prose prose-sm text-gray-600 max-w-none">
-                  <h3 className="text-base font-bold text-gray-900">この商品の「買い」のポイント</h3>
-                  <p className="text-sm leading-relaxed">
-                    多くのユーザーに支持されているこのアイテム、最大の特徴は「市場での圧倒的な安定感」だね。
-                    単なる流行り物ではなく、積み上げられた実績（レビュー数）が、その実力を雄弁に物語っている。
-                    迷っているなら、この「数字が証明する安心感」に乗ってみるのが、失敗しない買い物の鉄則さ。
-                  </p>
+        {/* ライオンくんの目利き（人間味セクション） */}
+        {insight && (
+          <div className="mt-16 bg-white rounded-3xl border border-gray-100 p-8 shadow-sm relative overflow-hidden">
+             <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-50/50 rounded-full -mr-32 -mt-32"></div>
+             <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-12 h-12 rounded-full bg-indigo-600 flex items-center justify-center text-2xl shadow-lg border-2 border-white">🦁</div>
+                  <div>
+                    <h2 className="text-lg font-black text-gray-900 tracking-tighter uppercase">ライオンくんの目利きノート</h2>
+                    <p className="text-[10px] font-bold text-indigo-500 uppercase tracking-widest">データで読み解く市場のトレンド</p>
+                  </div>
                 </div>
                 
-                <div className="p-4 bg-indigo-50/50 rounded-2xl border border-indigo-100/50">
-                  <h4 className="text-xs font-black text-indigo-900 uppercase tracking-wider mb-2">Lion's Quick Tip</h4>
-                  <p className="text-xs text-indigo-800 leading-relaxed font-medium italic">
-                    「スペックだけじゃ見えない『使ってみた満足度』が、この商品の真価だよ。君の日常を少しだけ、でも確実に上質に変えてくれるはずさ。」
-                  </p>
+                <div className="space-y-6">
+                  <div className="prose prose-sm text-gray-600 max-w-none">
+                    <h3 className="text-base font-bold text-gray-900">この商品が選ばれている理由</h3>
+                    <p className="text-sm leading-relaxed whitespace-pre-wrap">
+                      {insight.analysis}
+                    </p>
+                  </div>
+                  
+                  <div className="p-4 bg-indigo-50/50 rounded-2xl border border-indigo-100/50">
+                    <h4 className="text-xs font-black text-indigo-900 uppercase tracking-wider mb-2">ライオンくんの耳打ち（Quick Tip）</h4>
+                    <p className="text-xs text-indigo-800 leading-relaxed font-medium italic whitespace-pre-wrap">
+                      「{insight.tip}」
+                    </p>
+                  </div>
                 </div>
-              </div>
-           </div>
-        </div>
+             </div>
+          </div>
+        )}
 
         <div className="mt-10 border-t border-gray-100 pt-10 pb-20 text-center">
             <Link href={getBrandPath(params.brand, "/")} className="text-sm font-bold text-gray-400 hover:text-gray-900 transition-colors">
