@@ -141,11 +141,9 @@ export default function ProductCard({ product, config }: { product: Product, con
             href={getMallUrl("Rakuten")}
             target="_blank"
             rel="noopener noreferrer"
-            className={`text-[10px] font-black px-2 py-1.5 rounded flex-1 text-center transition-all border
-              ${product.rakutenUrl 
-                ? 'bg-red-50 text-red-600 border-red-200 hover:bg-red-100 shadow-sm' 
-                : 'bg-gray-50 text-gray-400 border-gray-100 hover:text-red-400 opacity-60'
-              }`}
+            className={`text-[10px] font-black px-2 py-1.5 rounded flex-1 text-center transition-all border bg-red-50 text-red-600 border-red-200 hover:bg-red-100 shadow-sm
+              ${!product.rakutenUrl && 'opacity-70 italic'}
+            `}
           >
             楽天市場
           </a>
@@ -153,11 +151,9 @@ export default function ProductCard({ product, config }: { product: Product, con
             href={getMallUrl("Yahoo")}
             target="_blank"
             rel="noopener noreferrer"
-            className={`text-[10px] font-black px-2 py-1.5 rounded flex-1 text-center transition-all border
-              ${product.yahooUrl 
-                ? 'bg-blue-50 text-blue-600 border-blue-200 hover:bg-blue-100 shadow-sm' 
-                : 'bg-gray-50 text-gray-400 border-gray-100 hover:text-red-400 opacity-60'
-              }`}
+            className={`text-[10px] font-black px-2 py-1.5 rounded flex-1 text-center transition-all border bg-blue-50 text-blue-600 border-blue-200 hover:bg-blue-100 shadow-sm
+              ${!product.yahooUrl && 'opacity-70 italic'}
+            `}
           >
             Yahoo!
           </a>
