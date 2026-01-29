@@ -67,16 +67,25 @@ const DEFAULT_CONFIG = SITE_REGISTRY["bestie"];
 export function getSiteConfig(brandOrHost?: string): SiteConfig {
   if (!brandOrHost) return DEFAULT_CONFIG;
   
-  const config = SITE_REGISTRY[brandOrHost];
-  if (config) return config;
+  // 1. まずはID (beauty, gadgetなど) での直接検索
+  const configById = SITE_REGISTRY[brandOrHost.toLowerCase()];
+  if (configById) return configById;
 
   const cleanHost = brandOrHost.split(":")[0].toLowerCase();
   
-  // 1. 新ドメイン (bestieplus.com) または サブパスで判定
-  const matchedConfig = Object.values(SITE_REGISTRY).find(c => 
-    cleanHost.includes(c.domain.toLowerCase()) || 
-    (c.fallbackDomain && cleanHost.includes(c.fallbackDomain.toLowerCase()))
-  );
+  // 2. ホスト名 (beauty.bestieplus.com など) で判定
+  // サブドメインが一致する場合を優先
+  const matchedConfig = Object.values(SITE_REGISTRY).find(c => {
+    const mainDomain = c.domain.toLowerCase();
+    const fbDomain = c.fallbackDomain?.toLowerCase();
+    
+    // ホスト名がドメイン設定を含む、またはその逆
+    return cleanHost === mainDomain || 
+           (fbDomain && cleanHost === fbDomain) ||
+           cleanHost.startsWith(mainDomain + ".") || // 安全策
+           cleanHost.endsWith("." + mainDomain) ||
+           (fbDomain && cleanHost.endsWith("." + fbDomain));
+  });
   
   return matchedConfig || DEFAULT_CONFIG;
 }
