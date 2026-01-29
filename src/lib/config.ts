@@ -4,6 +4,10 @@ import { beautyBrand } from "./brands/beauty";
 import { gourmetBrand } from "./brands/gourmet";
 import { outdoorBrand } from "./brands/outdoor";
 import { gameBrand } from "./brands/game";
+import { fashionBrand } from "./brands/fashion";
+import { interiorBrand } from "./brands/interior";
+import { petBrand } from "./brands/pet";
+import { babyBrand } from "./brands/baby";
 
 export type CategoryConfig = {
   id: string;
@@ -50,6 +54,10 @@ export const SITE_REGISTRY: Record<string, SiteConfig> = {
   ...gourmetBrand,
   ...outdoorBrand,
   ...gameBrand,
+  ...fashionBrand,
+  ...interiorBrand,
+  ...petBrand,
+  ...babyBrand,
 };
 
 const DEFAULT_CONFIG = SITE_REGISTRY["bestie"];
