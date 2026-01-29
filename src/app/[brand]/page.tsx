@@ -67,9 +67,8 @@ export default async function Home(props: {
 
   // メインとサブ（比較用）の両方のモールデータを並列で取得
   const otherMall: MallType = mall === "rakuten" ? "yahoo" : "rakuten";
-  
-  // 他方のモールのカテゴリー設定も取得（マッチング精度向上のため）
   const otherCategories = (otherMall === "yahoo" ? config.yahooCategories : config.rakutenCategories) || [];
+  
   const mainMallId = isSearchMode ? (categories[0]?.mallId || "") : currentGenre.mallId;
   const otherMallId = isSearchMode ? (otherCategories[0]?.mallId || "") : (otherCategories.find(c => c.id === currentGenre.id)?.mallId || otherCategories[0]?.mallId || "");
 

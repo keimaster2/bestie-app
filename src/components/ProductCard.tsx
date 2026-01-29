@@ -137,13 +137,16 @@ export default function ProductCard({ product, config }: { product: Product, con
         </div>
 
         <div className="flex flex-wrap items-center gap-1.5 pt-3 mt-auto">
+          {/* Vivid Solid Colors */}
           <a
             href={getMallUrl("Rakuten")}
             target="_blank"
             rel="noopener noreferrer"
-            className={`text-[10px] font-black px-2 py-1.5 rounded flex-1 text-center transition-all border bg-red-50 text-red-600 border-red-200 hover:bg-red-100 shadow-sm
-              ${!product.rakutenUrl && 'opacity-70 italic'}
-            `}
+            className={`text-[10px] font-black px-2 py-2 rounded flex-1 text-center transition-all shadow-sm active:scale-95
+              ${product.rakutenUrl 
+                ? 'bg-[#bf0000] text-white hover:bg-[#a00000]' 
+                : 'bg-red-100 text-red-800 opacity-60 italic'
+              }`}
           >
             楽天市場
           </a>
@@ -151,9 +154,11 @@ export default function ProductCard({ product, config }: { product: Product, con
             href={getMallUrl("Yahoo")}
             target="_blank"
             rel="noopener noreferrer"
-            className={`text-[10px] font-black px-2 py-1.5 rounded flex-1 text-center transition-all border bg-blue-50 text-blue-600 border-blue-200 hover:bg-blue-100 shadow-sm
-              ${!product.yahooUrl && 'opacity-70 italic'}
-            `}
+            className={`text-[10px] font-black px-2 py-2 rounded flex-1 text-center transition-all shadow-sm active:scale-95
+              ${product.yahooUrl 
+                ? 'bg-[#ff0033] text-white hover:bg-[#e6002e]' 
+                : 'bg-blue-100 text-blue-800 opacity-60 italic'
+              }`}
           >
             Yahoo!
           </a>
@@ -161,7 +166,7 @@ export default function ProductCard({ product, config }: { product: Product, con
             href={getMallUrl("Amazon")}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[10px] font-black px-2 py-1.5 rounded flex-1 text-center transition-all border bg-orange-50 text-orange-600 border-orange-200 hover:bg-orange-100 shadow-sm"
+            className="text-[10px] font-black px-2 py-2 rounded flex-1 text-center transition-all shadow-sm active:scale-95 bg-[#ff9900] text-white hover:bg-[#e68a00]"
           >
             Amazon
           </a>
