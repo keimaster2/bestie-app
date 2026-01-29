@@ -12,7 +12,7 @@ import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import StructuredData from "@/components/StructuredData";
 import { Product } from "@/lib/types";
-import { getSiteConfig } from "@/lib/config";
+import { getSiteConfig, SiteConfig } from "@/lib/config";
 import { useFavorites } from "@/context/FavoritesContext";
 import { getBrandPath } from "@/lib/utils";
 import { generateSmartDetailedReview } from "@/lib/lion-logic";
