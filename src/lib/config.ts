@@ -2,6 +2,15 @@ import { bestieBrand } from "./brands/bestie";
 import { bestieGadgetBrand } from "./brands/bestie-gadget";
 import { beautyBrand } from "./brands/beauty";
 
+export type CategoryConfig = {
+  id: string;
+  name: string;
+  mallId: string;
+  minPrice?: number;
+  description?: string;
+  lionComment?: string;
+};
+
 export type SiteConfig = {
   id: string;
   domain: string;
@@ -20,41 +29,33 @@ export type SiteConfig = {
   };
   eeat: {
     expertComment: string;
-    brandStory: string;    // 各ブランド独自のミッション/想い
+    brandStory: string;
   };
   theme: {
-    borderRadius: string; // "rounded-xl" や "rounded-full" など
-    cardShadow: string;   // "shadow-sm" や "shadow-lg" など
-    background: string;   // ページ全体の背景色 (hex)
+    borderRadius: string;
+    cardShadow: string;
+    background: string;
   };
-  categories: {
-    id: string;
-    name: string;
-    rakutenId: string;
-    yahooId: string;
-    minPrice?: number;
-  }[];
+  rakutenCategories: CategoryConfig[];
+  yahooCategories: CategoryConfig[];
 };
 
-// 全ブランドのサイトを統合したレジストリ
 export const SITE_REGISTRY: Record<string, SiteConfig> = {
   ...bestieBrand,
   ...bestieGadgetBrand,
   ...beautyBrand,
 };
 
-// 現在のリクエストに対応する設定を取得する関数
-export function getSiteConfig(brandOrHost?: string): SiteConfig {
-  if (!brandOrHost) return SITE_REGISTRY["bestie"];
-  
-  // 1. まずはブランド名(パス)で探す (例: "beauty")
-  if (SITE_REGISTRY[brandOrHost]) {
-    return SITE_REGISTRY[brandOrHost];
-  }
+const DEFAULT_CONFIG = SITE_REGISTRY["bestie"];
 
-  // 2. なければドメイン(ホスト名)で探す
+export function getSiteConfig(brandOrHost?: string): SiteConfig {
+  if (!brandOrHost) return DEFAULT_CONFIG;
+  
+  const config = SITE_REGISTRY[brandOrHost];
+  if (config) return config;
+
   const cleanHost = brandOrHost.split(":")[0];
   const matchedConfig = Object.values(SITE_REGISTRY).find(c => cleanHost.includes(c.domain));
   
-  return matchedConfig || SITE_REGISTRY["bestie"];
+  return matchedConfig || DEFAULT_CONFIG;
 }

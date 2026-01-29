@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import SearchBar from "./SearchBar";
-import { SiteConfig } from "@/lib/config";
+import { SiteConfig, CategoryConfig } from "@/lib/config";
 import { usePathname } from "next/navigation";
 import { getBrandPath } from "@/lib/utils";
 
@@ -12,32 +12,30 @@ type HeaderProps = {
   genreId?: string;
   isSearchMode?: boolean;
   config: SiteConfig;
-  minimal?: boolean; // 検索バーやタブを出さない最小構成モード（詳細画面、お気に入りなど）
+  minimal?: boolean;
 };
 
 export default function Header({ mall, query, genreId, isSearchMode, config, minimal = false }: HeaderProps) {
   const pathname = usePathname() || "";
-  
-  // 現在のブランドIDを特定（URLの1段目を見る）
   const pathSegments = pathname.split('/').filter(Boolean);
   const brands = ["bestie", "beauty", "gadget"];
   const brandFromPath = brands.find(b => pathSegments.includes(b)) || "bestie";
+  const isTopPage = pathSegments.length === 0 || (pathSegments.length === 1 && brands.includes(pathSegments[0]));
 
-  // トップページかどうかを判定
-  const isTopPage = pathSegments.length === 0 || 
-                   (pathSegments.length === 1 && brands.includes(pathSegments[0]));
+  const currentMall = mall || "rakuten";
 
-  // モールボタンの共通スタイル
   const getMallTabClass = (targetMall: string) => {
-    const isActive = mall === targetMall || (!mall && targetMall === "rakuten");
+    const isActive = currentMall === targetMall;
     const baseClass = "px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold transition-all border";
-    
     if (isActive) {
       const activeColors = targetMall === "yahoo" ? "text-blue-600" : "text-red-600";
       return `${baseClass} bg-white border-gray-300 shadow-inner ${activeColors} z-10`;
     }
     return `${baseClass} border-transparent text-gray-500 hover:text-gray-700`;
   };
+
+  // 選択中のモールに応じたカテゴリーリストを安全に取得
+  const categories: CategoryConfig[] = (currentMall === "yahoo" ? config.yahooCategories : config.rakutenCategories) || [];
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-30 border-b border-gray-100">
@@ -57,19 +55,6 @@ export default function Header({ mall, query, genreId, isSearchMode, config, min
                 )}
               </div>
             </Link>
-            
-            {!minimal && (
-              <Link href={getBrandPath(brandFromPath, "/favorites")} className="sm:hidden text-gray-400 hover:text-red-500 transition-colors" prefetch={false}>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                </svg>
-              </Link>
-            )}
-            {minimal && (
-               <div className="font-bold text-sm text-gray-400 sm:hidden">
-                 {pathname.includes("/favorites") ? "お気に入り" : pathname.includes("/about") ? "About" : ""}
-               </div>
-            )}
           </div>
         </div>
         
@@ -92,7 +77,6 @@ export default function Header({ mall, query, genreId, isSearchMode, config, min
         <div className="border-t border-gray-100 bg-white">
           <div className="max-w-4xl mx-auto px-4 py-2 text-center sm:text-left border-b border-gray-50">
              <p className="text-[10px] sm:text-xs text-gray-500 font-medium leading-tight">
-               <span className="hidden sm:inline">選び疲れをゼロに。</span>
                {config.tagline}
              </p>
           </div>
@@ -101,14 +85,14 @@ export default function Header({ mall, query, genreId, isSearchMode, config, min
             <div className="flex justify-center py-2 sm:py-4 border-b border-gray-100 mb-1">
               <div className="inline-flex bg-gray-100 rounded-full p-0.5 sm:p-1">
                 <Link 
-                  href={`${getBrandPath(brandFromPath, "/")}?mall=rakuten${query ? `&q=${encodeURIComponent(query)}` : `&genre=${genreId}`}`}
+                  href={`${getBrandPath(brandFromPath, "/")}?mall=rakuten`}
                   className={getMallTabClass("rakuten")}
                   prefetch={false}
                 >
                   楽天市場
                 </Link>
                 <Link 
-                  href={`${getBrandPath(brandFromPath, "/")}?mall=yahoo${query ? `&q=${encodeURIComponent(query)}` : `&genre=${genreId}`}`}
+                  href={`${getBrandPath(brandFromPath, "/")}?mall=yahoo`}
                   className={getMallTabClass("yahoo")}
                   prefetch={false}
                 >
@@ -120,12 +104,12 @@ export default function Header({ mall, query, genreId, isSearchMode, config, min
               </div>
             </div>
 
-            {!isSearchMode && (
+            {!isSearchMode && categories.length > 0 && (
               <div className="flex overflow-x-auto no-scrollbar gap-1 py-2 -mx-4 px-4 sm:mx-0 sm:px-0">
-                {config.categories.map((g) => (
+                {categories.map((g) => (
                   <Link
                     key={g.id}
-                    href={`${getBrandPath(brandFromPath, "/")}?mall=${mall}&genre=${g.id}`}
+                    href={`${getBrandPath(brandFromPath, "/")}?mall=${currentMall}&genre=${g.id}`}
                     className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-bold transition-colors whitespace-nowrap
                       ${
                         genreId === g.id

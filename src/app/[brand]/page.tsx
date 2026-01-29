@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
-import { fetchRakutenRanking, searchRakutenItems, convertRakutenToProduct } from "@/lib/rakuten";
-import { fetchYahooRanking, searchYahooItems, convertYahooToProduct } from "@/lib/yahoo";
 import { Product } from "@/lib/types";
 import { getSiteConfig, SiteConfig } from "@/lib/config";
-import { headers } from "next/headers";
-import RankingList from "@/components/RankingList";
-import Header from "@/components/Header";
-import Breadcrumbs from "@/components/Breadcrumbs";
-import { getBrandPath } from "@/lib/utils";
+import { generateLionReview } from "@/lib/lion-logic";
+import { MallClient, MallType } from "@/lib/malls/factory";
+import ClientHome from "./ClientHome";
 
-// SEO用の動的メタデータ生成
+// Helper to safely get categories and current category
+function getActiveContext(config: SiteConfig, mall: string, genreIdFromParam?: string) {
+  const categories = (mall === "yahoo" ? config.yahooCategories : config.rakutenCategories) || [];
+  if (categories.length === 0) return { categories: [], currentGenre: null, genreId: "" };
+
+  const currentGenre = categories.find(g => g.id === genreIdFromParam) || categories[0];
+  const genreId = currentGenre?.id || "";
+
+  return { categories, currentGenre, genreId };
+}
+
 export async function generateMetadata(
   props: { 
     params: Promise<{ brand: string }>;
@@ -19,31 +25,26 @@ export async function generateMetadata(
   const params = await props.params;
   const sParams = await props.searchParams;
   const config = getSiteConfig(params.brand);
-
-  const genreId = (sParams.genre as string) || config.categories[0].id;
-  const query = (sParams.q as string) || "";
   const mall = (sParams.mall as string) || "rakuten";
-  
-  const genre = config.categories.find(g => g.id === genreId) || config.categories[0];
-  const mallName = mall === "yahoo" ? "Yahoo!" : "楽天市場";
+  const { currentGenre } = getActiveContext(config, mall, sParams.genre as string);
 
-  if (query) {
+  if (sParams.q) {
     return {
-      title: `「${query}」の検索結果・売れ筋比較`,
-      description: `${mallName}での「${query}」の検索結果です。リアルタイムで今売れている人気商品を比較して、ベストな選択をサポートします。`,
+      title: `「${sParams.q}」の売れ筋比較 | ${config.brandName}`,
+      description: `${config.brandName}による「${sParams.q}」の市場分析結果。`,
     };
   }
 
+  if (!currentGenre) return { title: config.siteTitle, description: config.description };
+
   return {
-    title: `${genre.name}人気ランキング - ${mallName}売れ筋比較`,
-    description: `${mallName}の${genre.name}カテゴリで「今まさに売れている」人気商品をリアルタイムでお届け。選び疲れをゼロにする最強の比較メディアです。`,
+    title: `${currentGenre.name}人気ランキング | ${config.brandName}`,
+    description: `${config.brandName}が分析する${currentGenre.name}の最新トレンド。`,
   };
 }
 
 export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
-
-import ClientHome from "./ClientHome";
 
 export default async function Home(props: {
   params: Promise<{ brand: string }>;
@@ -53,86 +54,39 @@ export default async function Home(props: {
   const sParams = await props.searchParams;
   const config = getSiteConfig(params.brand);
 
-  const genreId = (sParams.genre as string) || config.categories[0].id;
-  const mall = (sParams.mall as string) || "rakuten";
+  const mall = ((sParams.mall as string) || "rakuten") as MallType;
   const query = (sParams.q as string) || "";
-  
+  const mallName = mall === "yahoo" ? "Yahoo!" : "楽天市場";
   const isSearchMode = !!query;
-  const currentGenre = config.categories.find(g => g.id === genreId) || config.categories[0];
 
-  let products: Product[] = [];
-  let otherProducts: Product[] = [];
+  const { categories, currentGenre } = getActiveContext(config, mall, sParams.genre as string);
 
-  // データの取得
-  if (isSearchMode) {
-    const rootRakutenId = config.categories[0].rakutenId;
-    const rootYahooId = config.categories[0].yahooId;
-
-    if (mall === "yahoo") {
-      const rawData = await searchYahooItems(query, rootYahooId);
-      products = convertYahooToProduct(rawData, false);
-      const rawRakuten = await searchRakutenItems(query, rootRakutenId);
-      otherProducts = convertRakutenToProduct(rawRakuten, false);
-    } else {
-      const rawData = await searchRakutenItems(query, rootRakutenId);
-      products = convertRakutenToProduct(rawData, false);
-      const rawYahoo = await searchYahooItems(query, rootYahooId);
-      otherProducts = convertYahooToProduct(rawYahoo, false);
-    }
-  } else {
-    if (mall === "yahoo") {
-      const rawData = await fetchYahooRanking(currentGenre.yahooId, currentGenre.minPrice);
-      products = convertYahooToProduct(rawData, true);
-      if (currentGenre.rakutenId) {
-        const rawRakuten = await fetchRakutenRanking(currentGenre.rakutenId);
-        otherProducts = convertRakutenToProduct(rawRakuten, true);
-      }
-    } else {
-      const rawData = await fetchRakutenRanking(currentGenre.rakutenId);
-      products = convertRakutenToProduct(rawData, true);
-      if (currentGenre.yahooId) {
-        const rawYahoo = await fetchYahooRanking(currentGenre.yahooId, currentGenre.minPrice);
-        otherProducts = convertYahooToProduct(rawYahoo, true);
-      }
-    }
+  if (!currentGenre) {
+    return <div className="p-20 text-center font-bold text-gray-400">Configuration Error.</div>;
   }
 
-  // マッチングロジック
-  const cleanTitle = (t: string) => t.replace(/[【】\[\]\(\)\s]/g, "").replace(/送料無料|ポイント\d+倍|公式|国内正規品|あす楽/g, "").substring(0, 8);
-  
-  products = products.map(p => {
-    const pClean = cleanTitle(p.title);
-    const matchedOther = otherProducts.find(op => {
-      const opClean = cleanTitle(op.title);
-      return opClean === pClean && pClean.length > 3;
-    });
-    return { 
-      ...p, 
-      isWRank: !!matchedOther,
-      rakutenUrl: mall === "rakuten" ? p.url : matchedOther?.url,
-      yahooUrl: mall === "yahoo" ? p.url : matchedOther?.url,
-    };
-  });
+  // MallClientを使ってデータを取得（超シンプル！）
+  const mallId = isSearchMode ? (categories[0]?.mallId || "") : currentGenre.mallId;
+  const products = await MallClient.getProducts(mall, mallId, query, isSearchMode);
 
-  if (!isSearchMode) {
-    products.sort((a, b) => (a.rank || 999) - (b.rank || 999));
-  }
+  // ライオンの目利きを付与
+  const productsWithReviews = products.map((p) => ({ 
+    ...p, 
+    expertReview: generateLionReview(p, config, mallName)
+  }));
 
-  // パンくずアイテムの決定
-  const breadcrumbItems = (isSearchMode 
-    ? [{ label: `「${query}」の検索結果` }]
-    : (genreId !== config.categories[0].id 
-        ? [{ label: currentGenre.name }] 
-        : []));
+  const breadcrumbItems = isSearchMode 
+    ? [{ label: `「${query}」の解析結果` }]
+    : (currentGenre.id !== categories[0]?.id ? [{ label: currentGenre.name }] : []);
 
   return (
     <ClientHome 
       params={params} 
       config={config} 
-      products={products}
+      products={productsWithReviews}
       mall={mall}
       query={query}
-      genreId={genreId}
+      genreId={currentGenre.id}
       isSearchMode={isSearchMode}
       currentGenre={currentGenre}
       breadcrumbItems={breadcrumbItems}

@@ -5,9 +5,9 @@ export const beautyBrand: Record<string, SiteConfig> = {
     id: "beauty",
     domain: "beauty.local",
     brandName: "Bestie Beauty",
-    siteTitle: "Bestie Beauty | 今、本当に売れている美容・健康アイテム比較",
-    tagline: "理想の自分へ。SNSで話題の最新コスメから健康習慣までをリアルタイムにお届け。",
-    description: "Bestie Beautyは、大手モールの美容・健康カテゴリを徹底比較。今まさに売れている人気商品を、プロの視点とデータで厳選して紹介します。",
+    siteTitle: "Bestie Beauty | 今、選ばれている美容・健康アイテム比較",
+    tagline: "理想の自分へ。実績ある最新コスメから健康習慣までを徹底比較",
+    description: "Bestie Beautyは、大手モールの美容・健康カテゴリーを徹底比較。多くの支持を集める人気商品を厳選して紹介します。",
     themeColor: {
       primary: "#be185d", // pink-700
       accent: "#f472b6",  // pink-400
@@ -18,19 +18,27 @@ export const beautyBrand: Record<string, SiteConfig> = {
       amazonTag: "bestie-select-22",
     },
     eeat: {
-      expertComment: "成分や口コミだけでなく、実際の売れ行き（トレンド）を最重視してセレクトしました。失敗したくない美容投資をサポートします。",
-      brandStory: "「美しさの正解」は、数字が知っている。Bestie Beautyは、トレンドの移り変わりが激しい美容・健康業界において、リアルタイムの販売データに基づいた『真の売れ筋』を追求します。ユーザーの皆様の美の投資を、一過性の流行ではなく確かな実績で守る。それが私たちの願いです。",
+      expertComment: "口コミだけでなく、実際の売れ行きを最重視してセレクトしました。",
+      brandStory: "Bestie Beautyは、トレンドの移り変わりが激しい美容業界において、確かな実績でユーザーの美への挑戦をサポートします。",
     },
     theme: {
       borderRadius: "rounded-3xl",
       cardShadow: "shadow-md",
       background: "#fff5f7",
     },
-    categories: [
-      { id: "all", name: "総合", rakutenId: "101070", yahooId: "2501" },
-      { id: "cosmetics", name: "コスメ・ヘアケア", rakutenId: "100939", yahooId: "2501", minPrice: 2000 },
-      { id: "diet", name: "ダイエット・健康", rakutenId: "100938", yahooId: "2500", minPrice: 1500 },
-      { id: "appliances", name: "美容家電", rakutenId: "502792", yahooId: "1999", minPrice: 5000 },
+    rakutenCategories: [
+      { id: "skin", name: "スキンケア", mallId: "100944" },
+      { id: "makeup", name: "ベースメイク", mallId: "204233" },
+      { id: "hair", name: "ヘアケア", mallId: "100940" },
+      { id: "body", name: "ボディケア", mallId: "100960" },
+      { id: "fragrance", name: "香水", mallId: "111120" },
+    ],
+    yahooCategories: [
+      { id: "skin", name: "スキンケア", mallId: "1752" },
+      { id: "makeup", name: "メイクアップ", mallId: "1791" },
+      { id: "hair", name: "ヘアケア", mallId: "1832" },
+      { id: "body", name: "ボディケア", mallId: "1841" },
+      { id: "appliances", name: "美容家電", mallId: "1999" },
     ]
   }
 };

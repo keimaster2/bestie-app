@@ -38,6 +38,7 @@ export default function ProductCard({ product, config }: { product: Product, con
   if (product.reviewCount != null) searchParams.set("review", product.reviewCount.toString());
   if (product.rakutenUrl) searchParams.set("rakutenUrl", product.rakutenUrl);
   if (product.yahooUrl) searchParams.set("yahooUrl", product.yahooUrl);
+  if (product.catchphrase) searchParams.set("catchphrase", product.catchphrase);
 
   const detailUrl = `${getBrandPath(brandFromPath, `/product/${product.id}`)}?${searchParams.toString()}`;
 
@@ -68,7 +69,7 @@ export default function ProductCard({ product, config }: { product: Product, con
   };
 
   return (
-    <div className={`bg-white shadow-sm border border-gray-200 hover:shadow-md transition-all duration-200 flex relative h-52 group ${config.theme.borderRadius} ${config.theme.cardShadow}`}>
+    <div className={`bg-white shadow-sm border border-gray-200 hover:shadow-md transition-all duration-200 flex relative h-[260px] group ${config.theme.borderRadius} ${config.theme.cardShadow}`}>
       {/* 左上のバッジ */}
       <div className="absolute -top-2 -left-2 z-10 flex items-center gap-1">
         {(product.rank !== undefined && product.rank !== null) ? (
@@ -108,8 +109,8 @@ export default function ProductCard({ product, config }: { product: Product, con
         />
       </div>
       
-      <div className="p-3 w-2/3 flex flex-col justify-between">
-        <div>
+      <div className="p-4 w-2/3 flex flex-col justify-between overflow-hidden">
+        <div className="flex-grow overflow-hidden">
           <div className="flex items-center justify-between mb-1">
             <div className="text-[10px] text-gray-400 truncate flex-1">{product.shopName}</div>
           </div>
@@ -120,16 +121,22 @@ export default function ProductCard({ product, config }: { product: Product, con
           </h3>
           
           <div className="flex items-center gap-1 mb-2 text-xs">
-            <span className="text-yellow-400 font-bold">★{product.rating || 0}</span>
+            <span className="text-yellow-400 font-bold">★ {product.rating || 0}</span>
             <span className="text-gray-400">({(product.reviewCount || 0).toLocaleString()})</span>
           </div>
 
           <div className="text-lg font-bold text-red-600 font-mono leading-none">
             ¥{(product.price || 0).toLocaleString()}
           </div>
+
+          {product.catchphrase && (
+            <p className="mt-2 text-[10px] text-gray-500 line-clamp-2 italic leading-relaxed border-l-2 border-gray-100 pl-2">
+              {product.catchphrase}
+            </p>
+          )}
         </div>
 
-        <div className="flex flex-wrap items-center gap-1.5 mt-auto pt-2">
+        <div className="flex flex-wrap items-center gap-1.5 pt-3 mt-auto">
           <a
             href={getMallUrl("Rakuten")}
             target="_blank"
