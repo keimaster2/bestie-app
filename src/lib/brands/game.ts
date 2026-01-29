@@ -1,43 +1,32 @@
 import { SiteConfig } from "../config";
 
 export const gameBrand: Record<string, SiteConfig> = {
-  "game": {
+  game: {
     id: "game",
-    domain: "game.local",
+    domain: "game.bestieplus.com",
+    fallbackDomain: "game.bestie-app.pages.dev",
     brandName: "Bestie ゲーム",
-    siteTitle: "Bestie ゲーム | 究極のテレビゲーム比較・ランキング",
-    tagline: "遊びを、もっと熱く。話題の新作から伝説の名作までをデータで厳選",
-    description: "Bestie ゲームは、大手モールのゲームランキングを独自に集計。Switch 2、PS5、話題の新作ソフトなど、今選ぶべきゲーム体験を提案します。",
-    themeColor: {
-      primary: "#4338ca", // indigo-700
-      accent: "#818cf8",  // indigo-400
-    },
-    affiliate: {
-      rakutenAid: "5355389",
-      yahooAid: "5355394",
-      amazonTag: "bestie-select-22",
-    },
+    siteTitle: "ゲーム人気ランキング",
+    tagline: "最高の没入体験を。今熱いゲームのすべて。",
+    description: "Switch、PS5からレトロゲームまで、今売れているゲームソフトと本体を徹底比較。ライオンくんが市場を分析します。",
+    themeColor: { primary: "#4c1d95", accent: "#c026d3" },
+    affiliate: { rakutenAid: "5355389", yahooAid: "5355394", amazonTag: "bestie-select-22" },
     eeat: {
-      expertComment: "ゲームは『体験』だ。単なるグラフィックの良さだけじゃない、今の熱狂がどこにあるのかをデータが教えてくれるよ。",
-      brandStory: "Bestie ゲームは、世界中のゲーマーたちの支持をデータで解析。没頭できる一品を探し出すための、冒険の地図のようなメディアです。",
+      expertComment: "ゲームの評価は鮮度が命。リアルタイムの売上と満足度から、真に遊ぶべき1本を導き出します。",
+      brandStory: "「すべてのプレイヤーに最高の冒険を。」を目指し、ゲームの熱狂をデータで裏打ちします。"
     },
-    theme: {
-      borderRadius: "rounded-xl",
-      cardShadow: "shadow-2xl",
-      background: "#eef2ff", // indigo-50
-    },
+    theme: { background: "#f5f3ff", borderRadius: "rounded-2xl", cardShadow: "shadow-lg" },
     rakutenCategories: [
-      { id: "switch2", name: "Switch 2", mallId: "568771" },
-      { id: "ps5", name: "PS5", mallId: "568375" },
-      { id: "switch", name: "Switch", mallId: "565950" },
-      { id: "toy", name: "おもちゃ・ホビー", mallId: "101164" },
+      { id: "all", name: "ゲーム総合", mallId: "101205" },
+      { id: "switch", name: "Nintendo Switch", mallId: "565950" },
+      { id: "ps5", name: "PlayStation 5", mallId: "566382" },
+      { id: "retro", name: "レトロゲーム", mallId: "101240" },
     ],
     yahooCategories: [
-      { id: "switch2", name: "Switch 2", mallId: "77071" },
-      { id: "ps5", name: "PS5", mallId: "50796" },
-      { id: "switch", name: "Switch", mallId: "48838" },
-      { id: "toy", name: "おもちゃ・ホビー", mallId: "2511" },
-      { id: "retro", name: "レトロゲーム", mallId: "65530" },
-    ]
+      { id: "all", name: "ゲーム総合", mallId: "2511" },
+      { id: "switch", name: "Nintendo Switch", mallId: "47330" },
+      { id: "ps5", name: "PlayStation 5", mallId: "49340" },
+      { id: "retro", name: "レトロゲーム", mallId: "2566" },
+    ],
   }
 };

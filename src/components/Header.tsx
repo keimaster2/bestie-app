@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import SearchBar from "./SearchBar";
 import { SiteConfig, CategoryConfig } from "@/lib/config";
 import { usePathname } from "next/navigation";
@@ -36,12 +35,24 @@ export default function Header({ mall, query, genreId, isSearchMode, config, min
 
   const categories: CategoryConfig[] = (currentMall === "yahoo" ? config.yahooCategories : config.rakutenCategories) || [];
 
+  const handleBrandClick = (e: React.MouseEvent) => {
+    // 🛡️ 本番環境のサブドメイン運用時、リンクではなく直接ドメイン移動をさせる
+    if (typeof window !== "undefined" && !window.location.hostname.includes("localhost")) {
+      e.preventDefault();
+      window.location.href = `https://${config.domain}`;
+    }
+  };
+
   return (
     <header className="bg-white shadow-sm sticky top-0 z-30 border-b border-gray-100">
       <div className="max-w-4xl mx-auto px-4 py-2 flex flex-col sm:flex-row items-center justify-between gap-2">
         <div className="flex flex-col w-full sm:w-auto">
           <div className="flex items-center gap-4 justify-between">
-            <Link href={getBrandPath(brandFromPath, "/")} className="flex items-center gap-2 hover:opacity-80 transition group" prefetch={false}>
+            <a 
+              href={`https://${config.domain}`} 
+              onClick={handleBrandClick}
+              className="flex items-center gap-2 hover:opacity-80 transition group"
+            >
               <span className="text-xl sm:text-2xl group-hover:scale-110 transition-transform">🎁</span>
               <div>
                 <h1 className="text-xl sm:text-2xl font-black tracking-tight leading-none" style={{ color: config.themeColor.primary }}>
@@ -53,7 +64,7 @@ export default function Header({ mall, query, genreId, isSearchMode, config, min
                   </p>
                 )}
               </div>
-            </Link>
+            </a>
           </div>
         </div>
         
@@ -62,12 +73,21 @@ export default function Header({ mall, query, genreId, isSearchMode, config, min
             <div className="flex-1 sm:w-64">
               <SearchBar />
             </div>
-            <Link href={getBrandPath(brandFromPath, "/favorites")} className="hidden sm:flex flex-col items-center text-gray-400 hover:text-red-500 transition text-xs font-bold" prefetch={false}>
+            <a 
+              href={`https://${config.domain}${getBrandPath(brandFromPath, "/favorites")}`}
+              onClick={(e) => {
+                if (typeof window !== "undefined" && !window.location.hostname.includes("localhost")) {
+                  e.preventDefault();
+                  window.location.href = `https://${config.domain}${getBrandPath(brandFromPath, "/favorites")}`;
+                }
+              }}
+              className="hidden sm:flex flex-col items-center text-gray-400 hover:text-red-500 transition text-xs font-bold"
+            >
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 mb-0.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
               </svg>
               お気に入り
-            </Link>
+            </a>
           </div>
         )}
       </div>
@@ -83,20 +103,18 @@ export default function Header({ mall, query, genreId, isSearchMode, config, min
           <div className="max-w-4xl mx-auto px-4">
             <div className="flex justify-center py-2 sm:py-4 border-b border-gray-100 mb-1">
               <div className="inline-flex bg-gray-100 rounded-full p-0.5 sm:p-1">
-                <Link 
-                  href={`${getBrandPath(brandFromPath, "/")}?mall=rakuten`}
+                <a 
+                  href={`?mall=rakuten`}
                   className={getMallTabClass("rakuten")}
-                  prefetch={false}
                 >
                   楽天市場
-                </Link>
-                <Link 
-                  href={`${getBrandPath(brandFromPath, "/")}?mall=yahoo`}
+                </a>
+                <a 
+                  href={`?mall=yahoo`}
                   className={getMallTabClass("yahoo")}
-                  prefetch={false}
                 >
                   Yahoo!ショッピング
-                </Link>
+                </a>
                 <span className="px-4 sm:px-6 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-bold text-gray-300 cursor-not-allowed border-transparent" title="準備中">
                   Amazon
                 </span>
@@ -106,9 +124,9 @@ export default function Header({ mall, query, genreId, isSearchMode, config, min
             {!isSearchMode && categories.length > 0 && (
               <div className="flex overflow-x-auto no-scrollbar gap-1 py-2 -mx-4 px-4 sm:mx-0 sm:px-0">
                 {categories.map((g) => (
-                  <Link
+                  <a
                     key={g.id}
-                    href={`${getBrandPath(brandFromPath, "/")}?mall=${currentMall}&genre=${g.id}`}
+                    href={`?mall=${currentMall}&genre=${g.id}`}
                     className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-bold transition-colors whitespace-nowrap
                       ${
                         genreId === g.id
@@ -116,10 +134,9 @@ export default function Header({ mall, query, genreId, isSearchMode, config, min
                           : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                       }`}
                     style={genreId === g.id ? { backgroundColor: 'var(--brand-primary)' } : {}}
-                    prefetch={false}
                   >
                     {g.name}
-                  </Link>
+                  </a>
                 ))}
               </div>
             )}

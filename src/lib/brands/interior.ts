@@ -3,7 +3,8 @@ import { SiteConfig } from "../config";
 export const interiorBrand: Record<string, SiteConfig> = {
   interior: {
     id: "interior",
-    domain: "interior.bestie-app.pages.dev",
+    domain: "interior.bestieplus.com",
+    fallbackDomain: "interior.bestie-app.pages.dev",
     brandName: "Bestie インテリア",
     siteTitle: "インテリア人気ランキング",
     tagline: "心地よい暮らしの主役。今、選ばれている家具・雑貨。",
@@ -21,8 +22,8 @@ export const interiorBrand: Record<string, SiteConfig> = {
       { id: "kitchen", name: "キッチン用品・食器・調理器具", mallId: "558944" },
     ],
     yahooCategories: [
-      { id: "furniture", name: "家具、インテリア用品", mallId: "2506" },
-      { id: "kitchen", name: "キッチン、日用品、文具", mallId: "2508" },
+      { id: "furniture", name: "サンキャッチャー", mallId: "49257" },
+      { id: "kitchen", name: "ジューサー、ミキサー、フードプロセッサー", mallId: "38072" },
     ],
   }
 };

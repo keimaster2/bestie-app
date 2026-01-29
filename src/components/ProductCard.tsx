@@ -39,7 +39,11 @@ export default function ProductCard({ product, config }: { product: Product, con
   if (product.catchphrase) searchParams.set("catchphrase", product.catchphrase);
   if (product.rank) searchParams.set("rank", product.rank.toString());
 
-  const detailUrl = `${getBrandPath(brandFromPath, `/product/${product.id}`)}?${searchParams.toString()}`;
+  // 🛡️ 本番環境のサブドメイン運用時は、絶対URLを生成
+  const isLocal = typeof window !== "undefined" && window.location.hostname.includes("localhost");
+  const detailUrl = isLocal 
+    ? `${getBrandPath(brandFromPath, `/product/${product.id}`)}?${searchParams.toString()}`
+    : `https://${config.domain}/product/${product.id}?${searchParams.toString()}`;
 
   const saveToHistory = () => {
     try {
@@ -133,9 +137,15 @@ export default function ProductCard({ product, config }: { product: Product, con
             </div>
           </div>
           <h3 className="font-bold text-sm leading-snug mb-1 line-clamp-2 group-hover:text-indigo-600 transition-colors">
-            <Link href={detailUrl} onClick={saveToHistory} className="hover:opacity-70 transition" style={{ color: 'var(--brand-primary)' }} prefetch={false}>
-              {product.title}
-            </Link>
+            {isLocal ? (
+              <Link href={detailUrl} onClick={saveToHistory} className="hover:opacity-70 transition" style={{ color: 'var(--brand-primary)' }} prefetch={false}>
+                {product.title}
+              </Link>
+            ) : (
+              <a href={detailUrl} onClick={saveToHistory} className="hover:opacity-70 transition" style={{ color: 'var(--brand-primary)' }}>
+                {product.title}
+              </a>
+            )}
           </h3>
           
           <div className="flex items-center gap-2 mb-1.5">

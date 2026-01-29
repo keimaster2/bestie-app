@@ -1,44 +1,30 @@
 import { SiteConfig } from "../config";
 
 export const gadgetBrand: Record<string, SiteConfig> = {
-  "gadget": {
+  gadget: {
     id: "gadget",
-    domain: "gadget.local", 
+    domain: "gadget.bestieplus.com",
+    fallbackDomain: "gadget.bestie-app.pages.dev",
     brandName: "Bestie ガジェット",
-    siteTitle: "Bestie ガジェット | 究極のガジェット比較・ランキング",
-    tagline: "プロの視点で選ぶ、失敗しないデバイス選び",
-    description: "Bestie ガジェットは、最新ガジェットの売上データを徹底分析。あなたのデスク周りを最強にするアイテムを厳選します。",
-    themeColor: {
-      primary: "#1e3a8a", // blue-900
-      accent: "#3b82f6",  // blue-500
-    },
-    affiliate: {
-      rakutenAid: "5355389",
-      yahooAid: "5355394",
-      amazonTag: "bestie-select-22",
-    },
+    siteTitle: "ガジェット・家電人気ランキング",
+    tagline: "未来を。日常を。今選ぶべき最高のガジェット。",
+    description: "最新のスマホ、PCから便利な白物家電まで。今、市場で本当に売れているガジェットをライオンくんが徹底比較。",
+    themeColor: { primary: "#1e40af", accent: "#3b82f6" },
+    affiliate: { rakutenAid: "5355389", yahooAid: "5355394", amazonTag: "bestie-select-22" },
     eeat: {
-      expertComment: "スペックの数値に騙されちゃいけないよ。俺が重視するのは、データが示す『日々の使い勝手』だ。",
-      brandStory: "Bestie ガジェットは、最新の市場データに基づき、プロの視点を加味して構成されたガジェット専門メディアです。",
+      expertComment: "スペック表だけでは見えない『本当の人気』を、レビュー数と販売実績から解明します。",
+      brandStory: "「テクノロジーを、もっと身近に。」をテーマに、失敗しない家電選びをサポートします。"
     },
-    theme: {
-      borderRadius: "rounded-lg",
-      cardShadow: "shadow-2xl",
-      background: "#f1f5f9",
-    },
+    theme: { background: "#f0f9ff", borderRadius: "rounded-2xl", cardShadow: "shadow-lg" },
     rakutenCategories: [
-      { id: "pc", name: "パソコン", mallId: "565162" },
-      { id: "mobile", name: "スマートフォン", mallId: "564500" },
-      { id: "parts", name: "PCパーツ", mallId: "100087" },
-      { id: "audio", name: "オーディオ", mallId: "100155" },
-      { id: "camera", name: "カメラ・ビデオカメラ", mallId: "100212" },
+      { id: "all", name: "家電・PC総合", mallId: "562637" },
+      { id: "smartphone", name: "スマホ・タブレット", mallId: "564500" },
+      { id: "pc", name: "パソコン周辺機器", mallId: "100026" },
     ],
     yahooCategories: [
-      { id: "pc", name: "ノートパソコン", mallId: "14242" },
-      { id: "mobile", name: "スマホ本体", mallId: "38338" },
-      { id: "parts", name: "PCパーツ", mallId: "88" },
-      { id: "audio", name: "オーディオ機器", mallId: "660" },
-      { id: "camera", name: "カメラ", mallId: "2443" },
-    ]
+      { id: "all", name: "家電・スマホ総合", mallId: "2502" },
+      { id: "smartphone", name: "スマホ・タブレット", mallId: "2502" },
+      { id: "pc", name: "パソコン周辺機器", mallId: "2502" },
+    ],
   }
 };

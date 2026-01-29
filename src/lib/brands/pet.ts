@@ -3,7 +3,8 @@ import { SiteConfig } from "../config";
 export const petBrand: Record<string, SiteConfig> = {
   pet: {
     id: "pet",
-    domain: "pet.bestie-app.pages.dev",
+    domain: "pet.bestieplus.com",
+    fallbackDomain: "pet.bestie-app.pages.dev",
     brandName: "Bestie ペット",
     siteTitle: "ペット用品人気ランキング",
     tagline: "大切な家族の笑顔のために。最安値と品質を徹底比較。",

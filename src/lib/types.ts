@@ -20,6 +20,7 @@ export type Product = {
   rakutenUrl?: string;
   yahooUrl?: string;
   amazonUrl?: string;
+  canonicalUrl?: string; // 統合された正当なURL
 };
 
 export type FavoriteItem = Product & {

@@ -3,7 +3,8 @@ import { SiteConfig } from "../config";
 export const fashionBrand: Record<string, SiteConfig> = {
   fashion: {
     id: "fashion",
-    domain: "fashion.bestie-app.pages.dev",
+    domain: "fashion.bestieplus.com",
+    fallbackDomain: "fashion.bestie-app.pages.dev",
     brandName: "Bestie ファッション",
     siteTitle: "ファッション人気ランキング",
     tagline: "流行の一歩先を行く。今売れているアイテムを厳選。",
@@ -21,9 +22,9 @@ export const fashionBrand: Record<string, SiteConfig> = {
       { id: "bags", name: "バッグ・小物・ブランド雑貨", mallId: "216131" },
     ],
     yahooCategories: [
-      { id: "ladies", name: "レディースファッション", mallId: "2494" },
-      { id: "mens", name: "メンズファッション", mallId: "2495" },
-      { id: "bags", name: "バッグ・ファッション小物", mallId: "2496" },
+      { id: "ladies", name: "レディースパジャマ", mallId: "23951" },
+      { id: "mens", name: "メンズパジャマ", mallId: "36766" },
+      { id: "bags", name: "レディース手袋", mallId: "24080" },
     ],
   }
 };

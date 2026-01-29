@@ -1,47 +1,34 @@
 import { SiteConfig } from "../config";
 
 export const bestieBrand: Record<string, SiteConfig> = {
-  "bestie": {
+  bestie: {
     id: "bestie",
-    domain: "bestie.local",
+    domain: "bestieplus.com",
+    fallbackDomain: "bestie-app.pages.dev",
     brandName: "Bestie",
-    siteTitle: "Bestie | 王道モールの人気ランキングを徹底比較",
-    tagline: "大手モールの売上データから「間違いのない」逸品を厳選",
-    description: "Bestie（ベスティー）は、大手モールの売上ランキングを独自に集計。多くの支持を集める人気商品を厳選して紹介します。",
-    themeColor: {
-      primary: "#111827",
-      accent: "#ef4444",
-    },
-    affiliate: {
-      rakutenAid: "5355389",
-      yahooAid: "5355394",
-      amazonTag: "bestie-select-22",
-    },
+    siteTitle: "Bestie | 最高の相棒と見つける、本当に売れているもの",
+    tagline: "あなたの生活に、最高のプラスを。モール横断ランキング・メディア",
+    description: "楽天市場、Yahoo!ショッピング、Amazonを横断。本当に売れている人気商品をライオンくんが徹底比較し、あなたの『最高の相棒』を見つけます。",
+    themeColor: { primary: "#111827", accent: "#4f46e5" },
+    affiliate: { rakutenAid: "5355389", yahooAid: "5355394", amazonTag: "bestie-select-22" },
     eeat: {
-      expertComment: "情報が多すぎて疲れてないかい？ 安心してくれ、膨大なデータから市場のノイズを丁寧に取り除いておいたよ。",
-      brandStory: "Bestieは、膨大な選択肢に迷う現代人のために、購買データに基づいた客観的な人気を提示するメディアです。",
+      expertComment: "膨大なデータの中から、真に価値のある一品を見つけ出す。それが私たちが目指す『Bestie』の姿です。",
+      brandStory: "「買い物をもっと、賢く、楽しく。」を掲げ、日々更新される市場の熱狂を可視化します。"
     },
-    theme: {
-      borderRadius: "rounded-xl",
-      cardShadow: "shadow-sm",
-      background: "#f9fafb",
-    },
+    theme: { background: "#ffffff", borderRadius: "rounded-2xl", cardShadow: "shadow-lg" },
     rakutenCategories: [
-      { id: "all", name: "総合", mallId: "0" },
-      { id: "food", name: "食品", mallId: "100227" },
-      { id: "sweets", name: "スイーツ・お菓子", mallId: "551167" },
-      { id: "game", name: "テレビゲーム", mallId: "101205" },
-      { id: "beauty", name: "美容・コスメ・香水", mallId: "100939" },
-      { id: "pc", name: "パソコン・周辺機器", mallId: "100026" },
-      { id: "daily", name: "日用品雑貨", mallId: "215783" },
+      { id: "all", name: "総合ランキング", mallId: "0" },
+      { id: "gadget", name: "家電・PC", mallId: "562637" },
+      { id: "beauty", name: "美容・健康", mallId: "100939" },
+      { id: "food", name: "食品・スイーツ", mallId: "100227" },
+      { id: "interior", name: "インテリア", mallId: "100804" },
     ],
     yahooCategories: [
-      { id: "all", name: "総合", mallId: "1" },
-      { id: "food", name: "食品", mallId: "2498" },
-      { id: "sweets", name: "スイーツ、洋菓子", mallId: "4744" },
-      { id: "hobby", name: "ゲーム、おもちゃ", mallId: "2511" },
-      { id: "pc", name: "スマホ、タブレット、パソコン", mallId: "2502" },
-      { id: "beauty", name: "美容・コスメ・香水", mallId: "2501" },
-    ]
+      { id: "all", name: "総合ランキング", mallId: "1" },
+      { id: "gadget", name: "家電・スマホ", mallId: "2502" },
+      { id: "beauty", name: "コスメ・健康", mallId: "2501" },
+      { id: "food", name: "食品・ドリンク", mallId: "2498" },
+      { id: "interior", name: "家具・インテリア", mallId: "2506" },
+    ],
   }
 };

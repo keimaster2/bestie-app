@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { getBrandPath } from "@/lib/utils";
 import { SiteConfig } from "@/lib/config";
@@ -14,6 +16,10 @@ type BreadcrumbsProps = {
 };
 
 export default function Breadcrumbs({ brand, config, items }: BreadcrumbsProps) {
+  // 🛡️ 本番環境のサブドメイン運用時は絶対URLを考慮
+  const isLocal = typeof window !== "undefined" && window.location.hostname.includes("localhost");
+  const rootHref = isLocal ? getBrandPath(brand, "/") : `https://${config.domain}`;
+
   // アイテムが空の場合は何も表示しない
   if (!items || items.length === 0) {
     return null;
@@ -21,7 +27,7 @@ export default function Breadcrumbs({ brand, config, items }: BreadcrumbsProps) 
 
   // ブランドのトップページを起点にする
   const allItems: BreadcrumbItem[] = [
-    { label: config.brandName, href: getBrandPath(brand, "/") },
+    { label: config.brandName, href: rootHref },
     ...items.map(item => {
       // モール名が含まれる場合は正式名称に変換
       let label = item.label;
@@ -39,12 +45,12 @@ export default function Breadcrumbs({ brand, config, items }: BreadcrumbsProps) 
       "@type": "ListItem",
       "position": index + 1,
       "name": item.label,
-      ...(item.href ? { "item": `https://${config.domain}${item.href}` } : {}),
+      ...(item.href ? { "item": item.href.startsWith('http') ? item.href : `https://${config.domain}${item.href}` } : {}),
     })),
   };
 
   return (
-    <nav aria-label="Breadcrumb" className="max-w-4xl mx-auto px-4 py-3">
+    <nav aria-label="Breadcrumb" className="max-w-4xl mx-auto px-4 py-3 text-left">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -54,13 +60,22 @@ export default function Breadcrumbs({ brand, config, items }: BreadcrumbsProps) 
           <li key={index} className="flex items-center">
             {index > 0 && <span className="mx-2 text-gray-300">/</span>}
             {item.href && index < allItems.length - 1 ? (
-              <Link
-                href={item.href}
-                className="hover:text-indigo-600 transition-colors"
-                prefetch={false}
-              >
-                {item.label}
-              </Link>
+              isLocal ? (
+                <Link
+                  href={item.href}
+                  className="hover:text-indigo-600 transition-colors"
+                  prefetch={false}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  href={item.href.startsWith('http') ? item.href : `https://${config.domain}${item.href}`}
+                  className="hover:text-indigo-600 transition-colors"
+                >
+                  {item.label}
+                </a>
+              )
             ) : (
               <span className="font-medium text-gray-600 truncate max-w-[150px] sm:max-w-xs">
                 {item.label}

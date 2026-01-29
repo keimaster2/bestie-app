@@ -1,44 +1,30 @@
 import { SiteConfig } from "../config";
 
 export const outdoorBrand: Record<string, SiteConfig> = {
-  "outdoor": {
+  outdoor: {
     id: "outdoor",
-    domain: "outdoor.local",
+    domain: "outdoor.bestieplus.com",
+    fallbackDomain: "outdoor.bestie-app.pages.dev",
     brandName: "Bestie アウトドア",
-    siteTitle: "Bestie アウトドア | 究極のキャンプ・アウトドアギア比較",
-    tagline: "自然を遊び尽くせ。プロが認める「一生モノ」の道具選び",
-    description: "Bestie アウトドアは、キャンプ用品の売上データを徹底解析. テントから焚き火台まで、今選ぶべき信頼のギアを厳選して紹介します。",
-    themeColor: {
-      primary: "#064e3b", // green-900
-      accent: "#10b981",  // green-500
-    },
-    affiliate: {
-      rakutenAid: "5355389",
-      yahooAid: "5355394",
-      amazonTag: "bestie-select-22",
-    },
+    siteTitle: "アウトドア・スポーツ人気ランキング",
+    tagline: "遊びを本気に。今選ばれている信頼のギアたち。",
+    description: "キャンプ用品、登山、各種スポーツギア。過酷な環境でも信頼される売れ筋アイテムをライオンくんが徹底調査。",
+    themeColor: { primary: "#166534", accent: "#22c55e" },
+    affiliate: { rakutenAid: "5355389", yahooAid: "5355394", amazonTag: "bestie-select-22" },
     eeat: {
-      expertComment: "過酷な環境で頼りになるのは、スペック以上に『実績』だ。俺が現場で光る本物のギアをデータから特定したよ。",
-      brandStory: "Bestie アウトドアは、自然を愛するすべての人のために、膨大な市場データから信頼できるギアを可視化するメディアです。",
+      expertComment: "アウトドアは命を預けるもの。だからこそ、実際に多くの人に選ばれ、評価されている証拠を重視します。",
+      brandStory: "「外遊びをもっと自由に。」をテーマに、プロも納得のギア選びをサポートします。"
     },
-    theme: {
-      borderRadius: "rounded-lg",
-      cardShadow: "shadow-md",
-      background: "#f0fdf4",
-    },
+    theme: { background: "#f0fdf4", borderRadius: "rounded-2xl", cardShadow: "shadow-lg" },
     rakutenCategories: [
-      { id: "tent", name: "テント・タープ", mallId: "201874" },
-      { id: "furniture", name: "テーブル・チェア", mallId: "201883" },
-      { id: "cook", name: "バーベキュー・調理", mallId: "201877" },
-      { id: "light", name: "ライト・ランタン", mallId: "201894" },
-      { id: "sleep", name: "アウトドア用寝具", mallId: "201887" },
+      { id: "all", name: "スポーツ・アウトドア総合", mallId: "101070" },
+      { id: "camp", name: "キャンプ・トレッキング", mallId: "302373" },
+      { id: "golf", name: "ゴルフ", mallId: "101110" },
     ],
     yahooCategories: [
-      { id: "gear", name: "キャンプ、登山", mallId: "2522" },
-      { id: "tent", name: "テント、タープ", mallId: "2640" },
-      { id: "furniture", name: "テーブル、チェア", mallId: "2635" },
-      { id: "cook", name: "バーベキュー用品", mallId: "66430" },
-      { id: "light", name: "ライト、ランタン", mallId: "2648" },
-    ]
+      { id: "all", name: "アウトドア・釣り総合", mallId: "2510" },
+      { id: "camp", name: "アウトドア、キャンプ用品", mallId: "2510" },
+      { id: "golf", name: "ゴルフ", mallId: "2510" },
+    ],
   }
 };

@@ -71,6 +71,9 @@ export default function ClientHome({
 
   const mallName = mall === "yahoo" ? "Yahoo!ショッピング" : "楽天市場";
 
+  // 正規URLを生成（.comドメインを優先）
+  const canonicalUrl = `https://${config.domain}${breadcrumbItems.length > 0 ? breadcrumbItems[breadcrumbItems.length-1].href : '/'}`;
+
   return (
     <div 
       className="min-h-screen pb-20 font-sans transition-colors duration-500 text-gray-800" 
@@ -88,7 +91,7 @@ export default function ClientHome({
         config={config}
       />
 
-      <StructuredData type="ItemList" data={{ products }} />
+      <StructuredData type="ItemList" data={{ products, url: canonicalUrl }} />
 
       <div className="bg-gray-900 text-white py-1.5 overflow-hidden whitespace-nowrap relative border-b border-gray-800 opacity-90">
         <div className="flex animate-marquee items-center gap-8">

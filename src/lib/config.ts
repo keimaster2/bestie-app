@@ -22,6 +22,7 @@ export type CategoryConfig = {
 export type SiteConfig = {
   id: string;
   domain: string;
+  fallbackDomain?: string; // 旧ドメイン(.pages.dev)用の互換性保持
   brandName: string;
   siteTitle: string;
   tagline: string;
@@ -69,8 +70,13 @@ export function getSiteConfig(brandOrHost?: string): SiteConfig {
   const config = SITE_REGISTRY[brandOrHost];
   if (config) return config;
 
-  const cleanHost = brandOrHost.split(":")[0];
-  const matchedConfig = Object.values(SITE_REGISTRY).find(c => cleanHost.includes(c.domain));
+  const cleanHost = brandOrHost.split(":")[0].toLowerCase();
+  
+  // 1. 新ドメイン (bestieplus.com) または サブパスで判定
+  const matchedConfig = Object.values(SITE_REGISTRY).find(c => 
+    cleanHost.includes(c.domain.toLowerCase()) || 
+    (c.fallbackDomain && cleanHost.includes(c.fallbackDomain.toLowerCase()))
+  );
   
   return matchedConfig || DEFAULT_CONFIG;
 }

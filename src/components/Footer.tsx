@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { SiteConfig } from "@/lib/config";
 import { getBrandPath } from "@/lib/utils";
-import DebugMenu from "./DebugMenu";
 
 type FooterProps = {
   brand: string;
@@ -11,22 +10,27 @@ type FooterProps = {
 };
 
 export default function Footer({ brand, config }: FooterProps) {
+  // 🛡️ 本番環境のサブドメイン運用時、リンクではなく絶対URLを生成
+  const isLocal = typeof window !== "undefined" && window.location.hostname.includes("localhost");
+  const aboutUrl = isLocal ? getBrandPath(brand, "/about") : `https://${config.domain}/about`;
+
   return (
-    <footer className="bg-white border-t border-gray-100 pt-4 pb-24">
+    <footer className="bg-white border-t border-gray-100 pt-4 pb-24 text-left">
       <div className="max-w-4xl mx-auto px-4 text-center">
         <div className="flex items-center justify-center gap-2 mb-4">
           <span className="text-2xl">🎁</span>
           <span className="text-xl font-black tracking-tight text-gray-900">Bestie</span>
         </div>
         <p className="text-[10px] text-gray-400 leading-relaxed">
-          <Link href={getBrandPath(brand, "/about")} className="hover:text-gray-600 underline underline-offset-2 decoration-gray-200 mr-4">当サイトについて（免責事項）</Link>
+          {isLocal ? (
+            <Link href={aboutUrl} className="hover:text-gray-600 underline underline-offset-2 decoration-gray-200 mr-4">当サイトについて（免責事項）</Link>
+          ) : (
+            <a href={aboutUrl} className="hover:text-gray-600 underline underline-offset-2 decoration-gray-200 mr-4">当サイトについて（免責事項）</a>
+          )}
           このサイトはアフィリエイト広告（Amazonアソシエイト含む）を掲載しています。<br />
           &copy; {new Date().getFullYear()} Bestie - BEST ITEM SELECTION.
         </p>
       </div>
-
-      {/* 🛠️ デバッグメニュー（すべてのカテゴリへのリンク） */}
-      <DebugMenu />
     </footer>
   );
 }

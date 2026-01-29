@@ -59,7 +59,7 @@ export default function ProductDetailPage({
       };
       setProduct(initialProduct as Product);
       setImgSrc(fromParams.image || "/placeholder.svg");
-      setInsight(generateSmartDetailedReview(initialProduct as Product, config, fromParams.mall === "Yahoo" ? "Yahoo!" : "楽天市場"));
+      setInsight(generateSmartDetailedReview(initialProduct as Product, config, fromParams.mall === "Yahoo" ? "Yahoo!ショッピング" : "楽天市場"));
       setLoading(false);
     }
 
@@ -69,7 +69,7 @@ export default function ProductDetailPage({
         const data = JSON.parse(cached);
         setProduct((prev) => ({ ...prev, ...data, id: params.id }));
         setImgSrc(data.image || "/placeholder.svg");
-        setInsight(generateSmartDetailedReview({ ...data, id: params.id } as Product, config, data.mall === "Yahoo" ? "Yahoo!" : "楽天市場"));
+        setInsight(generateSmartDetailedReview({ ...data, id: params.id } as Product, config, data.mall === "Yahoo" ? "Yahoo!ショッピング" : "楽天市場"));
         setLoading(false);
       } catch (e) {
         console.error("Cache parse error", e);
@@ -84,7 +84,7 @@ export default function ProductDetailPage({
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: bgColor }}>
-        <div className="text-gray-400 animate-pulse font-black uppercase tracking-widest text-xs">Analyzing Market Data...</div>
+        <div className="text-gray-400 animate-pulse font-black uppercase tracking-widest text-xs">市場データを分析中...</div>
       </div>
     );
   }
@@ -98,6 +98,9 @@ export default function ProductDetailPage({
     );
   }
 
+  // 正規URLの生成
+  const canonicalUrl = `https://${config.domain}${getBrandPath(params.brand, `/product/${product.id}`)}`;
+
   return (
     <div className="min-h-screen pb-20 font-sans transition-colors duration-500 text-gray-800"
       style={{ 
@@ -108,7 +111,7 @@ export default function ProductDetailPage({
     >
       <Header config={config} minimal={true} />
 
-      <StructuredData type="Product" data={product} />
+      <StructuredData type="Product" data={{ ...product, canonicalUrl }} />
 
       <Breadcrumbs 
         brand={params.brand}
@@ -142,7 +145,7 @@ export default function ProductDetailPage({
             <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-400 mb-4">
               <span>{product.shopName}</span>
               <span className="w-1 h-1 rounded-full bg-gray-300"></span>
-              <span className="text-indigo-500">{product.mall} Official</span>
+              <span className="text-indigo-500">{product.mall === "Rakuten" ? "楽天市場" : "Yahoo!ショッピング"} 公式</span>
             </div>
 
             <h1 className="text-2xl md:text-3xl font-black leading-tight mb-4 text-gray-900 tracking-tighter">

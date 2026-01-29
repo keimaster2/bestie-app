@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
+import { useState } from "react";
 import { getBrandPath } from "@/lib/utils";
 
 export default function SearchBar() {
@@ -25,7 +25,12 @@ export default function SearchBar() {
     if (keyword.trim()) params.set("q", keyword);
     if (currentMall) params.set("mall", currentMall);
     
-    // ブランドを維持したパスへ遷移
+    // 🛡️ サブドメイン運用時の考慮：localhost以外では相対パスを使わず、現在のドメインのルートへ飛ばす
+    if (typeof window !== "undefined" && !window.location.hostname.includes("localhost")) {
+      window.location.href = `/?${params.toString()}`;
+      return;
+    }
+
     const targetPath = getBrandPath(brandFromPath, "/");
     router.push(`${targetPath}?${params.toString()}`);
   };
