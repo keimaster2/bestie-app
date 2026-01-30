@@ -2547,14 +2547,14 @@
       "rate": 0
     },
     "affiliateRate": 1,
-    "price": 7735,
-    "premiumPrice": 7735,
+    "price": 7734,
+    "premiumPrice": 7734,
     "premiumPriceStatus": false,
     "premiumDiscountRate": null,
     "premiumDiscountType": null,
     "priceLabel": {
       "taxable": true,
-      "defaultPrice": 7735,
+      "defaultPrice": 7734,
       "discountedPrice": null,
       "fixedPrice": null,
       "premiumPrice": null,

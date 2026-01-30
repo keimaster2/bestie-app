@@ -395,7 +395,7 @@
       }
     ],
     "janCode": "4902370552195",
-    "payment": "16 4096 16384 1",
+    "payment": "1 4096 16384 16",
     "releaseDate": null,
     "seller": {
       "sellerId": "joshin",
@@ -404,7 +404,7 @@
       "isBestSeller": false,
       "review": {
         "rate": 4.52,
-        "count": 409305
+        "count": 409310
       },
       "imageId": "joshin_1"
     },
@@ -2290,7 +2290,7 @@
       }
     ],
     "janCode": "4902370553024",
-    "payment": "4096 8192 16384 2 16 64 1",
+    "payment": "8192 16384 2 16 64 1 4096",
     "releaseDate": null,
     "seller": {
       "sellerId": "kaikyou",
@@ -2299,7 +2299,7 @@
       "isBestSeller": false,
       "review": {
         "rate": 4.46,
-        "count": 722
+        "count": 723
       },
       "imageId": "kaikyou_1"
     },
