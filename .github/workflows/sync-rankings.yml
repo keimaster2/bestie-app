@@ -36,7 +36,7 @@ jobs:
           git status
           
           echo "Committing..."
-          git commit -m "chore: update ranking cache [skip ci]" || echo "No changes to commit"
+          git commit -m "chore: update ranking cache" || echo "No changes to commit"
           
           echo "Pushing to main..."
           git push origin main
