@@ -2,6 +2,6 @@
 
 import { FavoritesProvider } from "@/context/FavoritesContext";
 
-export function Providers({ children }: { children: React.ReactNode }) {
-  return <FavoritesProvider>{children}</FavoritesProvider>;
+export function Providers({ children, initialBrand }: { children: React.ReactNode, initialBrand?: string }) {
+  return <FavoritesProvider initialBrand={initialBrand}>{children}</FavoritesProvider>;
 }

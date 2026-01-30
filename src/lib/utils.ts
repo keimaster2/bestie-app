@@ -1,6 +1,10 @@
 export function getBrandPath(brand: string, path: string = ""): string {
-  // 本家(bestie)の場合は接頭辞なし、それ以外は /brand を付ける
-  const prefix = (brand === "bestie" || brand === "default") ? "" : `/${brand}`;
+  // 🛡️ 環境判定（ブラウザ側での実行を想定）
+  const isLocal = typeof window !== "undefined" && window.location.hostname.includes("localhost");
+
+  // 本家(bestie)の場合は常に接頭辞なし
+  // サブドメイン運用時（本番）も、そのドメイン内での遷移なら接頭辞なしにする
+  const prefix = (!isLocal || brand === "bestie" || brand === "default") ? "" : `/${brand}`;
   
   // path が / で始まる場合はそのまま結合、そうでなければ / を挟む
   const cleanPath = path.startsWith("/") ? path : `/${path}`;
@@ -10,7 +14,6 @@ export function getBrandPath(brand: string, path: string = ""): string {
     return prefix || "/";
   }
   
-  // prefixが空（本家）の場合はそのままcleanPathを返す（例: /favorites）
-  // prefixがある場合は連結する（例: /beauty/favorites）
+  // 連結して返す
   return `${prefix}${cleanPath}`;
 }

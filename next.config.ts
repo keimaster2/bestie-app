@@ -11,25 +11,10 @@ const nextConfig: NextConfig = {
     ],
     unoptimized: true,
   },
+  // 物理ファイル（src/app/about, favorites, product）を用意したため、
+  // エッジランタイムでの挙動を安定させるためリライトを最小限にします
   async rewrites() {
-    return [
-      {
-        source: "/",
-        destination: "/bestie",
-      },
-      {
-        source: "/about",
-        destination: "/bestie/about",
-      },
-      {
-        source: "/favorites",
-        destination: "/bestie/favorites",
-      },
-      {
-        source: "/product/:id",
-        destination: "/bestie/product/:id",
-      },
-    ];
+    return [];
   },
 };
 

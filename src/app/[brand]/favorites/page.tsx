@@ -16,7 +16,7 @@ export default function FavoritesPage({
 }: {
   params: Promise<{ brand: string }>;
 }) {
-  const { favorites, setBrand } = useFavorites();
+  const { favorites, setBrand, isLoaded } = useFavorites();
   const params = use(paramsPromise);
   
   // ホスト名から設定を取得（サブドメイン対応）
@@ -24,8 +24,9 @@ export default function FavoritesPage({
 
   // マウント時とブランド変更時にコンテキストを更新
   useEffect(() => {
-    setBrand(params.brand);
-  }, [params.brand, setBrand]);
+    // params.brand が空（サブドメイン運用）の場合を考慮し、config.id を使用する
+    setBrand(config.id);
+  }, [config.id, setBrand]);
 
   return (
     <div className="min-h-screen pb-20 font-sans transition-colors duration-500 text-gray-800"
@@ -51,7 +52,11 @@ export default function FavoritesPage({
           </p>
         </div>
 
-        {favorites.length > 0 ? (
+        {!isLoaded ? (
+          <div className="flex items-center justify-center py-20">
+            <div className="text-gray-400 animate-pulse font-black uppercase tracking-widest text-xs">読み込み中...</div>
+          </div>
+        ) : favorites.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {favorites.map((item) => (
               <ProductCard

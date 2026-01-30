@@ -15,6 +15,9 @@ export default function FavoriteButton({ product }: { product: Omit<FavoriteItem
 
   const toggleFavorite = (e: React.MouseEvent) => {
     e.preventDefault(); // リンク遷移を防ぐ
+    // マウント前（LocalStorage未読込）のクリックを無視して誤操作を防ぐ
+    if (typeof window === "undefined") return;
+    
     if (active) {
       removeFavorite(product.url);
       setActive(false);

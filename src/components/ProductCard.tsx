@@ -109,27 +109,30 @@ export default function ProductCard({ product, config }: { product: Product, con
         </div>
         
         {product.comparisonLabel && (
-          <div className={`${getLabelStyle(product.comparisonLabel)} text-[11px] font-black px-3.5 py-1.5 rounded-r-full rounded-tl-none shadow-lg border-l-4 border-white/30 flex items-center gap-2 animate-in slide-in-from-left-2 duration-500 -ml-1`}>
+          <div className={`${getLabelStyle(product.comparisonLabel)} text-[11px] font-black px-3.5 py-1.5 rounded-r-full rounded-tl-none shadow-lg border-l-4 border-white/30 flex items-center gap-2 animate-in slide-in-from-left-2 duration-500 -ml-3`}>
              <span className="text-sm">✨</span>
              <span className="tracking-tight">{product.comparisonLabel}</span>
           </div>
         )}
       </div>
 
-      <div className="absolute -top-3 -right-3 z-20 scale-90 group-hover:scale-105 transition-transform duration-300">
+      <div className="absolute top-1 right-1 z-20 scale-90 sm:-top-3 sm:-right-3 sm:scale-100 group-hover:scale-105 transition-transform duration-300">
         <FavoriteButton product={{ ...product, id: product.id }} />
       </div>
 
       {/* 商品画像 */}
-      <div className={`w-1/3 bg-white flex-shrink-0 flex items-center justify-center relative p-3 border-r border-gray-50`}>
-        <Image 
-          src={imgSrc} 
-          alt={product.title}
-          fill
-          sizes="(max-width: 768px) 33vw, 20vw"
-          className="object-contain p-2 transition-transform duration-500 group-hover:scale-105"
-          onError={() => setImgSrc("/placeholder.svg")}
-        />
+      <div className="w-1/3 bg-white flex-shrink-0 flex items-center justify-center relative p-3 border-r border-gray-50 overflow-hidden">
+        <div className="relative w-full h-full aspect-square">
+          <Image 
+            src={imgSrc} 
+            alt={product.title}
+            fill
+            sizes="(max-width: 768px) 33vw, 20vw"
+            className="object-contain p-1 transition-transform duration-500 group-hover:scale-105"
+            onError={() => setImgSrc("/placeholder.svg")}
+            priority={product.rank ? product.rank <= 6 : false}
+          />
+        </div>
       </div>
       
       {/* 商品情報 */}

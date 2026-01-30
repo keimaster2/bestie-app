@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState, useCallback } from "react";
+import React, { createContext, useContext, useEffect, useState, useCallback, useRef } from "react";
 import { FavoriteItem } from "@/lib/types";
 
 type FavoritesContextType = {
@@ -9,37 +9,49 @@ type FavoritesContextType = {
   removeFavorite: (url: string) => void;
   isFavorite: (url: string) => boolean;
   setBrand: (brand: string) => void;
+  isLoaded: boolean;
 };
 
 const FavoritesContext = createContext<FavoritesContextType | undefined>(undefined);
 
-export function FavoritesProvider({ children }: { children: React.ReactNode }) {
+export function FavoritesProvider({ 
+  children,
+  initialBrand = "bestie" 
+}: { 
+  children: React.ReactNode,
+  initialBrand?: string 
+}) {
   const [favorites, setFavorites] = useState<FavoriteItem[]>([]);
-  const [currentBrand, setCurrentBrand] = useState<string>("bestie");
-  const [isInitialized, setIsInitialized] = useState(false);
+  const [currentBrand, setCurrentBrand] = useState<string>(initialBrand);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const isLoadedRef = useRef(false);
 
   // ブランドが変更されたら、そのブランドのお気に入りをロードする
   useEffect(() => {
-    const saved = localStorage.getItem(`${currentBrand}-favorites`);
+    setIsLoaded(false);
+    isLoadedRef.current = false;
+    const key = `${currentBrand}-favorites`;
+    const saved = localStorage.getItem(key);
     if (saved) {
       try {
         setFavorites(JSON.parse(saved));
       } catch (e) {
-        console.error("Failed to load favorites", e);
         setFavorites([]);
       }
     } else {
       setFavorites([]);
     }
-    setIsInitialized(true);
+    setIsLoaded(true);
+    isLoadedRef.current = true;
   }, [currentBrand]);
 
   // お気に入りが更新されたら保存する
   useEffect(() => {
-    if (isInitialized) {
+    // ロード完了後のみ保存を実行
+    if (isLoadedRef.current) {
       localStorage.setItem(`${currentBrand}-favorites`, JSON.stringify(favorites));
     }
-  }, [favorites, currentBrand, isInitialized]);
+  }, [favorites, currentBrand]);
 
   const addFavorite = useCallback((item: Omit<FavoriteItem, "addedAt">) => {
     setFavorites((prev) => {
@@ -57,11 +69,13 @@ export function FavoritesProvider({ children }: { children: React.ReactNode }) {
   }, [favorites]);
 
   const setBrand = useCallback((brand: string) => {
-    setCurrentBrand(brand);
+    if (brand && brand !== "default") {
+      setCurrentBrand(brand);
+    }
   }, []);
 
   return (
-    <FavoritesContext.Provider value={{ favorites, addFavorite, removeFavorite, isFavorite, setBrand }}>
+    <FavoritesContext.Provider value={{ favorites, addFavorite, removeFavorite, isFavorite, setBrand, isLoaded }}>
       {children}
     </FavoritesContext.Provider>
   );

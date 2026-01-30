@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Product, SiteConfig } from "@/lib/types";
 import { getSiteConfig } from "@/lib/config";
-import { generateLionReview, assignComparisonLabels } from "@/lib/lion-logic";
+import { generateLionReview, assignComparisonLabels, getDailyLionShout } from "@/lib/lion-logic";
 import { MallClient, MallType } from "@/lib/malls/factory";
 import ClientHome from "./ClientHome";
 import { headers } from "next/headers";
@@ -184,6 +184,7 @@ export default async function Home(props: {
       isSearchMode={isSearchMode} // URLからの検索時のみtrue
       currentGenre={currentGenre}
       breadcrumbItems={[]}
+      initialShout={getDailyLionShout()}
     />
   );
 }

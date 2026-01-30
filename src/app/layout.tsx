@@ -28,12 +28,15 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const host = (await headers()).get("host") || "";
+  const config = getSiteConfig(host);
+
   return (
     <html lang="ja">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Providers>{children}</Providers>
+        <Providers initialBrand={config.id}>{children}</Providers>
       </body>
     </html>
   );

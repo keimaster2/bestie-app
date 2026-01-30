@@ -134,11 +134,12 @@ export default function ProductDetailPage({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* 左カラム: 画像 */}
           <div className="space-y-4">
-            <div className="bg-white flex items-center justify-center py-12 rounded-3xl shadow-sm relative aspect-square overflow-hidden border border-gray-100 group">
+            <div className="bg-white flex items-center justify-center rounded-3xl shadow-sm relative aspect-square overflow-hidden border border-gray-100 group">
               <Image 
                 src={imgSrc} 
                 alt={product.title}
                 fill
+                priority
                 className="object-contain p-10 transition-transform group-hover:scale-105 duration-700"
                 onError={() => setImgSrc("/placeholder.svg")}
               />

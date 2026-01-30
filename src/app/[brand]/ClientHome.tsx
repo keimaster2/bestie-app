@@ -21,7 +21,8 @@ export default function ClientHome({
   genreId, 
   isSearchMode, 
   currentGenre,
-  breadcrumbItems
+  breadcrumbItems,
+  initialShout
 }: { 
   params: { brand: string },
   config: SiteConfig,
@@ -31,10 +32,11 @@ export default function ClientHome({
   genreId: string,
   isSearchMode: boolean,
   currentGenre: CategoryConfig | null,
-  breadcrumbItems: { label: string, href?: string }[]
+  breadcrumbItems: { label: string, href?: string }[],
+  initialShout?: string
 }) {
   const { setBrand } = useFavorites();
-  const [shout, setShout] = useState("");
+  const [shout, setShout] = useState(initialShout || "");
   const [isVisible, setIsVisible] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -43,25 +45,26 @@ export default function ClientHome({
 
   useEffect(() => {
     setMounted(true);
-    setBrand(params.brand);
+    // params.brand が空（サブドメイン運用）の場合を考慮し、config.id を使用する
+    setBrand(config.id);
     
     const categories = (mall === "yahoo" ? config.yahooCategories : config.rakutenCategories) || [];
     const isRootGenre = categories.length > 0 && genreId === categories[0].id;
 
     if (isRootGenre && !isSearchMode) {
       const today = new Date().toLocaleDateString('ja-JP');
-      const dismissedToday = localStorage.getItem(`lion-shout-dismissed-${params.brand}-${today}`);
+      const dismissedToday = localStorage.getItem(`lion-shout-dismissed-${config.id}-${today}`);
       if (!dismissedToday) {
-        setShout(getDailyLionShout());
+        if (!shout) setShout(getDailyLionShout());
         setIsVisible(true);
       }
     }
-  }, [params.brand, setBrand, genreId, config.rakutenCategories, config.yahooCategories, isSearchMode, mall]);
+  }, [params.brand, setBrand, genreId, config.rakutenCategories, config.yahooCategories, isSearchMode, mall, config.id, shout]);
 
   const handleDismiss = () => {
     setIsVisible(false);
     const today = new Date().toLocaleDateString('ja-JP');
-    localStorage.setItem(`lion-shout-dismissed-${params.brand}-${today}`, "true");
+    localStorage.setItem(`lion-shout-dismissed-${config.id}-${today}`, "true");
   };
 
   const handleSortChange = (newSort: string) => {
@@ -120,9 +123,9 @@ export default function ClientHome({
         items={breadcrumbItems}
       />
 
-      {isVisible && shout && (
-        <div className="max-w-4xl mx-auto px-4 mt-4 mb-2">
-          <div className="bg-gradient-to-r from-indigo-600 to-indigo-800 text-white p-3.5 rounded-2xl shadow-xl flex items-center gap-4 relative overflow-hidden animate-in fade-in slide-in-from-top-4 duration-700">
+      {shout && (
+        <div className={`max-w-4xl mx-auto px-4 mt-4 mb-2 transition-all duration-700 transform ${isVisible ? 'opacity-100 translate-y-0 h-auto' : 'opacity-0 -translate-y-4 h-0 overflow-hidden pointer-events-none'}`}>
+          <div className="bg-gradient-to-r from-indigo-600 to-indigo-800 text-white p-3.5 rounded-2xl shadow-xl flex items-center gap-4 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full -mr-12 -mt-12"></div>
             
             <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-2xl relative border border-white/30">
@@ -194,8 +197,9 @@ export default function ClientHome({
         {products.length > 0 ? (
           <RankingList products={products} config={config} isSearchMode={isSearchMode} />
         ) : (
-          <div className="text-center py-20 text-gray-400 font-bold">
-            データを取得できませんでした。時間をおいて再度お試しください。
+          <div className="text-center py-20 bg-white rounded-2xl border border-dashed border-gray-200">
+            <p className="text-gray-400 font-bold mb-2">条件に一致する商品が見つかりませんでした</p>
+            <p className="text-xs text-gray-300">キーワードを変えて、もう一度検索してみてください</p>
           </div>
         )}
       </main>
