@@ -20,11 +20,23 @@ jobs:
         env:
           YAHOO_APP_ID: ${{ secrets.YAHOO_APP_ID }}
           RAKUTEN_APP_ID: ${{ secrets.RAKUTEN_APP_ID }}
-        run: node scripts/sync-rankings.mjs
+        run: |
+          echo "Executing sync script..."
+          node scripts/sync-rankings.mjs
       - name: Commit and Push
         run: |
+          echo "Configuring git..."
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add src/data/cache
-          git commit -m "chore: update ranking cache [skip ci]" || echo "No changes"
-          git push
+          
+          echo "Staging files (including ignored ones)..."
+          git add -f src/data/cache || true
+          
+          echo "Current status:"
+          git status
+          
+          echo "Committing..."
+          git commit -m "chore: update ranking cache [skip ci]" || echo "No changes to commit"
+          
+          echo "Pushing to main..."
+          git push origin main

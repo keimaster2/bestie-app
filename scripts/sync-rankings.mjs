@@ -9,38 +9,55 @@ dotenv.config({ path: '.env.local' });
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+console.log('Environment Check:');
+console.log('- YAHOO_APP_ID:', process.env.YAHOO_APP_ID ? 'Available' : 'NOT FOUND');
+console.log('- RAKUTEN_APP_ID:', process.env.RAKUTEN_APP_ID ? 'Available' : 'NOT FOUND');
+
 // 基本設定
-const CACHE_DIR = path.join(__dirname, '../src/data/cache');
+const CACHE_DIR = path.resolve(__dirname, '../src/data/cache');
 const USER_AGENT = 'BestieApp/1.0 (Compatible; Mozilla/5.0)';
 
-// Yahoo API呼び出し (src/lib/yahoo.ts のロジックを流用)
+if (!fs.existsSync(CACHE_DIR)) {
+    console.log('Creating Cache Directory:', CACHE_DIR);
+    fs.mkdirSync(CACHE_DIR, { recursive: true });
+}
+
+// Yahoo API呼び出し
 async function fetchYahoo(categoryId) {
     const appId = process.env.YAHOO_APP_ID;
+    if (!appId) return [];
     const url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${appId}&genre_category_id=${categoryId}&sort=-sold&results=30`;
 
     try {
         const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
-        if (!res.ok) throw new Error(`Status ${res.status}`);
+        if (!res.ok) {
+            console.error(`  [Yahoo API Error] Status ${res.status} for category ${categoryId}`);
+            return [];
+        }
         const data = await res.json();
         return data.hits || [];
     } catch (e) {
-        console.error(`  [Yahoo Error] Category ${categoryId}:`, e.message);
+        console.error(`  [Yahoo Fetch Error] Category ${categoryId}:`, e.message);
         return [];
     }
 }
 
-// 楽天 API呼び出し (src/lib/rakuten.ts のロジックを流用)
+// 楽天 API呼び出し
 async function fetchRakuten(genreId) {
     const appId = process.env.RAKUTEN_APP_ID;
+    if (!appId) return [];
     const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Ranking/20170628?applicationId=${appId}&genreId=${genreId}`;
 
     try {
         const res = await fetch(url);
-        if (!res.ok) throw new Error(`Status ${res.status}`);
+        if (!res.ok) {
+            console.error(`  [Rakuten API Error] Status ${res.status} for genre ${genreId}`);
+            return [];
+        }
         const data = await res.json();
         return data.Items || [];
     } catch (e) {
-        console.error(`  [Rakuten Error] Genre ${genreId}:`, e.message);
+        console.error(`  [Rakuten Fetch Error] Genre ${genreId}:`, e.message);
         return [];
     }
 }
@@ -48,9 +65,6 @@ async function fetchRakuten(genreId) {
 async function sync() {
     console.log('Starting Ranking Sync...');
 
-    // 実際は src/data/brands.ts からインポートしたいが、
-    // mjsからtsの読み込みは複雑なため、主要なターゲットをハードコードするか、簡易的なパーサーを使用
-    // 今回は確実に動作させるため、更新した game カテゴリを明示的に指定
     const targets = [
         {
             brand: 'game',
@@ -69,7 +83,6 @@ async function sync() {
             console.log(`  Fetching Yahoo Category: ${id}`);
             const data = await fetchYahoo(id);
             fs.writeFileSync(path.join(brandDir, `yahoo-${id}.json`), JSON.stringify(data, null, 2));
-            // レート制限考慮
             await new Promise(r => setTimeout(r, 1000));
         }
 
@@ -91,7 +104,8 @@ async function sync() {
     const brands = fs.readdirSync(CACHE_DIR).filter(f => fs.statSync(path.join(CACHE_DIR, f)).isDirectory());
 
     for (const brand of brands) {
-        const files = fs.readdirSync(path.join(CACHE_DIR, brand)).filter(f => f.endsWith('.json'));
+        const brandDir = path.join(CACHE_DIR, brand);
+        const files = fs.readdirSync(brandDir).filter(f => f.endsWith('.json'));
         for (const file of files) {
             const varName = `${brand}_${file.replace('.json', '').replace(/-/g, '_')}`;
             indexContent += `import ${varName} from './${brand}/${file}';\n`;
@@ -110,4 +124,7 @@ async function sync() {
     console.log('Sync Completed!');
 }
 
-sync();
+sync().catch(err => {
+    console.error('Fatal Sync Error:', err);
+    process.exit(1);
+});
