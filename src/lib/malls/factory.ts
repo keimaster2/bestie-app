@@ -1,4 +1,4 @@
-import { Product } from "../types";
+import type { Product } from "../types";
 import { fetchRakutenRanking, searchRakutenItems, convertRakutenToProduct } from "../rakuten";
 import { fetchYahooRanking, searchYahooItems, convertYahooToProduct } from "../yahoo";
 

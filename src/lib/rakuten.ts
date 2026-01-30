@@ -1,4 +1,4 @@
-import { Product } from "./types";
+import type { Product } from "./types";
 import { getRequestContext } from '@cloudflare/next-on-pages';
 
 // 楽天APIの型定義
