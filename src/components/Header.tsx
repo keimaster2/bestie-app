@@ -34,6 +34,13 @@ export default function Header({ mall, query, genreId, isSearchMode, config, min
     return `${baseClass} border-transparent text-gray-500 hover:text-gray-700`;
   };
 
+  const getMallUrl = (targetMall: string) => {
+    const params = new URLSearchParams(window.location.search);
+    params.set("mall", targetMall);
+    // genreが現在の設定にあれば維持する
+    return `?${params.toString()}`;
+  };
+
   const categories: CategoryConfig[] = (currentMall === "yahoo" ? config.yahooCategories : config.rakutenCategories) || [];
 
   const homeUrl = getBrandPath(brandFromPath, "/");
@@ -93,13 +100,13 @@ export default function Header({ mall, query, genreId, isSearchMode, config, min
             <div className="flex justify-center py-2 sm:py-4 border-b border-gray-100 mb-1">
               <div className="inline-flex bg-gray-100 rounded-full p-0.5 sm:p-1">
                 <a 
-                  href={`?mall=rakuten`}
+                  href={getMallUrl("rakuten")}
                   className={getMallTabClass("rakuten")}
                 >
                   楽天市場
                 </a>
                 <a 
-                  href={`?mall=yahoo`}
+                  href={getMallUrl("yahoo")}
                   className={getMallTabClass("yahoo")}
                 >
                   Yahoo!ショッピング

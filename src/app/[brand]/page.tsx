@@ -148,13 +148,14 @@ export default async function Home(props: {
       MallClient.getProducts(otherMall, otherMallId, "", false)
     ]);
 
-    const cleanTitle = (t: string) => t.replace(/[【】\[\]\(\)\s]/g, "").replace(/送料無料|ポイント\d+倍|公式|国内正規品|あす楽/g, "").substring(0, 10);
+    const cleanTitle = (t: string) => t.replace(/[【】\[\]\(\)\s]/g, "").replace(/送料無料|ポイント\d+倍|公式|国内正規品|あす楽/g, "").substring(0, 20);
 
     finalProducts = mainProducts.map((p) => {
       const pClean = cleanTitle(p.title);
       const matchedOther = otherProducts.find(op => {
         const opClean = cleanTitle(op.title);
-        return opClean === pClean && pClean.length > 3;
+        // 判定精度を前方20文字に強化
+        return opClean === pClean && pClean.length > 5;
       });
 
       return { 
