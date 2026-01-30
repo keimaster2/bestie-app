@@ -4,15 +4,15 @@ import type { SiteConfig } from "../lib/types";
 const BASE_CONFIG = {
   fallbackDomain: "bestie-app.pages.dev",
   themeColor: { primary: "#111827", accent: "#4f46e5" },
-  affiliate: {
-    rakutenAid: "5355389",
-    yahooAid: "5355394",
-    amazonTag: "bestie-select-22"
+  affiliate: { 
+    rakutenAid: "5355389", 
+    yahooAid: "5355394", 
+    amazonTag: "bestie-select-22" 
   },
-  theme: {
-    background: "#ffffff",
-    borderRadius: "rounded-2xl",
-    cardShadow: "shadow-lg"
+  theme: { 
+    background: "#ffffff", 
+    borderRadius: "rounded-2xl", 
+    cardShadow: "shadow-lg" 
   },
 };
 
@@ -28,9 +28,9 @@ function createBrand(id: string, overrides: any): SiteConfig {
     description: overrides.description,
     themeColor: { ...BASE_CONFIG.themeColor, ...overrides.themeColor },
     affiliate: { ...BASE_CONFIG.affiliate, ...overrides.affiliate },
-    eeat: {
-      expertComment: overrides.eeat?.expertComment || "",
-      brandStory: overrides.eeat?.brandStory || ""
+    eeat: { 
+      expertComment: overrides.eeat?.expertComment || "", 
+      brandStory: overrides.eeat?.brandStory || "" 
     },
     theme: { ...BASE_CONFIG.theme, ...overrides.theme },
     rakutenCategories: overrides.rakutenCategories || [],
@@ -177,11 +177,10 @@ export const ALL_BRANDS: Record<string, SiteConfig> = {
       { id: "retro", name: "レトロゲーム", mallId: "101205", keyword: "レトロゲーム" },
     ],
     yahooCategories: [
-      { id: "all", name: "総合", mallId: "2161" },
-      { id: "switch2", name: "Switch2", mallId: "77077" },
-      { id: "switch", name: "Switch", mallId: "50522" },
-      { id: "ps5", name: "PS5", mallId: "50798" },
-      { id: "ps4", name: "PS4", mallId: "50521" },
+      { id: "all", name: "ゲーム総合", mallId: "2511" },
+      { id: "switch", name: "Nintendo Switch", mallId: "47330" },
+      { id: "ps5", name: "PlayStation 5", mallId: "49340" },
+      { id: "retro", name: "旧機種", mallId: "2566" },
     ],
   }),
 
