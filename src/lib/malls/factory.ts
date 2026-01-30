@@ -1,6 +1,7 @@
 import type { Product } from "../types";
 import { fetchRakutenRanking, searchRakutenItems, convertRakutenToProduct } from "../rakuten";
 import { fetchYahooRanking, searchYahooItems, convertYahooToProduct } from "../yahoo";
+import { RANKING_CACHE } from "../../data/cache";
 
 export type MallType = "rakuten" | "yahoo";
 
@@ -11,7 +12,20 @@ export const MallClient = {
   /**
    * ランキングまたは検索結果を取得して Product型で返す
    */
-  async getProducts(mall: MallType, mallId: string, query: string = "", isSearch: boolean = false): Promise<Product[]> {
+  async getProducts(mall: MallType, mallId: string, query: string = "", isSearch: boolean = false, brandName?: string): Promise<Product[]> {
+    // 1. ランキングの場合、まずキャッシュを確認
+    if (!isSearch && brandName) {
+      const cacheKey = `${brandName}/${mall}-${mallId}`;
+      const cachedData = (RANKING_CACHE as any)[cacheKey];
+      if (cachedData) {
+        // console.log(`[Cache Hit] ${cacheKey}`);
+        return mall === "yahoo"
+          ? convertYahooToProduct(cachedData, true)
+          : convertRakutenToProduct(cachedData, true);
+      }
+    }
+
+    // 2. キャッシュがない、または検索の場合はAPI実行
     if (isSearch) {
       if (mall === "yahoo") {
         const raw = await searchYahooItems(query, mallId);

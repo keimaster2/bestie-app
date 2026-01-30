@@ -20,7 +20,7 @@ function getActiveContext(config: SiteConfig, mall: string, genreIdFromParam?: s
 }
 
 export async function generateMetadata(
-  props: { 
+  props: {
     params: Promise<{ brand: string }>;
     searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
   }
@@ -94,10 +94,10 @@ export default async function Home(props: {
     // 🛍️ 両方のモールのカテゴリIDを特定する
     const rakutenCategories = config.rakutenCategories || [];
     const yahooCategories = config.yahooCategories || [];
-    
+
     // 現在選択されているカテゴリのID
     const activeId = currentGenre.id;
-    
+
     const rakutenGenreId = rakutenCategories.length > 0 ? (rakutenCategories.find(c => c.id === activeId)?.mallId || rakutenCategories[0].mallId) : "0";
     const yahooGenreId = yahooCategories.length > 0 ? (yahooCategories.find(c => c.id === activeId)?.mallId || yahooCategories[0].mallId) : "1";
 
@@ -109,8 +109,8 @@ export default async function Home(props: {
 
     if (isSearchMode || isKeywordCategory) {
       const [rakutenRes, yahooRes] = await Promise.all([
-        MallClient.getProducts("rakuten", rakutenGenreId, effectiveQuery, true),
-        MallClient.getProducts("yahoo", yahooGenreId, effectiveQuery, true)
+        MallClient.getProducts("rakuten", rakutenGenreId, effectiveQuery, true, brandKey),
+        MallClient.getProducts("yahoo", yahooGenreId, effectiveQuery, true, brandKey)
       ]);
 
       const merged: Product[] = [];
@@ -135,8 +135,8 @@ export default async function Home(props: {
       const otherMallId = otherCategories.find(c => c.id === currentGenre.id)?.mallId || otherCategories[0]?.mallId || "0";
 
       const [mainProducts, otherProducts] = await Promise.all([
-        MallClient.getProducts(mall, mainMallId, "", false),
-        MallClient.getProducts(otherMall, otherMallId, "", false)
+        MallClient.getProducts(mall, mainMallId, "", false, brandKey),
+        MallClient.getProducts(otherMall, otherMallId, "", false, brandKey)
       ]);
 
       const cleanTitle = (t: string) => t.replace(/[【】\[\]\(\)\s]/g, "").replace(/送料無料|ポイント\d+倍|公式|国内正規品|あす楽/g, "").substring(0, 20);
@@ -148,8 +148,8 @@ export default async function Home(props: {
           return opClean === pClean && pClean.length > 5;
         });
 
-        return { 
-          ...p, 
+        return {
+          ...p,
           isWRank: !!matchedOther,
           rakutenUrl: mall === "rakuten" ? p.url : matchedOther?.url,
           yahooUrl: mall === "yahoo" ? p.url : matchedOther?.url,
@@ -158,15 +158,15 @@ export default async function Home(props: {
     }
 
     finalProducts = assignComparisonLabels(finalProducts);
-    finalProducts = finalProducts.map((p) => ({ 
-      ...p, 
+    finalProducts = finalProducts.map((p) => ({
+      ...p,
       expertReview: generateLionReview(p, config, mallName)
     }));
 
     return (
-      <ClientHome 
-        params={params} 
-        config={config} 
+      <ClientHome
+        params={params}
+        config={config}
         products={finalProducts}
         mall={mall}
         query={queryFromUrl}

@@ -1,5 +1,6 @@
 import type { Product } from "./types";
 import { getRequestContext } from '@cloudflare/next-on-pages';
+import { RANKING_CACHE } from "@/data/cache";
 
 // Yahoo!ショッピングAPIの型定義
 export type YahooItem = {
