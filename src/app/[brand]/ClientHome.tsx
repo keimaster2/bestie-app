@@ -41,11 +41,7 @@ export default function ClientHome({
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const [mounted, setMounted] = useState(false);
-
   useEffect(() => {
-    setMounted(true);
-    // params.brand が空（サブドメイン運用）の場合を考慮し、config.id を使用する
     setBrand(config.id);
     
     const categories = (mall === "yahoo" ? config.yahooCategories : config.rakutenCategories) || [];
@@ -75,9 +71,7 @@ export default function ClientHome({
     router.push(`${window.location.pathname}${queryStr}`);
   };
 
-  const mallName = mall === "yahoo" ? "Yahoo!ショッピング" : "楽天市場";
-
-  // 正規URLを生成（.comドメインを優先）
+  // 正規URLを生成
   const canonicalUrl = `https://${config.domain}${breadcrumbItems.length > 0 ? breadcrumbItems[breadcrumbItems.length-1].href : '/'}`;
 
   return (
@@ -159,12 +153,6 @@ export default function ClientHome({
               <h2 className="text-2xl font-black tracking-tight text-gray-900">
                 {isSearchMode ? `「${query}」の検索結果` : `${currentGenre?.name || ''} おすすめ商品`}
               </h2>
-              {!isSearchMode && (
-                <span className={`text-[10px] font-black px-2 py-0.5 rounded border 
-                  ${mall === "yahoo" ? "bg-white text-blue-600 border-blue-600" : "bg-white text-red-600 border-red-600"}`}>
-                  {mall === "yahoo" ? "Yahoo!ショッピング" : "楽天市場"}
-                </span>
-              )}
               {isSearchMode && (
                 <span className="text-[10px] font-black px-2 py-0.5 rounded border bg-indigo-600 text-white border-indigo-600">
                   モール横断検索

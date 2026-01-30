@@ -5,6 +5,7 @@ import type { SiteConfig, CategoryConfig } from "@/lib/types";
 import { usePathname } from "next/navigation";
 import { getBrandPath } from "@/lib/utils";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 
 type HeaderProps = {
   mall?: string;
@@ -21,8 +22,20 @@ export default function Header({ mall, query, genreId, isSearchMode, config, min
   const brands = ["bestie", "beauty", "gadget", "gourmet", "outdoor", "game", "fashion", "interior", "pet", "baby"];
   const brandFromPath = brands.find(b => pathSegments.includes(b)) || "bestie";
   const isTopPage = pathSegments.length === 0 || (pathSegments.length === 1 && brands.includes(pathSegments[0]));
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const activeRef = useRef<HTMLAnchorElement>(null);
 
   const currentMall = mall || "rakuten";
+
+  // ハイドレーション後のスクロール処理
+  useEffect(() => {
+    if (activeRef.current && scrollRef.current) {
+      scrollRef.current.scrollTo({
+        left: activeRef.current.offsetLeft - (scrollRef.current.offsetWidth / 2) + (activeRef.current.offsetWidth / 2),
+        behavior: 'smooth'
+      });
+    }
+  }, [genreId]);
 
   const getMallTabClass = (targetMall: string) => {
     const isActive = currentMall === targetMall;
@@ -34,15 +47,21 @@ export default function Header({ mall, query, genreId, isSearchMode, config, min
     return `${baseClass} border-transparent text-gray-500 hover:text-gray-700`;
   };
 
+  // 🛡️ ハイドレーションエラー修正：window.location ではなく props を使用してURLを生成
   const getMallUrl = (targetMall: string) => {
-    const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams();
     params.set("mall", targetMall);
-    // genreが現在の設定にあれば維持する
-    return `?${params.toString()}`;
+    if (genreId && genreId !== "all") {
+      params.set("genre", genreId);
+    }
+    if (query) {
+      params.set("q", query);
+    }
+    const search = params.toString();
+    return search ? `?${search}` : "";
   };
 
   const categories: CategoryConfig[] = (currentMall === "yahoo" ? config.yahooCategories : config.rakutenCategories) || [];
-
   const homeUrl = getBrandPath(brandFromPath, "/");
   const favUrl = getBrandPath(brandFromPath, "/favorites");
 
@@ -118,10 +137,11 @@ export default function Header({ mall, query, genreId, isSearchMode, config, min
             </div>
 
             {!isSearchMode && categories.length > 0 && (
-              <div className="flex overflow-x-auto no-scrollbar gap-1 py-2 -mx-4 px-4 sm:mx-0 sm:px-0">
+              <div ref={scrollRef} className="flex overflow-x-auto no-scrollbar gap-1 py-2 -mx-4 px-4 sm:mx-0 sm:px-0 scroll-smooth">
                 {categories.map((g) => (
                   <a
                     key={g.id}
+                    ref={genreId === g.id ? activeRef : null}
                     href={`?mall=${currentMall}&genre=${g.id}`}
                     className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-bold transition-colors whitespace-nowrap
                       ${

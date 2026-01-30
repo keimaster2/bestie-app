@@ -19,7 +19,7 @@ export function generateLionReview(p: Product, config: SiteConfig, mallName: str
 
   const seedStr = (p.id || "") + date + month + rank + mallName;
   const seed = seedStr.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-  const pick = (arr: string[]) => arr[seed % arr.length];
+  const pick = (arr: string[]) => (arr && arr.length > 0) ? arr[seed % arr.length] : "";
 
   // 順位ごとのヘッダー
   let header = "";
@@ -32,7 +32,7 @@ export function generateLionReview(p: Product, config: SiteConfig, mallName: str
   }
 
   // 市場分析
-  const dayMessages = Messages.weeklyThemes[now.getDay()];
+  const dayMessages = Messages.weeklyThemes[now.getDay()] || [];
   const allPool = [...dayMessages, ...Messages.genericInsights];
   const marketInsight = pick(allPool);
   const dailyLuck = pick(Messages.dailyLuckPool);
@@ -57,6 +57,7 @@ export function generateSmartDetailedReview(p: Product, config: SiteConfig, mall
   const seed = seedStr.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
   
   const pickModule = (arr: string[]) => {
+    if (!arr || arr.length === 0) return "";
     let template = arr[seed % arr.length];
     return template
       .replace(/\$\{rank\}/g, (p.rank || "上位").toString())
@@ -151,21 +152,23 @@ export function getDailyLionShout(): string {
   const base = `今日は${month}月${date}日（${dayStr}）。`;
   
   const specialKey = `${month}-${date}`;
-  if (Messages.specialDates[specialKey]) return base + Messages.specialDates[specialKey];
+  if (Messages.specialDates && Messages.specialDates[specialKey]) return base + Messages.specialDates[specialKey];
 
   const isValentineSeason = (month === 1 && date >= 20) || (month === 2 && date <= 14);
   if (isValentineSeason) {
-    return base + Messages.valentineMessages[date % Messages.valentineMessages.length];
+    const vMsg = Messages.valentineMessages || [];
+    if (vMsg.length > 0) return base + vMsg[date % vMsg.length];
   }
 
   if (date === 25) return base + "今日は多くの人の給料日。一ヶ月頑張った自分を盛大に労わってやろう！";
   if (date <= 3) return base + "一ヶ月のスタート。新しい自分へのご褒美には最高の日だよ。";
   if (date >= 28) return base + "今月もラストスパート。やり残した買い物はないかい？俺が最後までサポートするよ。";
-  if (date === 29) return base + Messages.dailyContexts[0]; 
+  if (date === 29 && Messages.dailyContexts && Messages.dailyContexts.length > 0) return base + Messages.dailyContexts[0]; 
 
-  const dayMessages = Messages.weeklyThemes[day];
+  const dayMessages = Messages.weeklyThemes[day] || [];
   const allPool = [...dayMessages, ...Messages.genericInsights];
   const seed = date + month + day;
   
+  if (allPool.length === 0) return base + "今日も最高の目利きをお届けするよ！";
   return base + allPool[seed % allPool.length];
 }

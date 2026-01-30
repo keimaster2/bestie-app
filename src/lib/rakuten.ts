@@ -44,11 +44,11 @@ export async function fetchRakutenRanking(genreId: string = "0"): Promise<Rakute
   try {
     if (appId === "DUMMY_ID") return mockRakutenData;
 
-    const res = await fetch(url, { next: { revalidate: 3600 } });
+    const res = await fetch(url, { cache: 'no-store' });
     if (!res.ok) throw new Error(`Rakuten API Error: ${res.status}`);
 
     const data: RakutenRankingResponse = await res.json();
-    return data.Items.sort((a, b) => a.Item.rank - b.Item.rank);
+    return (data.Items || []).sort((a, b) => a.Item.rank - b.Item.rank);
   } catch (error) {
     console.error("Failed to fetch Rakuten ranking via API:", error);
     return [];
@@ -63,7 +63,7 @@ export async function searchRakutenItems(keyword: string, genreId: string = "0")
     const res = await fetch(url); 
     if (!res.ok) return [];
     const data = await res.json() as RakutenRankingResponse;
-    return data.Items;
+    return data.Items || [];
   } catch { return []; }
 }
 

@@ -38,7 +38,7 @@ export async function fetchYahooRanking(categoryId: string = "1", _minPrice?: nu
   try {
     if (appId === "DUMMY_ID") return mockYahooData as unknown as Record<string, unknown>[];
 
-    const res = await fetch(url, { next: { revalidate: 3600 } });
+    const res = await fetch(url, { cache: 'no-store' });
     if (!res.ok) {
       console.error(`Yahoo Search API Error: ${res.status}`);
       return [];

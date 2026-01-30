@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import { Product, SiteConfig } from "@/lib/types";
 
@@ -15,6 +15,10 @@ export default function RankingList({
 }) {
   const [showAll, setShowAll] = useState(false);
   
+  useEffect(() => {
+    // console.log(`RankingList products:`, products.map(p => p.rank));
+  }, [products]);
+  
   // 検索時は多めに表示 (50件)、ランキング時は30位まで
   const INITIAL_COUNT = isSearchMode ? 50 : 30;
   
@@ -25,7 +29,7 @@ export default function RankingList({
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
         {visibleProducts.map((product, index) => (
-          <div key={`${product.id}-${index}`} className="relative">
+          <div key={`rank-${product.rank || index}-${product.id}`} className="relative">
             <ProductCard product={product} config={config} />
           </div>
         ))}
