@@ -31,12 +31,13 @@ export default function ProductDetailPage({
   const [insight, setInsight] = useState<{ analysis: string, tip: string } | null>(null);
 
   // ホスト名から設定を取得（サブドメイン対応）
-  const [config, setConfig] = useState<SiteConfig>(getSiteConfig(params.brand));
+  const [config, setConfig] = useState<SiteConfig>(getSiteConfig(params.brand && params.brand !== "default" ? params.brand : ""));
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const host = window.location.hostname;
-      setConfig(getSiteConfig(params.brand || host));
+      const brandKey = params.brand && params.brand !== "default" ? params.brand : host;
+      setConfig(getSiteConfig(brandKey));
     }
   }, [params.brand]);
 

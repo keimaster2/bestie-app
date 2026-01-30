@@ -6,12 +6,11 @@ export const SITE_REGISTRY: Record<string, SiteConfig> = ALL_BRANDS;
 const DEFAULT_CONFIG = SITE_REGISTRY["bestie"];
 
 export function getSiteConfig(brandOrHost?: string): SiteConfig {
-  if (!brandOrHost) return DEFAULT_CONFIG;
+  if (!brandOrHost || brandOrHost === "default" || brandOrHost === "index") return DEFAULT_CONFIG;
   
   const cleanHost = brandOrHost.split(":")[0].toLowerCase();
   
   // 1. ID Match (ladies, mens, beauty, gadget など、パスの1段目)
-  // パラメータ経由で来た場合に最優先する
   const configById = SITE_REGISTRY[cleanHost];
   if (configById) return configById;
 

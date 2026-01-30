@@ -26,7 +26,8 @@ export async function generateMetadata(
   const params = await props.params;
   const sParams = await props.searchParams;
   const host = (await headers()).get("host") || "";
-  const config = getSiteConfig(params.brand || host);
+  const brandKey = params.brand && params.brand !== "default" ? params.brand : host;
+  const config = getSiteConfig(brandKey);
   const mall = (sParams.mall as string) || "rakuten";
   const { currentGenre } = getActiveContext(config, mall, sParams.genre as string);
 
@@ -40,7 +41,7 @@ export async function generateMetadata(
   if (!currentGenre) return { title: config.siteTitle, description: config.description };
 
   const brandLabel = config.brandName.replace("Bestie ", "");
-  const isSubBrand = params.brand !== "bestie";
+  const isSubBrand = config.id !== "bestie";
   const categories = (mall === "yahoo" ? config.yahooCategories : config.rakutenCategories) || [];
   const isFirstCategory = categories.length > 0 && currentGenre.id === categories[0].id;
 
@@ -68,7 +69,8 @@ export default async function Home(props: {
   const params = await props.params;
   const sParams = await props.searchParams;
   const host = (await headers()).get("host") || "";
-  const config = getSiteConfig(params.brand || host);
+  const brandKey = params.brand && params.brand !== "default" ? params.brand : host;
+  const config = getSiteConfig(brandKey);
 
   const mall = ((sParams.mall as string) || "rakuten") as MallType;
   const queryFromUrl = (sParams.q as string) || "";

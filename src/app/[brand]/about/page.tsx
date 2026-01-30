@@ -15,7 +15,8 @@ export default async function AboutPage({
 }) {
   const params = await paramsPromise;
   const host = (await headers()).get("host") || "";
-  const config = getSiteConfig(params.brand || host);
+  const brandKey = params.brand && params.brand !== "default" ? params.brand : host;
+  const config = getSiteConfig(brandKey);
 
   return (
     <div className="min-h-screen pb-20 font-sans transition-colors duration-500 text-gray-800"
