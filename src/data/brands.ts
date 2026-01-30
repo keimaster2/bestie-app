@@ -186,9 +186,9 @@ export const ALL_BRANDS: Record<string, SiteConfig> = {
       { id: "bags", name: "バッグ・小物・ブランド雑貨", mallId: "216131" },
     ],
     yahooCategories: [
-      { id: "ladies", name: "レディースパジャマ", mallId: "23951" },
-      { id: "mens", name: "メンズパジャマ", mallId: "36766" },
-      { id: "bags", name: "レディース手袋", mallId: "24080" },
+      { id: "ladies", name: "レディースファッション", mallId: "2494" },
+      { id: "mens", name: "メンズファッション", mallId: "2495" },
+      { id: "bags", name: "バッグ・小物・ブランド雑貨", mallId: "2496" },
     ],
   },
   interior: {
@@ -212,8 +212,9 @@ export const ALL_BRANDS: Record<string, SiteConfig> = {
       { id: "kitchen", name: "キッチン用品・食器・調理器具", mallId: "558944" },
     ],
     yahooCategories: [
-      { id: "furniture", name: "サンキャッチャー", mallId: "49257" },
-      { id: "kitchen", name: "ジューサー、ミキサー、フードプロセッサー", mallId: "38072" },
+      { id: "all", name: "家具・インテリア総合", mallId: "2506" },
+      { id: "furniture", name: "家具・収納", mallId: "2506" },
+      { id: "kitchen", name: "キッチン・日用品", mallId: "2508" },
     ],
   },
   pet: {
