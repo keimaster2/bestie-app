@@ -30,21 +30,21 @@ const getYahooAppId = (): string => {
  */
 export async function fetchYahooRanking(categoryId: string = "1", _minPrice?: number): Promise<Record<string, unknown>[]> {
   const appId = getYahooAppId();
-
-  // カテゴリランキングAPI (V2) を使用
-  const url = `https://shopping.yahooapis.jp/ShoppingWebService/V2/categoryRanking?appid=${appId}&category_id=${categoryId}`;
-
+  // categoryIdが1（総合）の場合は「人気」で検索
+  const query = categoryId === "1" ? "人気" : ""; 
+  
+  const url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${appId}&query=${encodeURIComponent(query)}&sort=-sold&results=30${categoryId !== "1" ? `&genre_category_id=${categoryId}` : ""}`;
+  
   try {
     if (appId === "DUMMY_ID") return mockYahooData as unknown as Record<string, unknown>[];
 
     const res = await fetch(url, { cache: 'no-store' });
     if (!res.ok) {
-      console.error(`Yahoo Ranking API Error: ${res.status}`);
+      console.error(`Yahoo Search API Error: ${res.status}`);
       return [];
     }
     const data = await res.json();
-    // V2 APIの構造: ResultSet.Result.Hit
-    return (data?.ResultSet?.Result?.Hit || []) as Record<string, unknown>[];
+    return (data.hits || []) as Record<string, unknown>[];
   } catch (error) {
     console.error("Failed to fetch Yahoo ranking via API:", error);
     return [];
@@ -53,14 +53,14 @@ export async function fetchYahooRanking(categoryId: string = "1", _minPrice?: nu
 
 export async function searchYahooItems(keyword: string, categoryId: string = "1"): Promise<Record<string, unknown>[]> {
   const appId = getYahooAppId();
-
+  
   const url = `https://shopping.yahooapis.jp/ShoppingWebService/V3/itemSearch?appid=${appId}&query=${encodeURIComponent(keyword)}&results=30${categoryId !== "1" ? `&genre_category_id=${categoryId}` : ""}`;
-
+  
   try {
     const res = await fetch(url);
     if (!res.ok) return [];
     const data = await res.json();
-    return (data.hits || []) as Record<string, unknown>[];
+    return (data.hits || []) as Record<string, unknown>[]; 
   } catch { return []; }
 }
 
@@ -70,49 +70,35 @@ const mockYahooData = [
 
 export function convertYahooToProduct(items: Record<string, unknown>[], isRanking: boolean): Product[] {
   return items.map((item, index) => {
-    // V3は小文字開始、V2ランキングは多くが大文字開始
-    const name = (item.name as string) || (item.Name as string) || "";
-    const cleanTitle = name.replace(/【.*?】/g, "").replace(/\[.*?\]/g, "").replace(/返品種別[A-Z]?/g, "").trim();
-
-    // 価格の取得 (V3: price, V2: Price._value)
-    let price = 0;
-    if (typeof item.price === "number") {
-      price = item.price;
-    } else if (item.Price && typeof item.Price === "object") {
-      const p = item.Price as any;
-      price = parseInt(p._value || p.toString() || "0");
-    } else if (item.price) {
-      price = parseInt(item.price.toString());
-    }
-
-    // 画像の取得 (V3: image.medium, V2: Image.Medium)
-    const imageObj = (item.image || item.Image) as any;
-    let image = imageObj?.medium || imageObj?.Medium || "/placeholder.svg";
+    const title = (item.name as string) || "";
+    const cleanTitle = title.replace(/【.*?】/g, "").replace(/\[.*?\]/g, "").replace(/返品種別[A-Z]?/g, "").trim();
+    const price = (item.price as number) || 0;
+    
+    // 🚀 超・高画質化ハック: プレースホルダ(/i/g/)ではなくオリジナル画像(/i/n/)を取得
+    const imageObj = item.image as Record<string, string> | undefined;
+    let image = imageObj?.medium || "/placeholder.svg";
     if (image.includes("/i/g/")) {
       image = image.replace("/i/g/", "/i/n/");
     } else if (image.includes("/i/l/")) {
       image = image.replace("/i/l/", "/i/n/");
     }
 
-    // レビューの取得 (V3: review.rate, V2: Review.Rate)
-    const reviewObj = (item.review || item.Review) as any;
-    const rating = reviewObj?.rate || reviewObj?.Rate || 0;
-    const reviewCount = reviewObj?.count || reviewObj?.Count || 0;
-
-    // コード・URL・ショップ名の取得
-    const code = (item.code as string) || (item.Code as string) || `item-${index}`;
-    const storeObj = (item.seller || item.Store) as any;
-    const shopName = storeObj?.name || storeObj?.Name || "Yahoo!ショッピング";
-    const url = (item.url as string) || (item.Url as string) || "#";
-    const catchphrase = (item.headLine as string) || (item.HeadLine as string) || "";
+    const reviewObj = item.review as Record<string, number> | undefined;
+    const rating = reviewObj?.rate || 0;
+    const reviewCount = reviewObj?.count || 0;
+    const code = (item.code as string) || `item-${index}`;
+    const storeObj = item.seller as Record<string, string> | undefined;
+    const shopName = storeObj?.name || "Yahoo!ショッピング";
+    const url = (item.url as string) || "#";
+    const catchphrase = (item.headLine as string) || "";
 
     return {
       id: `yahoo-${code}`,
       rank: isRanking ? (index + 1) : undefined,
       title: cleanTitle,
       price: price,
-      rating: typeof rating === "string" ? parseFloat(rating) : rating,
-      reviewCount: typeof reviewCount === "string" ? parseInt(reviewCount) : reviewCount,
+      rating: typeof rating === 'string' ? parseFloat(rating) : rating,
+      reviewCount: typeof reviewCount === 'string' ? parseInt(reviewCount) : reviewCount,
       image: image,
       mall: "Yahoo",
       shopName: shopName,
