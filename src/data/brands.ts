@@ -83,8 +83,8 @@ export const ALL_BRANDS: Record<string, SiteConfig> = {
     ],
     yahooCategories: [
       { id: "all", name: "家電・スマホ総合", mallId: "2502" },
-      { id: "smartphone", name: "スマホ・タブレット", mallId: "2502" },
-      { id: "pc", name: "パソコン周辺機器", mallId: "2502" },
+      { id: "smartphone", name: "スマホ・タブレット", mallId: "38338" },
+      { id: "pc", name: "パソコン周辺機器", mallId: "2519" },
     ],
   }),
 
@@ -106,8 +106,8 @@ export const ALL_BRANDS: Record<string, SiteConfig> = {
     ],
     yahooCategories: [
       { id: "all", name: "コスメ・美容総合", mallId: "2501" },
-      { id: "skincare", name: "スキンケア", mallId: "2501" },
-      { id: "haircare", name: "ヘアケア", mallId: "2501" },
+      { id: "skincare", name: "スキンケア", mallId: "1752" },
+      { id: "haircare", name: "ヘアケア", mallId: "1831" },
     ],
   }),
 
@@ -130,9 +130,9 @@ export const ALL_BRANDS: Record<string, SiteConfig> = {
     ],
     yahooCategories: [
       { id: "all", name: "食品・ドリンク総合", mallId: "2498" },
-      { id: "sweets", name: "スイーツ、お菓子", mallId: "2499" },
-      { id: "drink", name: "水、炭酸水、ソフトドリンク", mallId: "2498" },
-      { id: "alcohol", name: "お酒、ドリンク", mallId: "2498" },
+      { id: "sweets", name: "スイーツ、お菓子", mallId: "4744" },
+      { id: "drink", name: "水、炭酸水、ソフトドリンク", mallId: "1426" },
+      { id: "alcohol", name: "お酒、ドリンク", mallId: "15152" },
     ],
   }),
 
@@ -153,9 +153,9 @@ export const ALL_BRANDS: Record<string, SiteConfig> = {
       { id: "golf", name: "ゴルフ", mallId: "101110" },
     ],
     yahooCategories: [
-      { id: "all", name: "アウトドア・釣り総合", mallId: "2510" },
-      { id: "camp", name: "アウトドア、キャンプ用品", mallId: "2510" },
-      { id: "golf", name: "ゴルフ", mallId: "2510" },
+      { id: "all", name: "アウトドア・釣り総合", mallId: "2513" },
+      { id: "camp", name: "アウトドア、キャンプ用品", mallId: "15170" },
+      { id: "golf", name: "ゴルフ", mallId: "14352" },
     ],
   }),
 
@@ -201,9 +201,9 @@ export const ALL_BRANDS: Record<string, SiteConfig> = {
       { id: "bags", name: "バッグ・小物・ブランド雑貨", mallId: "216131" },
     ],
     yahooCategories: [
-      { id: "ladies", name: "レディースパジャマ", mallId: "23951" },
-      { id: "mens", name: "メンズパジャマ", mallId: "36766" },
-      { id: "bags", name: "レディース手袋", mallId: "24080" },
+      { id: "ladies", name: "レディースファッション", mallId: "2494" },
+      { id: "mens", name: "メンズファッション", mallId: "2495" },
+      { id: "bags", name: "バッグ・小物・ブランド雑貨", mallId: "2496" },
     ],
   }),
 
@@ -224,8 +224,9 @@ export const ALL_BRANDS: Record<string, SiteConfig> = {
       { id: "kitchen", name: "キッチン用品・食器・調理器具", mallId: "558944" },
     ],
     yahooCategories: [
-      { id: "furniture", name: "サンキャッチャー", mallId: "49257" },
-      { id: "kitchen", name: "ジューサー、ミキサー、フードプロセッサー", mallId: "38072" },
+      { id: "furniture", name: "インテリア・寝具・収納", mallId: "2506" },
+      { id: "bedding", name: "寝具", mallId: "3669" },
+      { id: "kitchen", name: "キッチン、日用品、文具", mallId: "2499" },
     ],
   }),
 
@@ -250,7 +251,7 @@ export const ALL_BRANDS: Record<string, SiteConfig> = {
       { id: "dog", name: "犬用品", mallId: "4772" },
       { id: "cat", name: "猫用品", mallId: "4820" },
       { id: "small", name: "小動物用品", mallId: "32958" },
-      { id: "timothy", name: "小動物用フード、おやつ", mallId: "48396" },
+      { id: "timothy", name: "牧草", mallId: "48396", keyword: "牧草" },
     ],
   }),
 
