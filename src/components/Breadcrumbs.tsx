@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { getBrandPath } from "@/lib/utils";
-import { SiteConfig } from "@/lib/config";
+import type { SiteConfig } from "@/lib/types";
+import { useState, useEffect } from "react";
 
 type BreadcrumbItem = {
   label: string;
@@ -16,8 +17,11 @@ type BreadcrumbsProps = {
 };
 
 export default function Breadcrumbs({ brand, config, items }: BreadcrumbsProps) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   // 🛡️ 本番環境のサブドメイン運用時は絶対URLを考慮
-  const isLocal = typeof window !== "undefined" && window.location.hostname.includes("localhost");
+  const isLocal = mounted && typeof window !== "undefined" && window.location.hostname.includes("localhost");
   const rootHref = isLocal ? getBrandPath(brand, "/") : `https://${config.domain}`;
 
   // アイテムが空の場合は何も表示しない

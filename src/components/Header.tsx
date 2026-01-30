@@ -1,7 +1,7 @@
 "use client";
 
 import SearchBar from "./SearchBar";
-import { SiteConfig, CategoryConfig } from "@/lib/config";
+import type { SiteConfig, CategoryConfig } from "@/lib/types";
 import { usePathname } from "next/navigation";
 import { getBrandPath } from "@/lib/utils";
 

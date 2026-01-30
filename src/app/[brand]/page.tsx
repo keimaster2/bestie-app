@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Product } from "@/lib/types";
-import { getSiteConfig, SiteConfig } from "@/lib/config";
+import { Product, SiteConfig } from "@/lib/types";
+import { getSiteConfig } from "@/lib/config";
 import { generateLionReview, assignComparisonLabels } from "@/lib/lion-logic";
 import { MallClient, MallType } from "@/lib/malls/factory";
 import ClientHome from "./ClientHome";

@@ -1,4 +1,4 @@
-import { SiteConfig } from "../config";
+import { SiteConfig } from "../types";
 
 export const gourmetBrand: Record<string, SiteConfig> = {
   gourmet: {

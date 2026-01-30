@@ -1,4 +1,4 @@
-import { SiteConfig } from "../config";
+import { SiteConfig } from "../types";
 
 export const petBrand: Record<string, SiteConfig> = {
   pet: {

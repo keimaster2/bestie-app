@@ -1,4 +1,4 @@
-import { SiteConfig } from "../config";
+import { SiteConfig } from "../types";
 
 export const beautyBrand: Record<string, SiteConfig> = {
   beauty: {

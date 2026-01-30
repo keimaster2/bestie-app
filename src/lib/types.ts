@@ -1,3 +1,43 @@
+export type CategoryConfig = {
+  id: string;
+  name: string;
+  mallId: string;
+  keyword?: string;
+  minPrice?: number;
+  description?: string;
+  lionComment?: string;
+};
+
+export type SiteConfig = {
+  id: string;
+  domain: string;
+  fallbackDomain?: string;
+  brandName: string;
+  siteTitle: string;
+  tagline: string;
+  description: string;
+  themeColor: {
+    primary: string;
+    accent: string;
+  };
+  affiliate: {
+    rakutenAid: string;
+    yahooAid: string;
+    amazonTag: string;
+  };
+  eeat: {
+    expertComment: string;
+    brandStory: string;
+  };
+  theme: {
+    borderRadius: string;
+    cardShadow: string;
+    background: string;
+  };
+  rakutenCategories: CategoryConfig[];
+  yahooCategories: CategoryConfig[];
+};
+
 export type Product = {
   id: string;
   rank?: number;

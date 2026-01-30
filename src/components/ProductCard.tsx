@@ -3,15 +3,19 @@
 import FavoriteButton from "./FavoriteButton";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
-import { Product } from "@/lib/types";
-import { SiteConfig } from "@/lib/config";
+import { useState, useEffect } from "react";
+import { Product, SiteConfig } from "@/lib/types";
 import { getBrandPath } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 
 export default function ProductCard({ product, config }: { product: Product, config: SiteConfig }) {
   const [imgSrc, setImgSrc] = useState(product.image || "/placeholder.svg");
   const pathname = usePathname() || "";
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // 現在のブランドパスを特定
   const pathSegments = pathname.split('/');
@@ -40,7 +44,8 @@ export default function ProductCard({ product, config }: { product: Product, con
   if (product.rank) searchParams.set("rank", product.rank.toString());
 
   // 🛡️ 本番環境のサブドメイン運用時は、絶対URLを生成
-  const isLocal = typeof window !== "undefined" && window.location.hostname.includes("localhost");
+  // ハイドレーションエラー防止のため、マウント前は常に絶対URL（サーバー側と同じ）にする
+  const isLocal = mounted && typeof window !== "undefined" && window.location.hostname.includes("localhost");
   const detailUrl = isLocal 
     ? `${getBrandPath(brandFromPath, `/product/${product.id}`)}?${searchParams.toString()}`
     : `https://${config.domain}/product/${product.id}?${searchParams.toString()}`;

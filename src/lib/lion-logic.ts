@@ -1,5 +1,4 @@
-import { Product } from "./types";
-import { SiteConfig } from "./config";
+import { Product, SiteConfig } from "./types";
 import * as Messages from "../data/lion-messages";
 
 export type LionReview = {

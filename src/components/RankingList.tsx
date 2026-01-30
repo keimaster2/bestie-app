@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import ProductCard from "./ProductCard";
-import { Product } from "@/lib/types";
-import { SiteConfig } from "@/lib/config";
+import { Product, SiteConfig } from "@/lib/types";
 
 export default function RankingList({ 
   products, 

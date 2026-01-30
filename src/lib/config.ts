@@ -8,46 +8,7 @@ import { fashionBrand } from "./brands/fashion";
 import { interiorBrand } from "./brands/interior";
 import { petBrand } from "./brands/pet";
 import { babyBrand } from "./brands/baby";
-
-export type CategoryConfig = {
-  id: string;
-  name: string;
-  mallId: string;
-  keyword?: string; // 特定のキーワードで絞り込む場合に使用
-  minPrice?: number;
-  description?: string;
-  lionComment?: string;
-};
-
-export type SiteConfig = {
-  id: string;
-  domain: string;
-  fallbackDomain?: string; // 旧ドメイン(.pages.dev)用の互換性保持
-  brandName: string;
-  siteTitle: string;
-  tagline: string;
-  description: string;
-  themeColor: {
-    primary: string;
-    accent: string;
-  };
-  affiliate: {
-    rakutenAid: string;
-    yahooAid: string;
-    amazonTag: string;
-  };
-  eeat: {
-    expertComment: string;
-    brandStory: string;
-  };
-  theme: {
-    borderRadius: string;
-    cardShadow: string;
-    background: string;
-  };
-  rakutenCategories: CategoryConfig[];
-  yahooCategories: CategoryConfig[];
-};
+import type { SiteConfig } from "./types";
 
 export const SITE_REGISTRY: Record<string, SiteConfig> = {
   ...bestieBrand,

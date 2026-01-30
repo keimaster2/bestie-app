@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { SiteConfig } from "@/lib/config";
+import type { SiteConfig } from "@/lib/types";
 import { getBrandPath } from "@/lib/utils";
+import { useState, useEffect } from "react";
 
 type FooterProps = {
   brand: string;
@@ -10,8 +11,11 @@ type FooterProps = {
 };
 
 export default function Footer({ brand, config }: FooterProps) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   // 🛡️ 本番環境のサブドメイン運用時、リンクではなく絶対URLを生成
-  const isLocal = typeof window !== "undefined" && window.location.hostname.includes("localhost");
+  const isLocal = mounted && typeof window !== "undefined" && window.location.hostname.includes("localhost");
   const aboutUrl = isLocal ? getBrandPath(brand, "/about") : `https://${config.domain}/about`;
 
   return (

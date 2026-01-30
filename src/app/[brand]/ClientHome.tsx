@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RankingList from "@/components/RankingList";
 import StructuredData from "@/components/StructuredData";
-import { SiteConfig, CategoryConfig } from "@/lib/config";
+import type { SiteConfig, CategoryConfig } from "@/lib/types";
 import { Product } from "@/lib/types";
 import { useFavorites } from "@/context/FavoritesContext";
 import { useEffect, useState } from "react";
@@ -39,7 +39,10 @@ export default function ClientHome({
   const router = useRouter();
   const searchParams = useSearchParams();
 
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
+    setMounted(true);
     setBrand(params.brand);
     
     const categories = (mall === "yahoo" ? config.yahooCategories : config.rakutenCategories) || [];
@@ -101,7 +104,9 @@ export default function ClientHome({
                 <span className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse"></span>
                 市場分析データ
               </span>
-              <span className="text-gray-500">更新: {new Date().getHours()}:00 JST</span>
+              <span className="text-gray-500" suppressHydrationWarning>
+                更新: {new Date().getHours()}:00 JST
+              </span>
               <span className="text-indigo-400">⚡ 売れ筋速報アップデート済</span>
               <span className="text-gray-500">情報元: 各モール販売データ</span>
             </div>
