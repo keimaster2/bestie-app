@@ -4,6 +4,7 @@ import SearchBar from "./SearchBar";
 import type { SiteConfig, CategoryConfig } from "@/lib/types";
 import { usePathname } from "next/navigation";
 import { getBrandPath } from "@/lib/utils";
+import { useState, useEffect } from "react";
 
 type HeaderProps = {
   mall?: string;
@@ -15,6 +16,9 @@ type HeaderProps = {
 };
 
 export default function Header({ mall, query, genreId, isSearchMode, config, minimal = false }: HeaderProps) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+
   const pathname = usePathname() || "";
   const pathSegments = pathname.split('/').filter(Boolean);
   const brands = ["bestie", "beauty", "gadget", "gourmet", "outdoor", "game", "fashion", "interior", "pet", "baby"];
@@ -35,9 +39,13 @@ export default function Header({ mall, query, genreId, isSearchMode, config, min
 
   const categories: CategoryConfig[] = (currentMall === "yahoo" ? config.yahooCategories : config.rakutenCategories) || [];
 
+  // 🛡️ 環境判定
+  const isLocal = mounted && typeof window !== "undefined" && window.location.hostname.includes("localhost");
+  const homeUrl = isLocal ? getBrandPath(brandFromPath, "/") : `https://${config.domain}`;
+  const favUrl = isLocal ? getBrandPath(brandFromPath, "/favorites") : `https://${config.domain}${getBrandPath(brandFromPath, "/favorites")}`;
+
   const handleBrandClick = (e: React.MouseEvent) => {
-    // 🛡️ 本番環境のサブドメイン運用時、リンクではなく直接ドメイン移動をさせる
-    if (typeof window !== "undefined" && !window.location.hostname.includes("localhost")) {
+    if (!isLocal && typeof window !== "undefined") {
       e.preventDefault();
       window.location.href = `https://${config.domain}`;
     }
@@ -49,7 +57,7 @@ export default function Header({ mall, query, genreId, isSearchMode, config, min
         <div className="flex flex-col w-full sm:w-auto">
           <div className="flex items-center gap-4 justify-between">
             <a 
-              href={`https://${config.domain}`} 
+              href={homeUrl} 
               onClick={handleBrandClick}
               className="flex items-center gap-2 hover:opacity-80 transition group"
             >
@@ -74,11 +82,11 @@ export default function Header({ mall, query, genreId, isSearchMode, config, min
               <SearchBar />
             </div>
             <a 
-              href={`https://${config.domain}${getBrandPath(brandFromPath, "/favorites")}`}
+              href={favUrl}
               onClick={(e) => {
-                if (typeof window !== "undefined" && !window.location.hostname.includes("localhost")) {
+                if (!isLocal && typeof window !== "undefined") {
                   e.preventDefault();
-                  window.location.href = `https://${config.domain}${getBrandPath(brandFromPath, "/favorites")}`;
+                  window.location.href = favUrl;
                 }
               }}
               className="hidden sm:flex flex-col items-center text-gray-400 hover:text-red-500 transition text-xs font-bold"

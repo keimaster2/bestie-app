@@ -1,27 +1,7 @@
-import { bestieBrand } from "./brands/bestie";
-import { gadgetBrand } from "./brands/gadget";
-import { beautyBrand } from "./brands/beauty";
-import { gourmetBrand } from "./brands/gourmet";
-import { outdoorBrand } from "./brands/outdoor";
-import { gameBrand } from "./brands/game";
-import { fashionBrand } from "./brands/fashion";
-import { interiorBrand } from "./brands/interior";
-import { petBrand } from "./brands/pet";
-import { babyBrand } from "./brands/baby";
+import { ALL_BRANDS } from "@/data/brands";
 import type { SiteConfig } from "./types";
 
-export const SITE_REGISTRY: Record<string, SiteConfig> = {
-  ...bestieBrand,
-  ...gadgetBrand,
-  ...beautyBrand,
-  ...gourmetBrand,
-  ...outdoorBrand,
-  ...gameBrand,
-  ...fashionBrand,
-  ...interiorBrand,
-  ...petBrand,
-  ...babyBrand,
-};
+export const SITE_REGISTRY: Record<string, SiteConfig> = ALL_BRANDS;
 
 const DEFAULT_CONFIG = SITE_REGISTRY["bestie"];
 

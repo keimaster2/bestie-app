@@ -44,9 +44,8 @@ export default function ProductCard({ product, config }: { product: Product, con
   if (product.rank) searchParams.set("rank", product.rank.toString());
 
   // 🛡️ 本番環境のサブドメイン運用時は、絶対URLを生成
-  // ハイドレーションエラー防止のため、マウント前は常に絶対URL（サーバー側と同じ）にする
-  const isLocal = mounted && typeof window !== "undefined" && window.location.hostname.includes("localhost");
-  const detailUrl = isLocal 
+  // ハイドレーションエラー防止のため、サーバー側と同じ絶対URLをデフォルトにし、マウント後に切り替える
+  const detailUrl = (mounted && typeof window !== "undefined" && window.location.hostname.includes("localhost"))
     ? `${getBrandPath(brandFromPath, `/product/${product.id}`)}?${searchParams.toString()}`
     : `https://${config.domain}/product/${product.id}?${searchParams.toString()}`;
 
@@ -142,12 +141,12 @@ export default function ProductCard({ product, config }: { product: Product, con
             </div>
           </div>
           <h3 className="font-bold text-sm leading-snug mb-1 line-clamp-2 group-hover:text-indigo-600 transition-colors">
-            {isLocal ? (
+            {mounted ? (
               <Link href={detailUrl} onClick={saveToHistory} className="hover:opacity-70 transition" style={{ color: 'var(--brand-primary)' }} prefetch={false}>
                 {product.title}
               </Link>
             ) : (
-              <a href={detailUrl} onClick={saveToHistory} className="hover:opacity-70 transition" style={{ color: 'var(--brand-primary)' }}>
+              <a href={detailUrl} className="hover:opacity-70 transition" style={{ color: 'var(--brand-primary)' }}>
                 {product.title}
               </a>
             )}

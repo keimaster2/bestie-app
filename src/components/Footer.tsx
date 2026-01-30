@@ -14,7 +14,6 @@ export default function Footer({ brand, config }: FooterProps) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
-  // 🛡️ 本番環境のサブドメイン運用時、リンクではなく絶対URLを生成
   const isLocal = mounted && typeof window !== "undefined" && window.location.hostname.includes("localhost");
   const aboutUrl = isLocal ? getBrandPath(brand, "/about") : `https://${config.domain}/about`;
 
@@ -26,7 +25,7 @@ export default function Footer({ brand, config }: FooterProps) {
           <span className="text-xl font-black tracking-tight text-gray-900">Bestie</span>
         </div>
         <p className="text-[10px] text-gray-400 leading-relaxed">
-          {isLocal ? (
+          {mounted && isLocal ? (
             <Link href={aboutUrl} className="hover:text-gray-600 underline underline-offset-2 decoration-gray-200 mr-4">当サイトについて（免責事項）</Link>
           ) : (
             <a href={aboutUrl} className="hover:text-gray-600 underline underline-offset-2 decoration-gray-200 mr-4">当サイトについて（免責事項）</a>

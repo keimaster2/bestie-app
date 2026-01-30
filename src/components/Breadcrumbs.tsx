@@ -20,8 +20,9 @@ export default function Breadcrumbs({ brand, config, items }: BreadcrumbsProps) 
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
-  // 🛡️ 本番環境のサブドメイン運用時は絶対URLを考慮
   const isLocal = mounted && typeof window !== "undefined" && window.location.hostname.includes("localhost");
+
+  // 🛡️ 本番環境のサブドメイン運用時は絶対URLを考慮
   const rootHref = isLocal ? getBrandPath(brand, "/") : `https://${config.domain}`;
 
   // アイテムが空の場合は何も表示しない
@@ -64,14 +65,23 @@ export default function Breadcrumbs({ brand, config, items }: BreadcrumbsProps) 
           <li key={index} className="flex items-center">
             {index > 0 && <span className="mx-2 text-gray-300">/</span>}
             {item.href && index < allItems.length - 1 ? (
-              isLocal ? (
-                <Link
-                  href={item.href}
-                  className="hover:text-indigo-600 transition-colors"
-                  prefetch={false}
-                >
-                  {item.label}
-                </Link>
+              mounted ? (
+                isLocal ? (
+                  <Link
+                    href={item.href}
+                    className="hover:text-indigo-600 transition-colors"
+                    prefetch={false}
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    href={item.href.startsWith('http') ? item.href : `https://${config.domain}${item.href}`}
+                    className="hover:text-indigo-600 transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                )
               ) : (
                 <a
                   href={item.href.startsWith('http') ? item.href : `https://${config.domain}${item.href}`}
