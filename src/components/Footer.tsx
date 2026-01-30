@@ -3,7 +3,6 @@
 import Link from "next/link";
 import type { SiteConfig } from "@/lib/types";
 import { getBrandPath } from "@/lib/utils";
-import { useState, useEffect } from "react";
 
 type FooterProps = {
   brand: string;
@@ -11,11 +10,7 @@ type FooterProps = {
 };
 
 export default function Footer({ brand, config }: FooterProps) {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-
-  const isLocal = mounted && typeof window !== "undefined" && window.location.hostname.includes("localhost");
-  const aboutUrl = isLocal ? getBrandPath(brand, "/about") : `https://${config.domain}/about`;
+  const aboutUrl = getBrandPath(brand, "/about");
 
   return (
     <footer className="bg-white border-t border-gray-100 pt-4 pb-24 text-left">
@@ -25,13 +20,11 @@ export default function Footer({ brand, config }: FooterProps) {
           <span className="text-xl font-black tracking-tight text-gray-900">Bestie</span>
         </div>
         <p className="text-[10px] text-gray-400 leading-relaxed">
-          {mounted && isLocal ? (
-            <Link href={aboutUrl} className="hover:text-gray-600 underline underline-offset-2 decoration-gray-200 mr-4">当サイトについて（免責事項）</Link>
-          ) : (
-            <a href={aboutUrl} className="hover:text-gray-600 underline underline-offset-2 decoration-gray-200 mr-4">当サイトについて（免責事項）</a>
-          )}
+          <Link href={aboutUrl} className="hover:text-gray-600 underline underline-offset-2 decoration-gray-200 mr-4">
+            当サイトについて（免責事項）
+          </Link>
           このサイトはアフィリエイト広告（Amazonアソシエイト含む）を掲載しています。<br />
-          &copy; {new Date().getFullYear()} Bestie - BEST ITEM SELECTION.
+          &copy; <span suppressHydrationWarning>{new Date().getFullYear()}</span> Bestie - BEST ITEM SELECTION.
         </p>
       </div>
     </footer>

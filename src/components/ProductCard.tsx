@@ -3,7 +3,7 @@
 import FavoriteButton from "./FavoriteButton";
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Product, SiteConfig } from "@/lib/types";
 import { getBrandPath } from "@/lib/utils";
 import { usePathname } from "next/navigation";
@@ -11,11 +11,6 @@ import { usePathname } from "next/navigation";
 export default function ProductCard({ product, config }: { product: Product, config: SiteConfig }) {
   const [imgSrc, setImgSrc] = useState(product.image || "/placeholder.svg");
   const pathname = usePathname() || "";
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   // 現在のブランドパスを特定
   const pathSegments = pathname.split('/');
@@ -43,11 +38,8 @@ export default function ProductCard({ product, config }: { product: Product, con
   if (product.catchphrase) searchParams.set("catchphrase", product.catchphrase);
   if (product.rank) searchParams.set("rank", product.rank.toString());
 
-  // 🛡️ 本番環境のサブドメイン運用時は、絶対URLを生成
-  // ハイドレーションエラー防止のため、サーバー側と同じ絶対URLをデフォルトにし、マウント後に切り替える
-  const detailUrl = (mounted && typeof window !== "undefined" && window.location.hostname.includes("localhost"))
-    ? `${getBrandPath(brandFromPath, `/product/${product.id}`)}?${searchParams.toString()}`
-    : `https://${config.domain}/product/${product.id}?${searchParams.toString()}`;
+  // 🛡️ ハイドレーションエラー防止のため getBrandPath 側で process.env.NODE_ENV を見て判定するようにした
+  const detailUrl = `${getBrandPath(brandFromPath, `/product/${product.id}`)}?${searchParams.toString()}`;
 
   const saveToHistory = () => {
     try {
@@ -76,7 +68,7 @@ export default function ProductCard({ product, config }: { product: Product, con
   };
 
   const getLabelStyle = (label: string) => {
-    if (label.includes("No.1") || label.includes("トップ")) return "bg-gradient-to-r from-amber-400 to-orange-500 text-white shadow-amber-200";
+    if (label.includes("No.1") || label.includes("Ｎｏ．１") || label.includes("トップ")) return "bg-gradient-to-r from-amber-400 to-orange-500 text-white shadow-amber-200";
     if (label.includes("最安値")) return "bg-gradient-to-r from-emerald-400 to-teal-500 text-white shadow-emerald-200";
     if (label.includes("口コミ")) return "bg-gradient-to-r from-blue-400 to-indigo-500 text-white shadow-blue-200";
     if (label.includes("満足度")) return "bg-gradient-to-r from-rose-400 to-pink-500 text-white shadow-rose-200";
@@ -109,30 +101,28 @@ export default function ProductCard({ product, config }: { product: Product, con
         </div>
         
         {product.comparisonLabel && (
-          <div className={`${getLabelStyle(product.comparisonLabel)} text-[11px] font-black px-3.5 py-1.5 rounded-r-full rounded-tl-none shadow-lg border-l-4 border-white/30 flex items-center gap-2 animate-in slide-in-from-left-2 duration-500 -ml-3`}>
+          <div className={`${getLabelStyle(product.comparisonLabel)} text-[11px] font-black px-3.5 py-1.5 rounded-r-full rounded-tl-none shadow-lg border-l-4 border-white/30 flex items-center gap-2 animate-in slide-in-from-left-2 duration-500 ml-0.5 sm:-ml-5`}>
              <span className="text-sm">✨</span>
              <span className="tracking-tight">{product.comparisonLabel}</span>
           </div>
         )}
       </div>
 
-      <div className="absolute top-1 right-1 z-20 scale-90 sm:-top-3 sm:-right-3 sm:scale-100 group-hover:scale-105 transition-transform duration-300">
+      <div className="absolute -top-3 -right-3 z-20 scale-90 group-hover:scale-105 transition-transform duration-300">
         <FavoriteButton product={{ ...product, id: product.id }} />
       </div>
 
       {/* 商品画像 */}
-      <div className="w-1/3 bg-white flex-shrink-0 flex items-center justify-center relative p-3 border-r border-gray-50 overflow-hidden">
-        <div className="relative w-full h-full aspect-square">
-          <Image 
-            src={imgSrc} 
-            alt={product.title}
-            fill
-            sizes="(max-width: 768px) 33vw, 20vw"
-            className="object-contain p-1 transition-transform duration-500 group-hover:scale-105"
-            onError={() => setImgSrc("/placeholder.svg")}
-            priority={product.rank ? product.rank <= 6 : false}
-          />
-        </div>
+      <div className={`w-1/3 bg-white flex-shrink-0 flex items-center justify-center relative p-3 border-r border-gray-50`}>
+        <Image 
+          src={imgSrc} 
+          alt={product.title}
+          fill
+          sizes="(max-width: 768px) 33vw, 20vw"
+          className="object-contain p-2 transition-transform duration-500 group-hover:scale-105"
+          onError={() => setImgSrc("/placeholder.svg")}
+          priority={product.rank ? product.rank <= 6 : false}
+        />
       </div>
       
       {/* 商品情報 */}
@@ -144,15 +134,9 @@ export default function ProductCard({ product, config }: { product: Product, con
             </div>
           </div>
           <h3 className="font-bold text-sm leading-snug mb-1 line-clamp-2 group-hover:text-indigo-600 transition-colors">
-            {mounted ? (
-              <Link href={detailUrl} onClick={saveToHistory} className="hover:opacity-70 transition" style={{ color: 'var(--brand-primary)' }} prefetch={false}>
-                {product.title}
-              </Link>
-            ) : (
-              <a href={detailUrl} className="hover:opacity-70 transition" style={{ color: 'var(--brand-primary)' }}>
-                {product.title}
-              </a>
-            )}
+            <Link href={detailUrl} onClick={saveToHistory} className="hover:opacity-70 transition" style={{ color: 'var(--brand-primary)' }} prefetch={false}>
+              {product.title}
+            </Link>
           </h3>
           
           <div className="flex items-center gap-2 mb-1.5">

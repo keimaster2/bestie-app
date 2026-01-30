@@ -118,7 +118,7 @@ export function assignComparisonLabels(products: Product[]): Product[] {
     const isImmortalReviews = p.reviewCount === maxReviews && p.reviewCount >= 100;
     
     if (isImmortalNo1) {
-      label = "不動の支持率No.1";
+      label = "不動の支持率Ｎｏ．１";
     } else if (p.price === minPrice && p.price > 0 && candidates.length > 1) {
       label = "この圏内での最安値";
     } else if (isImmortalReviews) {

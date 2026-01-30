@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { getBrandPath } from "@/lib/utils";
 import type { SiteConfig } from "@/lib/types";
-import { useState, useEffect } from "react";
 
 type BreadcrumbItem = {
   label: string;
@@ -17,13 +16,8 @@ type BreadcrumbsProps = {
 };
 
 export default function Breadcrumbs({ brand, config, items }: BreadcrumbsProps) {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-
-  const isLocal = mounted && typeof window !== "undefined" && window.location.hostname.includes("localhost");
-
-  // 🛡️ 本番環境のサブドメイン運用時は絶対URLを考慮
-  const rootHref = isLocal ? getBrandPath(brand, "/") : `https://${config.domain}`;
+  // 🛡️ ハイドレーションエラー防止のため utils.ts 側で process.env.NODE_ENV を見て判定するようにした
+  const rootHref = getBrandPath(brand, "/");
 
   // アイテムが空の場合は何も表示しない
   if (!items || items.length === 0) {
@@ -65,31 +59,13 @@ export default function Breadcrumbs({ brand, config, items }: BreadcrumbsProps) 
           <li key={index} className="flex items-center">
             {index > 0 && <span className="mx-2 text-gray-300">/</span>}
             {item.href && index < allItems.length - 1 ? (
-              mounted ? (
-                isLocal ? (
-                  <Link
-                    href={item.href}
-                    className="hover:text-indigo-600 transition-colors"
-                    prefetch={false}
-                  >
-                    {item.label}
-                  </Link>
-                ) : (
-                  <a
-                    href={item.href.startsWith('http') ? item.href : `https://${config.domain}${item.href}`}
-                    className="hover:text-indigo-600 transition-colors"
-                  >
-                    {item.label}
-                  </a>
-                )
-              ) : (
-                <a
-                  href={item.href.startsWith('http') ? item.href : `https://${config.domain}${item.href}`}
-                  className="hover:text-indigo-600 transition-colors"
-                >
-                  {item.label}
-                </a>
-              )
+              <Link
+                href={item.href}
+                className="hover:text-indigo-600 transition-colors"
+                prefetch={false}
+              >
+                {item.label}
+              </Link>
             ) : (
               <span className="font-medium text-gray-600 truncate max-w-[150px] sm:max-w-xs">
                 {item.label}

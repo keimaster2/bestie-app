@@ -1,19 +1,19 @@
-export function getBrandPath(brand: string, path: string = ""): string {
-  // 🛡️ 環境判定（ブラウザ側での実行を想定）
-  const isLocal = typeof window !== "undefined" && window.location.hostname.includes("localhost");
+export function getBrandPath(brand: string | undefined | null, path: string = ""): string {
+  // 🛡️ 環境判定
+  const isDev = process.env.NODE_ENV === "development";
 
-  // 本家(bestie)の場合は常に接頭辞なし
-  // サブドメイン運用時（本番）も、そのドメイン内での遷移なら接頭辞なしにする
-  const prefix = (!isLocal || brand === "bestie" || brand === "default") ? "" : `/${brand}`;
+  // brand が falsy（空文字など）または "bestie", "default" の場合は接頭辞なし
+  const hasPrefix = isDev && brand && brand !== "bestie" && brand !== "default";
+  const prefix = hasPrefix ? `/${brand}` : "";
   
-  // path が / で始まる場合はそのまま結合、そうでなければ / を挟む
   const cleanPath = path.startsWith("/") ? path : `/${path}`;
   
-  // ルートへの遷移で path が空または / の場合
+  // ルートへの遷移処理
   if (path === "/" || path === "") {
     return prefix || "/";
   }
   
-  // 連結して返す
+  // prefix が空なら "/about", prefix があれば "/beauty/about" となる
+  // これにより "//about" (外部ドメイン扱い) になるのを防ぐ
   return `${prefix}${cleanPath}`;
 }

@@ -6,12 +6,17 @@ import { headers } from "next/headers";
 
 export const runtime = 'edge';
 
-export default async function AboutPage(props: {
+type AboutProps = {
   params: Promise<{ brand: string }>;
-}) {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+};
+
+export default async function Page({ params, searchParams }: AboutProps) {
   const host = (await headers()).get("host") || "";
-  const params = await props.params;
-  const config = getSiteConfig(params.brand || host);
+  const resolvedParams = await params;
+  const brand = resolvedParams.brand || "";
+  
+  const config = getSiteConfig(brand || host);
 
   return (
     <div className="min-h-screen pb-20 font-sans transition-colors duration-500 text-gray-800"
@@ -48,7 +53,6 @@ export default async function AboutPage(props: {
               <h2 className="text-xl font-bold text-gray-900 border-l-4 pl-4 mb-4" style={{ borderColor: config.themeColor.accent }}>情報の透明性について</h2>
               <p className="leading-relaxed text-sm">
                 当メディアでは、ユーザーの皆様に信頼いただけるよう、公平なデータに基づいたランキング作成を徹底しています。
-                各ショップからの直接的な金銭受領による順位操作は一切行わず、客観的な売上データと評価を基準としています。
               </p>
             </div>
 
