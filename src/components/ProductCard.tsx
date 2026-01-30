@@ -90,8 +90,8 @@ export default function ProductCard({ product, config }: { product: Product, con
           )}
       </div>
 
-      {/* お気に入りボタン：右上に配置 */}
-      <div className="absolute top-2 right-2 z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 sm:opacity-100">
+      {/* お気に入りボタン：右上に被るように配置 */}
+      <div className="absolute -top-3 -right-3 z-30 transform group-hover:scale-110 transition-transform duration-300">
         <FavoriteButton product={{ ...product, id: product.id }} />
       </div>
 
