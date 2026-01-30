@@ -74,7 +74,7 @@ export default function ProductCard({ product, config }: { product: Product, con
   return (
     <div className={`bg-white shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 flex relative min-h-[190px] sm:h-[280px] group ${config.theme.borderRadius} ${config.theme.cardShadow}`}>
       {/* ランクバッジ */}
-      <div className="absolute -top-3 -left-3 z-30">
+      <div className="absolute -top-3 -left-3 z-20">
           {(product.rank !== undefined && product.rank !== null && product.rank > 0) ? (
             <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full font-black text-lg sm:text-2xl text-white shadow-xl border-2 border-white transform group-hover:scale-110 transition-transform duration-300"
               style={{ backgroundColor: product.rank <= 3 ? 'var(--brand-accent)' : 'var(--brand-primary)' }}
@@ -88,6 +88,11 @@ export default function ProductCard({ product, config }: { product: Product, con
               {product.mall === "Yahoo" ? "Y!" : "R"}
             </div>
           )}
+      </div>
+
+      {/* お気に入りボタン：右上に配置 */}
+      <div className="absolute top-2 right-2 z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 sm:opacity-100">
+        <FavoriteButton product={{ ...product, id: product.id }} />
       </div>
 
       {/* 商品画像エリア */}
@@ -107,13 +112,10 @@ export default function ProductCard({ product, config }: { product: Product, con
       <div className="p-3 sm:p-5 flex-grow flex flex-col justify-between overflow-hidden">
         <div className="flex-grow overflow-hidden text-left relative">
           
-          {/* 上部：ショップ名とお気に入りボタン */}
-          <div className="flex items-start justify-between gap-2 mb-1.5">
+          {/* 上部：ショップ名 */}
+          <div className="mb-1.5 pr-8">
             <div className="text-[10px] sm:text-xs font-bold text-gray-500 truncate flex-grow">
                {product.shopName}
-            </div>
-            <div className="flex-shrink-0 -mt-1">
-              <FavoriteButton product={{ ...product, id: product.id }} />
             </div>
           </div>
 
@@ -144,9 +146,11 @@ export default function ProductCard({ product, config }: { product: Product, con
               {(product.reviewCount || 0).toLocaleString()} 件
             </span>
           </div>
+        </div>
 
-          {/* 価格：さらに力強く */}
-          <div className="flex items-baseline gap-1 mb-2">
+        {/* 価格：右寄せでアフィリエイトボタンの上に配置 */}
+        <div className="flex flex-col items-end mb-2 pr-1">
+          <div className="flex items-baseline gap-1">
             <span className="text-xl sm:text-3xl font-black text-red-600 font-mono tracking-tighter">
               ¥{(product.price || 0).toLocaleString()}
             </span>
