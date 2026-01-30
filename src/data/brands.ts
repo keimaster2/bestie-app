@@ -51,17 +51,17 @@ export const ALL_BRANDS: Record<string, SiteConfig> = {
     },
     rakutenCategories: [
       { id: "all", name: "総合ランキング", mallId: "0" },
-      { id: "gadget", name: "家電・PC", mallId: "562637" },
-      { id: "beauty", name: "美容・健康", mallId: "100939" },
-      { id: "food", name: "食品・スイーツ", mallId: "100227" },
-      { id: "interior", name: "インテリア", mallId: "100804" },
+      { id: "gadget", name: "家電", mallId: "562637" },
+      { id: "beauty", name: "美容・コスメ・香水", mallId: "100939" },
+      { id: "food", name: "食品", mallId: "100227" },
+      { id: "interior", name: "インテリア・寝具・収納", mallId: "100804" },
     ],
     yahooCategories: [
       { id: "all", name: "総合ランキング", mallId: "1" },
-      { id: "gadget", name: "家電・スマホ", mallId: "2502" },
-      { id: "beauty", name: "コスメ・健康", mallId: "2501" },
-      { id: "food", name: "食品・ドリンク", mallId: "2498" },
-      { id: "interior", name: "家具・インテリア", mallId: "2506" },
+      { id: "gadget", name: "家電", mallId: "2505" },
+      { id: "beauty", name: "コスメ、美容、ヘアケア", mallId: "2501" },
+      { id: "food", name: "食品", mallId: "2498" },
+      { id: "interior", name: "家具、インテリア用品", mallId: "2506" },
     ],
   }),
 
@@ -77,13 +77,13 @@ export const ALL_BRANDS: Record<string, SiteConfig> = {
     },
     theme: { background: "#f0f9ff" },
     rakutenCategories: [
-      { id: "all", name: "家電・PC総合", mallId: "562637" },
-      { id: "smartphone", name: "スマホ・タブレット", mallId: "564500" },
-      { id: "pc", name: "パソコン周辺機器", mallId: "100026" },
+      { id: "all", name: "家電総合", mallId: "562637" },
+      { id: "smartphone", name: "スマートフォン・タブレット", mallId: "564500" },
+      { id: "pc", name: "パソコン・周辺機器", mallId: "100026" },
     ],
     yahooCategories: [
-      { id: "all", name: "家電・スマホ総合", mallId: "2502" },
-      { id: "smartphone", name: "スマホ・タブレット", mallId: "38338" },
+      { id: "all", name: "家電総合", mallId: "2505" },
+      { id: "smartphone", name: "スマホ本体", mallId: "38338" },
       { id: "pc", name: "パソコン周辺機器", mallId: "2519" },
     ],
   }),
@@ -100,9 +100,9 @@ export const ALL_BRANDS: Record<string, SiteConfig> = {
     },
     theme: { background: "#fdf2f8" },
     rakutenCategories: [
-      { id: "all", name: "美容・健康総合", mallId: "100939" },
-      { id: "skincare", name: "スキンケア", mallId: "100947" },
-      { id: "haircare", name: "ヘアケア", mallId: "100944" },
+      { id: "all", name: "美容・コスメ・香水総合", mallId: "100939" },
+      { id: "skincare", name: "スキンケア", mallId: "100944" },
+      { id: "haircare", name: "ヘアケア・スタイリング", mallId: "100940" },
     ],
     yahooCategories: [
       { id: "all", name: "コスメ・美容総合", mallId: "2501" },
@@ -123,16 +123,16 @@ export const ALL_BRANDS: Record<string, SiteConfig> = {
     },
     theme: { background: "#fffaf8" },
     rakutenCategories: [
-      { id: "all", name: "食品・スイーツ総合", mallId: "100227" },
+      { id: "all", name: "食品総合", mallId: "100227" },
       { id: "sweets", name: "スイーツ・お菓子", mallId: "551167" },
       { id: "drink", name: "水・ソフトドリンク", mallId: "100316" },
       { id: "alcohol", name: "ビール・洋酒", mallId: "510915" },
     ],
     yahooCategories: [
-      { id: "all", name: "食品・ドリンク総合", mallId: "2498" },
-      { id: "sweets", name: "スイーツ、お菓子", mallId: "4744" },
-      { id: "drink", name: "水、炭酸水、ソフトドリンク", mallId: "1426" },
-      { id: "alcohol", name: "お酒、ドリンク", mallId: "15152" },
+      { id: "all", name: "食品総合", mallId: "2498" },
+      { id: "sweets", name: "スイーツ、洋菓子", mallId: "4744" },
+      { id: "drink", name: "ソフトドリンク、ジュース", mallId: "1426" },
+      { id: "alcohol", name: "ビール、発泡酒", mallId: "15152" },
     ],
   }),
 
@@ -171,16 +171,16 @@ export const ALL_BRANDS: Record<string, SiteConfig> = {
     },
     theme: { background: "#f5f3ff" },
     rakutenCategories: [
-      { id: "all", name: "ゲーム総合", mallId: "101205" },
+      { id: "all", name: "テレビゲーム総合", mallId: "101205" },
       { id: "switch", name: "Nintendo Switch", mallId: "565950" },
-      { id: "ps5", name: "PlayStation 5", mallId: "566382" },
-      { id: "retro", name: "レトロゲーム", mallId: "101240" },
+      { id: "ps5", name: "プレイステーション5", mallId: "568375" },
+      { id: "retro", name: "レトロゲーム", mallId: "101205", keyword: "レトロゲーム" },
     ],
     yahooCategories: [
       { id: "all", name: "ゲーム総合", mallId: "2511" },
       { id: "switch", name: "Nintendo Switch", mallId: "47330" },
       { id: "ps5", name: "PlayStation 5", mallId: "49340" },
-      { id: "retro", name: "レトロゲーム", mallId: "2566" },
+      { id: "retro", name: "旧機種", mallId: "2566" },
     ],
   }),
 
@@ -203,7 +203,7 @@ export const ALL_BRANDS: Record<string, SiteConfig> = {
     yahooCategories: [
       { id: "ladies", name: "レディースファッション", mallId: "2494" },
       { id: "mens", name: "メンズファッション", mallId: "2495" },
-      { id: "bags", name: "バッグ・小物・ブランド雑貨", mallId: "2496" },
+      { id: "bags", name: "バッグ、小物、ブランド雑貨", mallId: "2496" },
     ],
   }),
 
@@ -224,9 +224,9 @@ export const ALL_BRANDS: Record<string, SiteConfig> = {
       { id: "kitchen", name: "キッチン用品・食器・調理器具", mallId: "558944" },
     ],
     yahooCategories: [
-      { id: "furniture", name: "インテリア・寝具・収納", mallId: "2506" },
-      { id: "bedding", name: "寝具", mallId: "3669" },
-      { id: "kitchen", name: "キッチン、日用品、文具", mallId: "2499" },
+      { id: "furniture", name: "家具、インテリア用品", mallId: "2506" },
+      { id: "bedding", name: "布団、寝具", mallId: "3669" },
+      { id: "kitchen", name: "キッチン用品、食器、お弁当用品", mallId: "2500" },
     ],
   }),
 
@@ -245,13 +245,13 @@ export const ALL_BRANDS: Record<string, SiteConfig> = {
       { id: "dog", name: "犬用品", mallId: "507513" },
       { id: "cat", name: "猫用品", mallId: "507524" },
       { id: "small", name: "小動物用品", mallId: "565699" },
-      { id: "timothy", name: "牧草", mallId: "565703" },
+      { id: "timothy", name: "牧草", mallId: "565703", keyword: "牧草" },
     ],
     yahooCategories: [
       { id: "dog", name: "犬用品", mallId: "4772" },
       { id: "cat", name: "猫用品", mallId: "4820" },
       { id: "small", name: "小動物用品", mallId: "32958" },
-      { id: "timothy", name: "牧草", mallId: "48396", keyword: "牧草" },
+      { id: "timothy", name: "小動物用フード、おやつ", mallId: "48396", keyword: "牧草" },
     ],
   }),
 
