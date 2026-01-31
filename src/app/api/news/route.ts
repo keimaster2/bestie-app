@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { fetchRSSNews } from '@/lib/rss-parser';
 
+export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 /**

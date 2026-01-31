@@ -18,6 +18,8 @@ import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Footer from '@/components/Footer';
 
+export const runtime = 'edge';
+
 const SUB_BRANDS = [
     { id: "gourmet", label: "グルメ", logo: "🍱" },
     { id: "gadget", label: "ガジェット", logo: "📷" },

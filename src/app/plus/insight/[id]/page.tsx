@@ -6,6 +6,8 @@ import { useParams, notFound } from "next/navigation";
 import { useEffect, useState } from "react";
 import { LionBrain } from "@/lib/lion-brain";
 
+export const runtime = 'edge';
+
 export default function InsightDetailPage() {
     const params = useParams();
     const id = params?.id as string;
