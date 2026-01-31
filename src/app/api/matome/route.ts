@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { fetchMatomeArticles } from '@/lib/matome-rss';
 
+export const runtime = 'edge';
 export const dynamic = 'force-dynamic';
 
 // Server-side cache (5 minutes)
