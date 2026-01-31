@@ -2317,6 +2317,214 @@
   },
   {
     "index": 23,
+    "name": "PS5／Ghost of Yotei （CERO「Z」18歳以上対象）",
+    "description": "■カテゴリ：中古ゲームソフト<br>■機種：プレイステーション5<br>■ジャンル：アドベンチャー<br>■メーカー：ソニー・インタラクティブエンタテインメント<br>■品番：ECJS00050<br>■発売日：2025/10/02<br>■カナ：ゴーストオブヨウテイ",
+    "headLine": "爆買",
+    "url": "https://store.shopping.yahoo.co.jp/netoff/0014126321.html",
+    "inStock": true,
+    "code": "netoff_0014126321",
+    "condition": "used",
+    "imageId": "netoff_0014126321",
+    "image": {
+      "small": "https://item-shopping.c.yimg.jp/i/c/netoff_0014126321",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/netoff_0014126321"
+    },
+    "review": {
+      "count": 0,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=netoff&page_key=0014126321",
+      "rate": 0
+    },
+    "affiliateRate": 1,
+    "price": 6718,
+    "premiumPrice": 6718,
+    "premiumPriceStatus": false,
+    "premiumDiscountRate": null,
+    "premiumDiscountType": null,
+    "priceLabel": {
+      "taxable": true,
+      "defaultPrice": 6718,
+      "discountedPrice": null,
+      "fixedPrice": null,
+      "premiumPrice": null,
+      "periodStart": null,
+      "periodEnd": null
+    },
+    "point": {
+      "amount": 0,
+      "times": 0,
+      "bonusAmount": 0,
+      "bonusTimes": 0,
+      "lyLimitedBonusAmount": 61,
+      "lyLimitedBonusTimes": 1,
+      "premiumAmount": 0,
+      "premiumTimes": 0,
+      "premiumBonusAmount": 0,
+      "premiumBonusTimes": 0,
+      "lyLimitedPremiumBonusAmount": 61,
+      "lyLimitedPremiumBonusTimes": 1
+    },
+    "shipping": {
+      "code": 2,
+      "name": "送料無料"
+    },
+    "genreCategory": {
+      "id": 50798,
+      "name": "PS5用ソフト（パッケージ版）",
+      "depth": 4
+    },
+    "parentGenreCategories": [
+      {
+        "id": 2511,
+        "depth": 1,
+        "name": "ゲーム、おもちゃ"
+      },
+      {
+        "id": 2161,
+        "depth": 2,
+        "name": "テレビゲーム"
+      },
+      {
+        "id": 50796,
+        "depth": 3,
+        "name": "プレイステーション5（PS5）"
+      }
+    ],
+    "brand": {
+      "id": 1091,
+      "name": "SONY"
+    },
+    "parentBrands": [
+      {
+        "id": 1,
+        "name": "ブランド"
+      }
+    ],
+    "janCode": "4948872017305",
+    "payment": "4 4096 16384 1 16",
+    "releaseDate": null,
+    "seller": {
+      "sellerId": "netoff",
+      "name": "ネットオフ ヤフー店",
+      "url": "https://store.shopping.yahoo.co.jp/netoff/",
+      "isBestSeller": true,
+      "review": {
+        "rate": 4.66,
+        "count": 49722
+      },
+      "imageId": "netoff_1"
+    },
+    "delivery": {
+      "deadLine": null,
+      "day": null,
+      "area": ""
+    }
+  },
+  {
+    "index": 24,
+    "name": "イザナギゲームズ (PS5)ダークオークション 返品種別B",
+    "description": "在庫状況：在庫僅少/2026年01月 発売/※外付特典：ランダムトレーディングカード(全9種)は終了しました/今始まる、記憶の闇のオークション命を懸けた落札の先にある真実とは――",
+    "headLine": "",
+    "url": "https://store.shopping.yahoo.co.jp/joshin/4573553535023-54-71490.html",
+    "inStock": true,
+    "code": "joshin_4573553535023-54-71490",
+    "condition": "new",
+    "imageId": "joshin_4573553535023-54-71490",
+    "image": {
+      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4573553535023-54-71490",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4573553535023-54-71490"
+    },
+    "review": {
+      "count": 0,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4573553535023-54-71490",
+      "rate": 0
+    },
+    "affiliateRate": 1,
+    "price": 5100,
+    "premiumPrice": 5100,
+    "premiumPriceStatus": false,
+    "premiumDiscountRate": null,
+    "premiumDiscountType": null,
+    "priceLabel": {
+      "taxable": true,
+      "defaultPrice": 5100,
+      "discountedPrice": null,
+      "fixedPrice": null,
+      "premiumPrice": null,
+      "periodStart": null,
+      "periodEnd": null
+    },
+    "point": {
+      "amount": 0,
+      "times": 0,
+      "bonusAmount": 0,
+      "bonusTimes": 0,
+      "lyLimitedBonusAmount": 46,
+      "lyLimitedBonusTimes": 1,
+      "premiumAmount": 0,
+      "premiumTimes": 0,
+      "premiumBonusAmount": 0,
+      "premiumBonusTimes": 0,
+      "lyLimitedPremiumBonusAmount": 46,
+      "lyLimitedPremiumBonusTimes": 1
+    },
+    "shipping": {
+      "code": 2,
+      "name": "送料無料"
+    },
+    "genreCategory": {
+      "id": 50798,
+      "name": "PS5用ソフト（パッケージ版）",
+      "depth": 4
+    },
+    "parentGenreCategories": [
+      {
+        "id": 2511,
+        "depth": 1,
+        "name": "ゲーム、おもちゃ"
+      },
+      {
+        "id": 2161,
+        "depth": 2,
+        "name": "テレビゲーム"
+      },
+      {
+        "id": 50796,
+        "depth": 3,
+        "name": "プレイステーション5（PS5）"
+      }
+    ],
+    "brand": {
+      "id": 92242,
+      "name": "IzanagiGames"
+    },
+    "parentBrands": [
+      {
+        "id": 1,
+        "name": "ブランド"
+      }
+    ],
+    "janCode": "4573553535023",
+    "payment": "16 16384 1 4096",
+    "releaseDate": null,
+    "seller": {
+      "sellerId": "joshin",
+      "name": "Joshin web",
+      "url": "https://store.shopping.yahoo.co.jp/joshin/",
+      "isBestSeller": false,
+      "review": {
+        "rate": 4.52,
+        "count": 409305
+      },
+      "imageId": "joshin_1"
+    },
+    "delivery": {
+      "deadLine": null,
+      "day": null,
+      "area": ""
+    }
+  },
+  {
+    "index": 25,
     "name": "[メール便OK]【新品】【PS5】FARMAGIA（ファーマギア）［PS5版］[在庫品]",
     "description": "[1営業日※在庫品]【74％OFF】＜【PS5】FARMAGIA（ファーマギア）［PS5版］＞＜プレイステーション5(PS5)＞＜マーベラス＞【メール便】OK＜好評発売中＞",
     "headLine": "[1営業日※在庫品]【74％OFF】",
@@ -2420,7 +2628,7 @@
     }
   },
   {
-    "index": 24,
+    "index": 26,
     "name": "[PS5ソフト] 真三國無双 オリジンズ 通常版 [ELJM-30583] *早期購入特典付",
     "description": "[PS5ソフト] 真三國無双 オリジンズ 通常版 [ELJM-30583] *早期購入特典付<br><br>※ご注文手続き後、当店より発送予定日または取寄商品の在庫有無・納期を記載したご注文確認メールをお送りいたしますので必ずご確認をお願い致します。<br>《在庫あり》",
     "headLine": "",
@@ -2524,7 +2732,7 @@
     }
   },
   {
-    "index": 25,
+    "index": 27,
     "name": "コーエーテクモゲームス (PS5)信長の野望・新生 with パワーアップキット Complete Edition 返品種別B",
     "description": "在庫状況：在庫あり/2025年06月 発売/『信長の野望・新生 with パワーアップキット』のコンプリート版が登場！",
     "headLine": "",
@@ -2628,7 +2836,7 @@
     }
   },
   {
-    "index": 26,
+    "index": 28,
     "name": "PS5／DEATH STRANDING2：ON THE BEACH",
     "description": "■カテゴリ：中古ゲームソフト<br>■機種：プレイステーション5<br>■ジャンル：アクション<br>■メーカー：ソニー・インタラクティブエンタテインメント<br>■品番：ECJS00048<br>■発売日：2025/06/26<br>■カナ：デスストランディング２オンザビーチ",
     "headLine": "爆買",
@@ -2725,7 +2933,7 @@
       "isBestSeller": true,
       "review": {
         "rate": 4.66,
-        "count": 49717
+        "count": 49722
       },
       "imageId": "netoff_1"
     },
@@ -2736,111 +2944,7 @@
     }
   },
   {
-    "index": 27,
-    "name": "Ghost of Yotei 通常版 PS5 ゲームソフト[ラッピング不可] R-LOGI",
-    "description": "★必ずご購入前にご確認ください。<br>製品の故障・初期不良等がございましても当店では受付いたしかねます。<br>メーカーサポートへ直接お問い合わせをお願いいたします。",
-    "headLine": "",
-    "url": "https://store.shopping.yahoo.co.jp/sokuteikiya/4948872017305.html",
-    "inStock": true,
-    "code": "sokuteikiya_4948872017305",
-    "condition": "new",
-    "imageId": "sokuteikiya_4948872017305",
-    "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/sokuteikiya_4948872017305",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/sokuteikiya_4948872017305"
-    },
-    "review": {
-      "count": 0,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=sokuteikiya&page_key=4948872017305",
-      "rate": 0
-    },
-    "affiliateRate": 1,
-    "price": 7732,
-    "premiumPrice": 7732,
-    "premiumPriceStatus": false,
-    "premiumDiscountRate": null,
-    "premiumDiscountType": null,
-    "priceLabel": {
-      "taxable": true,
-      "defaultPrice": 7732,
-      "discountedPrice": null,
-      "fixedPrice": null,
-      "premiumPrice": null,
-      "periodStart": null,
-      "periodEnd": null
-    },
-    "point": {
-      "amount": 0,
-      "times": 0,
-      "bonusAmount": 0,
-      "bonusTimes": 0,
-      "lyLimitedBonusAmount": 70,
-      "lyLimitedBonusTimes": 1,
-      "premiumAmount": 0,
-      "premiumTimes": 0,
-      "premiumBonusAmount": 0,
-      "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 70,
-      "lyLimitedPremiumBonusTimes": 1
-    },
-    "shipping": {
-      "code": 2,
-      "name": "送料無料"
-    },
-    "genreCategory": {
-      "id": 50798,
-      "name": "PS5用ソフト（パッケージ版）",
-      "depth": 4
-    },
-    "parentGenreCategories": [
-      {
-        "id": 2511,
-        "depth": 1,
-        "name": "ゲーム、おもちゃ"
-      },
-      {
-        "id": 2161,
-        "depth": 2,
-        "name": "テレビゲーム"
-      },
-      {
-        "id": 50796,
-        "depth": 3,
-        "name": "プレイステーション5（PS5）"
-      }
-    ],
-    "brand": {
-      "id": 1091,
-      "name": "SONY"
-    },
-    "parentBrands": [
-      {
-        "id": 1,
-        "name": "ブランド"
-      }
-    ],
-    "janCode": "4948872017305",
-    "payment": "16384 2 16 4096 1 64",
-    "releaseDate": null,
-    "seller": {
-      "sellerId": "sokuteikiya",
-      "name": "測定の森Yahoo!ショッピング店",
-      "url": "https://store.shopping.yahoo.co.jp/sokuteikiya/",
-      "isBestSeller": false,
-      "review": {
-        "rate": 4.53,
-        "count": 2866
-      },
-      "imageId": "sokuteikiya_1"
-    },
-    "delivery": {
-      "deadLine": null,
-      "day": null,
-      "area": ""
-    }
-  },
-  {
-    "index": 28,
+    "index": 29,
     "name": "スクウェア・エニックス (PS5)ドラゴンクエストI＆II 返品種別B",
     "description": "在庫状況：在庫あり/2025年10月 発売/※画面は開発中のものです。継がれゆく、ロトの意志。",
     "headLine": "",
@@ -2948,7 +3052,7 @@
     }
   },
   {
-    "index": 29,
+    "index": 30,
     "name": "スクウェア・エニックス (PS5)ファイナルファンタジータクティクス - イヴァリース クロニクルズ デラックスエディション 返品種別B",
     "description": "在庫状況：在庫あり/2025年09月 発売/※封入特典：早期購入特典(インゲームアイテムDLC)は終了しました。/※画面は開発中のものです。心震える物語が、いま鮮やかに蘇る＆#8212;＆#8212;",
     "headLine": "",
@@ -3038,110 +3142,6 @@
     "janCode": "4988601011990",
     "payment": "4096 1 16 16384",
     "releaseDate": null,
-    "seller": {
-      "sellerId": "joshin",
-      "name": "Joshin web",
-      "url": "https://store.shopping.yahoo.co.jp/joshin/",
-      "isBestSeller": false,
-      "review": {
-        "rate": 4.52,
-        "count": 409305
-      },
-      "imageId": "joshin_1"
-    },
-    "delivery": {
-      "deadLine": null,
-      "day": null,
-      "area": ""
-    }
-  },
-  {
-    "index": 30,
-    "name": "コーエーテクモゲームス (PS5)Winning Post 10 2026 返品種別B",
-    "description": "予約受付中/2026年03月26日 発売予定/※一回のご注文で同じ発売日の予約商品を複数ご購入の場合、発売延期となりました予約商品のみ、一旦ご注文をお取り消しさせていただきます。その蹄跡(ていせき)を、歴史に刻め。",
-    "headLine": "",
-    "url": "https://store.shopping.yahoo.co.jp/joshin/4988615211393-54-71489.html",
-    "inStock": true,
-    "code": "joshin_4988615211393-54-71489",
-    "condition": "new",
-    "imageId": "joshin_4988615211393-54-71489",
-    "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4988615211393-54-71489",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4988615211393-54-71489"
-    },
-    "review": {
-      "count": 0,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4988615211393-54-71489",
-      "rate": 0
-    },
-    "affiliateRate": 1,
-    "price": 9270,
-    "premiumPrice": 9270,
-    "premiumPriceStatus": false,
-    "premiumDiscountRate": null,
-    "premiumDiscountType": null,
-    "priceLabel": {
-      "taxable": true,
-      "defaultPrice": 9270,
-      "discountedPrice": null,
-      "fixedPrice": null,
-      "premiumPrice": null,
-      "periodStart": null,
-      "periodEnd": null
-    },
-    "point": {
-      "amount": 0,
-      "times": 0,
-      "bonusAmount": 0,
-      "bonusTimes": 0,
-      "lyLimitedBonusAmount": 84,
-      "lyLimitedBonusTimes": 1,
-      "premiumAmount": 0,
-      "premiumTimes": 0,
-      "premiumBonusAmount": 0,
-      "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 84,
-      "lyLimitedPremiumBonusTimes": 1
-    },
-    "shipping": {
-      "code": 2,
-      "name": "送料無料"
-    },
-    "genreCategory": {
-      "id": 50798,
-      "name": "PS5用ソフト（パッケージ版）",
-      "depth": 4
-    },
-    "parentGenreCategories": [
-      {
-        "id": 2511,
-        "depth": 1,
-        "name": "ゲーム、おもちゃ"
-      },
-      {
-        "id": 2161,
-        "depth": 2,
-        "name": "テレビゲーム"
-      },
-      {
-        "id": 50796,
-        "depth": 3,
-        "name": "プレイステーション5（PS5）"
-      }
-    ],
-    "brand": {
-      "id": 16574,
-      "name": "コーエーテクモゲームス"
-    },
-    "parentBrands": [
-      {
-        "id": 1,
-        "name": "ブランド"
-      }
-    ],
-    "janCode": "4988615211393",
-    "payment": "16 4096 1 16384",
-    "releaseDate": 1774450800,
     "seller": {
       "sellerId": "joshin",
       "name": "Joshin web",

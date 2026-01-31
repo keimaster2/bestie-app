@@ -110,7 +110,7 @@
   {
     "index": 2,
     "name": "スクウェア・エニックス (Switch2)FINAL FANTASY VII REMAKE INTERGRADE 返品種別B",
-    "description": "在庫状況：在庫あり/2026年01月 発売/※初回封入特典：『マジック：ザ・ギャザリング――FINAL FANTASY』 プレイ・ブースター×1パックは終了しました/※画面は開発中のものです。本作のパッケージ版は(キーカード)での販売となります。はじめてプレイするときにソフト本編がダウンロードされます。ダウンロードにはインターネット接続環境と90GB以上 の空き容量が必要です。詳細は公式サイト(https:/www.nintendo.com/jp/games/switch2/key-card/index.html)をご確認ください。※更新データなどで追加の空き容量が必要になる場合があります。クラウドとセフィロスの闘いがNintendo Switch 2 に登場！",
+    "description": "在庫状況：お取り寄せ/2026年01月 発売/※初回封入特典：『マジック：ザ・ギャザリング――FINAL FANTASY』 プレイ・ブースター×1パックは終了しました/※画面は開発中のものです。本作のパッケージ版は(キーカード)での販売となります。はじめてプレイするときにソフト本編がダウンロードされます。ダウンロードにはインターネット接続環境と90GB以上 の空き容量が必要です。詳細は公式サイト(https:/www.nintendo.com/jp/games/switch2/key-card/index.html)をご確認ください。※更新データなどで追加の空き容量が必要になる場合があります。クラウドとセフィロスの闘いがNintendo Switch 2 に登場！",
     "headLine": "",
     "url": "https://store.shopping.yahoo.co.jp/joshin/4988601012096-54-73630.html",
     "inStock": true,
@@ -196,7 +196,7 @@
       }
     ],
     "janCode": "4988601012096",
-    "payment": "4096 16384 1 16",
+    "payment": "16 1 4096 16384",
     "releaseDate": null,
     "seller": {
       "sellerId": "joshin",
@@ -321,6 +321,110 @@
   },
   {
     "index": 4,
+    "name": "Pokemon LEGENDS Z-A Nintendo Switch 2 Edition 【Switch2】 NXS-P-ALZLB",
+    "description": "Pokemon LEGENDS Z-A Nintendo Switch 2 Edition 【Switch2】 NXS-P-ALZLB 80",
+    "headLine": "",
+    "url": "https://store.shopping.yahoo.co.jp/best-denki/2820876018.html",
+    "inStock": true,
+    "code": "best-denki_2820876018",
+    "condition": "new",
+    "imageId": "best-denki_2820876018",
+    "image": {
+      "small": "https://item-shopping.c.yimg.jp/i/c/best-denki_2820876018",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/best-denki_2820876018"
+    },
+    "review": {
+      "count": 0,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=best-denki&page_key=2820876018",
+      "rate": 0
+    },
+    "affiliateRate": 1,
+    "price": 7111,
+    "premiumPrice": 7111,
+    "premiumPriceStatus": false,
+    "premiumDiscountRate": null,
+    "premiumDiscountType": null,
+    "priceLabel": {
+      "taxable": true,
+      "defaultPrice": 7111,
+      "discountedPrice": null,
+      "fixedPrice": null,
+      "premiumPrice": null,
+      "periodStart": null,
+      "periodEnd": null
+    },
+    "point": {
+      "amount": 0,
+      "times": 0,
+      "bonusAmount": 0,
+      "bonusTimes": 0,
+      "lyLimitedBonusAmount": 64,
+      "lyLimitedBonusTimes": 1,
+      "premiumAmount": 0,
+      "premiumTimes": 0,
+      "premiumBonusAmount": 0,
+      "premiumBonusTimes": 0,
+      "lyLimitedPremiumBonusAmount": 64,
+      "lyLimitedPremiumBonusTimes": 1
+    },
+    "shipping": {
+      "code": 2,
+      "name": "送料無料"
+    },
+    "genreCategory": {
+      "id": 77077,
+      "name": "Switch 2用ソフト（パッケージ版）",
+      "depth": 4
+    },
+    "parentGenreCategories": [
+      {
+        "id": 2511,
+        "depth": 1,
+        "name": "ゲーム、おもちゃ"
+      },
+      {
+        "id": 2161,
+        "depth": 2,
+        "name": "テレビゲーム"
+      },
+      {
+        "id": 77071,
+        "depth": 3,
+        "name": "Nintendo Switch 2"
+      }
+    ],
+    "brand": {
+      "id": 32599,
+      "name": "Pokemon"
+    },
+    "parentBrands": [
+      {
+        "id": 1,
+        "name": "ブランド"
+      }
+    ],
+    "janCode": "4902370553574",
+    "payment": "1 16 4096 16384",
+    "releaseDate": null,
+    "seller": {
+      "sellerId": "best-denki",
+      "name": "ベスト電器Yahoo!店",
+      "url": "https://store.shopping.yahoo.co.jp/best-denki/",
+      "isBestSeller": false,
+      "review": {
+        "rate": 4.47,
+        "count": 10856
+      },
+      "imageId": "best-denki_1"
+    },
+    "delivery": {
+      "deadLine": null,
+      "day": null,
+      "area": ""
+    }
+  },
+  {
+    "index": 5,
     "name": "[Switch2専用]：マリオカート ワールド BEE-P-AAAAA 任天堂",
     "description": "【Switch2専用ソフト】<br>※有機ELモデルSwitch,Switch,Switch LITEでは遊ぶことができません。<br><br>大陸横断。世界をまたぐレースが開幕！<br><br>『マリオカート ワールド』の舞台は、どこまでも続くひとつながりの世界。コースを飛び出してレースを繰り広げたり、世界の端から端まで大陸横断ラリーに挑んだり、24人対戦によるハチャメチャレースが幕を開ける！<br>また、広い世界を自由気ままにドライブできる「フリーラン」では、お気に入りのスポットを見つけて記念撮影をしたり、オンラインで世界中のプレイヤーやフレンドと一緒にドライブを楽しむことも。<br>",
     "headLine": "Switch2専用ソフト",
@@ -408,7 +512,7 @@
       }
     ],
     "janCode": "4902370553260",
-    "payment": "4096 16 64 256 512 16384 1 1024",
+    "payment": "16 64 256 1024 4096 512 16384 1",
     "releaseDate": 1748962800,
     "seller": {
       "sellerId": "game-paani",
@@ -428,7 +532,7 @@
     }
   },
   {
-    "index": 5,
+    "index": 6,
     "name": "スクウェア・エニックス (Switch2)ドラゴンクエストI＆II 返品種別B",
     "description": "在庫状況：在庫あり/2025年10月 発売/※外付特典：スーパーマリオキャラクターステッカー(5種類の中からランダムで1枚プレゼント)は終了しました/※画面は開発中のものです。※本作のパッケージ版は(キーカード)での販売となります。　はじめてプレイするときにソフト本編がダウンロードされます。　ダウンロードにはインターネット接続環境と17GB以上 の空き容量が必要です。　詳細は任天堂公式サイト(https:/www.nintendo.com/jp/games/switch2/key-card/index.html)をご確認ください。※更新データなどで追加の空き容量が必要になる場合があります。継がれゆく、ロトの意志。",
     "headLine": "",
@@ -536,7 +640,7 @@
     }
   },
   {
-    "index": 6,
+    "index": 7,
     "name": "ドンキーコング バナンザ -Switch2　パッケージ版",
     "description": "さえぎるすべてをブチ壊せ！<br>巨大な地下世界を“破壊”の力で突き進む、ドンキーコングの新しい3Dアクションゲームが登場！行く手を阻む敵も、見渡すかぎりの絶景も、唯一無二のパワーで思いのままに壊すことができます。<br>【黄金のバナナを求めて、巨大な地下世界へ】冒険の舞台は、深さによって景色が変わる奇妙な地下世界。夕日に染まる荒野、植物が群生する原生林、雪が吹き荒れる極寒地帯など、地下とは思えないほどの雄大な景色が広がっています。<br>【敵も地形も、すべてを壊して突き進む】ドンキーコングのパワーで、立ちはだかる敵はもちろん、壁や地面といった地形すらも自由に破壊することができます。気になる場所は手当たり次第殴ってみると、思いもよらぬ抜け道や隠されたエリアを発見できるかも？<br><br>型番：BEE-P-AAACA<br><br>(C) Nintendo",
     "headLine": "",
@@ -640,35 +744,35 @@
     }
   },
   {
-    "index": 7,
-    "name": "【新品】NSW2 あつまれ どうぶつの森 Nintendo Switch 2 Edition",
-    "description": "発売日：2026年01月15日<br>販売元：任天堂<br>対応機種等：Nintendo Switch 2<br>CERO区分：A 全年齢対象<br>品番：NXS-P-ACBAD<br>JAN：4902370553901",
-    "headLine": "新品未開封!!",
-    "url": "https://store.shopping.yahoo.co.jp/updra/4902370553901.html",
+    "index": 8,
+    "name": "オクトパストラベラー0 【Switch2】 POT-P-AAW2A",
+    "description": "オクトパストラベラー0 【Switch2】 POT-P-AAW2A 80",
+    "headLine": "",
+    "url": "https://store.shopping.yahoo.co.jp/best-denki/2820922012.html",
     "inStock": true,
-    "code": "updra_4902370553901",
+    "code": "best-denki_2820922012",
     "condition": "new",
-    "imageId": "updra_4902370553901",
+    "imageId": "best-denki_2820922012",
     "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/updra_4902370553901",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/updra_4902370553901"
+      "small": "https://item-shopping.c.yimg.jp/i/c/best-denki_2820922012",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/best-denki_2820922012"
     },
     "review": {
-      "count": 1,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=updra&page_key=4902370553901",
+      "count": 0,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=best-denki&page_key=2820922012",
       "rate": 0
     },
     "affiliateRate": 1,
-    "price": 6320,
-    "premiumPrice": 6320,
+    "price": 6602,
+    "premiumPrice": 6602,
     "premiumPriceStatus": false,
-    "premiumDiscountRate": 11,
-    "premiumDiscountType": "original",
+    "premiumDiscountRate": null,
+    "premiumDiscountType": null,
     "priceLabel": {
       "taxable": true,
-      "defaultPrice": 6320,
+      "defaultPrice": 6602,
       "discountedPrice": null,
-      "fixedPrice": 7128,
+      "fixedPrice": null,
       "premiumPrice": null,
       "periodStart": null,
       "periodEnd": null
@@ -678,13 +782,13 @@
       "times": 0,
       "bonusAmount": 0,
       "bonusTimes": 0,
-      "lyLimitedBonusAmount": 57,
+      "lyLimitedBonusAmount": 60,
       "lyLimitedBonusTimes": 1,
       "premiumAmount": 0,
       "premiumTimes": 0,
       "premiumBonusAmount": 0,
       "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 57,
+      "lyLimitedPremiumBonusAmount": 60,
       "lyLimitedPremiumBonusTimes": 1
     },
     "shipping": {
@@ -714,8 +818,8 @@
       }
     ],
     "brand": {
-      "id": 2358,
-      "name": "任天堂"
+      "id": 1005,
+      "name": "スクウェア・エニックス"
     },
     "parentBrands": [
       {
@@ -723,19 +827,19 @@
         "name": "ブランド"
       }
     ],
-    "janCode": "4902370553901",
-    "payment": "16 1024 8192 256 512 4096 16384 1",
-    "releaseDate": 1768402800,
+    "janCode": "4988601012058",
+    "payment": "4096 1 16384 16",
+    "releaseDate": null,
     "seller": {
-      "sellerId": "updra",
-      "name": "アップYahoo!店",
-      "url": "https://store.shopping.yahoo.co.jp/updra/",
+      "sellerId": "best-denki",
+      "name": "ベスト電器Yahoo!店",
+      "url": "https://store.shopping.yahoo.co.jp/best-denki/",
       "isBestSeller": false,
       "review": {
-        "rate": 4.85,
-        "count": 2080
+        "rate": 4.47,
+        "count": 10856
       },
-      "imageId": "updra_1"
+      "imageId": "best-denki_1"
     },
     "delivery": {
       "deadLine": null,
@@ -744,7 +848,7 @@
     }
   },
   {
-    "index": 8,
+    "index": 9,
     "name": "【新品】SW2 ドンキーコング バナンザ【送料別。メール便・宅配便　配送方法選択】",
     "description": "＜Switch2専用ソフト＞<br><br>メーカー名：任天堂<br>新品・未開封<br><br>**************必ずお読みください*************<br>【配送方法を選択してください。】<br>※ご注文後配送方法の変更はできません。<br>「代金引換発送」は、ご利用頂けません。<br><br>・メール便（ネコポス/ヤマト運輸）<br>　商品はポストに投函されます。<br>　荷物の追跡は出来ますが配達日時指定は出来ません。<br><br>・宅配便<br>　配送日時指定をご希望の方は宅配便をご選択ください。<br>******************************************",
     "headLine": "",
@@ -848,7 +952,210 @@
     }
   },
   {
-    "index": 9,
+    "index": 10,
+    "name": "桃太郎電鉄２ 〜あなたの町も きっとある〜 Nintendo Switch 2 Edition 東日本編＋西日本編 【Switch2】 NXS-P-A8KRD",
+    "description": "桃太郎電鉄２ 〜あなたの町も きっとある〜 Nintendo Switch 2 Edition 東日本編＋西日本編 【Switch2】 NXS-P-A8KRD 80",
+    "headLine": "",
+    "url": "https://store.shopping.yahoo.co.jp/best-denki/2820920018.html",
+    "inStock": true,
+    "code": "best-denki_2820920018",
+    "condition": "new",
+    "imageId": "best-denki_2820920018",
+    "image": {
+      "small": "https://item-shopping.c.yimg.jp/i/c/best-denki_2820920018",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/best-denki_2820920018"
+    },
+    "review": {
+      "count": 2,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=best-denki&page_key=2820920018",
+      "rate": 0
+    },
+    "affiliateRate": 1,
+    "price": 7720,
+    "premiumPrice": 7720,
+    "premiumPriceStatus": false,
+    "premiumDiscountRate": null,
+    "premiumDiscountType": null,
+    "priceLabel": {
+      "taxable": true,
+      "defaultPrice": 7720,
+      "discountedPrice": null,
+      "fixedPrice": null,
+      "premiumPrice": null,
+      "periodStart": null,
+      "periodEnd": null
+    },
+    "point": {
+      "amount": 0,
+      "times": 0,
+      "bonusAmount": 0,
+      "bonusTimes": 0,
+      "lyLimitedBonusAmount": 70,
+      "lyLimitedBonusTimes": 1,
+      "premiumAmount": 0,
+      "premiumTimes": 0,
+      "premiumBonusAmount": 0,
+      "premiumBonusTimes": 0,
+      "lyLimitedPremiumBonusAmount": 70,
+      "lyLimitedPremiumBonusTimes": 1
+    },
+    "shipping": {
+      "code": 2,
+      "name": "送料無料"
+    },
+    "genreCategory": {
+      "id": 77077,
+      "name": "Switch 2用ソフト（パッケージ版）",
+      "depth": 4
+    },
+    "parentGenreCategories": [
+      {
+        "id": 2511,
+        "depth": 1,
+        "name": "ゲーム、おもちゃ"
+      },
+      {
+        "id": 2161,
+        "depth": 2,
+        "name": "テレビゲーム"
+      },
+      {
+        "id": 77071,
+        "depth": 3,
+        "name": "Nintendo Switch 2"
+      }
+    ],
+    "brand": {
+      "id": null,
+      "name": ""
+    },
+    "parentBrands": [],
+    "janCode": "4988602179231",
+    "payment": "4096 16384 16 1",
+    "releaseDate": null,
+    "seller": {
+      "sellerId": "best-denki",
+      "name": "ベスト電器Yahoo!店",
+      "url": "https://store.shopping.yahoo.co.jp/best-denki/",
+      "isBestSeller": false,
+      "review": {
+        "rate": 4.47,
+        "count": 10856
+      },
+      "imageId": "best-denki_1"
+    },
+    "delivery": {
+      "deadLine": null,
+      "day": null,
+      "area": ""
+    }
+  },
+  {
+    "index": 11,
+    "name": "【新品】NSW2 あつまれ どうぶつの森 Nintendo Switch 2 Edition",
+    "description": "発売日：2026年01月15日<br>販売元：任天堂<br>対応機種等：Nintendo Switch 2<br>CERO区分：A 全年齢対象<br>品番：NXS-P-ACBAD<br>JAN：4902370553901",
+    "headLine": "新品未開封!!",
+    "url": "https://store.shopping.yahoo.co.jp/updra/4902370553901.html",
+    "inStock": true,
+    "code": "updra_4902370553901",
+    "condition": "new",
+    "imageId": "updra_4902370553901",
+    "image": {
+      "small": "https://item-shopping.c.yimg.jp/i/c/updra_4902370553901",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/updra_4902370553901"
+    },
+    "review": {
+      "count": 1,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=updra&page_key=4902370553901",
+      "rate": 0
+    },
+    "affiliateRate": 1,
+    "price": 6320,
+    "premiumPrice": 6320,
+    "premiumPriceStatus": false,
+    "premiumDiscountRate": 11,
+    "premiumDiscountType": "original",
+    "priceLabel": {
+      "taxable": true,
+      "defaultPrice": 6320,
+      "discountedPrice": null,
+      "fixedPrice": 7128,
+      "premiumPrice": null,
+      "periodStart": null,
+      "periodEnd": null
+    },
+    "point": {
+      "amount": 0,
+      "times": 0,
+      "bonusAmount": 0,
+      "bonusTimes": 0,
+      "lyLimitedBonusAmount": 57,
+      "lyLimitedBonusTimes": 1,
+      "premiumAmount": 0,
+      "premiumTimes": 0,
+      "premiumBonusAmount": 0,
+      "premiumBonusTimes": 0,
+      "lyLimitedPremiumBonusAmount": 57,
+      "lyLimitedPremiumBonusTimes": 1
+    },
+    "shipping": {
+      "code": 2,
+      "name": "送料無料"
+    },
+    "genreCategory": {
+      "id": 77077,
+      "name": "Switch 2用ソフト（パッケージ版）",
+      "depth": 4
+    },
+    "parentGenreCategories": [
+      {
+        "id": 2511,
+        "depth": 1,
+        "name": "ゲーム、おもちゃ"
+      },
+      {
+        "id": 2161,
+        "depth": 2,
+        "name": "テレビゲーム"
+      },
+      {
+        "id": 77071,
+        "depth": 3,
+        "name": "Nintendo Switch 2"
+      }
+    ],
+    "brand": {
+      "id": 2358,
+      "name": "任天堂"
+    },
+    "parentBrands": [
+      {
+        "id": 1,
+        "name": "ブランド"
+      }
+    ],
+    "janCode": "4902370553901",
+    "payment": "16 1024 8192 256 512 4096 16384 1",
+    "releaseDate": 1768402800,
+    "seller": {
+      "sellerId": "updra",
+      "name": "アップYahoo!店",
+      "url": "https://store.shopping.yahoo.co.jp/updra/",
+      "isBestSeller": false,
+      "review": {
+        "rate": 4.85,
+        "count": 2080
+      },
+      "imageId": "updra_1"
+    },
+    "delivery": {
+      "deadLine": null,
+      "day": null,
+      "area": ""
+    }
+  },
+  {
+    "index": 12,
     "name": "【2026年2月12日発売・発売日前日発送】NSW2 マリオテニス フィーバー",
     "description": "発売日：2026年02月12日<br>販売元：任天堂<br>対応機種等：Nintendo Switch 2<br>品番：BEE-P-AAAEA<br>JAN：4902370553932",
     "headLine": "予約受付中！！発売日前日発送！！2026年2月12日発売",
@@ -952,7 +1259,7 @@
     }
   },
   {
-    "index": 10,
+    "index": 13,
     "name": "【新品】NSW2 カービィのエアライダー",
     "description": "発売日：2025年11月20日<br>販売元：任天堂<br>対応機種等：Nintendo Switch 2<br>CERO区分：A 全年齢対象<br>品番：BEE-P-AAABA<br>JAN：4902370553642",
     "headLine": "新品未開封!!",
@@ -1056,7 +1363,7 @@
     }
   },
   {
-    "index": 11,
+    "index": 14,
     "name": "【2026年3月5日発売・発売日前日発送】NSW2 ぽこ あ ポケモン",
     "description": "発売日：2026年03月05日<br>販売元：ポケモン<br>対応機種等：Nintendo Switch 2<br>品番：POT-P-AAB5A<br>JAN：4521329460420",
     "headLine": "予約受付中！！発売日前日発送！！2026年3月5日発売",
@@ -1160,7 +1467,7 @@
     }
   },
   {
-    "index": 12,
+    "index": 15,
     "name": "スーパー マリオパーティ ジャンボリー Nintendo Switch 2 Edition ＋ ジャンボリーTV/Switch 2 用ソフト（パッケージ版）",
     "description": "こちらの商品は「ネコポス便」での配送となっております。<br>そのためポスト投函での配送となりますため、「到着日時の指定」ができません。<br>※通常より配送にお時間をいただく場合がございますので予めご了承ください。<br>※ネコポス配送による破損や紛失に関しましては補償が出来兼ねます。<br><br>商品状態：新品<br><br>付属品 ：初期付属品は全て揃っています。<br>※商品の詳細に関しましてはお手数ですがメーカーに直接お問い合わせください。<br><br>サポート<br>サポート内容に関しまして商品に付属しています保証書をご確認ください。（保証書が付属しない商品もございます） 内容によっては当店では対応出来ない場合がございますので予めご了承ください。ご理解の上、ご購入をお願い申し上げます。 <br>※弊社は正規代理店ではございません。",
     "headLine": "大人気 /プレゼント/4902370553352/ソフト",
@@ -1268,7 +1575,7 @@
     }
   },
   {
-    "index": 13,
+    "index": 16,
     "name": "桃太郎電鉄２ 〜あなたの町も きっとある〜 東日本編＋西日本編/Switch",
     "description": "こちらの商品は「ネコポス便」での配送となっております。<br>そのためポスト投函での配送となりますため、「到着日時の指定」ができません。<br>※通常より配送にお時間をいただく場合がございますので予めご了承ください。<br>※ネコポス配送による破損や紛失に関しましては補償が出来兼ねます。<br><br>商品状態：新品<br><br>付属品 ：初期付属品は全て揃っています。<br>※商品の詳細に関しましてはお手数ですがメーカーに直接お問い合わせください。<br><br>サポート<br>サポート内容に関しまして商品に付属しています保証書をご確認ください。（保証書が付属しない商品もございます） 内容によっては当店では対応出来ない場合がございますので予めご了承ください。ご理解の上、ご購入をお願い申し上げます。 <br>※弊社は正規代理店ではございません。",
     "headLine": "大人気 /プレゼント/贈り物/4988602179248/ソフト",
@@ -1352,7 +1659,7 @@
       }
     ],
     "janCode": "4988602179248",
-    "payment": "16384 16 64 4096 1",
+    "payment": "64 4096 16384 1 16",
     "releaseDate": null,
     "seller": {
       "sellerId": "light-hikari",
@@ -1372,7 +1679,111 @@
     }
   },
   {
-    "index": 14,
+    "index": 17,
+    "name": "牧場物語 Let's！風のグランドバザール Nintendo Switch 2 Edition 【Switch2】 NXS-P-BG4TM",
+    "description": "牧場物語 Let's！風のグランドバザール Nintendo Switch 2 Edition 【Switch2】 NXS-P-BG4TM 80",
+    "headLine": "",
+    "url": "https://store.shopping.yahoo.co.jp/best-denki/2820636018.html",
+    "inStock": true,
+    "code": "best-denki_2820636018",
+    "condition": "new",
+    "imageId": "best-denki_2820636018",
+    "image": {
+      "small": "https://item-shopping.c.yimg.jp/i/c/best-denki_2820636018",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/best-denki_2820636018"
+    },
+    "review": {
+      "count": 0,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=best-denki&page_key=2820636018",
+      "rate": 0
+    },
+    "affiliateRate": 1,
+    "price": 6622,
+    "premiumPrice": 6622,
+    "premiumPriceStatus": false,
+    "premiumDiscountRate": null,
+    "premiumDiscountType": null,
+    "priceLabel": {
+      "taxable": true,
+      "defaultPrice": 6622,
+      "discountedPrice": null,
+      "fixedPrice": null,
+      "premiumPrice": null,
+      "periodStart": null,
+      "periodEnd": null
+    },
+    "point": {
+      "amount": 0,
+      "times": 0,
+      "bonusAmount": 0,
+      "bonusTimes": 0,
+      "lyLimitedBonusAmount": 60,
+      "lyLimitedBonusTimes": 1,
+      "premiumAmount": 0,
+      "premiumTimes": 0,
+      "premiumBonusAmount": 0,
+      "premiumBonusTimes": 0,
+      "lyLimitedPremiumBonusAmount": 60,
+      "lyLimitedPremiumBonusTimes": 1
+    },
+    "shipping": {
+      "code": 2,
+      "name": "送料無料"
+    },
+    "genreCategory": {
+      "id": 77077,
+      "name": "Switch 2用ソフト（パッケージ版）",
+      "depth": 4
+    },
+    "parentGenreCategories": [
+      {
+        "id": 2511,
+        "depth": 1,
+        "name": "ゲーム、おもちゃ"
+      },
+      {
+        "id": 2161,
+        "depth": 2,
+        "name": "テレビゲーム"
+      },
+      {
+        "id": 77071,
+        "depth": 3,
+        "name": "Nintendo Switch 2"
+      }
+    ],
+    "brand": {
+      "id": 16602,
+      "name": "マーベラス"
+    },
+    "parentBrands": [
+      {
+        "id": 1,
+        "name": "ブランド"
+      }
+    ],
+    "janCode": "4535506303950",
+    "payment": "4096 1 16384 16",
+    "releaseDate": null,
+    "seller": {
+      "sellerId": "best-denki",
+      "name": "ベスト電器Yahoo!店",
+      "url": "https://store.shopping.yahoo.co.jp/best-denki/",
+      "isBestSeller": false,
+      "review": {
+        "rate": 4.47,
+        "count": 10856
+      },
+      "imageId": "best-denki_1"
+    },
+    "delivery": {
+      "deadLine": null,
+      "day": null,
+      "area": ""
+    }
+  },
+  {
+    "index": 18,
     "name": "[メール便OK]【新品】【NS2】HADES II Nintendo Switch 2 Edition［Switch2版］[お取寄せ品]",
     "description": "お取り寄せに[3〜6営業日前後]【4％OFF】＜【NS2】HADES II Nintendo Switch 2 Edition［Switch2版］＞＜ニンテンドースイッチ2(NS2)＞＜アクション＞＜Supergiant Games＞【メール便】OK＜好評発売中＞",
     "headLine": "お取り寄せに[3〜6営業日前後]【4％OFF】",
@@ -1471,7 +1882,7 @@
     }
   },
   {
-    "index": 15,
+    "index": 19,
     "name": "桃太郎電鉄2 〜あなたの町も きっとある〜 Nintendo Switch 2 Edition 東日本編＋西日本編/Switch 2（パッケージ版）",
     "description": "こちらの商品は「ネコポス便」での配送となっております。<br>そのためポスト投函での配送となりますため、「到着日時の指定」ができません。<br>※通常より配送にお時間をいただく場合がございますので予めご了承ください。<br>※ネコポス配送による破損や紛失に関しましては補償が出来兼ねます。<br><br>商品状態：新品<br><br>付属品 ：初期付属品は全て揃っています。<br>※商品の詳細に関しましてはお手数ですがメーカーに直接お問い合わせください。<br><br>サポート<br>サポート内容に関しまして商品に付属しています保証書をご確認ください。（保証書が付属しない商品もございます） 内容によっては当店では対応出来ない場合がございますので予めご了承ください。ご理解の上、ご購入をお願い申し上げます。 <br>※弊社は正規代理店ではございません。",
     "headLine": "大人気 /プレゼント/贈り物/4988602179231/ソフト",
@@ -1575,7 +1986,7 @@
     }
   },
   {
-    "index": 16,
+    "index": 20,
     "name": "【新品】 FINAL FANTASY VII REMAKE INTERGRADE Nintendo Switch 2 佐賀 爆買",
     "description": "【発売日】2026/01/22【JANコード】4988601012096【特記】商品の配送方法は、お届け先の地域や商品の形状に応じて、ゆうパケット、ゆうパック、ネコポス、宅急便、佐川急便のいずれかの方法で当店にて決定いたします。誠に恐れ入りますが、お客様ご自身で配送方法をご指定いただくことはできませんので、あらかじめご了承ください。【検索キーワード】-、FINAL FANTASY VII REMAKE INTERGRADE",
     "headLine": "【在庫品】2026/01/22発売",
@@ -1683,7 +2094,7 @@
     }
   },
   {
-    "index": 17,
+    "index": 21,
     "name": "任天堂 (Switch2)スーパーマリオブラザーズ ワンダー Nintendo Switch 2 Edition ＋ みんなでリンリンパーク 返品種別B",
     "description": "予約受付中/2026年03月26日 発売予定/※一回のご注文で同じ発売日の予約商品を複数ご購入の場合、発売延期となりました予約商品のみ、一旦ご注文をお取り消しさせていただきます。※Nintendo Switchソフトをお持ちの方は、対応する(Nintendo Switch 2 Edition アップグレードパス(別売))をご購入ください。詳しくは公式サイトをご確認ください。※Nintendo Switch 2 Edition)をプレイいただくには(Nintendo Switch 2 本体)が必要です。※初回起動時に必ずソフトのアップデートが必要になります。詳しくは公式サイトをご確認ください。ワンダーの世界にみんなで楽しむあそびをプラス。",
     "headLine": "",
@@ -1787,35 +2198,35 @@
     }
   },
   {
-    "index": 18,
-    "name": "【年始セール】ネコポス便送料無料　代引き不可　新品NS2Pokemon LEGENDS Z‐A Nintendo Switch 2 Edition発売日2025/10/16",
-    "description": "商品名 NS2Pokemon LEGENDS Z‐A Nintendo Switch 2 Edition フリガナ ポケモンレジェンズゼットエーニンテンドースイッチ2エディション JANコード 4902370553574 メーカー 任天堂株式会社 メーカーコード NXS-P-ALZLB 定価 7389 発売日 2025/10/16 ジャンル ACT ジャンル名称 アクション",
-    "headLine": "",
-    "url": "https://store.shopping.yahoo.co.jp/gameuga/4902370553574.html",
+    "index": 22,
+    "name": "【送料無料・即日出荷・新品】Nintendo Switch 2 FINAL FANTASY VII REMAKE INTERGRADE 020050 FF7 リメイク",
+    "description": "■対応機種：Nintendo Switch 2<br>■メーカー：スクウェア・エニックス<br>■ジャンル：アクションRPG<br>■プレイ人数：1人<br>■定価：5478<br><br>※※必ずご確認ください※※<br>お客様都合による商品出荷後のキャンセル・返品・交換は一切お断りを頂いております。(お買い物ガイド参照)<br><br>※商品画像と実際の商品パッケージの見た目が異なる場合がございます。<br>※商品によってオンライン専用の場合がございます。詳細はメーカーサイトをご確認ください。<br>※商品や、特典などの形状やサイズによって、ラッピング対応できない場合がございます。",
+    "headLine": "★即日出荷！全国配送料無料！★",
+    "url": "https://store.shopping.yahoo.co.jp/gamedarake03/4988601012096.html",
     "inStock": true,
-    "code": "gameuga_4902370553574",
+    "code": "gamedarake03_4988601012096",
     "condition": "new",
-    "imageId": "gameuga_4902370553574",
+    "imageId": "gamedarake03_4988601012096",
     "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/gameuga_4902370553574",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/gameuga_4902370553574"
+      "small": "https://item-shopping.c.yimg.jp/i/c/gamedarake03_4988601012096",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/gamedarake03_4988601012096"
     },
     "review": {
-      "count": 2,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=gameuga&page_key=4902370553574",
+      "count": 0,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=gamedarake03&page_key=4988601012096",
       "rate": 0
     },
     "affiliateRate": 1,
-    "price": 6930,
-    "premiumPrice": 6930,
+    "price": 4990,
+    "premiumPrice": 4990,
     "premiumPriceStatus": false,
-    "premiumDiscountRate": null,
-    "premiumDiscountType": null,
+    "premiumDiscountRate": 8,
+    "premiumDiscountType": "original",
     "priceLabel": {
       "taxable": true,
-      "defaultPrice": 6930,
+      "defaultPrice": 4990,
       "discountedPrice": null,
-      "fixedPrice": null,
+      "fixedPrice": 5478,
       "premiumPrice": null,
       "periodStart": null,
       "periodEnd": null
@@ -1825,13 +2236,13 @@
       "times": 0,
       "bonusAmount": 0,
       "bonusTimes": 0,
-      "lyLimitedBonusAmount": 63,
+      "lyLimitedBonusAmount": 45,
       "lyLimitedBonusTimes": 1,
       "premiumAmount": 0,
       "premiumTimes": 0,
       "premiumBonusAmount": 0,
       "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 63,
+      "lyLimitedPremiumBonusAmount": 45,
       "lyLimitedPremiumBonusTimes": 1
     },
     "shipping": {
@@ -1861,37 +2272,41 @@
       }
     ],
     "brand": {
-      "id": 32599,
-      "name": "Pokemon"
+      "id": 15414,
+      "name": "ファイナルファンタジー"
     },
     "parentBrands": [
       {
         "id": 1,
         "name": "ブランド"
+      },
+      {
+        "id": 1005,
+        "name": "スクウェア・エニックス"
       }
     ],
-    "janCode": "4902370553574",
-    "payment": "1 2 4 1024 16384 16 4096 8192",
-    "releaseDate": 1760540400,
+    "janCode": "4988601012096",
+    "payment": "512 4096 16384 1 256 1024 16",
+    "releaseDate": 1769007600,
     "seller": {
-      "sellerId": "gameuga",
-      "name": "UGAヤフー店",
-      "url": "https://store.shopping.yahoo.co.jp/gameuga/",
+      "sellerId": "gamedarake03",
+      "name": "ゲームだらけ3号店",
+      "url": "https://store.shopping.yahoo.co.jp/gamedarake03/",
       "isBestSeller": false,
       "review": {
-        "rate": 4.66,
-        "count": 1499
+        "rate": 4.83,
+        "count": 350
       },
-      "imageId": "gameuga_1"
+      "imageId": "gamedarake03_1"
     },
     "delivery": {
-      "deadLine": null,
-      "day": null,
-      "area": ""
+      "deadLine": 14,
+      "day": 1,
+      "area": "13"
     }
   },
   {
-    "index": 19,
+    "index": 23,
     "name": "Pokemon LEGENDS Z-A/Switch 2（パッケージ版）",
     "description": "こちらの商品は「ネコポス便」での配送となっております。<br>そのためポスト投函での配送となりますため、「到着日時の指定」ができません。<br>※通常より配送にお時間をいただく場合がございますので予めご了承ください。<br>※ネコポス配送による破損や紛失に関しましては補償が出来兼ねます。<br><br>商品状態：新品<br><br>付属品 ：初期付属品は全て揃っています。<br>※商品の詳細に関しましてはお手数ですがメーカーに直接お問い合わせください。<br><br>サポート<br>サポート内容に関しまして商品に付属しています保証書をご確認ください。（保証書が付属しない商品もございます） 内容によっては当店では対応出来ない場合がございますので予めご了承ください。ご理解の上、ご購入をお願い申し上げます。 <br>※弊社は正規代理店ではございません。",
     "headLine": "大人気 /プレゼント/贈り物/4902370553574/ソフト",
@@ -1995,7 +2410,7 @@
     }
   },
   {
-    "index": 20,
+    "index": 24,
     "name": "【新品】【NS2】ドラゴンボール Sparking! ZERO フィギュア付特装版［Switch2版］[在庫品]",
     "description": "[1営業日※在庫品]【19％OFF】＜【NS2】ドラゴンボール Sparking! ZERO フィギュア付特装版［Switch2版］＞＜ニンテンドースイッチ2(NS2)＞＜アクション＞＜バンダイナムコエンターテインメント＞＜好評発売中＞",
     "headLine": "[1営業日※在庫品]【19％OFF】",
@@ -2099,7 +2514,7 @@
     }
   },
   {
-    "index": 21,
+    "index": 25,
     "name": "オクトパストラベラー0/Switch 2（パッケージ版）",
     "description": "こちらの商品は「ネコポス便」での配送となっております。<br>そのためポスト投函での配送となりますため、「到着日時の指定」ができません。<br>※通常より配送にお時間をいただく場合がございますので予めご了承ください。<br>※ネコポス配送による破損や紛失に関しましては補償が出来兼ねます。<br><br>商品状態：新品<br><br>付属品 ：初期付属品は全て揃っています。<br>※商品の詳細に関しましてはお手数ですがメーカーに直接お問い合わせください。<br><br>サポート<br>サポート内容に関しまして商品に付属しています保証書をご確認ください。（保証書が付属しない商品もございます） 内容によっては当店では対応出来ない場合がございますので予めご了承ください。ご理解の上、ご購入をお願い申し上げます。 <br>※弊社は正規代理店ではございません。",
     "headLine": "大人気 /プレゼント/贈り物/4988601012058/ソフト",
@@ -2203,7 +2618,7 @@
     }
   },
   {
-    "index": 22,
+    "index": 26,
     "name": "マリオカート ワールド Switch2 用ソフト（パッケージ版）",
     "description": "こちらの商品は「ネコポス便」での配送となっております。<br>そのためポスト投函での配送となりますため、「到着日時の指定」ができません。<br>※通常より配送にお時間をいただく場合がございますので予めご了承ください。<br>※ネコポス配送による破損や紛失に関しましては補償が出来兼ねます。<br><br>商品状態：新品<br><br>付属品 ：初期付属品は全て揃っています。<br>※商品の詳細に関しましてはお手数ですがメーカーに直接お問い合わせください。<br><br>サポート<br>サポート内容に関しまして商品に付属しています保証書をご確認ください。（保証書が付属しない商品もございます） 内容によっては当店では対応出来ない場合がございますので予めご了承ください。ご理解の上、ご購入をお願い申し上げます。 <br>※弊社は正規代理店ではございません。",
     "headLine": "大人気 /プレゼント/贈り物/4902370553260/ソフト",
@@ -2222,14 +2637,14 @@
       "rate": 4.79
     },
     "affiliateRate": 1,
-    "price": 8461,
-    "premiumPrice": 8461,
+    "price": 8452,
+    "premiumPrice": 8452,
     "premiumPriceStatus": false,
     "premiumDiscountRate": null,
     "premiumDiscountType": null,
     "priceLabel": {
       "taxable": true,
-      "defaultPrice": 8461,
+      "defaultPrice": 8452,
       "discountedPrice": null,
       "fixedPrice": null,
       "premiumPrice": null,
@@ -2311,111 +2726,7 @@
     }
   },
   {
-    "index": 23,
-    "name": "【新品】SW2 あつまれ どうぶつの森 Nintendo Switch 2 Edition【送料別・メール便・宅配便 配送方法選択】",
-    "description": "メーカー名：任天堂株式会社<br>新品・未開封<br><br>**************必ずお読みください*************<br>【配送方法を選択してください。】<br>※ご注文後配送方法の変更はできません。<br>「代金引換発送」は、ご利用頂けません。<br><br>・メール便（ネコポス/ヤマト運輸）<br>　商品はポストに投函されます。<br>　荷物の追跡は出来ますが配達日時指定は出来ません。<br><br>・宅配便<br>〈配送日時指定をご希望の方は宅配便をご選択ください。〉<br>******************************************",
-    "headLine": "",
-    "url": "https://store.shopping.yahoo.co.jp/champnet758/4902370553901.html",
-    "inStock": true,
-    "code": "champnet758_4902370553901",
-    "condition": "new",
-    "imageId": "champnet758_4902370553901",
-    "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/champnet758_4902370553901",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/champnet758_4902370553901"
-    },
-    "review": {
-      "count": 0,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=champnet758&page_key=4902370553901",
-      "rate": 0
-    },
-    "affiliateRate": 1,
-    "price": 6020,
-    "premiumPrice": 6020,
-    "premiumPriceStatus": false,
-    "premiumDiscountRate": null,
-    "premiumDiscountType": null,
-    "priceLabel": {
-      "taxable": true,
-      "defaultPrice": 6020,
-      "discountedPrice": null,
-      "fixedPrice": null,
-      "premiumPrice": null,
-      "periodStart": null,
-      "periodEnd": null
-    },
-    "point": {
-      "amount": 0,
-      "times": 0,
-      "bonusAmount": 0,
-      "bonusTimes": 0,
-      "lyLimitedBonusAmount": 54,
-      "lyLimitedBonusTimes": 1,
-      "premiumAmount": 0,
-      "premiumTimes": 0,
-      "premiumBonusAmount": 0,
-      "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 54,
-      "lyLimitedPremiumBonusTimes": 1
-    },
-    "shipping": {
-      "code": 1,
-      "name": "設定なし"
-    },
-    "genreCategory": {
-      "id": 77077,
-      "name": "Switch 2用ソフト（パッケージ版）",
-      "depth": 4
-    },
-    "parentGenreCategories": [
-      {
-        "id": 2511,
-        "depth": 1,
-        "name": "ゲーム、おもちゃ"
-      },
-      {
-        "id": 2161,
-        "depth": 2,
-        "name": "テレビゲーム"
-      },
-      {
-        "id": 77071,
-        "depth": 3,
-        "name": "Nintendo Switch 2"
-      }
-    ],
-    "brand": {
-      "id": 2358,
-      "name": "任天堂"
-    },
-    "parentBrands": [
-      {
-        "id": 1,
-        "name": "ブランド"
-      }
-    ],
-    "janCode": "4902370553901",
-    "payment": "16 16384 1 4096",
-    "releaseDate": null,
-    "seller": {
-      "sellerId": "champnet758",
-      "name": "チャンプネット Yahoo!店",
-      "url": "https://store.shopping.yahoo.co.jp/champnet758/",
-      "isBestSeller": false,
-      "review": {
-        "rate": 4.85,
-        "count": 292
-      },
-      "imageId": "champnet758_1"
-    },
-    "delivery": {
-      "deadLine": null,
-      "day": null,
-      "area": ""
-    }
-  },
-  {
-    "index": 24,
+    "index": 27,
     "name": "【新品】SW2 ドラゴンクエストI＆II 【送料別。メール便・宅配便　配送方法選択】",
     "description": "メーカー名：スクウェア・エニックス<br>新品・未開封<br><br>**************必ずお読みください*************<br>【配送方法を選択してください。】<br>※ご注文後配送方法の変更はできません。<br>「代金引換発送」は、ご利用頂けません。<br><br>・メール便（ネコポス/ヤマト運輸）<br>　商品はポストに投函されます。<br>　荷物の追跡は出来ますが配達日時指定は出来ません。<br><br>・宅配便<br>〈配送日時指定をご希望の方は宅配便をご選択ください。〉<br>******************************************",
     "headLine": "",
@@ -2523,7 +2834,111 @@
     }
   },
   {
-    "index": 25,
+    "index": 28,
+    "name": "【年始セール】ネコポス便送料無料　代引き不可　新品NS2Pokemon LEGENDS Z‐A Nintendo Switch 2 Edition発売日2025/10/16",
+    "description": "商品名 NS2Pokemon LEGENDS Z‐A Nintendo Switch 2 Edition フリガナ ポケモンレジェンズゼットエーニンテンドースイッチ2エディション JANコード 4902370553574 メーカー 任天堂株式会社 メーカーコード NXS-P-ALZLB 定価 7389 発売日 2025/10/16 ジャンル ACT ジャンル名称 アクション",
+    "headLine": "",
+    "url": "https://store.shopping.yahoo.co.jp/gameuga/4902370553574.html",
+    "inStock": true,
+    "code": "gameuga_4902370553574",
+    "condition": "new",
+    "imageId": "gameuga_4902370553574",
+    "image": {
+      "small": "https://item-shopping.c.yimg.jp/i/c/gameuga_4902370553574",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/gameuga_4902370553574"
+    },
+    "review": {
+      "count": 2,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=gameuga&page_key=4902370553574",
+      "rate": 0
+    },
+    "affiliateRate": 1,
+    "price": 6929,
+    "premiumPrice": 6929,
+    "premiumPriceStatus": false,
+    "premiumDiscountRate": null,
+    "premiumDiscountType": null,
+    "priceLabel": {
+      "taxable": true,
+      "defaultPrice": 6929,
+      "discountedPrice": null,
+      "fixedPrice": null,
+      "premiumPrice": null,
+      "periodStart": null,
+      "periodEnd": null
+    },
+    "point": {
+      "amount": 0,
+      "times": 0,
+      "bonusAmount": 0,
+      "bonusTimes": 0,
+      "lyLimitedBonusAmount": 63,
+      "lyLimitedBonusTimes": 1,
+      "premiumAmount": 0,
+      "premiumTimes": 0,
+      "premiumBonusAmount": 0,
+      "premiumBonusTimes": 0,
+      "lyLimitedPremiumBonusAmount": 63,
+      "lyLimitedPremiumBonusTimes": 1
+    },
+    "shipping": {
+      "code": 2,
+      "name": "送料無料"
+    },
+    "genreCategory": {
+      "id": 77077,
+      "name": "Switch 2用ソフト（パッケージ版）",
+      "depth": 4
+    },
+    "parentGenreCategories": [
+      {
+        "id": 2511,
+        "depth": 1,
+        "name": "ゲーム、おもちゃ"
+      },
+      {
+        "id": 2161,
+        "depth": 2,
+        "name": "テレビゲーム"
+      },
+      {
+        "id": 77071,
+        "depth": 3,
+        "name": "Nintendo Switch 2"
+      }
+    ],
+    "brand": {
+      "id": 32599,
+      "name": "Pokemon"
+    },
+    "parentBrands": [
+      {
+        "id": 1,
+        "name": "ブランド"
+      }
+    ],
+    "janCode": "4902370553574",
+    "payment": "1 2 4 1024 16384 16 4096 8192",
+    "releaseDate": 1760540400,
+    "seller": {
+      "sellerId": "gameuga",
+      "name": "UGAヤフー店",
+      "url": "https://store.shopping.yahoo.co.jp/gameuga/",
+      "isBestSeller": false,
+      "review": {
+        "rate": 4.66,
+        "count": 1499
+      },
+      "imageId": "gameuga_1"
+    },
+    "delivery": {
+      "deadLine": null,
+      "day": null,
+      "area": ""
+    }
+  },
+  {
+    "index": 29,
     "name": "星のカービィ ディスカバリー Nintendo Switch 2 Edition ＋ スターリーワールド  Switch2 用ソフト（パッケージ版）",
     "description": "こちらの商品は「ネコポス便」での配送となっております。<br>そのためポスト投函での配送となりますため、「到着日時の指定」ができません。<br>※通常より配送にお時間をいただく場合がございますので予めご了承ください。<br>※ネコポス配送による破損や紛失に関しましては補償が出来兼ねます。<br><br>商品状態：新品<br><br>付属品 ：初期付属品は全て揃っています。<br>※商品の詳細に関しましてはお手数ですがメーカーに直接お問い合わせください。<br><br>サポート<br>サポート内容に関しまして商品に付属しています保証書をご確認ください。（保証書が付属しない商品もございます） 内容によっては当店では対応出来ない場合がございますので予めご了承ください。ご理解の上、ご購入をお願い申し上げます。 <br>※弊社は正規代理店ではございません。",
     "headLine": "大人気 /プレゼント/贈り物/4902370553383/ソフト",
@@ -2627,7 +3042,7 @@
     }
   },
   {
-    "index": 26,
+    "index": 30,
     "name": "ファンタジーライフiグルグルの竜と時をぬすむ少女 /Switch 2 用ソフト（パッケージ版）",
     "description": "こちらの商品は「ネコポス便」での配送となっております。<br>そのためポスト投函での配送となりますため、「到着日時の指定」ができません。<br>※通常より配送にお時間をいただく場合がございますので予めご了承ください。<br>※ネコポス配送による破損や紛失に関しましては補償が出来兼ねます。<br><br>商品状態：新品<br><br>付属品 ：初期付属品は全て揃っています。<br>※商品の詳細に関しましてはお手数ですがメーカーに直接お問い合わせください。<br><br>サポート<br>サポート内容に関しまして商品に付属しています保証書をご確認ください。（保証書が付属しない商品もございます） 内容によっては当店では対応出来ない場合がございますので予めご了承ください。ご理解の上、ご購入をお願い申し上げます。 <br>※弊社は正規代理店ではございません。",
     "headLine": "大人気 /プレゼント/贈り物/4571237661303/ソフト",
@@ -2723,417 +3138,6 @@
         "count": 1484
       },
       "imageId": "light-hikari_1"
-    },
-    "delivery": {
-      "deadLine": null,
-      "day": null,
-      "area": ""
-    }
-  },
-  {
-    "index": 27,
-    "name": "オクトパストラベラー0 【Switch2】 POT-P-AAW2A",
-    "description": "オクトパストラベラー0 【Switch2】 POT-P-AAW2A 80",
-    "headLine": "",
-    "url": "https://store.shopping.yahoo.co.jp/best-denki/2820922012.html",
-    "inStock": true,
-    "code": "best-denki_2820922012",
-    "condition": "new",
-    "imageId": "best-denki_2820922012",
-    "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/best-denki_2820922012",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/best-denki_2820922012"
-    },
-    "review": {
-      "count": 0,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=best-denki&page_key=2820922012",
-      "rate": 0
-    },
-    "affiliateRate": 1,
-    "price": 6602,
-    "premiumPrice": 6602,
-    "premiumPriceStatus": false,
-    "premiumDiscountRate": null,
-    "premiumDiscountType": null,
-    "priceLabel": {
-      "taxable": true,
-      "defaultPrice": 6602,
-      "discountedPrice": null,
-      "fixedPrice": null,
-      "premiumPrice": null,
-      "periodStart": null,
-      "periodEnd": null
-    },
-    "point": {
-      "amount": 0,
-      "times": 0,
-      "bonusAmount": 0,
-      "bonusTimes": 0,
-      "lyLimitedBonusAmount": 60,
-      "lyLimitedBonusTimes": 1,
-      "premiumAmount": 0,
-      "premiumTimes": 0,
-      "premiumBonusAmount": 0,
-      "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 60,
-      "lyLimitedPremiumBonusTimes": 1
-    },
-    "shipping": {
-      "code": 2,
-      "name": "送料無料"
-    },
-    "genreCategory": {
-      "id": 77077,
-      "name": "Switch 2用ソフト（パッケージ版）",
-      "depth": 4
-    },
-    "parentGenreCategories": [
-      {
-        "id": 2511,
-        "depth": 1,
-        "name": "ゲーム、おもちゃ"
-      },
-      {
-        "id": 2161,
-        "depth": 2,
-        "name": "テレビゲーム"
-      },
-      {
-        "id": 77071,
-        "depth": 3,
-        "name": "Nintendo Switch 2"
-      }
-    ],
-    "brand": {
-      "id": 1005,
-      "name": "スクウェア・エニックス"
-    },
-    "parentBrands": [
-      {
-        "id": 1,
-        "name": "ブランド"
-      }
-    ],
-    "janCode": "4988601012058",
-    "payment": "4096 16384 1 16",
-    "releaseDate": null,
-    "seller": {
-      "sellerId": "best-denki",
-      "name": "ベスト電器Yahoo!店",
-      "url": "https://store.shopping.yahoo.co.jp/best-denki/",
-      "isBestSeller": false,
-      "review": {
-        "rate": 4.47,
-        "count": 10853
-      },
-      "imageId": "best-denki_1"
-    },
-    "delivery": {
-      "deadLine": null,
-      "day": null,
-      "area": ""
-    }
-  },
-  {
-    "index": 28,
-    "name": "ぷよぷよテトリス２Ｓ Switch2 用ソフト",
-    "description": "こちらの商品は「ネコポス便」での配送となっております。<br>そのためポスト投函での配送となりますため、「到着日時の指定」ができません。<br>※通常より配送にお時間をいただく場合がございますので予めご了承ください。<br>※ネコポス配送による破損や紛失に関しましては補償が出来兼ねます。<br><br>商品状態：新品<br><br>付属品 ：初期付属品は全て揃っています。<br>※商品の詳細に関しましてはお手数ですがメーカーに直接お問い合わせください。<br><br>サポート<br>サポート内容に関しまして商品に付属しています保証書をご確認ください。（保証書が付属しない商品もございます） 内容によっては当店では対応出来ない場合がございますので予めご了承ください。ご理解の上、ご購入をお願い申し上げます。 <br>※弊社は正規代理店ではございません。",
-    "headLine": "大人気 /プレゼント/贈り物/4974365870546/ソフト",
-    "url": "https://store.shopping.yahoo.co.jp/light-hikari/4974365870546.html",
-    "inStock": true,
-    "code": "light-hikari_4974365870546",
-    "condition": "new",
-    "imageId": "light-hikari_4974365870546",
-    "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/light-hikari_4974365870546",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/light-hikari_4974365870546"
-    },
-    "review": {
-      "count": 2,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=light-hikari&page_key=4974365870546",
-      "rate": 0
-    },
-    "affiliateRate": 1,
-    "price": 4253,
-    "premiumPrice": 4253,
-    "premiumPriceStatus": false,
-    "premiumDiscountRate": null,
-    "premiumDiscountType": null,
-    "priceLabel": {
-      "taxable": true,
-      "defaultPrice": 4253,
-      "discountedPrice": null,
-      "fixedPrice": null,
-      "premiumPrice": null,
-      "periodStart": null,
-      "periodEnd": null
-    },
-    "point": {
-      "amount": 0,
-      "times": 0,
-      "bonusAmount": 0,
-      "bonusTimes": 0,
-      "lyLimitedBonusAmount": 38,
-      "lyLimitedBonusTimes": 1,
-      "premiumAmount": 0,
-      "premiumTimes": 0,
-      "premiumBonusAmount": 0,
-      "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 38,
-      "lyLimitedPremiumBonusTimes": 1
-    },
-    "shipping": {
-      "code": 2,
-      "name": "送料無料"
-    },
-    "genreCategory": {
-      "id": 77077,
-      "name": "Switch 2用ソフト（パッケージ版）",
-      "depth": 4
-    },
-    "parentGenreCategories": [
-      {
-        "id": 2511,
-        "depth": 1,
-        "name": "ゲーム、おもちゃ"
-      },
-      {
-        "id": 2161,
-        "depth": 2,
-        "name": "テレビゲーム"
-      },
-      {
-        "id": 77071,
-        "depth": 3,
-        "name": "Nintendo Switch 2"
-      }
-    ],
-    "brand": {
-      "id": 21552,
-      "name": "セガゲームス"
-    },
-    "parentBrands": [
-      {
-        "id": 1,
-        "name": "ブランド"
-      }
-    ],
-    "janCode": "4974365870546",
-    "payment": "4096 1 64 16384 16",
-    "releaseDate": null,
-    "seller": {
-      "sellerId": "light-hikari",
-      "name": "らいぶshop",
-      "url": "https://store.shopping.yahoo.co.jp/light-hikari/",
-      "isBestSeller": true,
-      "review": {
-        "rate": 4.64,
-        "count": 1484
-      },
-      "imageId": "light-hikari_1"
-    },
-    "delivery": {
-      "deadLine": null,
-      "day": null,
-      "area": ""
-    }
-  },
-  {
-    "index": 29,
-    "name": "バンダイナムコエンターテインメント (Switch2)ドラゴンボール Sparking！ ZERO 返品種別B",
-    "description": "在庫状況：在庫僅少/2025年11月 発売/※外付特典：スーパーマリオキャラクターステッカー(5種類の中からランダムで1枚プレゼント)は終了しました/※本作のパッケージ版は(キーカード)での販売となります。　はじめてプレイするときにソフト本編がダウンロードされます。　ダウンロードにはインターネット接続環境と25GB以上 の空き容量が必要です。　詳細は任天堂公式サイト(https:/www.nintendo.com/jp/games/switch2/key-card/index.html)をご確認ください。※更新データなどで追加の空き容量が必要になる場合があります。※本製品をプレイするには、ゲーム内に表示されるサービス利用規約に同意する必要があります。 詳しくは(https:/www.bandainamcoent.co.jp/cs/kiyaku/eula/)をご確認ください。※画像は開発中のものです。実際の製品とは異なる場合があります。※内容・仕様は予告無く変更する場合がございます。(ドラゴンボールZ Sparking！)シリーズ最新作が、Nintendo Switch 2で登場！超戦士となって、天地を揺るがす限界突破のドラゴンボールバトルを体感せよ！",
-    "headLine": "",
-    "url": "https://store.shopping.yahoo.co.jp/joshin/4573608199743-54-73633.html",
-    "inStock": true,
-    "code": "joshin_4573608199743-54-73633",
-    "condition": "new",
-    "imageId": "joshin_4573608199743-54-73633",
-    "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4573608199743-54-73633",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4573608199743-54-73633"
-    },
-    "review": {
-      "count": 4,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4573608199743-54-73633",
-      "rate": 4.5
-    },
-    "affiliateRate": 1,
-    "price": 7300,
-    "premiumPrice": 7300,
-    "premiumPriceStatus": false,
-    "premiumDiscountRate": null,
-    "premiumDiscountType": null,
-    "priceLabel": {
-      "taxable": true,
-      "defaultPrice": 7300,
-      "discountedPrice": null,
-      "fixedPrice": null,
-      "premiumPrice": null,
-      "periodStart": null,
-      "periodEnd": null
-    },
-    "point": {
-      "amount": 0,
-      "times": 0,
-      "bonusAmount": 0,
-      "bonusTimes": 0,
-      "lyLimitedBonusAmount": 66,
-      "lyLimitedBonusTimes": 1,
-      "premiumAmount": 0,
-      "premiumTimes": 0,
-      "premiumBonusAmount": 0,
-      "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 66,
-      "lyLimitedPremiumBonusTimes": 1
-    },
-    "shipping": {
-      "code": 2,
-      "name": "送料無料"
-    },
-    "genreCategory": {
-      "id": 77077,
-      "name": "Switch 2用ソフト（パッケージ版）",
-      "depth": 4
-    },
-    "parentGenreCategories": [
-      {
-        "id": 2511,
-        "depth": 1,
-        "name": "ゲーム、おもちゃ"
-      },
-      {
-        "id": 2161,
-        "depth": 2,
-        "name": "テレビゲーム"
-      },
-      {
-        "id": 77071,
-        "depth": 3,
-        "name": "Nintendo Switch 2"
-      }
-    ],
-    "brand": {
-      "id": 4819,
-      "name": "バンダイナムコエンターテインメント"
-    },
-    "parentBrands": [
-      {
-        "id": 1,
-        "name": "ブランド"
-      }
-    ],
-    "janCode": "4573608199743",
-    "payment": "4096 1 16 16384",
-    "releaseDate": null,
-    "seller": {
-      "sellerId": "joshin",
-      "name": "Joshin web",
-      "url": "https://store.shopping.yahoo.co.jp/joshin/",
-      "isBestSeller": false,
-      "review": {
-        "rate": 4.52,
-        "count": 409305
-      },
-      "imageId": "joshin_1"
-    },
-    "delivery": {
-      "deadLine": null,
-      "day": null,
-      "area": ""
-    }
-  },
-  {
-    "index": 30,
-    "name": "【新品】SW2 HADES II （ハデス２）Nintendo Switch 2 Edition（特典付）【送料別・メール便・宅配便 配送方法選択】",
-    "description": "メーカー名：Supergiant Games, LLC<br>新品・未開封<br><br>**************必ずお読みください*************<br>【配送方法を選択してください。】<br>※ご注文後配送方法の変更はできません。<br>「代金引換発送」は、ご利用頂けません。<br><br>・メール便（ネコポス/ヤマト運輸）<br>　商品はポストに投函されます。<br>　荷物の追跡は出来ますが配達日時指定は出来ません。<br>・宅配便<br>〈配送日時指定をご希望の方は宅配便をご選択ください。〉<br>******************************************",
-    "headLine": "",
-    "url": "https://store.shopping.yahoo.co.jp/champnet758/4589508180156.html",
-    "inStock": true,
-    "code": "champnet758_4589508180156",
-    "condition": "new",
-    "imageId": "champnet758_4589508180156",
-    "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/champnet758_4589508180156",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/champnet758_4589508180156"
-    },
-    "review": {
-      "count": 0,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=champnet758&page_key=4589508180156",
-      "rate": 0
-    },
-    "affiliateRate": 1,
-    "price": 5100,
-    "premiumPrice": 5100,
-    "premiumPriceStatus": false,
-    "premiumDiscountRate": null,
-    "premiumDiscountType": null,
-    "priceLabel": {
-      "taxable": true,
-      "defaultPrice": 5100,
-      "discountedPrice": null,
-      "fixedPrice": null,
-      "premiumPrice": null,
-      "periodStart": null,
-      "periodEnd": null
-    },
-    "point": {
-      "amount": 0,
-      "times": 0,
-      "bonusAmount": 0,
-      "bonusTimes": 0,
-      "lyLimitedBonusAmount": 46,
-      "lyLimitedBonusTimes": 1,
-      "premiumAmount": 0,
-      "premiumTimes": 0,
-      "premiumBonusAmount": 0,
-      "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 46,
-      "lyLimitedPremiumBonusTimes": 1
-    },
-    "shipping": {
-      "code": 1,
-      "name": "設定なし"
-    },
-    "genreCategory": {
-      "id": 77077,
-      "name": "Switch 2用ソフト（パッケージ版）",
-      "depth": 4
-    },
-    "parentGenreCategories": [
-      {
-        "id": 2511,
-        "depth": 1,
-        "name": "ゲーム、おもちゃ"
-      },
-      {
-        "id": 2161,
-        "depth": 2,
-        "name": "テレビゲーム"
-      },
-      {
-        "id": 77071,
-        "depth": 3,
-        "name": "Nintendo Switch 2"
-      }
-    ],
-    "brand": {
-      "id": null,
-      "name": ""
-    },
-    "parentBrands": [],
-    "janCode": "4589508180156",
-    "payment": "4096 16 16384 1",
-    "releaseDate": null,
-    "seller": {
-      "sellerId": "champnet758",
-      "name": "チャンプネット Yahoo!店",
-      "url": "https://store.shopping.yahoo.co.jp/champnet758/",
-      "isBestSeller": false,
-      "review": {
-        "rate": 4.85,
-        "count": 292
-      },
-      "imageId": "champnet758_1"
     },
     "delivery": {
       "deadLine": null,
