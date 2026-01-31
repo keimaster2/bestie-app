@@ -1,32 +1,32 @@
 [
   {
     "index": 1,
-    "name": "任天堂 (Switch2)ドンキーコング バナンザ 返品種別B",
-    "description": "在庫状況：在庫あり/2025年07月 発売/さえぎるすべてをブチ壊せ！",
+    "name": "任天堂 (Switch)Nintendo Switch Sports(スイッチスポーツ) 返品種別B",
+    "description": "在庫状況：在庫あり/2022年04月 発売/※オンラインプレイを遊ぶためにはソフトのバージョンの更新が必要です(Ver.1.1.0以上)。※オンラインプレイを遊ぶためにはニンテンドーアカウント(無料)の作成とインターネットへの接続、Nintendo Switch Online(有料)への加入が必要となります。Joy-Conを振って体感スポーツ！【report】",
     "headLine": "",
-    "url": "https://store.shopping.yahoo.co.jp/joshin/4902370553413-54-73632.html",
+    "url": "https://store.shopping.yahoo.co.jp/joshin/4902370549263-54-40564.html",
     "inStock": true,
-    "code": "joshin_4902370553413-54-73632",
+    "code": "joshin_4902370549263-54-40564",
     "condition": "new",
-    "imageId": "joshin_4902370553413-54-73632",
+    "imageId": "joshin_4902370549263-54-40564",
     "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4902370553413-54-73632",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4902370553413-54-73632"
+      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4902370549263-54-40564",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4902370549263-54-40564"
     },
     "review": {
-      "count": 44,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4902370553413-54-73632",
-      "rate": 4.82
+      "count": 212,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4902370549263-54-40564",
+      "rate": 4.75
     },
     "affiliateRate": 1,
-    "price": 8080,
-    "premiumPrice": 8080,
+    "price": 5000,
+    "premiumPrice": 5000,
     "premiumPriceStatus": false,
     "premiumDiscountRate": null,
     "premiumDiscountType": null,
     "priceLabel": {
       "taxable": true,
-      "defaultPrice": 8080,
+      "defaultPrice": 5000,
       "discountedPrice": null,
       "fixedPrice": null,
       "premiumPrice": null,
@@ -38,13 +38,13 @@
       "times": 0,
       "bonusAmount": 0,
       "bonusTimes": 0,
-      "lyLimitedBonusAmount": 73,
+      "lyLimitedBonusAmount": 45,
       "lyLimitedBonusTimes": 1,
       "premiumAmount": 0,
       "premiumTimes": 0,
       "premiumBonusAmount": 0,
       "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 73,
+      "lyLimitedPremiumBonusAmount": 45,
       "lyLimitedPremiumBonusTimes": 1
     },
     "shipping": {
@@ -83,8 +83,8 @@
         "name": "ブランド"
       }
     ],
-    "janCode": "4902370553413",
-    "payment": "4096 16 16384 1",
+    "janCode": "4902370549263",
+    "payment": "16 16384 1 4096",
     "releaseDate": null,
     "seller": {
       "sellerId": "joshin",
@@ -93,7 +93,7 @@
       "isBestSeller": false,
       "review": {
         "rate": 4.52,
-        "count": 409305
+        "count": 409324
       },
       "imageId": "joshin_1"
     },
@@ -209,6 +209,110 @@
   },
   {
     "index": 3,
+    "name": "任天堂 (Switch2)ドンキーコング バナンザ 返品種別B",
+    "description": "在庫状況：在庫あり/2025年07月 発売/さえぎるすべてをブチ壊せ！",
+    "headLine": "",
+    "url": "https://store.shopping.yahoo.co.jp/joshin/4902370553413-54-73632.html",
+    "inStock": true,
+    "code": "joshin_4902370553413-54-73632",
+    "condition": "new",
+    "imageId": "joshin_4902370553413-54-73632",
+    "image": {
+      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4902370553413-54-73632",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4902370553413-54-73632"
+    },
+    "review": {
+      "count": 44,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4902370553413-54-73632",
+      "rate": 4.82
+    },
+    "affiliateRate": 1,
+    "price": 8080,
+    "premiumPrice": 8080,
+    "premiumPriceStatus": false,
+    "premiumDiscountRate": null,
+    "premiumDiscountType": null,
+    "priceLabel": {
+      "taxable": true,
+      "defaultPrice": 8080,
+      "discountedPrice": null,
+      "fixedPrice": null,
+      "premiumPrice": null,
+      "periodStart": null,
+      "periodEnd": null
+    },
+    "point": {
+      "amount": 0,
+      "times": 0,
+      "bonusAmount": 0,
+      "bonusTimes": 0,
+      "lyLimitedBonusAmount": 73,
+      "lyLimitedBonusTimes": 1,
+      "premiumAmount": 0,
+      "premiumTimes": 0,
+      "premiumBonusAmount": 0,
+      "premiumBonusTimes": 0,
+      "lyLimitedPremiumBonusAmount": 73,
+      "lyLimitedPremiumBonusTimes": 1
+    },
+    "shipping": {
+      "code": 2,
+      "name": "送料無料"
+    },
+    "genreCategory": {
+      "id": 50522,
+      "name": "Switch用ソフト（パッケージ版）",
+      "depth": 4
+    },
+    "parentGenreCategories": [
+      {
+        "id": 2511,
+        "depth": 1,
+        "name": "ゲーム、おもちゃ"
+      },
+      {
+        "id": 2161,
+        "depth": 2,
+        "name": "テレビゲーム"
+      },
+      {
+        "id": 48838,
+        "depth": 3,
+        "name": "Nintendo Switch"
+      }
+    ],
+    "brand": {
+      "id": 2358,
+      "name": "任天堂"
+    },
+    "parentBrands": [
+      {
+        "id": 1,
+        "name": "ブランド"
+      }
+    ],
+    "janCode": "4902370553413",
+    "payment": "4096 16 16384 1",
+    "releaseDate": null,
+    "seller": {
+      "sellerId": "joshin",
+      "name": "Joshin web",
+      "url": "https://store.shopping.yahoo.co.jp/joshin/",
+      "isBestSeller": false,
+      "review": {
+        "rate": 4.52,
+        "count": 409305
+      },
+      "imageId": "joshin_1"
+    },
+    "delivery": {
+      "deadLine": null,
+      "day": null,
+      "area": ""
+    }
+  },
+  {
+    "index": 4,
     "name": "任天堂 (Switch)リングフィット アドベンチャー 返品種別B",
     "description": "在庫状況：在庫あり/2019年10月 発売/冒険しながらフィットネス",
     "headLine": "",
@@ -312,219 +416,7 @@
     }
   },
   {
-    "index": 4,
-    "name": "【2026年2月5日発売・発売日前日発送】NSW ドラゴンクエストVII Reimagined",
-    "description": "発売日：2026年02月05日<br>販売元：スクウェア・エニックス<br>対応機種等：NintendoSwitch<br>CERO区分：B 12才以上対象<br>品番：HAC-P-BD9VA<br>JAN：4988601012072",
-    "headLine": "予約受付中！！発売日前日発送！！2026年2月5日発売",
-    "url": "https://store.shopping.yahoo.co.jp/updra/4988601012072.html",
-    "inStock": true,
-    "code": "updra_4988601012072",
-    "condition": "new",
-    "imageId": "updra_4988601012072",
-    "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/updra_4988601012072",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/updra_4988601012072"
-    },
-    "review": {
-      "count": 0,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=updra&page_key=4988601012072",
-      "rate": 0
-    },
-    "affiliateRate": 1,
-    "price": 8280,
-    "premiumPrice": 8280,
-    "premiumPriceStatus": false,
-    "premiumDiscountRate": 5,
-    "premiumDiscountType": "original",
-    "priceLabel": {
-      "taxable": true,
-      "defaultPrice": 8280,
-      "discountedPrice": null,
-      "fixedPrice": 8778,
-      "premiumPrice": null,
-      "periodStart": null,
-      "periodEnd": null
-    },
-    "point": {
-      "amount": 0,
-      "times": 0,
-      "bonusAmount": 0,
-      "bonusTimes": 0,
-      "lyLimitedBonusAmount": 75,
-      "lyLimitedBonusTimes": 1,
-      "premiumAmount": 0,
-      "premiumTimes": 0,
-      "premiumBonusAmount": 0,
-      "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 75,
-      "lyLimitedPremiumBonusTimes": 1
-    },
-    "shipping": {
-      "code": 2,
-      "name": "送料無料"
-    },
-    "genreCategory": {
-      "id": 50522,
-      "name": "Switch用ソフト（パッケージ版）",
-      "depth": 4
-    },
-    "parentGenreCategories": [
-      {
-        "id": 2511,
-        "depth": 1,
-        "name": "ゲーム、おもちゃ"
-      },
-      {
-        "id": 2161,
-        "depth": 2,
-        "name": "テレビゲーム"
-      },
-      {
-        "id": 48838,
-        "depth": 3,
-        "name": "Nintendo Switch"
-      }
-    ],
-    "brand": {
-      "id": 15415,
-      "name": "ドラゴンクエスト"
-    },
-    "parentBrands": [
-      {
-        "id": 1,
-        "name": "ブランド"
-      },
-      {
-        "id": 1005,
-        "name": "スクウェア・エニックス"
-      }
-    ],
-    "janCode": "4988601012072",
-    "payment": "8192 4096 16384 1 16 256 512 1024",
-    "releaseDate": 1770217200,
-    "seller": {
-      "sellerId": "updra",
-      "name": "アップYahoo!店",
-      "url": "https://store.shopping.yahoo.co.jp/updra/",
-      "isBestSeller": false,
-      "review": {
-        "rate": 4.85,
-        "count": 2080
-      },
-      "imageId": "updra_1"
-    },
-    "delivery": {
-      "deadLine": null,
-      "day": null,
-      "area": ""
-    }
-  },
-  {
     "index": 5,
-    "name": "任天堂 (Switch2)あつまれ どうぶつの森 Nintendo Switch 2 Edition 返品種別B",
-    "description": "在庫状況：在庫あり/2026年01月 発売/※すでにSwitch版の『あつまれ どうぶつの森』をお持ちの方は、(アップグレードパス)(別売り)のみのご購入でお楽しみいただけます。くわしくは、任天堂公式サイト(Nintendo Switch 2 Editionについて) をご覧ください。※本ソフトを複数本使用しても、作成できる島は本体1台につき1つです。別の島で遊びたい場合は、別の本体が必要です。なお、島には住人(ユーザー)が8人まで住むことができます。※ソフトをはじめて起動するときに、インターネット接続環境とニンテンドーアカウントが必要です。※本ソフトのセーブデータは本体機能の(ユーザーの引っ越し)や(セーブデータの引っ越し)に対応しておりませんが、本ソフト独自の形で、プレイヤーデータやセーブデータを他の本体に引越しさせる機能をご利用いただけます。※オンラインプレイのご利用にはNintendo Switch Online(有料)への加入が必要になります。※Nintendo Switch Onlineのセーブデータお預かりサービスには対応しておりませんが、本体の故障・紛失・盗難に備えて、Nintendo Switch Online加入者向けに、本ソフト独自の形で、セーブデータをバックアップ・復元する(セー",
-    "headLine": "",
-    "url": "https://store.shopping.yahoo.co.jp/joshin/4902370553901-54-73639.html",
-    "inStock": true,
-    "code": "joshin_4902370553901-54-73639",
-    "condition": "new",
-    "imageId": "joshin_4902370553901-54-73639",
-    "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4902370553901-54-73639",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4902370553901-54-73639"
-    },
-    "review": {
-      "count": 0,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4902370553901-54-73639",
-      "rate": 0
-    },
-    "affiliateRate": 1,
-    "price": 6480,
-    "premiumPrice": 6480,
-    "premiumPriceStatus": false,
-    "premiumDiscountRate": null,
-    "premiumDiscountType": null,
-    "priceLabel": {
-      "taxable": true,
-      "defaultPrice": 6480,
-      "discountedPrice": null,
-      "fixedPrice": null,
-      "premiumPrice": null,
-      "periodStart": null,
-      "periodEnd": null
-    },
-    "point": {
-      "amount": 0,
-      "times": 0,
-      "bonusAmount": 0,
-      "bonusTimes": 0,
-      "lyLimitedBonusAmount": 58,
-      "lyLimitedBonusTimes": 1,
-      "premiumAmount": 0,
-      "premiumTimes": 0,
-      "premiumBonusAmount": 0,
-      "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 58,
-      "lyLimitedPremiumBonusTimes": 1
-    },
-    "shipping": {
-      "code": 2,
-      "name": "送料無料"
-    },
-    "genreCategory": {
-      "id": 50522,
-      "name": "Switch用ソフト（パッケージ版）",
-      "depth": 4
-    },
-    "parentGenreCategories": [
-      {
-        "id": 2511,
-        "depth": 1,
-        "name": "ゲーム、おもちゃ"
-      },
-      {
-        "id": 2161,
-        "depth": 2,
-        "name": "テレビゲーム"
-      },
-      {
-        "id": 48838,
-        "depth": 3,
-        "name": "Nintendo Switch"
-      }
-    ],
-    "brand": {
-      "id": 2358,
-      "name": "任天堂"
-    },
-    "parentBrands": [
-      {
-        "id": 1,
-        "name": "ブランド"
-      }
-    ],
-    "janCode": "4902370553901",
-    "payment": "4096 16 16384 1",
-    "releaseDate": null,
-    "seller": {
-      "sellerId": "joshin",
-      "name": "Joshin web",
-      "url": "https://store.shopping.yahoo.co.jp/joshin/",
-      "isBestSeller": false,
-      "review": {
-        "rate": 4.52,
-        "count": 409318
-      },
-      "imageId": "joshin_1"
-    },
-    "delivery": {
-      "deadLine": null,
-      "day": null,
-      "area": ""
-    }
-  },
-  {
-    "index": 6,
     "name": "ポケモン (Switch)Pokemon LEGENDS Z-A 返品種別B",
     "description": "在庫状況：在庫あり/2025年10月 発売/※早期購入特典：ふしぎなおくりもの(サーナイトナイトを持ったラルトス)※外付特典(Joshinオリジナル)：PVCサコッシュは終了しました。/都市再開発が進む(ミアレシティ)での新たな物語。",
     "headLine": "",
@@ -628,7 +520,219 @@
     }
   },
   {
+    "index": 6,
+    "name": "【2026年2月5日発売・発売日前日発送】NSW ドラゴンクエストVII Reimagined",
+    "description": "発売日：2026年02月05日<br>販売元：スクウェア・エニックス<br>対応機種等：NintendoSwitch<br>CERO区分：B 12才以上対象<br>品番：HAC-P-BD9VA<br>JAN：4988601012072",
+    "headLine": "予約受付中！！発売日前日発送！！2026年2月5日発売",
+    "url": "https://store.shopping.yahoo.co.jp/updra/4988601012072.html",
+    "inStock": true,
+    "code": "updra_4988601012072",
+    "condition": "new",
+    "imageId": "updra_4988601012072",
+    "image": {
+      "small": "https://item-shopping.c.yimg.jp/i/c/updra_4988601012072",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/updra_4988601012072"
+    },
+    "review": {
+      "count": 0,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=updra&page_key=4988601012072",
+      "rate": 0
+    },
+    "affiliateRate": 1,
+    "price": 8280,
+    "premiumPrice": 8280,
+    "premiumPriceStatus": false,
+    "premiumDiscountRate": 5,
+    "premiumDiscountType": "original",
+    "priceLabel": {
+      "taxable": true,
+      "defaultPrice": 8280,
+      "discountedPrice": null,
+      "fixedPrice": 8778,
+      "premiumPrice": null,
+      "periodStart": null,
+      "periodEnd": null
+    },
+    "point": {
+      "amount": 0,
+      "times": 0,
+      "bonusAmount": 0,
+      "bonusTimes": 0,
+      "lyLimitedBonusAmount": 75,
+      "lyLimitedBonusTimes": 1,
+      "premiumAmount": 0,
+      "premiumTimes": 0,
+      "premiumBonusAmount": 0,
+      "premiumBonusTimes": 0,
+      "lyLimitedPremiumBonusAmount": 75,
+      "lyLimitedPremiumBonusTimes": 1
+    },
+    "shipping": {
+      "code": 2,
+      "name": "送料無料"
+    },
+    "genreCategory": {
+      "id": 50522,
+      "name": "Switch用ソフト（パッケージ版）",
+      "depth": 4
+    },
+    "parentGenreCategories": [
+      {
+        "id": 2511,
+        "depth": 1,
+        "name": "ゲーム、おもちゃ"
+      },
+      {
+        "id": 2161,
+        "depth": 2,
+        "name": "テレビゲーム"
+      },
+      {
+        "id": 48838,
+        "depth": 3,
+        "name": "Nintendo Switch"
+      }
+    ],
+    "brand": {
+      "id": 15415,
+      "name": "ドラゴンクエスト"
+    },
+    "parentBrands": [
+      {
+        "id": 1,
+        "name": "ブランド"
+      },
+      {
+        "id": 1005,
+        "name": "スクウェア・エニックス"
+      }
+    ],
+    "janCode": "4988601012072",
+    "payment": "8192 4096 16384 1 16 256 512 1024",
+    "releaseDate": 1770217200,
+    "seller": {
+      "sellerId": "updra",
+      "name": "アップYahoo!店",
+      "url": "https://store.shopping.yahoo.co.jp/updra/",
+      "isBestSeller": false,
+      "review": {
+        "rate": 4.85,
+        "count": 2080
+      },
+      "imageId": "updra_1"
+    },
+    "delivery": {
+      "deadLine": 15,
+      "day": 1,
+      "area": "13"
+    }
+  },
+  {
     "index": 7,
+    "name": "任天堂 (Switch2)あつまれ どうぶつの森 Nintendo Switch 2 Edition 返品種別B",
+    "description": "在庫状況：在庫あり/2026年01月 発売/※すでにSwitch版の『あつまれ どうぶつの森』をお持ちの方は、(アップグレードパス)(別売り)のみのご購入でお楽しみいただけます。くわしくは、任天堂公式サイト(Nintendo Switch 2 Editionについて) をご覧ください。※本ソフトを複数本使用しても、作成できる島は本体1台につき1つです。別の島で遊びたい場合は、別の本体が必要です。なお、島には住人(ユーザー)が8人まで住むことができます。※ソフトをはじめて起動するときに、インターネット接続環境とニンテンドーアカウントが必要です。※本ソフトのセーブデータは本体機能の(ユーザーの引っ越し)や(セーブデータの引っ越し)に対応しておりませんが、本ソフト独自の形で、プレイヤーデータやセーブデータを他の本体に引越しさせる機能をご利用いただけます。※オンラインプレイのご利用にはNintendo Switch Online(有料)への加入が必要になります。※Nintendo Switch Onlineのセーブデータお預かりサービスには対応しておりませんが、本体の故障・紛失・盗難に備えて、Nintendo Switch Online加入者向けに、本ソフト独自の形で、セーブデータをバックアップ・復元する(セー",
+    "headLine": "",
+    "url": "https://store.shopping.yahoo.co.jp/joshin/4902370553901-54-73639.html",
+    "inStock": true,
+    "code": "joshin_4902370553901-54-73639",
+    "condition": "new",
+    "imageId": "joshin_4902370553901-54-73639",
+    "image": {
+      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4902370553901-54-73639",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4902370553901-54-73639"
+    },
+    "review": {
+      "count": 0,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4902370553901-54-73639",
+      "rate": 0
+    },
+    "affiliateRate": 1,
+    "price": 6480,
+    "premiumPrice": 6480,
+    "premiumPriceStatus": false,
+    "premiumDiscountRate": null,
+    "premiumDiscountType": null,
+    "priceLabel": {
+      "taxable": true,
+      "defaultPrice": 6480,
+      "discountedPrice": null,
+      "fixedPrice": null,
+      "premiumPrice": null,
+      "periodStart": null,
+      "periodEnd": null
+    },
+    "point": {
+      "amount": 0,
+      "times": 0,
+      "bonusAmount": 0,
+      "bonusTimes": 0,
+      "lyLimitedBonusAmount": 58,
+      "lyLimitedBonusTimes": 1,
+      "premiumAmount": 0,
+      "premiumTimes": 0,
+      "premiumBonusAmount": 0,
+      "premiumBonusTimes": 0,
+      "lyLimitedPremiumBonusAmount": 58,
+      "lyLimitedPremiumBonusTimes": 1
+    },
+    "shipping": {
+      "code": 2,
+      "name": "送料無料"
+    },
+    "genreCategory": {
+      "id": 50522,
+      "name": "Switch用ソフト（パッケージ版）",
+      "depth": 4
+    },
+    "parentGenreCategories": [
+      {
+        "id": 2511,
+        "depth": 1,
+        "name": "ゲーム、おもちゃ"
+      },
+      {
+        "id": 2161,
+        "depth": 2,
+        "name": "テレビゲーム"
+      },
+      {
+        "id": 48838,
+        "depth": 3,
+        "name": "Nintendo Switch"
+      }
+    ],
+    "brand": {
+      "id": 2358,
+      "name": "任天堂"
+    },
+    "parentBrands": [
+      {
+        "id": 1,
+        "name": "ブランド"
+      }
+    ],
+    "janCode": "4902370553901",
+    "payment": "4096 16 16384 1",
+    "releaseDate": null,
+    "seller": {
+      "sellerId": "joshin",
+      "name": "Joshin web",
+      "url": "https://store.shopping.yahoo.co.jp/joshin/",
+      "isBestSeller": false,
+      "review": {
+        "rate": 4.52,
+        "count": 409318
+      },
+      "imageId": "joshin_1"
+    },
+    "delivery": {
+      "deadLine": null,
+      "day": null,
+      "area": ""
+    }
+  },
+  {
+    "index": 8,
     "name": "任天堂 (Switch2)ゼルダの伝説 ブレス オブ ザ ワイルド Nintendo Switch 2 Edition 返品種別B",
     "description": "在庫状況：在庫あり/2025年06月 発売/駆ける、活きる、護る。果てなき冒険を思いのままに。",
     "headLine": "",
@@ -732,7 +836,7 @@
     }
   },
   {
-    "index": 8,
+    "index": 9,
     "name": "任天堂 (Switch2)ゼルダの伝説 ティアーズ オブ ザ キングダム Nintendo Switch 2 Edition 返品種別B",
     "description": "在庫状況：在庫あり/2025年06月 発売/果てなき冒険は、大空へ広がる。",
     "headLine": "",
@@ -826,110 +930,6 @@
       "review": {
         "rate": 4.52,
         "count": 409305
-      },
-      "imageId": "joshin_1"
-    },
-    "delivery": {
-      "deadLine": null,
-      "day": null,
-      "area": ""
-    }
-  },
-  {
-    "index": 9,
-    "name": "任天堂 (Switch)Nintendo Switch Sports(スイッチスポーツ) 返品種別B",
-    "description": "在庫状況：お取り寄せ/お届け：約1週間/2022年04月 発売/※オンラインプレイを遊ぶためにはソフトのバージョンの更新が必要です(Ver.1.1.0以上)。※オンラインプレイを遊ぶためにはニンテンドーアカウント(無料)の作成とインターネットへの接続、Nintendo Switch Online(有料)への加入が必要となります。Joy-Conを振って体感スポーツ！【report】",
-    "headLine": "",
-    "url": "https://store.shopping.yahoo.co.jp/joshin/4902370549263-54-40564.html",
-    "inStock": true,
-    "code": "joshin_4902370549263-54-40564",
-    "condition": "new",
-    "imageId": "joshin_4902370549263-54-40564",
-    "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4902370549263-54-40564",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4902370549263-54-40564"
-    },
-    "review": {
-      "count": 212,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4902370549263-54-40564",
-      "rate": 4.75
-    },
-    "affiliateRate": 1,
-    "price": 5000,
-    "premiumPrice": 5000,
-    "premiumPriceStatus": false,
-    "premiumDiscountRate": null,
-    "premiumDiscountType": null,
-    "priceLabel": {
-      "taxable": true,
-      "defaultPrice": 5000,
-      "discountedPrice": null,
-      "fixedPrice": null,
-      "premiumPrice": null,
-      "periodStart": null,
-      "periodEnd": null
-    },
-    "point": {
-      "amount": 0,
-      "times": 0,
-      "bonusAmount": 0,
-      "bonusTimes": 0,
-      "lyLimitedBonusAmount": 45,
-      "lyLimitedBonusTimes": 1,
-      "premiumAmount": 0,
-      "premiumTimes": 0,
-      "premiumBonusAmount": 0,
-      "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 45,
-      "lyLimitedPremiumBonusTimes": 1
-    },
-    "shipping": {
-      "code": 2,
-      "name": "送料無料"
-    },
-    "genreCategory": {
-      "id": 50522,
-      "name": "Switch用ソフト（パッケージ版）",
-      "depth": 4
-    },
-    "parentGenreCategories": [
-      {
-        "id": 2511,
-        "depth": 1,
-        "name": "ゲーム、おもちゃ"
-      },
-      {
-        "id": 2161,
-        "depth": 2,
-        "name": "テレビゲーム"
-      },
-      {
-        "id": 48838,
-        "depth": 3,
-        "name": "Nintendo Switch"
-      }
-    ],
-    "brand": {
-      "id": 2358,
-      "name": "任天堂"
-    },
-    "parentBrands": [
-      {
-        "id": 1,
-        "name": "ブランド"
-      }
-    ],
-    "janCode": "4902370549263",
-    "payment": "1 16 4096 16384",
-    "releaseDate": null,
-    "seller": {
-      "sellerId": "joshin",
-      "name": "Joshin web",
-      "url": "https://store.shopping.yahoo.co.jp/joshin/",
-      "isBestSeller": false,
-      "review": {
-        "rate": 4.52,
-        "count": 409311
       },
       "imageId": "joshin_1"
     },
@@ -1361,1374 +1361,6 @@
   },
   {
     "index": 14,
-    "name": "任天堂 (Switch)マリオカート8 デラックススーパーマリオ マリオ 返品種別B",
-    "description": "在庫状況：在庫あり/2017年04月 発売/新しいスタート。すべてがデラックス！",
-    "headLine": "",
-    "url": "https://store.shopping.yahoo.co.jp/joshin/4902370536485-54-40563.html",
-    "inStock": true,
-    "code": "joshin_4902370536485-54-40563",
-    "condition": "new",
-    "imageId": "joshin_4902370536485-54-40563",
-    "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4902370536485-54-40563",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4902370536485-54-40563"
-    },
-    "review": {
-      "count": 1194,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4902370536485-54-40563",
-      "rate": 4.72
-    },
-    "affiliateRate": 1,
-    "price": 5980,
-    "premiumPrice": 5980,
-    "premiumPriceStatus": false,
-    "premiumDiscountRate": null,
-    "premiumDiscountType": null,
-    "priceLabel": {
-      "taxable": true,
-      "defaultPrice": 5980,
-      "discountedPrice": null,
-      "fixedPrice": null,
-      "premiumPrice": null,
-      "periodStart": null,
-      "periodEnd": null
-    },
-    "point": {
-      "amount": 0,
-      "times": 0,
-      "bonusAmount": 0,
-      "bonusTimes": 0,
-      "lyLimitedBonusAmount": 54,
-      "lyLimitedBonusTimes": 1,
-      "premiumAmount": 0,
-      "premiumTimes": 0,
-      "premiumBonusAmount": 0,
-      "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 54,
-      "lyLimitedPremiumBonusTimes": 1
-    },
-    "shipping": {
-      "code": 2,
-      "name": "送料無料"
-    },
-    "genreCategory": {
-      "id": 50522,
-      "name": "Switch用ソフト（パッケージ版）",
-      "depth": 4
-    },
-    "parentGenreCategories": [
-      {
-        "id": 2511,
-        "depth": 1,
-        "name": "ゲーム、おもちゃ"
-      },
-      {
-        "id": 2161,
-        "depth": 2,
-        "name": "テレビゲーム"
-      },
-      {
-        "id": 48838,
-        "depth": 3,
-        "name": "Nintendo Switch"
-      }
-    ],
-    "brand": {
-      "id": 22551,
-      "name": "スーパーマリオ"
-    },
-    "parentBrands": [
-      {
-        "id": 1,
-        "name": "ブランド"
-      },
-      {
-        "id": 2358,
-        "name": "任天堂"
-      }
-    ],
-    "janCode": "4902370536485",
-    "payment": "1 16 4096 16384",
-    "releaseDate": null,
-    "seller": {
-      "sellerId": "joshin",
-      "name": "Joshin web",
-      "url": "https://store.shopping.yahoo.co.jp/joshin/",
-      "isBestSeller": false,
-      "review": {
-        "rate": 4.52,
-        "count": 409305
-      },
-      "imageId": "joshin_1"
-    },
-    "delivery": {
-      "deadLine": null,
-      "day": null,
-      "area": ""
-    }
-  },
-  {
-    "index": 15,
-    "name": "Nintendo Switch Pokemon LEGENDS Z-A 特典なし ポケモン スイッチ ゲームソフト 新品 ゲーム 【 パッケージ版 】",
-    "description": "都市再開発が進む「ミアレシティ」での新たな物語。<br><br>▼冒険の舞台「ミアレシティ」<br>冒険の舞台は、『ポケットモンスター Ｘ』『ポケットモンスター Ｙ』 にも登場したカロス地方の大都市「ミアレシティ」。<br>この街では人とポケモンの共存を目指した都市再開発計画が進んでおり、最新技術により整備された区画「ワイルドゾーン」には野生のポケモンたちが生息しています。<br>そんなミアレシティを観光で訪れた主人公は、「チコリータ」「ポカブ」「ワニノコ」から1匹をパートナーとして選び、仲間たちと共に、街で起こる様々な出来事や事件に挑みます。<br><br>▼夜は「ＺＡロワイヤル」に挑戦<br>夜になると、街の中には「バトルゾーン」と呼ばれる赤いホログラムで囲われたエリアが出現。<br>そこでは日没から夜明けまで、トレーナーたちがポケモン勝負でしのぎを削る、「ＺＡロワイヤル」が毎日行われています。<br>参加者にはＺからＡまでの存在する「ランク」が与えられて、最初は全員Ｚランクからスタート。<br>Ａランクに到達すると、最強の称号と名誉が与えられ、何か一つだけ願いをかなえてもらうことができるとされています。",
-    "headLine": "ポケモン Switch ゲームソフト すいっち 新品 アクション",
-    "url": "https://store.shopping.yahoo.co.jp/upswell/2000585.html",
-    "inStock": true,
-    "code": "upswell_2000585",
-    "condition": "new",
-    "imageId": "upswell_2000585",
-    "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/upswell_2000585",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/upswell_2000585"
-    },
-    "review": {
-      "count": 0,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=upswell&page_key=2000585",
-      "rate": 0
-    },
-    "affiliateRate": 1,
-    "price": 6160,
-    "premiumPrice": 6050,
-    "premiumPriceStatus": true,
-    "premiumDiscountRate": 15,
-    "premiumDiscountType": "original",
-    "priceLabel": {
-      "taxable": true,
-      "defaultPrice": 6160,
-      "discountedPrice": null,
-      "fixedPrice": 7128,
-      "premiumPrice": 6050,
-      "periodStart": null,
-      "periodEnd": null
-    },
-    "point": {
-      "amount": 0,
-      "times": 0,
-      "bonusAmount": 0,
-      "bonusTimes": 0,
-      "lyLimitedBonusAmount": 56,
-      "lyLimitedBonusTimes": 1,
-      "premiumAmount": 0,
-      "premiumTimes": 0,
-      "premiumBonusAmount": 0,
-      "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 55,
-      "lyLimitedPremiumBonusTimes": 1
-    },
-    "shipping": {
-      "code": 2,
-      "name": "送料無料"
-    },
-    "genreCategory": {
-      "id": 50522,
-      "name": "Switch用ソフト（パッケージ版）",
-      "depth": 4
-    },
-    "parentGenreCategories": [
-      {
-        "id": 2511,
-        "depth": 1,
-        "name": "ゲーム、おもちゃ"
-      },
-      {
-        "id": 2161,
-        "depth": 2,
-        "name": "テレビゲーム"
-      },
-      {
-        "id": 48838,
-        "depth": 3,
-        "name": "Nintendo Switch"
-      }
-    ],
-    "brand": {
-      "id": 32599,
-      "name": "Pokemon"
-    },
-    "parentBrands": [
-      {
-        "id": 1,
-        "name": "ブランド"
-      }
-    ],
-    "janCode": "4902370553550",
-    "payment": "1 16 64 128 1024 8192 16384 256 512 4096",
-    "releaseDate": null,
-    "seller": {
-      "sellerId": "upswell",
-      "name": "アップ・スウェル",
-      "url": "https://store.shopping.yahoo.co.jp/upswell/",
-      "isBestSeller": false,
-      "review": {
-        "rate": 4.84,
-        "count": 957
-      },
-      "imageId": "upswell_1"
-    },
-    "delivery": {
-      "deadLine": null,
-      "day": null,
-      "area": ""
-    }
-  },
-  {
-    "index": 16,
-    "name": "任天堂 (Switch)トモダチコレクション わくわく生活 返品種別B",
-    "description": "予約受付中/2026年04月16日 発売予定/※一回のご注文で同じ発売日の予約商品を複数ご購入の場合、発売延期となりました予約商品のみ、一旦ご注文をお取り消しさせていただきます。あなたが作ったMiiたちの自由気ままなわくわく生活",
-    "headLine": "",
-    "url": "https://store.shopping.yahoo.co.jp/joshin/4902370553963-54-46585.html",
-    "inStock": true,
-    "code": "joshin_4902370553963-54-46585",
-    "condition": "new",
-    "imageId": "joshin_4902370553963-54-46585",
-    "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4902370553963-54-46585",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4902370553963-54-46585"
-    },
-    "review": {
-      "count": 0,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4902370553963-54-46585",
-      "rate": 0
-    },
-    "affiliateRate": 1,
-    "price": 6480,
-    "premiumPrice": 6480,
-    "premiumPriceStatus": false,
-    "premiumDiscountRate": null,
-    "premiumDiscountType": null,
-    "priceLabel": {
-      "taxable": true,
-      "defaultPrice": 6480,
-      "discountedPrice": null,
-      "fixedPrice": null,
-      "premiumPrice": null,
-      "periodStart": null,
-      "periodEnd": null
-    },
-    "point": {
-      "amount": 0,
-      "times": 0,
-      "bonusAmount": 0,
-      "bonusTimes": 0,
-      "lyLimitedBonusAmount": 58,
-      "lyLimitedBonusTimes": 1,
-      "premiumAmount": 0,
-      "premiumTimes": 0,
-      "premiumBonusAmount": 0,
-      "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 58,
-      "lyLimitedPremiumBonusTimes": 1
-    },
-    "shipping": {
-      "code": 2,
-      "name": "送料無料"
-    },
-    "genreCategory": {
-      "id": 50522,
-      "name": "Switch用ソフト（パッケージ版）",
-      "depth": 4
-    },
-    "parentGenreCategories": [
-      {
-        "id": 2511,
-        "depth": 1,
-        "name": "ゲーム、おもちゃ"
-      },
-      {
-        "id": 2161,
-        "depth": 2,
-        "name": "テレビゲーム"
-      },
-      {
-        "id": 48838,
-        "depth": 3,
-        "name": "Nintendo Switch"
-      }
-    ],
-    "brand": {
-      "id": 2358,
-      "name": "任天堂"
-    },
-    "parentBrands": [
-      {
-        "id": 1,
-        "name": "ブランド"
-      }
-    ],
-    "janCode": "4902370553963",
-    "payment": "4096 1 16384 16",
-    "releaseDate": 1776265200,
-    "seller": {
-      "sellerId": "joshin",
-      "name": "Joshin web",
-      "url": "https://store.shopping.yahoo.co.jp/joshin/",
-      "isBestSeller": false,
-      "review": {
-        "rate": 4.52,
-        "count": 409318
-      },
-      "imageId": "joshin_1"
-    },
-    "delivery": {
-      "deadLine": null,
-      "day": null,
-      "area": ""
-    }
-  },
-  {
-    "index": 17,
-    "name": "任天堂 (Switch)星のカービィ ディスカバリー星のカービィ 返品種別B",
-    "description": "在庫状況：在庫あり/2022年03月 発売/※外付特典(上新電機オリジナル)付きは終了しました。/(星のカービィ)初の3Dアクション！",
-    "headLine": "",
-    "url": "https://store.shopping.yahoo.co.jp/joshin/4902370549454-54-40560.html",
-    "inStock": true,
-    "code": "joshin_4902370549454-54-40560",
-    "condition": "new",
-    "imageId": "joshin_4902370549454-54-40560",
-    "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4902370549454-54-40560",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4902370549454-54-40560"
-    },
-    "review": {
-      "count": 477,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4902370549454-54-40560",
-      "rate": 4.86
-    },
-    "affiliateRate": 1,
-    "price": 5780,
-    "premiumPrice": 5780,
-    "premiumPriceStatus": false,
-    "premiumDiscountRate": null,
-    "premiumDiscountType": null,
-    "priceLabel": {
-      "taxable": true,
-      "defaultPrice": 5780,
-      "discountedPrice": null,
-      "fixedPrice": null,
-      "premiumPrice": null,
-      "periodStart": null,
-      "periodEnd": null
-    },
-    "point": {
-      "amount": 0,
-      "times": 0,
-      "bonusAmount": 0,
-      "bonusTimes": 0,
-      "lyLimitedBonusAmount": 52,
-      "lyLimitedBonusTimes": 1,
-      "premiumAmount": 0,
-      "premiumTimes": 0,
-      "premiumBonusAmount": 0,
-      "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 52,
-      "lyLimitedPremiumBonusTimes": 1
-    },
-    "shipping": {
-      "code": 2,
-      "name": "送料無料"
-    },
-    "genreCategory": {
-      "id": 50522,
-      "name": "Switch用ソフト（パッケージ版）",
-      "depth": 4
-    },
-    "parentGenreCategories": [
-      {
-        "id": 2511,
-        "depth": 1,
-        "name": "ゲーム、おもちゃ"
-      },
-      {
-        "id": 2161,
-        "depth": 2,
-        "name": "テレビゲーム"
-      },
-      {
-        "id": 48838,
-        "depth": 3,
-        "name": "Nintendo Switch"
-      }
-    ],
-    "brand": {
-      "id": 2358,
-      "name": "任天堂"
-    },
-    "parentBrands": [
-      {
-        "id": 1,
-        "name": "ブランド"
-      }
-    ],
-    "janCode": "4902370549454",
-    "payment": "16 4096 16384 1",
-    "releaseDate": null,
-    "seller": {
-      "sellerId": "joshin",
-      "name": "Joshin web",
-      "url": "https://store.shopping.yahoo.co.jp/joshin/",
-      "isBestSeller": false,
-      "review": {
-        "rate": 4.52,
-        "count": 409305
-      },
-      "imageId": "joshin_1"
-    },
-    "delivery": {
-      "deadLine": null,
-      "day": null,
-      "area": ""
-    }
-  },
-  {
-    "index": 18,
-    "name": "【新品】NSW2 FINAL FANTASY VII REMAKE INTERGRADE",
-    "description": "在庫を共有しており、ご注文のタイミングにより在庫更新が間に合わず、商品の欠品や数量変更となる場合もございます。<br><br>【■】発売日前日出荷を予定しておりますが、商品のお届けは発売日翌日以降の見込みとなります。<br>　　（運送会社の状況により、到着にお時間がかかる場合がございます）<br><br>■商品名：NSW2 FINAL FANTASY VII REMAKE INTERGRADE<br>■発売日：2026年01月22日<br>■JANCD：4988601012096<br>■型　番：POT-P-AAVBA<br>■メーカー：スクウェア・エニックス<br><br>【ご注意】<br>○画像に特典が載っている場合でも、商品名に特典表記がない商品はつきませんのでご了承ください。<br>○画像はイメージです。実際の商品とは異なる場合がございます。予めご了承ください。<br>○複数個ご購入の場合、配送方法が、宅配便になる場合がございます。その際は、対面での受取りになります。<br>●商品説明をご確認の上、ご購入ください。",
-    "headLine": "【ポスト投函】",
-    "url": "https://store.shopping.yahoo.co.jp/arc-online-mini/4988601012096.html",
-    "inStock": true,
-    "code": "arc-online-mini_4988601012096",
-    "condition": "new",
-    "imageId": "arc-online-mini_4988601012096",
-    "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/arc-online-mini_4988601012096",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/arc-online-mini_4988601012096"
-    },
-    "review": {
-      "count": 0,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=arc-online-mini&page_key=4988601012096",
-      "rate": 0
-    },
-    "affiliateRate": 1,
-    "price": 5016,
-    "premiumPrice": 5016,
-    "premiumPriceStatus": false,
-    "premiumDiscountRate": null,
-    "premiumDiscountType": null,
-    "priceLabel": {
-      "taxable": true,
-      "defaultPrice": 5016,
-      "discountedPrice": null,
-      "fixedPrice": null,
-      "premiumPrice": null,
-      "periodStart": null,
-      "periodEnd": null
-    },
-    "point": {
-      "amount": 0,
-      "times": 0,
-      "bonusAmount": 0,
-      "bonusTimes": 0,
-      "lyLimitedBonusAmount": 45,
-      "lyLimitedBonusTimes": 1,
-      "premiumAmount": 0,
-      "premiumTimes": 0,
-      "premiumBonusAmount": 0,
-      "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 45,
-      "lyLimitedPremiumBonusTimes": 1
-    },
-    "shipping": {
-      "code": 2,
-      "name": "送料無料"
-    },
-    "genreCategory": {
-      "id": 50522,
-      "name": "Switch用ソフト（パッケージ版）",
-      "depth": 4
-    },
-    "parentGenreCategories": [
-      {
-        "id": 2511,
-        "depth": 1,
-        "name": "ゲーム、おもちゃ"
-      },
-      {
-        "id": 2161,
-        "depth": 2,
-        "name": "テレビゲーム"
-      },
-      {
-        "id": 48838,
-        "depth": 3,
-        "name": "Nintendo Switch"
-      }
-    ],
-    "brand": {
-      "id": 15414,
-      "name": "ファイナルファンタジー"
-    },
-    "parentBrands": [
-      {
-        "id": 1,
-        "name": "ブランド"
-      },
-      {
-        "id": 1005,
-        "name": "スクウェア・エニックス"
-      }
-    ],
-    "janCode": "4988601012096",
-    "payment": "1 16384 16 4096",
-    "releaseDate": 1769007600,
-    "seller": {
-      "sellerId": "arc-online-mini",
-      "name": "アークオンライン mini",
-      "url": "https://store.shopping.yahoo.co.jp/arc-online-mini/",
-      "isBestSeller": false,
-      "review": {
-        "rate": 4.72,
-        "count": 1142
-      },
-      "imageId": "arc-online-mini_1"
-    },
-    "delivery": {
-      "deadLine": null,
-      "day": null,
-      "area": ""
-    }
-  },
-  {
-    "index": 19,
-    "name": "Minecraft (マインクラフト) - Switch　パッケージ版　【新パッケージ】",
-    "description": "※2024年8月頃にパッケージのデザインが変更となりました。製品情報やゲーム内容に変更はありません。<br><br>Minecraftがより大きく、より優れたものになりました!<br>モバイル、PC、ゲーム機など、デバイスをまたいで友達と一緒に遊ぼう。同じ画面で4人まで遊べる画面分割にも対応。<br>スーパーマリオ マッシュアップパックを含む5つの追加コンテンツを同梱。<br><br>メーカー:Mojang/日本マイクロソフト<br>ジャンル:アクション / アドベンチャー / ストラテジー / シミュレーション<br>対応コントローラー:Nintendo Switch Proコントローラー<br>プレイモード:TVモード, テーブルモード, 携帯モード<br>プレイ人数:1~4人<br>ローカル通信プレイ人数:2~8人<br>インターネット通信プレイ人数:2~8人<br>対応言語:日本語, 英語, スペイン語, フランス語, ドイツ語, イタリア語, オランダ語, ポルトガル語, ロシア語, 韓国語, 中国語<br><br>(C)2018 Mojang. MINECRAFT (R) is a trademark of Mojang Synergies AB",
-    "headLine": "",
-    "url": "https://store.shopping.yahoo.co.jp/drop-in-annex/4549576094113.html",
-    "inStock": true,
-    "code": "drop-in-annex_4549576094113",
-    "condition": "new",
-    "imageId": "drop-in-annex_4549576094113",
-    "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/drop-in-annex_4549576094113",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/drop-in-annex_4549576094113"
-    },
-    "review": {
-      "count": 52,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=drop-in-annex&page_key=4549576094113",
-      "rate": 4.92
-    },
-    "affiliateRate": 1,
-    "price": 3490,
-    "premiumPrice": 3490,
-    "premiumPriceStatus": false,
-    "premiumDiscountRate": null,
-    "premiumDiscountType": null,
-    "priceLabel": {
-      "taxable": true,
-      "defaultPrice": 3490,
-      "discountedPrice": null,
-      "fixedPrice": null,
-      "premiumPrice": null,
-      "periodStart": null,
-      "periodEnd": null
-    },
-    "point": {
-      "amount": 0,
-      "times": 0,
-      "bonusAmount": 0,
-      "bonusTimes": 0,
-      "lyLimitedBonusAmount": 31,
-      "lyLimitedBonusTimes": 1,
-      "premiumAmount": 0,
-      "premiumTimes": 0,
-      "premiumBonusAmount": 0,
-      "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 31,
-      "lyLimitedPremiumBonusTimes": 1
-    },
-    "shipping": {
-      "code": 2,
-      "name": "送料無料"
-    },
-    "genreCategory": {
-      "id": 50522,
-      "name": "Switch用ソフト（パッケージ版）",
-      "depth": 4
-    },
-    "parentGenreCategories": [
-      {
-        "id": 2511,
-        "depth": 1,
-        "name": "ゲーム、おもちゃ"
-      },
-      {
-        "id": 2161,
-        "depth": 2,
-        "name": "テレビゲーム"
-      },
-      {
-        "id": 48838,
-        "depth": 3,
-        "name": "Nintendo Switch"
-      }
-    ],
-    "brand": {
-      "id": 1877,
-      "name": "マイクロソフト"
-    },
-    "parentBrands": [
-      {
-        "id": 1,
-        "name": "ブランド"
-      }
-    ],
-    "janCode": "4549576094113",
-    "payment": "8192 16 4096 16384 1",
-    "releaseDate": null,
-    "seller": {
-      "sellerId": "drop-in-annex",
-      "name": "Drop-in ANNEX",
-      "url": "https://store.shopping.yahoo.co.jp/drop-in-annex/",
-      "isBestSeller": false,
-      "review": {
-        "rate": 4.97,
-        "count": 29
-      },
-      "imageId": "drop-in-annex_1"
-    },
-    "delivery": {
-      "deadLine": 13,
-      "day": 1,
-      "area": "13"
-    }
-  },
-  {
-    "index": 20,
-    "name": "あつまれ どうぶつの森 HAC-P-ACBAA 任天堂 NintendoSwitch  Switch用ソフト（パッケージ版）",
-    "description": "こちらの商品は「ネコポス便」での配送となっております。<br>そのためポスト投函での配送となりますため、「到着日時の指定」ができません。<br>※通常より配送にお時間をいただく場合がございますので予めご了承ください。<br>※ネコポス配送による破損や紛失に関しましては補償が出来兼ねます。<br><br>商品状態：新品<br><br>付属品 ：初期付属品は全て揃っています。<br>※商品の詳細に関しましてはお手数ですがメーカーに直接お問い合わせください。<br><br>サポート<br>サポート内容に関しまして商品に付属しています保証書をご確認ください。（保証書が付属しない商品もございます） 内容によっては当店では対応出来ない場合がございますので予めご了承ください。ご理解の上、ご購入をお願い申し上げます。 <br>※弊社は正規代理店ではございません。",
-    "headLine": "大人気 /プレゼント/お祝い/贈り物/4902370545319/HAC-P-ACBAA",
-    "url": "https://store.shopping.yahoo.co.jp/light-hikari/4902370545319.html",
-    "inStock": true,
-    "code": "light-hikari_4902370545319",
-    "condition": "new",
-    "imageId": "light-hikari_4902370545319",
-    "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/light-hikari_4902370545319",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/light-hikari_4902370545319"
-    },
-    "review": {
-      "count": 89,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=light-hikari&page_key=4902370545319",
-      "rate": 4.79
-    },
-    "affiliateRate": 1,
-    "price": 5667,
-    "premiumPrice": 5667,
-    "premiumPriceStatus": false,
-    "premiumDiscountRate": null,
-    "premiumDiscountType": null,
-    "priceLabel": {
-      "taxable": true,
-      "defaultPrice": 5667,
-      "discountedPrice": null,
-      "fixedPrice": null,
-      "premiumPrice": null,
-      "periodStart": null,
-      "periodEnd": null
-    },
-    "point": {
-      "amount": 0,
-      "times": 0,
-      "bonusAmount": 0,
-      "bonusTimes": 0,
-      "lyLimitedBonusAmount": 51,
-      "lyLimitedBonusTimes": 1,
-      "premiumAmount": 0,
-      "premiumTimes": 0,
-      "premiumBonusAmount": 0,
-      "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 51,
-      "lyLimitedPremiumBonusTimes": 1
-    },
-    "shipping": {
-      "code": 2,
-      "name": "送料無料"
-    },
-    "genreCategory": {
-      "id": 50522,
-      "name": "Switch用ソフト（パッケージ版）",
-      "depth": 4
-    },
-    "parentGenreCategories": [
-      {
-        "id": 2511,
-        "depth": 1,
-        "name": "ゲーム、おもちゃ"
-      },
-      {
-        "id": 2161,
-        "depth": 2,
-        "name": "テレビゲーム"
-      },
-      {
-        "id": 48838,
-        "depth": 3,
-        "name": "Nintendo Switch"
-      }
-    ],
-    "brand": {
-      "id": 2358,
-      "name": "任天堂"
-    },
-    "parentBrands": [
-      {
-        "id": 1,
-        "name": "ブランド"
-      }
-    ],
-    "janCode": "4902370545319",
-    "payment": "64 16384 16 4096 1",
-    "releaseDate": null,
-    "seller": {
-      "sellerId": "light-hikari",
-      "name": "らいぶshop",
-      "url": "https://store.shopping.yahoo.co.jp/light-hikari/",
-      "isBestSeller": true,
-      "review": {
-        "rate": 4.64,
-        "count": 1484
-      },
-      "imageId": "light-hikari_1"
-    },
-    "delivery": {
-      "deadLine": null,
-      "day": null,
-      "area": ""
-    }
-  },
-  {
-    "index": 21,
-    "name": "任天堂 (Switch)スーパー マリオパーティ ジャンボリー 返品種別B",
-    "description": "在庫状況：在庫あり/2024年10月 発売/シリーズ史上、最大ボリュームのパーティが開幕。",
-    "headLine": "",
-    "url": "https://store.shopping.yahoo.co.jp/joshin/4902370552430-54-46585.html",
-    "inStock": true,
-    "code": "joshin_4902370552430-54-46585",
-    "condition": "new",
-    "imageId": "joshin_4902370552430-54-46585",
-    "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4902370552430-54-46585",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4902370552430-54-46585"
-    },
-    "review": {
-      "count": 204,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4902370552430-54-46585",
-      "rate": 4.86
-    },
-    "affiliateRate": 1,
-    "price": 6480,
-    "premiumPrice": 6480,
-    "premiumPriceStatus": false,
-    "premiumDiscountRate": null,
-    "premiumDiscountType": null,
-    "priceLabel": {
-      "taxable": true,
-      "defaultPrice": 6480,
-      "discountedPrice": null,
-      "fixedPrice": null,
-      "premiumPrice": null,
-      "periodStart": null,
-      "periodEnd": null
-    },
-    "point": {
-      "amount": 0,
-      "times": 0,
-      "bonusAmount": 0,
-      "bonusTimes": 0,
-      "lyLimitedBonusAmount": 58,
-      "lyLimitedBonusTimes": 1,
-      "premiumAmount": 0,
-      "premiumTimes": 0,
-      "premiumBonusAmount": 0,
-      "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 58,
-      "lyLimitedPremiumBonusTimes": 1
-    },
-    "shipping": {
-      "code": 2,
-      "name": "送料無料"
-    },
-    "genreCategory": {
-      "id": 50522,
-      "name": "Switch用ソフト（パッケージ版）",
-      "depth": 4
-    },
-    "parentGenreCategories": [
-      {
-        "id": 2511,
-        "depth": 1,
-        "name": "ゲーム、おもちゃ"
-      },
-      {
-        "id": 2161,
-        "depth": 2,
-        "name": "テレビゲーム"
-      },
-      {
-        "id": 48838,
-        "depth": 3,
-        "name": "Nintendo Switch"
-      }
-    ],
-    "brand": {
-      "id": 22551,
-      "name": "スーパーマリオ"
-    },
-    "parentBrands": [
-      {
-        "id": 1,
-        "name": "ブランド"
-      },
-      {
-        "id": 2358,
-        "name": "任天堂"
-      }
-    ],
-    "janCode": "4902370552430",
-    "payment": "4096 1 16 16384",
-    "releaseDate": null,
-    "seller": {
-      "sellerId": "joshin",
-      "name": "Joshin web",
-      "url": "https://store.shopping.yahoo.co.jp/joshin/",
-      "isBestSeller": false,
-      "review": {
-        "rate": 4.52,
-        "count": 409305
-      },
-      "imageId": "joshin_1"
-    },
-    "delivery": {
-      "deadLine": null,
-      "day": null,
-      "area": ""
-    }
-  },
-  {
-    "index": 22,
-    "name": "ゼルダの伝説 ティアーズ オブ ザ キングダム Switch 送料無料",
-    "description": "※ご注文の前に必ずご確認をお願いいたします<br><br>《商品在庫につきまして》<br>当店では、店舗販売と商品在庫を共有していますのでタイミングによっては品切れとなってしまう場合があります。<br>その際は店舗での販売を優先とし、ご注文をキャンセルさせていただきますのでご了承ください。<br>複数アカウントを利用したご注文や大量購入につきましては誠に恐れ入りますが、キャンセルさせて頂く場合がございます。<br>あらかじめご了承くださいませ。<br><br>在庫切れの商品につきましては商品の取り寄せが可能な場合がありますのでお問い合わせください。<br><br>《発送方法、商品のお届けについて》<br>発送完了日から商品のお届けまで3〜8日程度とお考えください。<br>お届けまでにお時間がかかってしまう可能性がありますのでお急ぎの場合はご購入をお控えください。<br><br>梱包資材はリサイクル資材または封筒を使用させていただきます。<br>商品の販売価格をお安くするため、商品が破損しないように簡易梱包となります。<br><br>状況により発送方法を変更して発送をする場合がございます。<br><br><br>その他、ご質問等ございましたらお気軽にお問い合わせください。",
-    "headLine": "",
-    "url": "https://store.shopping.yahoo.co.jp/ryostore/65209.html",
-    "inStock": true,
-    "code": "ryostore_65209",
-    "condition": "new",
-    "imageId": "ryostore_65209",
-    "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/ryostore_65209",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/ryostore_65209"
-    },
-    "review": {
-      "count": 22,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=ryostore&page_key=65209",
-      "rate": 4.59
-    },
-    "affiliateRate": 1,
-    "price": 6480,
-    "premiumPrice": 6480,
-    "premiumPriceStatus": false,
-    "premiumDiscountRate": null,
-    "premiumDiscountType": null,
-    "priceLabel": {
-      "taxable": true,
-      "defaultPrice": 6480,
-      "discountedPrice": null,
-      "fixedPrice": null,
-      "premiumPrice": null,
-      "periodStart": null,
-      "periodEnd": null
-    },
-    "point": {
-      "amount": 0,
-      "times": 0,
-      "bonusAmount": 0,
-      "bonusTimes": 0,
-      "lyLimitedBonusAmount": 58,
-      "lyLimitedBonusTimes": 1,
-      "premiumAmount": 0,
-      "premiumTimes": 0,
-      "premiumBonusAmount": 0,
-      "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 58,
-      "lyLimitedPremiumBonusTimes": 1
-    },
-    "shipping": {
-      "code": 2,
-      "name": "送料無料"
-    },
-    "genreCategory": {
-      "id": 50522,
-      "name": "Switch用ソフト（パッケージ版）",
-      "depth": 4
-    },
-    "parentGenreCategories": [
-      {
-        "id": 2511,
-        "depth": 1,
-        "name": "ゲーム、おもちゃ"
-      },
-      {
-        "id": 2161,
-        "depth": 2,
-        "name": "テレビゲーム"
-      },
-      {
-        "id": 48838,
-        "depth": 3,
-        "name": "Nintendo Switch"
-      }
-    ],
-    "brand": {
-      "id": 22545,
-      "name": "Nintendo Switch"
-    },
-    "parentBrands": [
-      {
-        "id": 1,
-        "name": "ブランド"
-      },
-      {
-        "id": 2358,
-        "name": "任天堂"
-      }
-    ],
-    "janCode": "",
-    "payment": "512 1024 16 128 4096 8192 16384 1 64 256",
-    "releaseDate": null,
-    "seller": {
-      "sellerId": "ryostore",
-      "name": "ゲームファーム",
-      "url": "https://store.shopping.yahoo.co.jp/ryostore/",
-      "isBestSeller": false,
-      "review": {
-        "rate": 3.98,
-        "count": 247
-      },
-      "imageId": "ryostore_1"
-    },
-    "delivery": {
-      "deadLine": null,
-      "day": null,
-      "area": ""
-    }
-  },
-  {
-    "index": 23,
-    "name": "Switch　Pokemon LEGENDS Z-A（ポケモンレジェンズゼットエー）（25/10/16発売）【新品】【ポスト投函便送料無料】",
-    "description": "■機種：Nintendo Switch（ニンテンドースイッチ）<br>■メーカー：任天堂<br>■ジャンル：アクションＲＰＧ<br>■メーカー品番：HAC-P-ALZLA<br>■検索キーワード：スイッチ　ポケモンレジェンズゼットエー／Nintendo Switch Pokemon LEGENDS Z-A／スイッチ　ポケットモンスターＺＡ／スイッチ　ポケモンＺＡ",
-    "headLine": "スイッチ　ポケモンレジェンズ　ゼットエー",
-    "url": "https://store.shopping.yahoo.co.jp/1932/79700.html",
-    "inStock": true,
-    "code": "1932_79700",
-    "condition": "new",
-    "imageId": "1932_79700",
-    "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/1932_79700",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/1932_79700"
-    },
-    "review": {
-      "count": 24,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=1932&page_key=79700",
-      "rate": 5
-    },
-    "affiliateRate": 1,
-    "price": 6190,
-    "premiumPrice": 6190,
-    "premiumPriceStatus": false,
-    "premiumDiscountRate": null,
-    "premiumDiscountType": null,
-    "priceLabel": {
-      "taxable": true,
-      "defaultPrice": 6190,
-      "discountedPrice": null,
-      "fixedPrice": null,
-      "premiumPrice": null,
-      "periodStart": null,
-      "periodEnd": null
-    },
-    "point": {
-      "amount": 0,
-      "times": 0,
-      "bonusAmount": 0,
-      "bonusTimes": 0,
-      "lyLimitedBonusAmount": 56,
-      "lyLimitedBonusTimes": 1,
-      "premiumAmount": 0,
-      "premiumTimes": 0,
-      "premiumBonusAmount": 0,
-      "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 56,
-      "lyLimitedPremiumBonusTimes": 1
-    },
-    "shipping": {
-      "code": 2,
-      "name": "送料無料"
-    },
-    "genreCategory": {
-      "id": 50522,
-      "name": "Switch用ソフト（パッケージ版）",
-      "depth": 4
-    },
-    "parentGenreCategories": [
-      {
-        "id": 2511,
-        "depth": 1,
-        "name": "ゲーム、おもちゃ"
-      },
-      {
-        "id": 2161,
-        "depth": 2,
-        "name": "テレビゲーム"
-      },
-      {
-        "id": 48838,
-        "depth": 3,
-        "name": "Nintendo Switch"
-      }
-    ],
-    "brand": {
-      "id": 32599,
-      "name": "Pokemon"
-    },
-    "parentBrands": [
-      {
-        "id": 1,
-        "name": "ブランド"
-      }
-    ],
-    "janCode": "4902370553550",
-    "payment": "16384 1 16 4096 64",
-    "releaseDate": 1760540400,
-    "seller": {
-      "sellerId": "1932",
-      "name": "一休さん 2号館",
-      "url": "https://store.shopping.yahoo.co.jp/1932/",
-      "isBestSeller": false,
-      "review": {
-        "rate": 4.8,
-        "count": 1604
-      },
-      "imageId": "1932_1"
-    },
-    "delivery": {
-      "deadLine": null,
-      "day": null,
-      "area": ""
-    }
-  },
-  {
-    "index": 24,
-    "name": "任天堂 (Switch)ルイージマンション3スーパーマリオ マリオ ルイージ 返品種別B",
-    "description": "在庫状況：お取り寄せ/2019年10月 発売/※外付特典：上新電機オリジナルボールペンは終了いたしました。/ちょっぴり臆病なルイージが奇妙なホテルでオバケ退治…",
-    "headLine": "",
-    "url": "https://store.shopping.yahoo.co.jp/joshin/4902370543964-54-40560.html",
-    "inStock": true,
-    "code": "joshin_4902370543964-54-40560",
-    "condition": "new",
-    "imageId": "joshin_4902370543964-54-40560",
-    "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4902370543964-54-40560",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4902370543964-54-40560"
-    },
-    "review": {
-      "count": 148,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4902370543964-54-40560",
-      "rate": 4.62
-    },
-    "affiliateRate": 1,
-    "price": 5880,
-    "premiumPrice": 5880,
-    "premiumPriceStatus": false,
-    "premiumDiscountRate": null,
-    "premiumDiscountType": null,
-    "priceLabel": {
-      "taxable": true,
-      "defaultPrice": 5880,
-      "discountedPrice": null,
-      "fixedPrice": null,
-      "premiumPrice": null,
-      "periodStart": null,
-      "periodEnd": null
-    },
-    "point": {
-      "amount": 0,
-      "times": 0,
-      "bonusAmount": 0,
-      "bonusTimes": 0,
-      "lyLimitedBonusAmount": 53,
-      "lyLimitedBonusTimes": 1,
-      "premiumAmount": 0,
-      "premiumTimes": 0,
-      "premiumBonusAmount": 0,
-      "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 53,
-      "lyLimitedPremiumBonusTimes": 1
-    },
-    "shipping": {
-      "code": 2,
-      "name": "送料無料"
-    },
-    "genreCategory": {
-      "id": 50522,
-      "name": "Switch用ソフト（パッケージ版）",
-      "depth": 4
-    },
-    "parentGenreCategories": [
-      {
-        "id": 2511,
-        "depth": 1,
-        "name": "ゲーム、おもちゃ"
-      },
-      {
-        "id": 2161,
-        "depth": 2,
-        "name": "テレビゲーム"
-      },
-      {
-        "id": 48838,
-        "depth": 3,
-        "name": "Nintendo Switch"
-      }
-    ],
-    "brand": {
-      "id": 2358,
-      "name": "任天堂"
-    },
-    "parentBrands": [
-      {
-        "id": 1,
-        "name": "ブランド"
-      }
-    ],
-    "janCode": "4902370543964",
-    "payment": "16384 1 4096 16",
-    "releaseDate": null,
-    "seller": {
-      "sellerId": "joshin",
-      "name": "Joshin web",
-      "url": "https://store.shopping.yahoo.co.jp/joshin/",
-      "isBestSeller": false,
-      "review": {
-        "rate": 4.52,
-        "count": 409315
-      },
-      "imageId": "joshin_1"
-    },
-    "delivery": {
-      "deadLine": null,
-      "day": null,
-      "area": ""
-    }
-  },
-  {
-    "index": 25,
-    "name": "ポケモン (Switch)ポケットモンスター バイオレットポケモン 返品種別B",
-    "description": "在庫状況：在庫あり/2022年11月 発売/※外付特典：ポケモンシールは終了しました。/※インターネット通信を用いてほかのトレーナーと交流するためには、Nintendo Switch Online(有料)への加入が必要になります。※本作の発売後に、『Pokemon HOME』との連携を予定しております。進化した『ポケットモンスター』の世界へ",
-    "headLine": "",
-    "url": "https://store.shopping.yahoo.co.jp/joshin/4902370550559-54-40561.html",
-    "inStock": true,
-    "code": "joshin_4902370550559-54-40561",
-    "condition": "new",
-    "imageId": "joshin_4902370550559-54-40561",
-    "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4902370550559-54-40561",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4902370550559-54-40561"
-    },
-    "review": {
-      "count": 350,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4902370550559-54-40561",
-      "rate": 4.77
-    },
-    "affiliateRate": 1,
-    "price": 5720,
-    "premiumPrice": 5720,
-    "premiumPriceStatus": false,
-    "premiumDiscountRate": null,
-    "premiumDiscountType": null,
-    "priceLabel": {
-      "taxable": true,
-      "defaultPrice": 5720,
-      "discountedPrice": null,
-      "fixedPrice": null,
-      "premiumPrice": null,
-      "periodStart": null,
-      "periodEnd": null
-    },
-    "point": {
-      "amount": 0,
-      "times": 0,
-      "bonusAmount": 0,
-      "bonusTimes": 0,
-      "lyLimitedBonusAmount": 52,
-      "lyLimitedBonusTimes": 1,
-      "premiumAmount": 0,
-      "premiumTimes": 0,
-      "premiumBonusAmount": 0,
-      "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 52,
-      "lyLimitedPremiumBonusTimes": 1
-    },
-    "shipping": {
-      "code": 2,
-      "name": "送料無料"
-    },
-    "genreCategory": {
-      "id": 50522,
-      "name": "Switch用ソフト（パッケージ版）",
-      "depth": 4
-    },
-    "parentGenreCategories": [
-      {
-        "id": 2511,
-        "depth": 1,
-        "name": "ゲーム、おもちゃ"
-      },
-      {
-        "id": 2161,
-        "depth": 2,
-        "name": "テレビゲーム"
-      },
-      {
-        "id": 48838,
-        "depth": 3,
-        "name": "Nintendo Switch"
-      }
-    ],
-    "brand": {
-      "id": 32599,
-      "name": "Pokemon"
-    },
-    "parentBrands": [
-      {
-        "id": 1,
-        "name": "ブランド"
-      }
-    ],
-    "janCode": "4902370550559",
-    "payment": "16 4096 16384 1",
-    "releaseDate": null,
-    "seller": {
-      "sellerId": "joshin",
-      "name": "Joshin web",
-      "url": "https://store.shopping.yahoo.co.jp/joshin/",
-      "isBestSeller": false,
-      "review": {
-        "rate": 4.52,
-        "count": 409305
-      },
-      "imageId": "joshin_1"
-    },
-    "delivery": {
-      "deadLine": null,
-      "day": null,
-      "area": ""
-    }
-  },
-  {
-    "index": 26,
-    "name": "マイクロソフト (Switch)Minecraft 返品種別B",
-    "description": "在庫状況：在庫あり/2018年06月 発売/※2024年8月よりパッケージのデザインが変更されております。ゲーム内容、同梱物などに変更はございません。　お客様お届けの商品につきましてはパッケージの種類をお選びいただくことはできません。予めご了承ください。Minecraftがより大きく、より優れたものになりました！",
-    "headLine": "",
-    "url": "https://store.shopping.yahoo.co.jp/joshin/4549576094113-54-40560.html",
-    "inStock": true,
-    "code": "joshin_4549576094113-54-40560",
-    "condition": "new",
-    "imageId": "joshin_4549576094113-54-40560",
-    "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4549576094113-54-40560",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4549576094113-54-40560"
-    },
-    "review": {
-      "count": 90,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4549576094113-54-40560",
-      "rate": 4.86
-    },
-    "affiliateRate": 1,
-    "price": 3470,
-    "premiumPrice": 3470,
-    "premiumPriceStatus": false,
-    "premiumDiscountRate": null,
-    "premiumDiscountType": null,
-    "priceLabel": {
-      "taxable": true,
-      "defaultPrice": 3470,
-      "discountedPrice": null,
-      "fixedPrice": null,
-      "premiumPrice": null,
-      "periodStart": null,
-      "periodEnd": null
-    },
-    "point": {
-      "amount": 0,
-      "times": 0,
-      "bonusAmount": 0,
-      "bonusTimes": 0,
-      "lyLimitedBonusAmount": 31,
-      "lyLimitedBonusTimes": 1,
-      "premiumAmount": 0,
-      "premiumTimes": 0,
-      "premiumBonusAmount": 0,
-      "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 31,
-      "lyLimitedPremiumBonusTimes": 1
-    },
-    "shipping": {
-      "code": 1,
-      "name": "設定なし"
-    },
-    "genreCategory": {
-      "id": 50522,
-      "name": "Switch用ソフト（パッケージ版）",
-      "depth": 4
-    },
-    "parentGenreCategories": [
-      {
-        "id": 2511,
-        "depth": 1,
-        "name": "ゲーム、おもちゃ"
-      },
-      {
-        "id": 2161,
-        "depth": 2,
-        "name": "テレビゲーム"
-      },
-      {
-        "id": 48838,
-        "depth": 3,
-        "name": "Nintendo Switch"
-      }
-    ],
-    "brand": {
-      "id": 1877,
-      "name": "マイクロソフト"
-    },
-    "parentBrands": [
-      {
-        "id": 1,
-        "name": "ブランド"
-      }
-    ],
-    "janCode": "4549576094113",
-    "payment": "4096 1 16384 16",
-    "releaseDate": null,
-    "seller": {
-      "sellerId": "joshin",
-      "name": "Joshin web",
-      "url": "https://store.shopping.yahoo.co.jp/joshin/",
-      "isBestSeller": false,
-      "review": {
-        "rate": 4.52,
-        "count": 409305
-      },
-      "imageId": "joshin_1"
-    },
-    "delivery": {
-      "deadLine": null,
-      "day": null,
-      "area": ""
-    }
-  },
-  {
-    "index": 27,
     "name": "[メール便OK]【新品】【NS】ONE PIECE ODYSSEY デラックスエディション[在庫品]",
     "description": "[1営業日※在庫品]【76％OFF】＜【NS】ONE PIECE ODYSSEY デラックスエディション＞＜ニンテンドースイッチ(NS)＞＜ロールプレイングゲーム＞＜バンダイナムコエンターテインメント＞【メール便】OK＜好評発売中＞",
     "headLine": "[1営業日※在庫品]【76％OFF】",
@@ -2836,33 +1468,33 @@
     }
   },
   {
-    "index": 28,
-    "name": "任天堂 (Switch2)カービィのエアライダー 返品種別B",
-    "description": "在庫状況：在庫あり/2025年11月 発売/マシンとどこまでも",
+    "index": 15,
+    "name": "任天堂 (Switch)スプラトゥーン3スプラトゥーン3 返品種別B",
+    "description": "在庫状況：在庫あり/2022年09月 発売/※外付特典(上新電機オリジナル)：『スプラトゥーン3』収納ボックス付は終了しました。(2022年8月15日更新)大自然で！大都会で！さらに広がるナワバリバトル！",
     "headLine": "",
-    "url": "https://store.shopping.yahoo.co.jp/joshin/4902370553642-54-73635.html",
+    "url": "https://store.shopping.yahoo.co.jp/joshin/4902370550337-54-40560.html",
     "inStock": true,
-    "code": "joshin_4902370553642-54-73635",
+    "code": "joshin_4902370550337-54-40560",
     "condition": "new",
-    "imageId": "joshin_4902370553642-54-73635",
+    "imageId": "joshin_4902370550337-54-40560",
     "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4902370553642-54-73635",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4902370553642-54-73635"
+      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4902370550337-54-40560",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4902370550337-54-40560"
     },
     "review": {
-      "count": 55,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4902370553642-54-73635",
-      "rate": 4.76
+      "count": 804,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4902370550337-54-40560",
+      "rate": 4.78
     },
     "affiliateRate": 1,
-    "price": 7720,
-    "premiumPrice": 7720,
+    "price": 5850,
+    "premiumPrice": 5850,
     "premiumPriceStatus": false,
     "premiumDiscountRate": null,
     "premiumDiscountType": null,
     "priceLabel": {
       "taxable": true,
-      "defaultPrice": 7720,
+      "defaultPrice": 5850,
       "discountedPrice": null,
       "fixedPrice": null,
       "premiumPrice": null,
@@ -2874,13 +1506,13 @@
       "times": 0,
       "bonusAmount": 0,
       "bonusTimes": 0,
-      "lyLimitedBonusAmount": 70,
+      "lyLimitedBonusAmount": 53,
       "lyLimitedBonusTimes": 1,
       "premiumAmount": 0,
       "premiumTimes": 0,
       "premiumBonusAmount": 0,
       "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 70,
+      "lyLimitedPremiumBonusAmount": 53,
       "lyLimitedPremiumBonusTimes": 1
     },
     "shipping": {
@@ -2919,8 +1551,8 @@
         "name": "ブランド"
       }
     ],
-    "janCode": "4902370553642",
-    "payment": "16384 1 16 4096",
+    "janCode": "4902370550337",
+    "payment": "4096 16384 1 16",
     "releaseDate": null,
     "seller": {
       "sellerId": "joshin",
@@ -2929,7 +1561,7 @@
       "isBestSeller": false,
       "review": {
         "rate": 4.52,
-        "count": 409305
+        "count": 409324
       },
       "imageId": "joshin_1"
     },
@@ -2940,33 +1572,33 @@
     }
   },
   {
-    "index": 29,
-    "name": "【宅配便なら02/05発売日お届け☆予約】[メール便OK]【新品】【NS】ドラゴンクエストVII Reimagined［Switch版］",
-    "description": "[発売日前日の発送予定]【8％OFF】＜【NS】ドラゴンクエストVII Reimagined［Switch版］＞＜ニンテンドースイッチ(NS)＞＜ロールプレイングゲーム＞＜スクウェア・エニックス＞【メール便】OK＜予約受付中＞",
-    "headLine": "[発売日前日の発送予定]【8％OFF】",
-    "url": "https://store.shopping.yahoo.co.jp/asakusa-mach/4988601012072.html",
+    "index": 16,
+    "name": "任天堂 (Switch)マリオカート8 デラックススーパーマリオ マリオ 返品種別B",
+    "description": "在庫状況：在庫あり/2017年04月 発売/新しいスタート。すべてがデラックス！",
+    "headLine": "",
+    "url": "https://store.shopping.yahoo.co.jp/joshin/4902370536485-54-40563.html",
     "inStock": true,
-    "code": "asakusa-mach_4988601012072",
+    "code": "joshin_4902370536485-54-40563",
     "condition": "new",
-    "imageId": "asakusa-mach_4988601012072",
+    "imageId": "joshin_4902370536485-54-40563",
     "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/asakusa-mach_4988601012072",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/asakusa-mach_4988601012072"
+      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4902370536485-54-40563",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4902370536485-54-40563"
     },
     "review": {
-      "count": 0,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=asakusa-mach&page_key=4988601012072",
-      "rate": 0
+      "count": 1194,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4902370536485-54-40563",
+      "rate": 4.72
     },
-    "affiliateRate": 2.1,
-    "price": 8080,
-    "premiumPrice": 8080,
+    "affiliateRate": 1,
+    "price": 5980,
+    "premiumPrice": 5980,
     "premiumPriceStatus": false,
     "premiumDiscountRate": null,
     "premiumDiscountType": null,
     "priceLabel": {
       "taxable": true,
-      "defaultPrice": 8080,
+      "defaultPrice": 5980,
       "discountedPrice": null,
       "fixedPrice": null,
       "premiumPrice": null,
@@ -2978,18 +1610,18 @@
       "times": 0,
       "bonusAmount": 0,
       "bonusTimes": 0,
-      "lyLimitedBonusAmount": 146,
-      "lyLimitedBonusTimes": 2,
+      "lyLimitedBonusAmount": 54,
+      "lyLimitedBonusTimes": 1,
       "premiumAmount": 0,
       "premiumTimes": 0,
       "premiumBonusAmount": 0,
       "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 146,
-      "lyLimitedPremiumBonusTimes": 2
+      "lyLimitedPremiumBonusAmount": 54,
+      "lyLimitedPremiumBonusTimes": 1
     },
     "shipping": {
-      "code": 1,
-      "name": "設定なし"
+      "code": 2,
+      "name": "送料無料"
     },
     "genreCategory": {
       "id": 50522,
@@ -3014,8 +1646,8 @@
       }
     ],
     "brand": {
-      "id": 15415,
-      "name": "ドラゴンクエスト"
+      "id": 22551,
+      "name": "スーパーマリオ"
     },
     "parentBrands": [
       {
@@ -3023,23 +1655,23 @@
         "name": "ブランド"
       },
       {
-        "id": 1005,
-        "name": "スクウェア・エニックス"
+        "id": 2358,
+        "name": "任天堂"
       }
     ],
-    "janCode": "4988601012072",
-    "payment": "16 1024 4096 16384 1 512",
-    "releaseDate": 1770217200,
+    "janCode": "4902370536485",
+    "payment": "1 16 4096 16384",
+    "releaseDate": null,
     "seller": {
-      "sellerId": "asakusa-mach",
-      "name": "浅草マッハ",
-      "url": "https://store.shopping.yahoo.co.jp/asakusa-mach/",
+      "sellerId": "joshin",
+      "name": "Joshin web",
+      "url": "https://store.shopping.yahoo.co.jp/joshin/",
       "isBestSeller": false,
       "review": {
-        "rate": 4.72,
-        "count": 2732
+        "rate": 4.52,
+        "count": 409305
       },
-      "imageId": "asakusa-mach_1"
+      "imageId": "joshin_1"
     },
     "delivery": {
       "deadLine": null,
@@ -3048,33 +1680,33 @@
     }
   },
   {
-    "index": 30,
-    "name": "[メール便OK]【新品】【NS】RIKI 8Bit GAME Collection[在庫品]",
-    "description": "[1営業日※在庫品]【72％OFF】＜【NS】RIKI 8Bit GAME Collection＞＜ニンテンドースイッチ(NS)＞＜音楽ゲーム＞＜シティコネクション＞【メール便】OK＜好評発売中＞",
-    "headLine": "[1営業日※在庫品]【72％OFF】",
-    "url": "https://store.shopping.yahoo.co.jp/asakusa-mach/4571442047879.html",
+    "index": 17,
+    "name": "ポケモン (Switch)ポケットモンスター バイオレットポケモン 返品種別B",
+    "description": "在庫状況：在庫あり/2022年11月 発売/※外付特典：ポケモンシールは終了しました。/※インターネット通信を用いてほかのトレーナーと交流するためには、Nintendo Switch Online(有料)への加入が必要になります。※本作の発売後に、『Pokemon HOME』との連携を予定しております。進化した『ポケットモンスター』の世界へ",
+    "headLine": "",
+    "url": "https://store.shopping.yahoo.co.jp/joshin/4902370550559-54-40561.html",
     "inStock": true,
-    "code": "asakusa-mach_4571442047879",
+    "code": "joshin_4902370550559-54-40561",
     "condition": "new",
-    "imageId": "asakusa-mach_4571442047879",
+    "imageId": "joshin_4902370550559-54-40561",
     "image": {
-      "small": "https://item-shopping.c.yimg.jp/i/c/asakusa-mach_4571442047879",
-      "medium": "https://item-shopping.c.yimg.jp/i/g/asakusa-mach_4571442047879"
+      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4902370550559-54-40561",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4902370550559-54-40561"
     },
     "review": {
-      "count": 3,
-      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=asakusa-mach&page_key=4571442047879",
-      "rate": 3.67
+      "count": 350,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4902370550559-54-40561",
+      "rate": 4.77
     },
-    "affiliateRate": 2.1,
-    "price": 1620,
-    "premiumPrice": 1620,
+    "affiliateRate": 1,
+    "price": 5720,
+    "premiumPrice": 5720,
     "premiumPriceStatus": false,
     "premiumDiscountRate": null,
     "premiumDiscountType": null,
     "priceLabel": {
       "taxable": true,
-      "defaultPrice": 1620,
+      "defaultPrice": 5720,
       "discountedPrice": null,
       "fixedPrice": null,
       "premiumPrice": null,
@@ -3086,13 +1718,325 @@
       "times": 0,
       "bonusAmount": 0,
       "bonusTimes": 0,
-      "lyLimitedBonusAmount": 44,
-      "lyLimitedBonusTimes": 3,
+      "lyLimitedBonusAmount": 52,
+      "lyLimitedBonusTimes": 1,
       "premiumAmount": 0,
       "premiumTimes": 0,
       "premiumBonusAmount": 0,
       "premiumBonusTimes": 0,
-      "lyLimitedPremiumBonusAmount": 44,
+      "lyLimitedPremiumBonusAmount": 52,
+      "lyLimitedPremiumBonusTimes": 1
+    },
+    "shipping": {
+      "code": 2,
+      "name": "送料無料"
+    },
+    "genreCategory": {
+      "id": 50522,
+      "name": "Switch用ソフト（パッケージ版）",
+      "depth": 4
+    },
+    "parentGenreCategories": [
+      {
+        "id": 2511,
+        "depth": 1,
+        "name": "ゲーム、おもちゃ"
+      },
+      {
+        "id": 2161,
+        "depth": 2,
+        "name": "テレビゲーム"
+      },
+      {
+        "id": 48838,
+        "depth": 3,
+        "name": "Nintendo Switch"
+      }
+    ],
+    "brand": {
+      "id": 32599,
+      "name": "Pokemon"
+    },
+    "parentBrands": [
+      {
+        "id": 1,
+        "name": "ブランド"
+      }
+    ],
+    "janCode": "4902370550559",
+    "payment": "4096 16384 1 16",
+    "releaseDate": null,
+    "seller": {
+      "sellerId": "joshin",
+      "name": "Joshin web",
+      "url": "https://store.shopping.yahoo.co.jp/joshin/",
+      "isBestSeller": false,
+      "review": {
+        "rate": 4.52,
+        "count": 409324
+      },
+      "imageId": "joshin_1"
+    },
+    "delivery": {
+      "deadLine": null,
+      "day": null,
+      "area": ""
+    }
+  },
+  {
+    "index": 18,
+    "name": "任天堂 (Switch)トモダチコレクション わくわく生活 返品種別B",
+    "description": "予約受付中/2026年04月16日 発売予定/※一回のご注文で同じ発売日の予約商品を複数ご購入の場合、発売延期となりました予約商品のみ、一旦ご注文をお取り消しさせていただきます。あなたが作ったMiiたちの自由気ままなわくわく生活",
+    "headLine": "",
+    "url": "https://store.shopping.yahoo.co.jp/joshin/4902370553963-54-46585.html",
+    "inStock": true,
+    "code": "joshin_4902370553963-54-46585",
+    "condition": "new",
+    "imageId": "joshin_4902370553963-54-46585",
+    "image": {
+      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4902370553963-54-46585",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4902370553963-54-46585"
+    },
+    "review": {
+      "count": 0,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4902370553963-54-46585",
+      "rate": 0
+    },
+    "affiliateRate": 1,
+    "price": 6480,
+    "premiumPrice": 6480,
+    "premiumPriceStatus": false,
+    "premiumDiscountRate": null,
+    "premiumDiscountType": null,
+    "priceLabel": {
+      "taxable": true,
+      "defaultPrice": 6480,
+      "discountedPrice": null,
+      "fixedPrice": null,
+      "premiumPrice": null,
+      "periodStart": null,
+      "periodEnd": null
+    },
+    "point": {
+      "amount": 0,
+      "times": 0,
+      "bonusAmount": 0,
+      "bonusTimes": 0,
+      "lyLimitedBonusAmount": 58,
+      "lyLimitedBonusTimes": 1,
+      "premiumAmount": 0,
+      "premiumTimes": 0,
+      "premiumBonusAmount": 0,
+      "premiumBonusTimes": 0,
+      "lyLimitedPremiumBonusAmount": 58,
+      "lyLimitedPremiumBonusTimes": 1
+    },
+    "shipping": {
+      "code": 2,
+      "name": "送料無料"
+    },
+    "genreCategory": {
+      "id": 50522,
+      "name": "Switch用ソフト（パッケージ版）",
+      "depth": 4
+    },
+    "parentGenreCategories": [
+      {
+        "id": 2511,
+        "depth": 1,
+        "name": "ゲーム、おもちゃ"
+      },
+      {
+        "id": 2161,
+        "depth": 2,
+        "name": "テレビゲーム"
+      },
+      {
+        "id": 48838,
+        "depth": 3,
+        "name": "Nintendo Switch"
+      }
+    ],
+    "brand": {
+      "id": 2358,
+      "name": "任天堂"
+    },
+    "parentBrands": [
+      {
+        "id": 1,
+        "name": "ブランド"
+      }
+    ],
+    "janCode": "4902370553963",
+    "payment": "4096 1 16384 16",
+    "releaseDate": 1776265200,
+    "seller": {
+      "sellerId": "joshin",
+      "name": "Joshin web",
+      "url": "https://store.shopping.yahoo.co.jp/joshin/",
+      "isBestSeller": false,
+      "review": {
+        "rate": 4.52,
+        "count": 409318
+      },
+      "imageId": "joshin_1"
+    },
+    "delivery": {
+      "deadLine": null,
+      "day": null,
+      "area": ""
+    }
+  },
+  {
+    "index": 19,
+    "name": "コナミデジタルエンタテインメント (Switch)桃太郎電鉄2 〜あなたの町も きっとある〜 東日本編＋西日本編 返品種別B",
+    "description": "在庫状況：在庫あり/2025年11月 発売/※デジタル特典(Joshinオリジナル)：デジタル壁紙(DL期限：2026年1月18日)は終了しました※封入特典：早期購入特典DLCチラシ付は終了しました。/※すでに、パッケージ版・ダウンロード版いずれかのSwitchソフトをお持ちの方は(アップグレードパス)(別売り)のみのご購入で、(Nintendo Switch 2 Edition)にアップグレードできます。くわしくは、任天堂公式サイト(Nintendo Switch 2 Editionについて) をご覧ください。『桃太郎電鉄 〜昭和 平成 令和も定番！〜』 、『桃太郎電鉄ワールド 〜地球は希望でまわってる！〜』 のシリーズ最新作がNintendo Switchに登場！",
+    "headLine": "",
+    "url": "https://store.shopping.yahoo.co.jp/joshin/4988602179248-54-46585.html",
+    "inStock": true,
+    "code": "joshin_4988602179248-54-46585",
+    "condition": "new",
+    "imageId": "joshin_4988602179248-54-46585",
+    "image": {
+      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4988602179248-54-46585",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4988602179248-54-46585"
+    },
+    "review": {
+      "count": 49,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4988602179248-54-46585",
+      "rate": 4.73
+    },
+    "affiliateRate": 1,
+    "price": 7170,
+    "premiumPrice": 7170,
+    "premiumPriceStatus": false,
+    "premiumDiscountRate": null,
+    "premiumDiscountType": null,
+    "priceLabel": {
+      "taxable": true,
+      "defaultPrice": 7170,
+      "discountedPrice": null,
+      "fixedPrice": null,
+      "premiumPrice": null,
+      "periodStart": null,
+      "periodEnd": null
+    },
+    "point": {
+      "amount": 0,
+      "times": 0,
+      "bonusAmount": 0,
+      "bonusTimes": 0,
+      "lyLimitedBonusAmount": 651,
+      "lyLimitedBonusTimes": 10,
+      "premiumAmount": 0,
+      "premiumTimes": 0,
+      "premiumBonusAmount": 0,
+      "premiumBonusTimes": 0,
+      "lyLimitedPremiumBonusAmount": 651,
+      "lyLimitedPremiumBonusTimes": 10
+    },
+    "shipping": {
+      "code": 2,
+      "name": "送料無料"
+    },
+    "genreCategory": {
+      "id": 50522,
+      "name": "Switch用ソフト（パッケージ版）",
+      "depth": 4
+    },
+    "parentGenreCategories": [
+      {
+        "id": 2511,
+        "depth": 1,
+        "name": "ゲーム、おもちゃ"
+      },
+      {
+        "id": 2161,
+        "depth": 2,
+        "name": "テレビゲーム"
+      },
+      {
+        "id": 48838,
+        "depth": 3,
+        "name": "Nintendo Switch"
+      }
+    ],
+    "brand": {
+      "id": 4817,
+      "name": "コナミデジタルエンタテインメント"
+    },
+    "parentBrands": [
+      {
+        "id": 1,
+        "name": "ブランド"
+      }
+    ],
+    "janCode": "4988602179248",
+    "payment": "1 16 16384 4096",
+    "releaseDate": null,
+    "seller": {
+      "sellerId": "joshin",
+      "name": "Joshin web",
+      "url": "https://store.shopping.yahoo.co.jp/joshin/",
+      "isBestSeller": false,
+      "review": {
+        "rate": 4.52,
+        "count": 409305
+      },
+      "imageId": "joshin_1"
+    },
+    "delivery": {
+      "deadLine": null,
+      "day": null,
+      "area": ""
+    }
+  },
+  {
+    "index": 20,
+    "name": "[メール便OK]【新品】【NS】リトルナイトメア 2[お取寄せ品]",
+    "description": "お取り寄せに[3〜6営業日前後]【仕入れ高騰につきプレミア価格】＜【NS】リトルナイトメア 2＞＜ニンテンドースイッチ(NS)＞＜アクション＞＜バンダイナムコエンターテインメント＞【メール便】OK＜好評発売中＞",
+    "headLine": "お取り寄せに[3〜6営業日前後]【仕入れ高騰につきプレミア価格】",
+    "url": "https://store.shopping.yahoo.co.jp/asakusa-mach/4582528436494.html",
+    "inStock": true,
+    "code": "asakusa-mach_4582528436494",
+    "condition": "new",
+    "imageId": "asakusa-mach_4582528436494",
+    "image": {
+      "small": "https://item-shopping.c.yimg.jp/i/c/asakusa-mach_4582528436494",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/asakusa-mach_4582528436494"
+    },
+    "review": {
+      "count": 1,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=asakusa-mach&page_key=4582528436494",
+      "rate": 0
+    },
+    "affiliateRate": 2.1,
+    "price": 4660,
+    "premiumPrice": 4660,
+    "premiumPriceStatus": false,
+    "premiumDiscountRate": null,
+    "premiumDiscountType": null,
+    "priceLabel": {
+      "taxable": true,
+      "defaultPrice": 4660,
+      "discountedPrice": null,
+      "fixedPrice": null,
+      "premiumPrice": null,
+      "periodStart": null,
+      "periodEnd": null
+    },
+    "point": {
+      "amount": 0,
+      "times": 0,
+      "bonusAmount": 0,
+      "bonusTimes": 0,
+      "lyLimitedBonusAmount": 84,
+      "lyLimitedBonusTimes": 2,
+      "premiumAmount": 0,
+      "premiumTimes": 0,
+      "premiumBonusAmount": 0,
+      "premiumBonusTimes": 0,
+      "lyLimitedPremiumBonusAmount": 127,
       "lyLimitedPremiumBonusTimes": 3
     },
     "shipping": {
@@ -3122,8 +2066,8 @@
       }
     ],
     "brand": {
-      "id": 33628,
-      "name": "シティコネクション"
+      "id": 4819,
+      "name": "バンダイナムコエンターテインメント"
     },
     "parentBrands": [
       {
@@ -3131,9 +2075,9 @@
         "name": "ブランド"
       }
     ],
-    "janCode": "4571442047879",
-    "payment": "16 1024 16384 1 512 4096",
-    "releaseDate": 1732719600,
+    "janCode": "4582528436494",
+    "payment": "16384 1 16 512 1024 4096",
+    "releaseDate": 1612882800,
     "seller": {
       "sellerId": "asakusa-mach",
       "name": "浅草マッハ",
@@ -3141,7 +2085,7 @@
       "isBestSeller": false,
       "review": {
         "rate": 4.72,
-        "count": 2732
+        "count": 2733
       },
       "imageId": "asakusa-mach_1"
     },
@@ -3149,6 +2093,1058 @@
       "deadLine": null,
       "day": null,
       "area": ""
+    }
+  },
+  {
+    "index": 21,
+    "name": "任天堂 (Switch)星のカービィ ディスカバリー星のカービィ 返品種別B",
+    "description": "在庫状況：在庫あり/2022年03月 発売/※外付特典(上新電機オリジナル)付きは終了しました。/(星のカービィ)初の3Dアクション！",
+    "headLine": "",
+    "url": "https://store.shopping.yahoo.co.jp/joshin/4902370549454-54-40560.html",
+    "inStock": true,
+    "code": "joshin_4902370549454-54-40560",
+    "condition": "new",
+    "imageId": "joshin_4902370549454-54-40560",
+    "image": {
+      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4902370549454-54-40560",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4902370549454-54-40560"
+    },
+    "review": {
+      "count": 477,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4902370549454-54-40560",
+      "rate": 4.86
+    },
+    "affiliateRate": 1,
+    "price": 5780,
+    "premiumPrice": 5780,
+    "premiumPriceStatus": false,
+    "premiumDiscountRate": null,
+    "premiumDiscountType": null,
+    "priceLabel": {
+      "taxable": true,
+      "defaultPrice": 5780,
+      "discountedPrice": null,
+      "fixedPrice": null,
+      "premiumPrice": null,
+      "periodStart": null,
+      "periodEnd": null
+    },
+    "point": {
+      "amount": 0,
+      "times": 0,
+      "bonusAmount": 0,
+      "bonusTimes": 0,
+      "lyLimitedBonusAmount": 52,
+      "lyLimitedBonusTimes": 1,
+      "premiumAmount": 0,
+      "premiumTimes": 0,
+      "premiumBonusAmount": 0,
+      "premiumBonusTimes": 0,
+      "lyLimitedPremiumBonusAmount": 52,
+      "lyLimitedPremiumBonusTimes": 1
+    },
+    "shipping": {
+      "code": 2,
+      "name": "送料無料"
+    },
+    "genreCategory": {
+      "id": 50522,
+      "name": "Switch用ソフト（パッケージ版）",
+      "depth": 4
+    },
+    "parentGenreCategories": [
+      {
+        "id": 2511,
+        "depth": 1,
+        "name": "ゲーム、おもちゃ"
+      },
+      {
+        "id": 2161,
+        "depth": 2,
+        "name": "テレビゲーム"
+      },
+      {
+        "id": 48838,
+        "depth": 3,
+        "name": "Nintendo Switch"
+      }
+    ],
+    "brand": {
+      "id": 2358,
+      "name": "任天堂"
+    },
+    "parentBrands": [
+      {
+        "id": 1,
+        "name": "ブランド"
+      }
+    ],
+    "janCode": "4902370549454",
+    "payment": "16 4096 16384 1",
+    "releaseDate": null,
+    "seller": {
+      "sellerId": "joshin",
+      "name": "Joshin web",
+      "url": "https://store.shopping.yahoo.co.jp/joshin/",
+      "isBestSeller": false,
+      "review": {
+        "rate": 4.52,
+        "count": 409305
+      },
+      "imageId": "joshin_1"
+    },
+    "delivery": {
+      "deadLine": null,
+      "day": null,
+      "area": ""
+    }
+  },
+  {
+    "index": 22,
+    "name": "[メール便OK]【新品】【NS】マスターオブモンスターズSSB ［Switch版］[在庫品]",
+    "description": "[1営業日※在庫品]【67％OFF】＜【NS】マスターオブモンスターズSSB ［Switch版］＞＜ニンテンドースイッチ(NS)＞＜シミュレーションゲーム＞＜システムソフト・ベータ＞【メール便】OK＜好評発売中＞",
+    "headLine": "[1営業日※在庫品]【67％OFF】",
+    "url": "https://store.shopping.yahoo.co.jp/asakusa-mach/4570077240471.html",
+    "inStock": true,
+    "code": "asakusa-mach_4570077240471",
+    "condition": "new",
+    "imageId": "asakusa-mach_4570077240471",
+    "image": {
+      "small": "https://item-shopping.c.yimg.jp/i/c/asakusa-mach_4570077240471",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/asakusa-mach_4570077240471"
+    },
+    "review": {
+      "count": 0,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=asakusa-mach&page_key=4570077240471",
+      "rate": 0
+    },
+    "affiliateRate": 2.1,
+    "price": 2490,
+    "premiumPrice": 2490,
+    "premiumPriceStatus": false,
+    "premiumDiscountRate": null,
+    "premiumDiscountType": null,
+    "priceLabel": {
+      "taxable": true,
+      "defaultPrice": 2490,
+      "discountedPrice": null,
+      "fixedPrice": null,
+      "premiumPrice": null,
+      "periodStart": null,
+      "periodEnd": null
+    },
+    "point": {
+      "amount": 0,
+      "times": 0,
+      "bonusAmount": 0,
+      "bonusTimes": 0,
+      "lyLimitedBonusAmount": 45,
+      "lyLimitedBonusTimes": 2,
+      "premiumAmount": 0,
+      "premiumTimes": 0,
+      "premiumBonusAmount": 0,
+      "premiumBonusTimes": 0,
+      "lyLimitedPremiumBonusAmount": 67,
+      "lyLimitedPremiumBonusTimes": 3
+    },
+    "shipping": {
+      "code": 1,
+      "name": "設定なし"
+    },
+    "genreCategory": {
+      "id": 50522,
+      "name": "Switch用ソフト（パッケージ版）",
+      "depth": 4
+    },
+    "parentGenreCategories": [
+      {
+        "id": 2511,
+        "depth": 1,
+        "name": "ゲーム、おもちゃ"
+      },
+      {
+        "id": 2161,
+        "depth": 2,
+        "name": "テレビゲーム"
+      },
+      {
+        "id": 48838,
+        "depth": 3,
+        "name": "Nintendo Switch"
+      }
+    ],
+    "brand": {
+      "id": 89648,
+      "name": "SystemSoft Beta"
+    },
+    "parentBrands": [
+      {
+        "id": 1,
+        "name": "ブランド"
+      }
+    ],
+    "janCode": "4570077240471",
+    "payment": "1024 4096 16384 1 16 512",
+    "releaseDate": 1750863600,
+    "seller": {
+      "sellerId": "asakusa-mach",
+      "name": "浅草マッハ",
+      "url": "https://store.shopping.yahoo.co.jp/asakusa-mach/",
+      "isBestSeller": false,
+      "review": {
+        "rate": 4.72,
+        "count": 2733
+      },
+      "imageId": "asakusa-mach_1"
+    },
+    "delivery": {
+      "deadLine": null,
+      "day": null,
+      "area": ""
+    }
+  },
+  {
+    "index": 23,
+    "name": "【新品】NSW2 FINAL FANTASY VII REMAKE INTERGRADE",
+    "description": "在庫を共有しており、ご注文のタイミングにより在庫更新が間に合わず、商品の欠品や数量変更となる場合もございます。<br><br>【■】発売日前日出荷を予定しておりますが、商品のお届けは発売日翌日以降の見込みとなります。<br>　　（運送会社の状況により、到着にお時間がかかる場合がございます）<br><br>■商品名：NSW2 FINAL FANTASY VII REMAKE INTERGRADE<br>■発売日：2026年01月22日<br>■JANCD：4988601012096<br>■型　番：POT-P-AAVBA<br>■メーカー：スクウェア・エニックス<br><br>【ご注意】<br>○画像に特典が載っている場合でも、商品名に特典表記がない商品はつきませんのでご了承ください。<br>○画像はイメージです。実際の商品とは異なる場合がございます。予めご了承ください。<br>○複数個ご購入の場合、配送方法が、宅配便になる場合がございます。その際は、対面での受取りになります。<br>●商品説明をご確認の上、ご購入ください。",
+    "headLine": "【ポスト投函】",
+    "url": "https://store.shopping.yahoo.co.jp/arc-online-mini/4988601012096.html",
+    "inStock": true,
+    "code": "arc-online-mini_4988601012096",
+    "condition": "new",
+    "imageId": "arc-online-mini_4988601012096",
+    "image": {
+      "small": "https://item-shopping.c.yimg.jp/i/c/arc-online-mini_4988601012096",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/arc-online-mini_4988601012096"
+    },
+    "review": {
+      "count": 0,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=arc-online-mini&page_key=4988601012096",
+      "rate": 0
+    },
+    "affiliateRate": 1,
+    "price": 5016,
+    "premiumPrice": 5016,
+    "premiumPriceStatus": false,
+    "premiumDiscountRate": null,
+    "premiumDiscountType": null,
+    "priceLabel": {
+      "taxable": true,
+      "defaultPrice": 5016,
+      "discountedPrice": null,
+      "fixedPrice": null,
+      "premiumPrice": null,
+      "periodStart": null,
+      "periodEnd": null
+    },
+    "point": {
+      "amount": 0,
+      "times": 0,
+      "bonusAmount": 0,
+      "bonusTimes": 0,
+      "lyLimitedBonusAmount": 45,
+      "lyLimitedBonusTimes": 1,
+      "premiumAmount": 0,
+      "premiumTimes": 0,
+      "premiumBonusAmount": 0,
+      "premiumBonusTimes": 0,
+      "lyLimitedPremiumBonusAmount": 45,
+      "lyLimitedPremiumBonusTimes": 1
+    },
+    "shipping": {
+      "code": 2,
+      "name": "送料無料"
+    },
+    "genreCategory": {
+      "id": 50522,
+      "name": "Switch用ソフト（パッケージ版）",
+      "depth": 4
+    },
+    "parentGenreCategories": [
+      {
+        "id": 2511,
+        "depth": 1,
+        "name": "ゲーム、おもちゃ"
+      },
+      {
+        "id": 2161,
+        "depth": 2,
+        "name": "テレビゲーム"
+      },
+      {
+        "id": 48838,
+        "depth": 3,
+        "name": "Nintendo Switch"
+      }
+    ],
+    "brand": {
+      "id": 15414,
+      "name": "ファイナルファンタジー"
+    },
+    "parentBrands": [
+      {
+        "id": 1,
+        "name": "ブランド"
+      },
+      {
+        "id": 1005,
+        "name": "スクウェア・エニックス"
+      }
+    ],
+    "janCode": "4988601012096",
+    "payment": "1 16384 16 4096",
+    "releaseDate": 1769007600,
+    "seller": {
+      "sellerId": "arc-online-mini",
+      "name": "アークオンライン mini",
+      "url": "https://store.shopping.yahoo.co.jp/arc-online-mini/",
+      "isBestSeller": false,
+      "review": {
+        "rate": 4.72,
+        "count": 1142
+      },
+      "imageId": "arc-online-mini_1"
+    },
+    "delivery": {
+      "deadLine": null,
+      "day": null,
+      "area": ""
+    }
+  },
+  {
+    "index": 24,
+    "name": "マイクロソフト (Switch)Minecraft 返品種別B",
+    "description": "在庫状況：在庫あり/2018年06月 発売/※2024年8月よりパッケージのデザインが変更されております。ゲーム内容、同梱物などに変更はございません。　お客様お届けの商品につきましてはパッケージの種類をお選びいただくことはできません。予めご了承ください。Minecraftがより大きく、より優れたものになりました！",
+    "headLine": "",
+    "url": "https://store.shopping.yahoo.co.jp/joshin/4549576094113-54-40560.html",
+    "inStock": true,
+    "code": "joshin_4549576094113-54-40560",
+    "condition": "new",
+    "imageId": "joshin_4549576094113-54-40560",
+    "image": {
+      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4549576094113-54-40560",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4549576094113-54-40560"
+    },
+    "review": {
+      "count": 90,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4549576094113-54-40560",
+      "rate": 4.86
+    },
+    "affiliateRate": 1,
+    "price": 3470,
+    "premiumPrice": 3470,
+    "premiumPriceStatus": false,
+    "premiumDiscountRate": null,
+    "premiumDiscountType": null,
+    "priceLabel": {
+      "taxable": true,
+      "defaultPrice": 3470,
+      "discountedPrice": null,
+      "fixedPrice": null,
+      "premiumPrice": null,
+      "periodStart": null,
+      "periodEnd": null
+    },
+    "point": {
+      "amount": 0,
+      "times": 0,
+      "bonusAmount": 0,
+      "bonusTimes": 0,
+      "lyLimitedBonusAmount": 31,
+      "lyLimitedBonusTimes": 1,
+      "premiumAmount": 0,
+      "premiumTimes": 0,
+      "premiumBonusAmount": 0,
+      "premiumBonusTimes": 0,
+      "lyLimitedPremiumBonusAmount": 31,
+      "lyLimitedPremiumBonusTimes": 1
+    },
+    "shipping": {
+      "code": 1,
+      "name": "設定なし"
+    },
+    "genreCategory": {
+      "id": 50522,
+      "name": "Switch用ソフト（パッケージ版）",
+      "depth": 4
+    },
+    "parentGenreCategories": [
+      {
+        "id": 2511,
+        "depth": 1,
+        "name": "ゲーム、おもちゃ"
+      },
+      {
+        "id": 2161,
+        "depth": 2,
+        "name": "テレビゲーム"
+      },
+      {
+        "id": 48838,
+        "depth": 3,
+        "name": "Nintendo Switch"
+      }
+    ],
+    "brand": {
+      "id": 1877,
+      "name": "マイクロソフト"
+    },
+    "parentBrands": [
+      {
+        "id": 1,
+        "name": "ブランド"
+      }
+    ],
+    "janCode": "4549576094113",
+    "payment": "4096 1 16384 16",
+    "releaseDate": null,
+    "seller": {
+      "sellerId": "joshin",
+      "name": "Joshin web",
+      "url": "https://store.shopping.yahoo.co.jp/joshin/",
+      "isBestSeller": false,
+      "review": {
+        "rate": 4.52,
+        "count": 409305
+      },
+      "imageId": "joshin_1"
+    },
+    "delivery": {
+      "deadLine": null,
+      "day": null,
+      "area": ""
+    }
+  },
+  {
+    "index": 25,
+    "name": "Minecraft (マインクラフト) - Switch　パッケージ版　【新パッケージ】",
+    "description": "※2024年8月頃にパッケージのデザインが変更となりました。製品情報やゲーム内容に変更はありません。<br><br>Minecraftがより大きく、より優れたものになりました!<br>モバイル、PC、ゲーム機など、デバイスをまたいで友達と一緒に遊ぼう。同じ画面で4人まで遊べる画面分割にも対応。<br>スーパーマリオ マッシュアップパックを含む5つの追加コンテンツを同梱。<br><br>メーカー:Mojang/日本マイクロソフト<br>ジャンル:アクション / アドベンチャー / ストラテジー / シミュレーション<br>対応コントローラー:Nintendo Switch Proコントローラー<br>プレイモード:TVモード, テーブルモード, 携帯モード<br>プレイ人数:1~4人<br>ローカル通信プレイ人数:2~8人<br>インターネット通信プレイ人数:2~8人<br>対応言語:日本語, 英語, スペイン語, フランス語, ドイツ語, イタリア語, オランダ語, ポルトガル語, ロシア語, 韓国語, 中国語<br><br>(C)2018 Mojang. MINECRAFT (R) is a trademark of Mojang Synergies AB",
+    "headLine": "",
+    "url": "https://store.shopping.yahoo.co.jp/drop-in-annex/4549576094113.html",
+    "inStock": true,
+    "code": "drop-in-annex_4549576094113",
+    "condition": "new",
+    "imageId": "drop-in-annex_4549576094113",
+    "image": {
+      "small": "https://item-shopping.c.yimg.jp/i/c/drop-in-annex_4549576094113",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/drop-in-annex_4549576094113"
+    },
+    "review": {
+      "count": 52,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=drop-in-annex&page_key=4549576094113",
+      "rate": 4.92
+    },
+    "affiliateRate": 1,
+    "price": 3490,
+    "premiumPrice": 3490,
+    "premiumPriceStatus": false,
+    "premiumDiscountRate": null,
+    "premiumDiscountType": null,
+    "priceLabel": {
+      "taxable": true,
+      "defaultPrice": 3490,
+      "discountedPrice": null,
+      "fixedPrice": null,
+      "premiumPrice": null,
+      "periodStart": null,
+      "periodEnd": null
+    },
+    "point": {
+      "amount": 0,
+      "times": 0,
+      "bonusAmount": 0,
+      "bonusTimes": 0,
+      "lyLimitedBonusAmount": 31,
+      "lyLimitedBonusTimes": 1,
+      "premiumAmount": 0,
+      "premiumTimes": 0,
+      "premiumBonusAmount": 0,
+      "premiumBonusTimes": 0,
+      "lyLimitedPremiumBonusAmount": 31,
+      "lyLimitedPremiumBonusTimes": 1
+    },
+    "shipping": {
+      "code": 2,
+      "name": "送料無料"
+    },
+    "genreCategory": {
+      "id": 50522,
+      "name": "Switch用ソフト（パッケージ版）",
+      "depth": 4
+    },
+    "parentGenreCategories": [
+      {
+        "id": 2511,
+        "depth": 1,
+        "name": "ゲーム、おもちゃ"
+      },
+      {
+        "id": 2161,
+        "depth": 2,
+        "name": "テレビゲーム"
+      },
+      {
+        "id": 48838,
+        "depth": 3,
+        "name": "Nintendo Switch"
+      }
+    ],
+    "brand": {
+      "id": 1877,
+      "name": "マイクロソフト"
+    },
+    "parentBrands": [
+      {
+        "id": 1,
+        "name": "ブランド"
+      }
+    ],
+    "janCode": "4549576094113",
+    "payment": "8192 16 4096 16384 1",
+    "releaseDate": null,
+    "seller": {
+      "sellerId": "drop-in-annex",
+      "name": "Drop-in ANNEX",
+      "url": "https://store.shopping.yahoo.co.jp/drop-in-annex/",
+      "isBestSeller": false,
+      "review": {
+        "rate": 4.97,
+        "count": 29
+      },
+      "imageId": "drop-in-annex_1"
+    },
+    "delivery": {
+      "deadLine": 13,
+      "day": 1,
+      "area": "13"
+    }
+  },
+  {
+    "index": 26,
+    "name": "任天堂 (Switch2)マリオテニス フィーバー 返品種別B",
+    "description": "予約受付中/2026年02月12日 発売予定/※一回のご注文で同じ発売日の予約商品を複数ご購入の場合、発売延期となりました予約商品のみ、一旦ご注文をお取り消しさせていただきます。ラケット選びが勝負のカギ。新生テニスバトル！",
+    "headLine": "",
+    "url": "https://store.shopping.yahoo.co.jp/joshin/4902370553932-54-73634.html",
+    "inStock": true,
+    "code": "joshin_4902370553932-54-73634",
+    "condition": "new",
+    "imageId": "joshin_4902370553932-54-73634",
+    "image": {
+      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4902370553932-54-73634",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4902370553932-54-73634"
+    },
+    "review": {
+      "count": 1,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4902370553932-54-73634",
+      "rate": 0
+    },
+    "affiliateRate": 1,
+    "price": 8180,
+    "premiumPrice": 8180,
+    "premiumPriceStatus": false,
+    "premiumDiscountRate": null,
+    "premiumDiscountType": null,
+    "priceLabel": {
+      "taxable": true,
+      "defaultPrice": 8180,
+      "discountedPrice": null,
+      "fixedPrice": null,
+      "premiumPrice": null,
+      "periodStart": null,
+      "periodEnd": null
+    },
+    "point": {
+      "amount": 0,
+      "times": 0,
+      "bonusAmount": 0,
+      "bonusTimes": 0,
+      "lyLimitedBonusAmount": 74,
+      "lyLimitedBonusTimes": 1,
+      "premiumAmount": 0,
+      "premiumTimes": 0,
+      "premiumBonusAmount": 0,
+      "premiumBonusTimes": 0,
+      "lyLimitedPremiumBonusAmount": 74,
+      "lyLimitedPremiumBonusTimes": 1
+    },
+    "shipping": {
+      "code": 2,
+      "name": "送料無料"
+    },
+    "genreCategory": {
+      "id": 50522,
+      "name": "Switch用ソフト（パッケージ版）",
+      "depth": 4
+    },
+    "parentGenreCategories": [
+      {
+        "id": 2511,
+        "depth": 1,
+        "name": "ゲーム、おもちゃ"
+      },
+      {
+        "id": 2161,
+        "depth": 2,
+        "name": "テレビゲーム"
+      },
+      {
+        "id": 48838,
+        "depth": 3,
+        "name": "Nintendo Switch"
+      }
+    ],
+    "brand": {
+      "id": 2358,
+      "name": "任天堂"
+    },
+    "parentBrands": [
+      {
+        "id": 1,
+        "name": "ブランド"
+      }
+    ],
+    "janCode": "4902370553932",
+    "payment": "16384 1 16 4096",
+    "releaseDate": 1770822000,
+    "seller": {
+      "sellerId": "joshin",
+      "name": "Joshin web",
+      "url": "https://store.shopping.yahoo.co.jp/joshin/",
+      "isBestSeller": false,
+      "review": {
+        "rate": 4.52,
+        "count": 409305
+      },
+      "imageId": "joshin_1"
+    },
+    "delivery": {
+      "deadLine": null,
+      "day": null,
+      "area": ""
+    }
+  },
+  {
+    "index": 27,
+    "name": "あつまれ どうぶつの森 HAC-P-ACBAA 任天堂 NintendoSwitch  Switch用ソフト（パッケージ版）",
+    "description": "こちらの商品は「ネコポス便」での配送となっております。<br>そのためポスト投函での配送となりますため、「到着日時の指定」ができません。<br>※通常より配送にお時間をいただく場合がございますので予めご了承ください。<br>※ネコポス配送による破損や紛失に関しましては補償が出来兼ねます。<br><br>商品状態：新品<br><br>付属品 ：初期付属品は全て揃っています。<br>※商品の詳細に関しましてはお手数ですがメーカーに直接お問い合わせください。<br><br>サポート<br>サポート内容に関しまして商品に付属しています保証書をご確認ください。（保証書が付属しない商品もございます） 内容によっては当店では対応出来ない場合がございますので予めご了承ください。ご理解の上、ご購入をお願い申し上げます。 <br>※弊社は正規代理店ではございません。",
+    "headLine": "大人気 /プレゼント/お祝い/贈り物/4902370545319/HAC-P-ACBAA",
+    "url": "https://store.shopping.yahoo.co.jp/light-hikari/4902370545319.html",
+    "inStock": true,
+    "code": "light-hikari_4902370545319",
+    "condition": "new",
+    "imageId": "light-hikari_4902370545319",
+    "image": {
+      "small": "https://item-shopping.c.yimg.jp/i/c/light-hikari_4902370545319",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/light-hikari_4902370545319"
+    },
+    "review": {
+      "count": 89,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=light-hikari&page_key=4902370545319",
+      "rate": 4.79
+    },
+    "affiliateRate": 1,
+    "price": 5667,
+    "premiumPrice": 5667,
+    "premiumPriceStatus": false,
+    "premiumDiscountRate": null,
+    "premiumDiscountType": null,
+    "priceLabel": {
+      "taxable": true,
+      "defaultPrice": 5667,
+      "discountedPrice": null,
+      "fixedPrice": null,
+      "premiumPrice": null,
+      "periodStart": null,
+      "periodEnd": null
+    },
+    "point": {
+      "amount": 0,
+      "times": 0,
+      "bonusAmount": 0,
+      "bonusTimes": 0,
+      "lyLimitedBonusAmount": 51,
+      "lyLimitedBonusTimes": 1,
+      "premiumAmount": 0,
+      "premiumTimes": 0,
+      "premiumBonusAmount": 0,
+      "premiumBonusTimes": 0,
+      "lyLimitedPremiumBonusAmount": 51,
+      "lyLimitedPremiumBonusTimes": 1
+    },
+    "shipping": {
+      "code": 2,
+      "name": "送料無料"
+    },
+    "genreCategory": {
+      "id": 50522,
+      "name": "Switch用ソフト（パッケージ版）",
+      "depth": 4
+    },
+    "parentGenreCategories": [
+      {
+        "id": 2511,
+        "depth": 1,
+        "name": "ゲーム、おもちゃ"
+      },
+      {
+        "id": 2161,
+        "depth": 2,
+        "name": "テレビゲーム"
+      },
+      {
+        "id": 48838,
+        "depth": 3,
+        "name": "Nintendo Switch"
+      }
+    ],
+    "brand": {
+      "id": 2358,
+      "name": "任天堂"
+    },
+    "parentBrands": [
+      {
+        "id": 1,
+        "name": "ブランド"
+      }
+    ],
+    "janCode": "4902370545319",
+    "payment": "64 16384 16 4096 1",
+    "releaseDate": null,
+    "seller": {
+      "sellerId": "light-hikari",
+      "name": "らいぶshop",
+      "url": "https://store.shopping.yahoo.co.jp/light-hikari/",
+      "isBestSeller": true,
+      "review": {
+        "rate": 4.64,
+        "count": 1484
+      },
+      "imageId": "light-hikari_1"
+    },
+    "delivery": {
+      "deadLine": 14,
+      "day": 1,
+      "area": "13"
+    }
+  },
+  {
+    "index": 28,
+    "name": "任天堂 (Switch)スーパー マリオパーティ ジャンボリー 返品種別B",
+    "description": "在庫状況：在庫あり/2024年10月 発売/シリーズ史上、最大ボリュームのパーティが開幕。",
+    "headLine": "",
+    "url": "https://store.shopping.yahoo.co.jp/joshin/4902370552430-54-46585.html",
+    "inStock": true,
+    "code": "joshin_4902370552430-54-46585",
+    "condition": "new",
+    "imageId": "joshin_4902370552430-54-46585",
+    "image": {
+      "small": "https://item-shopping.c.yimg.jp/i/c/joshin_4902370552430-54-46585",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/joshin_4902370552430-54-46585"
+    },
+    "review": {
+      "count": 204,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=joshin&page_key=4902370552430-54-46585",
+      "rate": 4.86
+    },
+    "affiliateRate": 1,
+    "price": 6480,
+    "premiumPrice": 6480,
+    "premiumPriceStatus": false,
+    "premiumDiscountRate": null,
+    "premiumDiscountType": null,
+    "priceLabel": {
+      "taxable": true,
+      "defaultPrice": 6480,
+      "discountedPrice": null,
+      "fixedPrice": null,
+      "premiumPrice": null,
+      "periodStart": null,
+      "periodEnd": null
+    },
+    "point": {
+      "amount": 0,
+      "times": 0,
+      "bonusAmount": 0,
+      "bonusTimes": 0,
+      "lyLimitedBonusAmount": 58,
+      "lyLimitedBonusTimes": 1,
+      "premiumAmount": 0,
+      "premiumTimes": 0,
+      "premiumBonusAmount": 0,
+      "premiumBonusTimes": 0,
+      "lyLimitedPremiumBonusAmount": 58,
+      "lyLimitedPremiumBonusTimes": 1
+    },
+    "shipping": {
+      "code": 2,
+      "name": "送料無料"
+    },
+    "genreCategory": {
+      "id": 50522,
+      "name": "Switch用ソフト（パッケージ版）",
+      "depth": 4
+    },
+    "parentGenreCategories": [
+      {
+        "id": 2511,
+        "depth": 1,
+        "name": "ゲーム、おもちゃ"
+      },
+      {
+        "id": 2161,
+        "depth": 2,
+        "name": "テレビゲーム"
+      },
+      {
+        "id": 48838,
+        "depth": 3,
+        "name": "Nintendo Switch"
+      }
+    ],
+    "brand": {
+      "id": 22551,
+      "name": "スーパーマリオ"
+    },
+    "parentBrands": [
+      {
+        "id": 1,
+        "name": "ブランド"
+      },
+      {
+        "id": 2358,
+        "name": "任天堂"
+      }
+    ],
+    "janCode": "4902370552430",
+    "payment": "4096 1 16 16384",
+    "releaseDate": null,
+    "seller": {
+      "sellerId": "joshin",
+      "name": "Joshin web",
+      "url": "https://store.shopping.yahoo.co.jp/joshin/",
+      "isBestSeller": false,
+      "review": {
+        "rate": 4.52,
+        "count": 409305
+      },
+      "imageId": "joshin_1"
+    },
+    "delivery": {
+      "deadLine": null,
+      "day": null,
+      "area": ""
+    }
+  },
+  {
+    "index": 29,
+    "name": "ゼルダの伝説 ティアーズ オブ ザ キングダム Switch 送料無料",
+    "description": "※ご注文の前に必ずご確認をお願いいたします<br><br>《商品在庫につきまして》<br>当店では、店舗販売と商品在庫を共有していますのでタイミングによっては品切れとなってしまう場合があります。<br>その際は店舗での販売を優先とし、ご注文をキャンセルさせていただきますのでご了承ください。<br>複数アカウントを利用したご注文や大量購入につきましては誠に恐れ入りますが、キャンセルさせて頂く場合がございます。<br>あらかじめご了承くださいませ。<br><br>在庫切れの商品につきましては商品の取り寄せが可能な場合がありますのでお問い合わせください。<br><br>《発送方法、商品のお届けについて》<br>発送完了日から商品のお届けまで3〜8日程度とお考えください。<br>お届けまでにお時間がかかってしまう可能性がありますのでお急ぎの場合はご購入をお控えください。<br><br>梱包資材はリサイクル資材または封筒を使用させていただきます。<br>商品の販売価格をお安くするため、商品が破損しないように簡易梱包となります。<br><br>状況により発送方法を変更して発送をする場合がございます。<br><br><br>その他、ご質問等ございましたらお気軽にお問い合わせください。",
+    "headLine": "",
+    "url": "https://store.shopping.yahoo.co.jp/ryostore/65209.html",
+    "inStock": true,
+    "code": "ryostore_65209",
+    "condition": "new",
+    "imageId": "ryostore_65209",
+    "image": {
+      "small": "https://item-shopping.c.yimg.jp/i/c/ryostore_65209",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/ryostore_65209"
+    },
+    "review": {
+      "count": 22,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=ryostore&page_key=65209",
+      "rate": 4.59
+    },
+    "affiliateRate": 1,
+    "price": 6480,
+    "premiumPrice": 6480,
+    "premiumPriceStatus": false,
+    "premiumDiscountRate": null,
+    "premiumDiscountType": null,
+    "priceLabel": {
+      "taxable": true,
+      "defaultPrice": 6480,
+      "discountedPrice": null,
+      "fixedPrice": null,
+      "premiumPrice": null,
+      "periodStart": null,
+      "periodEnd": null
+    },
+    "point": {
+      "amount": 0,
+      "times": 0,
+      "bonusAmount": 0,
+      "bonusTimes": 0,
+      "lyLimitedBonusAmount": 58,
+      "lyLimitedBonusTimes": 1,
+      "premiumAmount": 0,
+      "premiumTimes": 0,
+      "premiumBonusAmount": 0,
+      "premiumBonusTimes": 0,
+      "lyLimitedPremiumBonusAmount": 58,
+      "lyLimitedPremiumBonusTimes": 1
+    },
+    "shipping": {
+      "code": 2,
+      "name": "送料無料"
+    },
+    "genreCategory": {
+      "id": 50522,
+      "name": "Switch用ソフト（パッケージ版）",
+      "depth": 4
+    },
+    "parentGenreCategories": [
+      {
+        "id": 2511,
+        "depth": 1,
+        "name": "ゲーム、おもちゃ"
+      },
+      {
+        "id": 2161,
+        "depth": 2,
+        "name": "テレビゲーム"
+      },
+      {
+        "id": 48838,
+        "depth": 3,
+        "name": "Nintendo Switch"
+      }
+    ],
+    "brand": {
+      "id": 22545,
+      "name": "Nintendo Switch"
+    },
+    "parentBrands": [
+      {
+        "id": 1,
+        "name": "ブランド"
+      },
+      {
+        "id": 2358,
+        "name": "任天堂"
+      }
+    ],
+    "janCode": "",
+    "payment": "512 1024 16 128 4096 8192 16384 1 64 256",
+    "releaseDate": null,
+    "seller": {
+      "sellerId": "ryostore",
+      "name": "ゲームファーム",
+      "url": "https://store.shopping.yahoo.co.jp/ryostore/",
+      "isBestSeller": false,
+      "review": {
+        "rate": 3.98,
+        "count": 247
+      },
+      "imageId": "ryostore_1"
+    },
+    "delivery": {
+      "deadLine": null,
+      "day": null,
+      "area": ""
+    }
+  },
+  {
+    "index": 30,
+    "name": "Switch　Pokemon LEGENDS Z-A（ポケモンレジェンズゼットエー）（25/10/16発売）【新品】【ポスト投函便送料無料】",
+    "description": "■機種：Nintendo Switch（ニンテンドースイッチ）<br>■メーカー：任天堂<br>■ジャンル：アクションＲＰＧ<br>■メーカー品番：HAC-P-ALZLA<br>■検索キーワード：スイッチ　ポケモンレジェンズゼットエー／Nintendo Switch Pokemon LEGENDS Z-A／スイッチ　ポケットモンスターＺＡ／スイッチ　ポケモンＺＡ",
+    "headLine": "スイッチ　ポケモンレジェンズ　ゼットエー",
+    "url": "https://store.shopping.yahoo.co.jp/1932/79700.html",
+    "inStock": true,
+    "code": "1932_79700",
+    "condition": "new",
+    "imageId": "1932_79700",
+    "image": {
+      "small": "https://item-shopping.c.yimg.jp/i/c/1932_79700",
+      "medium": "https://item-shopping.c.yimg.jp/i/g/1932_79700"
+    },
+    "review": {
+      "count": 24,
+      "url": "https://shopping.yahoo.co.jp/review/item/list?store_id=1932&page_key=79700",
+      "rate": 5
+    },
+    "affiliateRate": 1,
+    "price": 6190,
+    "premiumPrice": 6190,
+    "premiumPriceStatus": false,
+    "premiumDiscountRate": null,
+    "premiumDiscountType": null,
+    "priceLabel": {
+      "taxable": true,
+      "defaultPrice": 6190,
+      "discountedPrice": null,
+      "fixedPrice": null,
+      "premiumPrice": null,
+      "periodStart": null,
+      "periodEnd": null
+    },
+    "point": {
+      "amount": 0,
+      "times": 0,
+      "bonusAmount": 0,
+      "bonusTimes": 0,
+      "lyLimitedBonusAmount": 56,
+      "lyLimitedBonusTimes": 1,
+      "premiumAmount": 0,
+      "premiumTimes": 0,
+      "premiumBonusAmount": 0,
+      "premiumBonusTimes": 0,
+      "lyLimitedPremiumBonusAmount": 56,
+      "lyLimitedPremiumBonusTimes": 1
+    },
+    "shipping": {
+      "code": 2,
+      "name": "送料無料"
+    },
+    "genreCategory": {
+      "id": 50522,
+      "name": "Switch用ソフト（パッケージ版）",
+      "depth": 4
+    },
+    "parentGenreCategories": [
+      {
+        "id": 2511,
+        "depth": 1,
+        "name": "ゲーム、おもちゃ"
+      },
+      {
+        "id": 2161,
+        "depth": 2,
+        "name": "テレビゲーム"
+      },
+      {
+        "id": 48838,
+        "depth": 3,
+        "name": "Nintendo Switch"
+      }
+    ],
+    "brand": {
+      "id": 32599,
+      "name": "Pokemon"
+    },
+    "parentBrands": [
+      {
+        "id": 1,
+        "name": "ブランド"
+      }
+    ],
+    "janCode": "4902370553550",
+    "payment": "16384 1 16 4096 64",
+    "releaseDate": 1760540400,
+    "seller": {
+      "sellerId": "1932",
+      "name": "一休さん 2号館",
+      "url": "https://store.shopping.yahoo.co.jp/1932/",
+      "isBestSeller": false,
+      "review": {
+        "rate": 4.8,
+        "count": 1604
+      },
+      "imageId": "1932_1"
+    },
+    "delivery": {
+      "deadLine": 14,
+      "day": 1,
+      "area": "13"
     }
   }
 ]
