@@ -1,4 +1,4 @@
-import Parser from 'rss-parser';
+import { XMLParser } from 'fast-xml-parser';
 
 export interface RSSNewsItem {
     title: string;
@@ -74,12 +74,41 @@ const RSS_FEEDS = [
     }
 ];
 
-const parser = new Parser({
-    timeout: 3000,
-    headers: {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-    }
+const xmlParser = new XMLParser({
+    ignoreAttributes: false,
+    attributeNamePrefix: '@_'
 });
+
+/**
+ * Decode HTML entities in text
+ */
+function decodeHTMLEntities(text: string): string {
+    if (typeof text !== 'string') return String(text);
+
+    // Decode numeric entities (&#x300C; and &#12300;)
+    text = text.replace(/&#x([0-9A-Fa-f]+);/g, (_, hex) =>
+        String.fromCharCode(parseInt(hex, 16))
+    );
+    text = text.replace(/&#(\d+);/g, (_, dec) =>
+        String.fromCharCode(parseInt(dec, 10))
+    );
+
+    // Decode common named entities
+    const entities: Record<string, string> = {
+        '&amp;': '&',
+        '&lt;': '<',
+        '&gt;': '>',
+        '&quot;': '"',
+        '&apos;': "'",
+        '&nbsp;': ' '
+    };
+
+    for (const [entity, char] of Object.entries(entities)) {
+        text = text.replace(new RegExp(entity, 'g'), char);
+    }
+
+    return text;
+}
 
 /**
  * Category keywords mapping for intelligent categorization
@@ -122,19 +151,86 @@ export async function fetchRSSNews(): Promise<RSSNewsItem[]> {
     // Fetch all feeds in parallel
     const feedPromises = RSS_FEEDS.map(async (feed) => {
         try {
-            const feedData = await parser.parseURL(feed.url);
+            const response = await fetch(feed.url, {
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+                },
+                signal: AbortSignal.timeout(5000)
+            });
 
-            return feedData.items.map((item): RSSNewsItem => {
-                const title = item.title || 'No Title';
-                const description = item.contentSnippet || item.description || '';
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+
+            const xmlText = await response.text();
+            const parsed = xmlParser.parse(xmlText);
+
+            // Handle different RSS formats
+            let items: any[] = [];
+
+            // RSS 2.0 format
+            if (parsed.rss && parsed.rss.channel && parsed.rss.channel.item) {
+                items = Array.isArray(parsed.rss.channel.item)
+                    ? parsed.rss.channel.item
+                    : [parsed.rss.channel.item];
+            }
+            // Atom format
+            else if (parsed.feed && parsed.feed.entry) {
+                items = Array.isArray(parsed.feed.entry)
+                    ? parsed.feed.entry
+                    : [parsed.feed.entry];
+            }
+            // RDF format
+            else if (parsed['rdf:RDF'] && parsed['rdf:RDF'].item) {
+                items = Array.isArray(parsed['rdf:RDF'].item)
+                    ? parsed['rdf:RDF'].item
+                    : [parsed['rdf:RDF'].item];
+            }
+
+            return items.map((item): RSSNewsItem => {
+                // Extract title
+                let title = item.title || item['dc:title'] || 'No Title';
+                title = typeof title === 'string' ? title : String(title);
+                title = decodeHTMLEntities(title);
+
+                // Extract description
+                let description = item.description
+                    || item.summary
+                    || item['dc:description']
+                    || item.content
+                    || '';
+                description = typeof description === 'string' ? description : String(description);
+                description = decodeHTMLEntities(description);
+
+                // Extract link
+                let link = item.link || '#';
+                if (typeof link === 'object' && link['@_href']) {
+                    link = link['@_href'];
+                }
+                link = typeof link === 'string' ? link : String(link);
+
+                // Extract pubDate
+                const pubDate = item.pubDate
+                    || item.published
+                    || item.updated
+                    || item['dc:date']
+                    || new Date().toISOString();
+
+                // Extract content
+                let content = item['content:encoded']
+                    || item.content
+                    || item.description
+                    || '';
+                content = typeof content === 'string' ? content : String(content);
+                content = decodeHTMLEntities(content);
 
                 return {
                     title,
-                    link: item.link || '#',
+                    link,
                     description,
-                    pubDate: item.pubDate || item.isoDate || new Date().toISOString(),
+                    pubDate: typeof pubDate === 'string' ? pubDate : String(pubDate),
                     source_id: feed.source_id,
-                    content: item.content || item.contentSnippet || '',
+                    content,
                     categories: detectCategories(title, description, feed.defaultCategories)
                 };
             });
