@@ -12,18 +12,18 @@ import { useEffect, useState } from "react";
 import { getDailyLionShout } from "@/lib/lion-logic";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function ClientHome({ 
-  params, 
-  config, 
-  products, 
-  mall, 
-  query, 
-  genreId, 
-  isSearchMode, 
+export default function ClientHome({
+  params,
+  config,
+  products,
+  mall,
+  query,
+  genreId,
+  isSearchMode,
   currentGenre,
   breadcrumbItems,
   initialShout
-}: { 
+}: {
   params: { brand: string },
   config: SiteConfig,
   products: Product[],
@@ -43,7 +43,7 @@ export default function ClientHome({
 
   useEffect(() => {
     setBrand(config.id);
-    
+
     const categories = (mall === "yahoo" ? config.yahooCategories : config.rakutenCategories) || [];
     const isRootGenre = categories.length > 0 && genreId === categories[0].id;
 
@@ -72,22 +72,22 @@ export default function ClientHome({
   };
 
   // 正規URLを生成
-  const canonicalUrl = `https://${config.domain}${breadcrumbItems.length > 0 ? breadcrumbItems[breadcrumbItems.length-1].href : '/'}`;
+  const canonicalUrl = `https://${config.domain}${breadcrumbItems.length > 0 ? breadcrumbItems[breadcrumbItems.length - 1].href : '/'}`;
 
   return (
-    <div 
-      className="min-h-screen pb-20 font-sans transition-colors duration-500 text-gray-800" 
-      style={{ 
+    <div
+      className="min-h-screen pb-20 font-sans transition-colors duration-500 text-gray-800"
+      style={{
         backgroundColor: config.theme.background,
         "--brand-primary": config.themeColor.primary,
         "--brand-accent": config.themeColor.accent,
       } as React.CSSProperties}
     >
-      <Header 
-        mall={mall} 
-        query={query} 
-        genreId={genreId} 
-        isSearchMode={isSearchMode} 
+      <Header
+        mall={mall}
+        query={query}
+        genreId={genreId}
+        isSearchMode={isSearchMode}
         config={config}
       />
 
@@ -111,7 +111,7 @@ export default function ClientHome({
         </div>
       </div>
 
-      <Breadcrumbs 
+      <Breadcrumbs
         brand={params.brand}
         config={config}
         items={breadcrumbItems}
@@ -121,19 +121,19 @@ export default function ClientHome({
         <div className={`max-w-4xl mx-auto px-4 mt-4 mb-2 transition-all duration-700 transform ${isVisible ? 'opacity-100 translate-y-0 h-auto' : 'opacity-0 -translate-y-4 h-0 overflow-hidden pointer-events-none'}`}>
           <div className="bg-gradient-to-r from-indigo-600 to-indigo-800 text-white p-3.5 rounded-2xl shadow-xl flex items-center gap-4 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-full -mr-12 -mt-12"></div>
-            
+
             <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-2xl relative border border-white/30">
               🦁
               <div className="absolute -top-0.5 -right-0.5 bg-green-400 w-3 h-3 rounded-full border-2 border-indigo-700 shadow-sm animate-pulse"></div>
             </div>
-            
+
             <div className="flex-grow min-w-0 pr-6">
               <p className="text-sm font-bold leading-tight line-clamp-2">
                 {shout}
               </p>
             </div>
 
-            <button 
+            <button
               onClick={handleDismiss}
               className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors text-white/60 hover:text-white"
               aria-label="閉じる"
@@ -151,7 +151,7 @@ export default function ClientHome({
           <div>
             <div className="flex items-center gap-2 mb-1">
               <h2 className="text-2xl font-black tracking-tight text-gray-900">
-                {isSearchMode ? `「${query}」の検索結果` : `${currentGenre?.name || ''} おすすめ商品`}
+                {isSearchMode ? `「${query}」の検索結果` : `${currentGenre?.name || ''} 売れ筋ランキング`}
               </h2>
               {isSearchMode && (
                 <span className="text-[10px] font-black px-2 py-0.5 rounded border bg-indigo-600 text-white border-indigo-600">
@@ -160,8 +160,8 @@ export default function ClientHome({
               )}
             </div>
             <p className="text-[11px] text-gray-400 font-bold uppercase tracking-widest">
-              {isSearchMode 
-                ? `${products.length} 点の商品を解析` 
+              {isSearchMode
+                ? `${products.length} 点の商品を解析`
                 : `累積データに基づく厳選ランキング`}
             </p>
           </div>
@@ -169,7 +169,7 @@ export default function ClientHome({
           {isSearchMode && (
             <div className="flex items-center gap-2">
               <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">並び替え</span>
-              <select 
+              <select
                 onChange={(e) => handleSortChange(e.target.value)}
                 defaultValue={searchParams.get("sort") || "default"}
                 className="bg-white border border-gray-200 rounded-lg px-3 py-1.5 text-xs font-bold text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"

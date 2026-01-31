@@ -60,7 +60,7 @@ export async function searchRakutenItems(keyword: string, genreId: string = "0")
   const appId = getRakutenAppId();
   const url = `https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?format=json&keyword=${encodeURIComponent(keyword)}&hits=30&sort=standard&applicationId=${appId}&genreId=${genreId}`;
   try {
-    const res = await fetch(url); 
+    const res = await fetch(url);
     if (!res.ok) return [];
     const data = await res.json() as RakutenRankingResponse;
     return data.Items || [];
@@ -68,17 +68,17 @@ export async function searchRakutenItems(keyword: string, genreId: string = "0")
 }
 
 const mockRakutenData: RakutenItem[] = [
-  { Item: { rank: 1, itemName: "モック楽天1", itemCode: "r1", itemPrice: "1000", itemUrl: "#", mediumImageUrls: [], reviewCount: 100, reviewAverage: "4.5", shopName: "テスト楽天ショップ", genreId: "0", itemCaption: "楽天店長おすすめの逸品です！" } },
+  { Item: { rank: 1, itemName: "モック楽天1", itemCode: "r1", itemPrice: "1000", itemUrl: "#", mediumImageUrls: [], reviewCount: 100, reviewAverage: "4.5", shopName: "テスト楽天ショップ", genreId: "0", itemCaption: "楽天年間ランキング常連の逸品です！" } },
 ];
 
 export function convertRakutenToProduct(items: RakutenItem[], isRanking: boolean): Product[] {
   return items.map((item) => {
     const i = item.Item;
     let imageUrl = i.mediumImageUrls.length > 0 ? i.mediumImageUrls[0].imageUrl : "/placeholder.svg";
-    
+
     // 画像URLのHTTPS化
     if (imageUrl.startsWith("http://")) imageUrl = imageUrl.replace("http://", "https://");
-    
+
     // 🚀 超・高画質化ハック: パラメータを削除してオリジナル画像(最大解像度)を取得
     if (imageUrl.includes("?_ex=")) {
       imageUrl = imageUrl.split("?")[0];

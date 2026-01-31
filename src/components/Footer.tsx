@@ -7,13 +7,14 @@ import { getBrandPath } from "@/lib/utils";
 type FooterProps = {
   brand: string;
   config: SiteConfig;
+  className?: string;
 };
 
-export default function Footer({ brand, config }: FooterProps) {
+export default function Footer({ brand, config, className }: FooterProps) {
   const aboutUrl = getBrandPath(brand, "/about");
 
   return (
-    <footer className="bg-white border-t border-gray-100 pt-4 pb-24 text-left">
+    <footer className={`bg-white border-t border-gray-100 pt-4 pb-24 text-left ${className || ""}`}>
       <div className="max-w-4xl mx-auto px-4 text-center">
         <div className="flex items-center justify-center gap-2 mb-4">
           <span className="text-2xl">🎁</span>

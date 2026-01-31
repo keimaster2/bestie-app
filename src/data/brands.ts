@@ -52,14 +52,14 @@ export const ALL_BRANDS: Record<string, SiteConfig> = {
     rakutenCategories: [
       { id: "all", name: "総合ランキング", mallId: "0" },
       { id: "gadget", name: "家電", mallId: "562637" },
-      { id: "beauty", name: "美容・コスメ・香水", mallId: "100939" },
+      { id: "beauty", name: "ビューティー・コスメ・香水", mallId: "100939" },
       { id: "food", name: "食品", mallId: "100227" },
       { id: "interior", name: "インテリア・寝具・収納", mallId: "100804" },
     ],
     yahooCategories: [
       { id: "all", name: "総合ランキング", mallId: "1" },
       { id: "gadget", name: "家電", mallId: "2505" },
-      { id: "beauty", name: "コスメ、美容、ヘアケア", mallId: "2501" },
+      { id: "beauty", name: "ビューティー、コスメ、ヘアケア", mallId: "2501" },
       { id: "food", name: "食品", mallId: "2498" },
       { id: "interior", name: "家具、インテリア用品", mallId: "2506" },
     ],
@@ -90,12 +90,12 @@ export const ALL_BRANDS: Record<string, SiteConfig> = {
 
   beauty: createBrand("beauty", {
     brandName: "Bestie ビューティー",
-    siteTitle: "美容・コスメ人気ランキング",
+    siteTitle: "ビューティー・コスメ人気ランキング",
     tagline: "あなたの生活に、最高のプラスを。モール横断ランキング・メディア",
     description: "スキンケアからメイクアップ、美容家電まで。日本中の女性が実際に選んでいる『美の正解』をライオンくんがナビゲート。",
     themeColor: { primary: "#831843", accent: "#db2777" },
     eeat: {
-      expertComment: "評価の分かれる美容アイテムだからこそ、『継続して売れ続けている実績』が何よりの信頼になります。",
+      expertComment: "評価の分かれるビューティーアイテムだからこそ、『継続して売れ続けている実績』が何よりの信頼になります。",
       brandStory: "「毎日に、自信を。」をコンセプトに, 透明性の高いランキングを提供します。"
     },
     theme: { background: "#fdf2f8" },
